@@ -2816,74 +2816,6 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
- * 
- * @export
- * @interface ExtendedLinkObject
- */
-export interface ExtendedLinkObject {
-    /**
-     * 
-     * @type {string}
-     * @memberof ExtendedLinkObject
-     */
-    'source': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ExtendedLinkObject
-     */
-    'target': string;
-    /**
-     * Type of link.
-     * @type {GraphLinkType}
-     * @memberof ExtendedLinkObject
-     */
-    'edgeType'?: GraphLinkType;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ExtendedLinkObject
-     */
-    'associationIds'?: Array<string>;
-}
-/**
- * 
- * @export
- * @interface ExtendedNodeObject
- */
-export interface ExtendedNodeObject {
-    /**
-     * 
-     * @type {string}
-     * @memberof ExtendedNodeObject
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof ExtendedNodeObject
-     */
-    'name': string;
-    /**
-     * Type of node.
-     * @type {GraphNodeType}
-     * @memberof ExtendedNodeObject
-     */
-    'objectType'?: GraphNodeType;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ExtendedNodeObject
-     */
-    'systemIds'?: Array<string>;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof ExtendedNodeObject
-     */
-    'tags'?: Array<string>;
-}
-/**
  * External asset model.
  * @export
  * @interface ExternalAsset
@@ -3581,40 +3513,6 @@ export enum FunctionStatus {
 }
 
 /**
- * 
- * @export
- * @interface GraphData
- */
-export interface GraphData {
-    /**
-     * Nodes of graph data.
-     * @type {Array<ExtendedNodeObject>}
-     * @memberof GraphData
-     */
-    'nodes': Array<ExtendedNodeObject>;
-    /**
-     * Links of graph data.
-     * @type {Array<ExtendedLinkObject>}
-     * @memberof GraphData
-     */
-    'links': Array<ExtendedLinkObject>;
-}
-/**
- * An enumeration.
- * @export
- * @enum {string}
- */
-
-export enum GraphLinkType {
-    DatasetRelationship = 'dataset_relationship',
-    ConceptRelationship = 'concept_relationship',
-    VariableRelationship = 'variable_relationship',
-    FeatureRelationship = 'feature_relationship',
-    FeatureVariable = 'feature_variable',
-    Measures = 'measures'
-}
-
-/**
  * Graph metrics schema.
  * @export
  * @interface GraphMetrics
@@ -3645,19 +3543,6 @@ export interface GraphMetrics {
      */
     'last_updated': string;
 }
-/**
- * An enumeration.
- * @export
- * @enum {string}
- */
-
-export enum GraphNodeType {
-    Dataset = 'dataset',
-    Concept = 'concept',
-    Variable = 'variable',
-    Feature = 'feature'
-}
-
 /**
  * GraphQL query model.
  * @export
@@ -4886,7 +4771,7 @@ export interface MonitoringRuleSet {
     'value': number;
 }
 /**
- * 
+ * Node group model.  # noqa: E501
  * @export
  * @interface NodeGroup
  */
@@ -4905,23 +4790,23 @@ export interface NodeGroup {
     'total': number;
 }
 /**
- * 
+ * Supported Node Object model.  # noqa: E501
  * @export
  * @interface NodeGroupItem
  */
 export interface NodeGroupItem {
     /**
      * 
-     * @type {Array<ExtendedLinkObject>}
+     * @type {Array<SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject>}
      * @memberof NodeGroupItem
      */
-    'links': Array<ExtendedLinkObject>;
+    'links': Array<SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject>;
     /**
      * 
-     * @type {ExtendedNodeObject}
+     * @type {SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject}
      * @memberof NodeGroupItem
      */
-    'node': ExtendedNodeObject;
+    'node': SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject;
 }
 /**
  * Null hypothesis input model.
@@ -7013,6 +6898,236 @@ export interface SynthesisOut {
     'synthesis'?: Synthesis;
 }
 /**
+ * Edge Typed Link model.  # noqa: E501
+ * @export
+ * @interface SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject
+ */
+export interface SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject
+     */
+    'source': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject
+     */
+    'target': string;
+    /**
+     * 
+     * @type {SystemGraphApiClientModelsGraphLinkTypeGraphLinkType}
+     * @memberof SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject
+     */
+    'edge_type'?: SystemGraphApiClientModelsGraphLinkTypeGraphLinkType;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject
+     */
+    'association_ids'?: Array<string>;
+}
+/**
+ * Object Typed Node model.  # noqa: E501
+ * @export
+ * @interface SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+ */
+export interface SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+     */
+    'name': string;
+    /**
+     * 
+     * @type {SystemGraphApiClientModelsGraphNodeTypeGraphNodeType}
+     * @memberof SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+     */
+    'object_type'?: SystemGraphApiClientModelsGraphNodeTypeGraphNodeType;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+     */
+    'system_ids'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject
+     */
+    'tags'?: Array<string>;
+}
+/**
+ * Graph Data model.  # noqa: E501
+ * @export
+ * @interface SystemGraphApiClientModelsGraphDataGraphData
+ */
+export interface SystemGraphApiClientModelsGraphDataGraphData {
+    /**
+     * Nodes of graph data.
+     * @type {Array<SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject>}
+     * @memberof SystemGraphApiClientModelsGraphDataGraphData
+     */
+    'nodes': Array<SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject>;
+    /**
+     * Links of graph data.
+     * @type {Array<SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject>}
+     * @memberof SystemGraphApiClientModelsGraphDataGraphData
+     */
+    'links': Array<SystemGraphApiClientModelsExtendedLinkObjectExtendedLinkObject>;
+}
+/**
+ * Graph Link Type enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum SystemGraphApiClientModelsGraphLinkTypeGraphLinkType {
+    DatasetRelationship = 'dataset_relationship',
+    ConceptRelationship = 'concept_relationship',
+    VariableRelationship = 'variable_relationship',
+    FeatureRelationship = 'feature_relationship',
+    FeatureVariable = 'feature_variable',
+    Measures = 'measures'
+}
+
+/**
+ * Graph Node Type enum.
+ * @export
+ * @enum {string}
+ */
+
+export enum SystemGraphApiClientModelsGraphNodeTypeGraphNodeType {
+    Dataset = 'dataset',
+    Concept = 'concept',
+    Variable = 'variable',
+    Feature = 'feature'
+}
+
+/**
+ * 
+ * @export
+ * @interface SystemGraphApiClientModelsPydanticExtendedLinkObject
+ */
+export interface SystemGraphApiClientModelsPydanticExtendedLinkObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedLinkObject
+     */
+    'source': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedLinkObject
+     */
+    'target': string;
+    /**
+     * Type of link.
+     * @type {SystemGraphApiClientModelsPydanticGraphLinkType}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedLinkObject
+     */
+    'edge_type'?: SystemGraphApiClientModelsPydanticGraphLinkType;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedLinkObject
+     */
+    'association_ids'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface SystemGraphApiClientModelsPydanticExtendedNodeObject
+ */
+export interface SystemGraphApiClientModelsPydanticExtendedNodeObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedNodeObject
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedNodeObject
+     */
+    'name': string;
+    /**
+     * Type of node.
+     * @type {SystemGraphApiClientModelsPydanticGraphNodeType}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedNodeObject
+     */
+    'object_type'?: SystemGraphApiClientModelsPydanticGraphNodeType;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedNodeObject
+     */
+    'system_ids'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemGraphApiClientModelsPydanticExtendedNodeObject
+     */
+    'tags'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface SystemGraphApiClientModelsPydanticGraphData
+ */
+export interface SystemGraphApiClientModelsPydanticGraphData {
+    /**
+     * Nodes of graph data.
+     * @type {Array<SystemGraphApiClientModelsPydanticExtendedNodeObject>}
+     * @memberof SystemGraphApiClientModelsPydanticGraphData
+     */
+    'nodes': Array<SystemGraphApiClientModelsPydanticExtendedNodeObject>;
+    /**
+     * Links of graph data.
+     * @type {Array<SystemGraphApiClientModelsPydanticExtendedLinkObject>}
+     * @memberof SystemGraphApiClientModelsPydanticGraphData
+     */
+    'links': Array<SystemGraphApiClientModelsPydanticExtendedLinkObject>;
+}
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+
+export enum SystemGraphApiClientModelsPydanticGraphLinkType {
+    DatasetRelationship = 'dataset_relationship',
+    ConceptRelationship = 'concept_relationship',
+    VariableRelationship = 'variable_relationship',
+    FeatureRelationship = 'feature_relationship',
+    FeatureVariable = 'feature_variable',
+    Measures = 'measures'
+}
+
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+
+export enum SystemGraphApiClientModelsPydanticGraphNodeType {
+    Dataset = 'dataset',
+    Concept = 'concept',
+    Variable = 'variable',
+    Feature = 'feature'
+}
+
+/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -7494,17 +7609,17 @@ export interface TimeSeriesFeatureStatisticsSimpleBase {
     'time_end'?: string;
 }
 /**
- * 
+ * Concept relationships model.  # noqa: E501
  * @export
  * @interface TopicCategories
  */
 export interface TopicCategories {
     /**
      * 
-     * @type {ExtendedNodeObject}
+     * @type {SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject}
      * @memberof TopicCategories
      */
-    'topic': ExtendedNodeObject;
+    'topic': SystemGraphApiClientModelsExtendedNodeObjectExtendedNodeObject;
     /**
      * 
      * @type {NodeGroupItem}
@@ -23161,7 +23276,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23172,7 +23287,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDatasetGraphV1GraphDatasetGraphGet(teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23184,7 +23299,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23197,7 +23312,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23213,7 +23328,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1GraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticGraphV1GraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1GraphSemanticGraphGet(topic1, topic2, ids1, ids2, minStrength, minCount, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23224,7 +23339,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn: SemanticTopicGraphIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn: SemanticTopicGraphIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23235,7 +23350,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicGraphV1GraphTopicGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getTopicGraphV1GraphTopicGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicGraphV1GraphTopicGraphGet(numRelationships, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23247,7 +23362,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23260,7 +23375,7 @@ export const GraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsPydanticGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -23283,7 +23398,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<GraphData> {
+        getConceptGraphV1GraphConceptGraphGet(teamId: string, minRelationshipStrength?: number, tags?: Array<string>, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getConceptGraphV1GraphConceptGraphGet(teamId, minRelationshipStrength, tags, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23293,7 +23408,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: any): AxiosPromise<GraphData> {
+        getDatasetGraphV1GraphDatasetGraphGet(teamId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getDatasetGraphV1GraphDatasetGraphGet(teamId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23304,7 +23419,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+        getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId: string, teamId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getMetricNodeGraphV1GraphMetricsMetricIdGet(metricId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23316,7 +23431,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+        getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1: string, metricId2: string, teamId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getMetricRelationshipGraphV1GraphMetricsMetricId1RelationshipMetricId2Get(metricId1, metricId2, teamId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23331,7 +23446,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1GraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<GraphData> {
+        getSemanticGraphV1GraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, minStrength?: number, minCount?: number, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getSemanticGraphV1GraphSemanticGraphGet(topic1, topic2, ids1, ids2, minStrength, minCount, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23341,7 +23456,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn: SemanticTopicGraphIn, options?: any): AxiosPromise<GraphData> {
+        getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn: SemanticTopicGraphIn, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getSemanticTopicGraphV1GraphSemanticTopicGraphPost(semanticTopicGraphIn, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23351,7 +23466,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicGraphV1GraphTopicGraphGet(numRelationships?: number, options?: any): AxiosPromise<GraphData> {
+        getTopicGraphV1GraphTopicGraphGet(numRelationships?: number, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getTopicGraphV1GraphTopicGraphGet(numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23362,7 +23477,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+        getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId: string, teamId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getTopicNodeGraphV1GraphTopicsTopicIdGet(topicId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -23374,7 +23489,7 @@ export const GraphApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<GraphData> {
+        getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1: string, topicId2: string, teamId: string, options?: any): AxiosPromise<SystemGraphApiClientModelsPydanticGraphData> {
             return localVarFp.getTopicRelationshipGraphV1GraphTopicsTopicId1RelationshipTopicId2Get(topicId1, topicId2, teamId, options).then((request) => request(axios, basePath));
         },
     };
@@ -32241,7 +32356,7 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -32253,7 +32368,7 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -32264,7 +32379,7 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -32314,7 +32429,7 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: any): AxiosPromise<GraphData> {
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: any): AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData> {
             return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options).then((request) => request(axios, basePath));
         },
         /**
@@ -32325,7 +32440,7 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData> {
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData> {
             return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options).then((request) => request(axios, basePath));
         },
         /**
@@ -32335,7 +32450,7 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<any> {
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<SystemGraphApiClientModelsGraphDataGraphData> {
             return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
