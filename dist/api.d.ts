@@ -5184,7 +5184,7 @@ export interface PatchVariableOp {
     'op': PatchOp;
 }
 /**
- * An enumeration.
+ * Polling status enum.
  * @export
  * @enum {string}
  */
@@ -6749,7 +6749,64 @@ export interface SubscriptionSeats {
     'total_seats': number;
 }
 /**
- *
+ * Schema for a System Pubmed Search.  # noqa: E501
+ * @export
+ * @interface SuggestedQueriesIn
+ */
+export interface SuggestedQueriesIn {
+    /**
+     * User query
+     * @type {string}
+     * @memberof SuggestedQueriesIn
+     */
+    'query': string;
+    /**
+     * Number of pubmed results.
+     * @type {number}
+     * @memberof SuggestedQueriesIn
+     */
+    'num_pubmed_results': number;
+}
+/**
+ * Schema for query suggestions.  # noqa: E501
+ * @export
+ * @interface SuggestedQueriesOut
+ */
+export interface SuggestedQueriesOut {
+    /**
+     *
+     * @type {Array<SuggestedQuery>}
+     * @memberof SuggestedQueriesOut
+     */
+    'queries': Array<SuggestedQuery>;
+}
+/**
+ * Suggested query.  # noqa: E501
+ * @export
+ * @interface SuggestedQuery
+ */
+export interface SuggestedQuery {
+    /**
+     * User query
+     * @type {string}
+     * @memberof SuggestedQuery
+     */
+    'query': string;
+    /**
+     * Number of pubmed results.
+     * @type {number}
+     * @memberof SuggestedQuery
+     */
+    'num_pubmed_results': number;
+    /**
+     * Enum for query suggestion types.
+     * @type {string}
+     * @memberof SuggestedQuery
+     */
+    'suggestion_type': string;
+}
+/**
+ * Synthesis output schema.  # noqa: E501
  * @export
  * @interface Synthesis
  */
@@ -6824,7 +6881,7 @@ export interface SynthesisFeedbackIn {
     'cache_key'?: string;
 }
 /**
- *
+ * Synthesis fetching output schema.  # noqa: E501
  * @export
  * @interface SynthesisOut
  */
@@ -6840,7 +6897,7 @@ export interface SynthesisOut {
      * @type {Synthesis}
      * @memberof SynthesisOut
      */
-    'synthesis'?: Synthesis;
+    'synthesis': Synthesis;
 }
 /**
  * Edge Typed Link model.  # noqa: E501
@@ -19350,6 +19407,78 @@ export declare class PassthroughApi extends BaseAPI {
      * @memberof PassthroughApi
      */
     postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
+ * QuerySuggestionsApi - axios parameter creator
+ * @export
+ */
+export declare const QuerySuggestionsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get query suggestions.
+     * @summary Get Query Suggestions.
+     * @param {SuggestedQueriesIn} suggestedQueriesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuerySuggestionsV1QuerySuggestionsPost: (suggestedQueriesIn: SuggestedQueriesIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * QuerySuggestionsApi - functional programming interface
+ * @export
+ */
+export declare const QuerySuggestionsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get query suggestions.
+     * @summary Get Query Suggestions.
+     * @param {SuggestedQueriesIn} suggestedQueriesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuggestedQueriesOut>>;
+};
+/**
+ * QuerySuggestionsApi - factory interface
+ * @export
+ */
+export declare const QuerySuggestionsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get query suggestions.
+     * @summary Get Query Suggestions.
+     * @param {SuggestedQueriesIn} suggestedQueriesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: any): AxiosPromise<SuggestedQueriesOut>;
+};
+/**
+ * Request parameters for getQuerySuggestionsV1QuerySuggestionsPost operation in QuerySuggestionsApi.
+ * @export
+ * @interface QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest
+ */
+export interface QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest {
+    /**
+     *
+     * @type {SuggestedQueriesIn}
+     * @memberof QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPost
+     */
+    readonly suggestedQueriesIn: SuggestedQueriesIn;
+}
+/**
+ * QuerySuggestionsApi - object-oriented interface
+ * @export
+ * @class QuerySuggestionsApi
+ * @extends {BaseAPI}
+ */
+export declare class QuerySuggestionsApi extends BaseAPI {
+    /**
+     * Get query suggestions.
+     * @summary Get Query Suggestions.
+     * @param {QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof QuerySuggestionsApi
+     */
+    getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SuggestedQueriesOut>>;
 }
 /**
  * RelationshipsApi - axios parameter creator
