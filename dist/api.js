@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.StudyTypeEnum = exports.StudySortEnum = exports.StripeAccountStatus = exports.StatisticalTestType = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.Metrics = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphSearchDirection = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AuthorSortEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
+exports.VariablesApi = exports.VariablesApiFactory = exports.VariablesApiFp = exports.VariablesApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StudiesApi = exports.StudiesApiFactory = exports.StudiesApiFp = exports.StudiesApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RelationshipsApi = exports.RelationshipsApiFactory = exports.RelationshipsApiFp = exports.RelationshipsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModelsApi = exports.ModelsApiFactory = exports.ModelsApiFp = exports.ModelsApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.GraphApi = exports.GraphApiFactory = exports.GraphApiFp = exports.GraphApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.FeaturesApi = exports.FeaturesApiFactory = exports.FeaturesApiFp = exports.FeaturesApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.DatasetsApi = exports.DatasetsApiFactory = exports.DatasetsApiFp = exports.DatasetsApiAxiosParamCreator = exports.DashboardsApi = exports.DashboardsApiFactory = exports.DashboardsApiFp = exports.DashboardsApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AuthorsApi = exports.AuthorsApiFactory = exports.AuthorsApiFp = exports.AuthorsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.VariableTypeEnum = exports.VariableSortEnum = exports.ValueSourceEnum = exports.ValidValueSource = exports.ValidTransformationTypeEnum = exports.ValidStatisticalTestType = exports.ValidSignificanceLevel = exports.ValidReproducibilityEnum = exports.ValidRelationshipStrengthEnum = exports.ValidRelationshipDirectionEnum = exports.ValidModelScoreEnum = exports.ValidFeatureContributionMethod = exports.ValidDatasetLicenseEnum = exports.ValidCalibratedRelationshipType = exports.SystemGraphApiClientModelsPydanticGraphNodeType = exports.SystemGraphApiClientModelsPydanticGraphLinkType = exports.SystemGraphApiClientModelsGraphNodeTypeGraphNodeType = exports.SystemGraphApiClientModelsGraphLinkTypeGraphLinkType = exports.StudyTypeEnum = exports.StudySortEnum = exports.StripeAccountStatus = exports.StatisticalTestType = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.PatchOp = exports.Ordering = exports.MonitoringOperation = exports.MonitoringField = exports.ModelSortEnum = exports.ModelScoreEnum = exports.Metrics = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphSearchDirection = exports.FunctionStatus = exports.FilterValueType = exports.FeatureTypeEnum = exports.FeatureSourceEnum = exports.FeatureSortEnum = exports.FeatureContributionMethod = exports.ExternalToolEnum = exports.ExternalAssetTypeEnum = exports.DeploymentStageEnum = exports.DatasetSortEnum = exports.DatasetLicenseEnum = exports.DashboardSortEnum = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AuthorSortEnum = exports.AssociationSortEnum = exports.AlertColor = exports.AddFlowContext = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -291,32 +291,6 @@ var FunctionStatus;
     FunctionStatus["Finished"] = "finished";
     FunctionStatus["Error"] = "error";
 })(FunctionStatus = exports.FunctionStatus || (exports.FunctionStatus = {}));
-/**
- * An enumeration.
- * @export
- * @enum {string}
- */
-var GraphLinkType;
-(function (GraphLinkType) {
-    GraphLinkType["DatasetRelationship"] = "dataset_relationship";
-    GraphLinkType["ConceptRelationship"] = "concept_relationship";
-    GraphLinkType["VariableRelationship"] = "variable_relationship";
-    GraphLinkType["FeatureRelationship"] = "feature_relationship";
-    GraphLinkType["FeatureVariable"] = "feature_variable";
-    GraphLinkType["Measures"] = "measures";
-})(GraphLinkType = exports.GraphLinkType || (exports.GraphLinkType = {}));
-/**
- * An enumeration.
- * @export
- * @enum {string}
- */
-var GraphNodeType;
-(function (GraphNodeType) {
-    GraphNodeType["Dataset"] = "dataset";
-    GraphNodeType["Concept"] = "concept";
-    GraphNodeType["Variable"] = "variable";
-    GraphNodeType["Feature"] = "feature";
-})(GraphNodeType = exports.GraphNodeType || (exports.GraphNodeType = {}));
 /**
  * Single topic graph direction for enum.
  * @export
@@ -627,6 +601,58 @@ var StudyTypeEnum;
     StudyTypeEnum["StatisticalInference"] = "statistical_inference";
     StudyTypeEnum["RandomizedControlTrial"] = "randomized_control_trial";
 })(StudyTypeEnum = exports.StudyTypeEnum || (exports.StudyTypeEnum = {}));
+/**
+ * Graph Link Type enum.
+ * @export
+ * @enum {string}
+ */
+var SystemGraphApiClientModelsGraphLinkTypeGraphLinkType;
+(function (SystemGraphApiClientModelsGraphLinkTypeGraphLinkType) {
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["DatasetRelationship"] = "dataset_relationship";
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["ConceptRelationship"] = "concept_relationship";
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["VariableRelationship"] = "variable_relationship";
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["FeatureRelationship"] = "feature_relationship";
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["FeatureVariable"] = "feature_variable";
+    SystemGraphApiClientModelsGraphLinkTypeGraphLinkType["Measures"] = "measures";
+})(SystemGraphApiClientModelsGraphLinkTypeGraphLinkType = exports.SystemGraphApiClientModelsGraphLinkTypeGraphLinkType || (exports.SystemGraphApiClientModelsGraphLinkTypeGraphLinkType = {}));
+/**
+ * Graph Node Type enum.
+ * @export
+ * @enum {string}
+ */
+var SystemGraphApiClientModelsGraphNodeTypeGraphNodeType;
+(function (SystemGraphApiClientModelsGraphNodeTypeGraphNodeType) {
+    SystemGraphApiClientModelsGraphNodeTypeGraphNodeType["Dataset"] = "dataset";
+    SystemGraphApiClientModelsGraphNodeTypeGraphNodeType["Concept"] = "concept";
+    SystemGraphApiClientModelsGraphNodeTypeGraphNodeType["Variable"] = "variable";
+    SystemGraphApiClientModelsGraphNodeTypeGraphNodeType["Feature"] = "feature";
+})(SystemGraphApiClientModelsGraphNodeTypeGraphNodeType = exports.SystemGraphApiClientModelsGraphNodeTypeGraphNodeType || (exports.SystemGraphApiClientModelsGraphNodeTypeGraphNodeType = {}));
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+var SystemGraphApiClientModelsPydanticGraphLinkType;
+(function (SystemGraphApiClientModelsPydanticGraphLinkType) {
+    SystemGraphApiClientModelsPydanticGraphLinkType["DatasetRelationship"] = "dataset_relationship";
+    SystemGraphApiClientModelsPydanticGraphLinkType["ConceptRelationship"] = "concept_relationship";
+    SystemGraphApiClientModelsPydanticGraphLinkType["VariableRelationship"] = "variable_relationship";
+    SystemGraphApiClientModelsPydanticGraphLinkType["FeatureRelationship"] = "feature_relationship";
+    SystemGraphApiClientModelsPydanticGraphLinkType["FeatureVariable"] = "feature_variable";
+    SystemGraphApiClientModelsPydanticGraphLinkType["Measures"] = "measures";
+})(SystemGraphApiClientModelsPydanticGraphLinkType = exports.SystemGraphApiClientModelsPydanticGraphLinkType || (exports.SystemGraphApiClientModelsPydanticGraphLinkType = {}));
+/**
+ * An enumeration.
+ * @export
+ * @enum {string}
+ */
+var SystemGraphApiClientModelsPydanticGraphNodeType;
+(function (SystemGraphApiClientModelsPydanticGraphNodeType) {
+    SystemGraphApiClientModelsPydanticGraphNodeType["Dataset"] = "dataset";
+    SystemGraphApiClientModelsPydanticGraphNodeType["Concept"] = "concept";
+    SystemGraphApiClientModelsPydanticGraphNodeType["Variable"] = "variable";
+    SystemGraphApiClientModelsPydanticGraphNodeType["Feature"] = "feature";
+})(SystemGraphApiClientModelsPydanticGraphNodeType = exports.SystemGraphApiClientModelsPydanticGraphNodeType || (exports.SystemGraphApiClientModelsPydanticGraphNodeType = {}));
 /**
  * Enum for valid calibrated relationship type.
  * @export
