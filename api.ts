@@ -7185,6 +7185,19 @@ export enum SystemGraphApiClientModelsPydanticGraphNodeType {
 }
 
 /**
+ * System search underlying data.
+ * @export
+ * @interface SystemSearchData
+ */
+export interface SystemSearchData {
+    /**
+     * 
+     * @type {Array<ClusteredRelationship>}
+     * @memberof SystemSearchData
+     */
+    'relationships': Array<ClusteredRelationship>;
+}
+/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -28444,7 +28457,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -28528,7 +28541,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any> {
+        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData> {
             return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
