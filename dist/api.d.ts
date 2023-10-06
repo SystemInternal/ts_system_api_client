@@ -7122,6 +7122,19 @@ export declare enum SystemGraphApiClientModelsPydanticGraphNodeType {
     Feature = "feature"
 }
 /**
+ * System search underlying data.
+ * @export
+ * @interface SystemSearchData
+ */
+export interface SystemSearchData {
+    /**
+     *
+     * @type {Array<ClusteredRelationship>}
+     * @memberof SystemSearchData
+     */
+    'relationships': Array<ClusteredRelationship>;
+}
+/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -19754,7 +19767,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19818,7 +19831,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19992,7 +20005,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchData>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
