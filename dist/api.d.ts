@@ -7158,59 +7158,11 @@ export interface SystemSearchIn {
      */
     'population'?: string;
     /**
-     * To cluster results or not. Default True.
-     * @type {boolean}
-     * @memberof SystemSearchIn
-     */
-    'cluster'?: boolean;
-    /**
-     * To synthesize results or not. Default True.
-     * @type {boolean}
-     * @memberof SystemSearchIn
-     */
-    'synthesize'?: boolean;
-    /**
      * To use cache or not. Default True.
      * @type {boolean}
      * @memberof SystemSearchIn
      */
     'use_cache'?: boolean;
-    /**
-     * Filter semantic search results.
-     * @type {string}
-     * @memberof SystemSearchIn
-     */
-    'filter_by'?: string;
-    /**
-     * Weaviate formatted filters
-     * @type {Array<string>}
-     * @memberof SystemSearchIn
-     */
-    'weaviate_filters'?: Array<string>;
-    /**
-     * Study distance threshold
-     * @type {number}
-     * @memberof SystemSearchIn
-     */
-    'study_distance'?: number;
-    /**
-     * Variable distance threshold
-     * @type {number}
-     * @memberof SystemSearchIn
-     */
-    'variable_distance'?: number;
-    /**
-     * Study distance for keyword search
-     * @type {number}
-     * @memberof SystemSearchIn
-     */
-    'keyword_study_distance'?: number;
-    /**
-     * Ratio of study results needed to avoid keyword search.
-     * @type {number}
-     * @memberof SystemSearchIn
-     */
-    'keyword_study_ratio_threshold'?: number;
     /**
      * Clustering thresholds as json stringified list of pairs of floats.
      * @type {Array<Array<number>>}
@@ -7253,18 +7205,6 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'choices'?: number;
-    /**
-     * To search indra or not.
-     * @type {boolean}
-     * @memberof SystemSearchIn
-     */
-    'indra'?: boolean;
-    /**
-     * To augment with graph search or not.
-     * @type {boolean}
-     * @memberof SystemSearchIn
-     */
-    'graph'?: boolean;
 }
 /**
  * A table object.
@@ -19744,6 +19684,14 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get semantic search findings.  Values from semantic search.
+     * @summary Get System Search Findings Data
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
      * @param {string} cacheKey
@@ -19800,6 +19748,14 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
     /**
+     * Get semantic search findings.  Values from semantic search.
+     * @summary Get System Search Findings Data
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
      * @param {string} cacheKey
@@ -19855,6 +19811,14 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: any): AxiosPromise<UserMetricUsageOut>;
+    /**
+     * Get semantic search findings.  Values from semantic search.
+     * @summary Get System Search Findings Data
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -19937,6 +19901,19 @@ export interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGet
     readonly metric?: Metrics;
 }
 /**
+ * Request parameters for getSystemSearchFindingsDataV1SemanticSearchDataPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest
+ */
+export interface SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest {
+    /**
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPost
+     */
+    readonly systemSearchIn: SystemSearchIn;
+}
+/**
  * Request parameters for regenerateSynthesisV1SemanticSearchRegeneratePost operation in SemanticSearchApi.
  * @export
  * @interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest
@@ -20007,6 +19984,15 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters?: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
+    /**
+     * Get semantic search findings.  Values from semantic search.
+     * @summary Get System Search Findings Data
+     * @param {SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
