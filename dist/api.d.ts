@@ -11121,11 +11121,13 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
-     * @param {number} [distance] Distance for the search.
+     * @param {number} [alpha] Alpha for the search.
+     * @param {number} [autocut] Autocut for the search.
+     * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet: (query: string, distance?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    semanticSearchConceptsV1ConceptsSemanticGet: (query: string, alpha?: number, autocut?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -11238,11 +11240,13 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
-     * @param {number} [distance] Distance for the search.
+     * @param {number} [alpha] Alpha for the search.
+     * @param {number} [autocut] Autocut for the search.
+     * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>>;
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -11355,11 +11359,13 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
-     * @param {number} [distance] Distance for the search.
+     * @param {number} [alpha] Alpha for the search.
+     * @param {number} [autocut] Autocut for the search.
+     * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
 };
 /**
  * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
@@ -11706,11 +11712,23 @@ export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
      */
     readonly query: string;
     /**
-     * Distance for the search.
+     * Alpha for the search.
      * @type {number}
      * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
      */
-    readonly distance?: number;
+    readonly alpha?: number;
+    /**
+     * Autocut for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly autocut?: number;
+    /**
+     * Limit for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly limit?: number;
 }
 /**
  * ConceptsApi - object-oriented interface

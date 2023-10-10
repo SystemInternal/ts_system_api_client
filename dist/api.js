@@ -4087,11 +4087,13 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        semanticSearchConceptsV1ConceptsSemanticGet: (query, distance, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        semanticSearchConceptsV1ConceptsSemanticGet: (query, alpha, autocut, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'query' is not null or undefined
             common_1.assertParamExists('semanticSearchConceptsV1ConceptsSemanticGet', 'query', query);
             const localVarPath = `/v1/concepts/semantic`;
@@ -4112,8 +4114,14 @@ exports.ConceptsApiAxiosParamCreator = function (configuration) {
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
-            if (distance !== undefined) {
-                localVarQueryParameter['distance'] = distance;
+            if (alpha !== undefined) {
+                localVarQueryParameter['alpha'] = alpha;
+            }
+            if (autocut !== undefined) {
+                localVarQueryParameter['autocut'] = autocut;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4278,13 +4286,15 @@ exports.ConceptsApiFp = function (configuration) {
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options) {
+        semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4419,12 +4429,14 @@ exports.ConceptsApiFactory = function (configuration, basePath, axios) {
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options) {
-            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options).then((request) => request(axios, basePath));
+        semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options) {
+            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4532,7 +4544,7 @@ class ConceptsApi extends base_1.BaseAPI {
      * @memberof ConceptsApi
      */
     semanticSearchConceptsV1ConceptsSemanticGet(requestParameters, options) {
-        return exports.ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.distance, options).then((request) => request(this.axios, this.basePath));
+        return exports.ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.alpha, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.ConceptsApi = ConceptsApi;
