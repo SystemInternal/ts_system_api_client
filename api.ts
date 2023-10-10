@@ -13445,11 +13445,13 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        semanticSearchConceptsV1ConceptsSemanticGet: async (query: string, distance?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        semanticSearchConceptsV1ConceptsSemanticGet: async (query: string, alpha?: number, autocut?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'query' is not null or undefined
             assertParamExists('semanticSearchConceptsV1ConceptsSemanticGet', 'query', query)
             const localVarPath = `/v1/concepts/semantic`;
@@ -13475,8 +13477,16 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['query'] = query;
             }
 
-            if (distance !== undefined) {
-                localVarQueryParameter['distance'] = distance;
+            if (alpha !== undefined) {
+                localVarQueryParameter['alpha'] = alpha;
+            }
+
+            if (autocut !== undefined) {
+                localVarQueryParameter['autocut'] = autocut;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
             }
 
 
@@ -13630,12 +13640,14 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options);
+        async semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -13770,12 +13782,14 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          * List Concepts.
          * @summary Semantic Search Concepts
          * @param {string} query Query for the search.
-         * @param {number} [distance] Distance for the search.
+         * @param {number} [alpha] Alpha for the search.
+         * @param {number} [autocut] Autocut for the search.
+         * @param {number} [limit] Limit for the search.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        semanticSearchConceptsV1ConceptsSemanticGet(query: string, distance?: number, options?: any): AxiosPromise<Array<ConceptOut>> {
-            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, distance, options).then((request) => request(axios, basePath));
+        semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>> {
+            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, limit, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -14172,11 +14186,25 @@ export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
     readonly query: string
 
     /**
-     * Distance for the search.
+     * Alpha for the search.
      * @type {number}
      * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
      */
-    readonly distance?: number
+    readonly alpha?: number
+
+    /**
+     * Autocut for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly autocut?: number
+
+    /**
+     * Limit for the search.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly limit?: number
 }
 
 /**
@@ -14291,7 +14319,7 @@ export class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     public semanticSearchConceptsV1ConceptsSemanticGet(requestParameters: ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest, options?: AxiosRequestConfig) {
-        return ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.distance, options).then((request) => request(this.axios, this.basePath));
+        return ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.alpha, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
