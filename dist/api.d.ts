@@ -170,86 +170,6 @@ export interface AssociationFilters {
     'association_values.feature_contribution_method'?: Array<FeatureContributionMethodFilterCounts>;
 }
 /**
- * A statistical association between two features.
- * @export
- * @interface AssociationIn
- */
-export interface AssociationIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof AssociationIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AssociationIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AssociationIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * The id of the features of the association. Use this for normal association.
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'feature_ids'?: Array<string>;
-    /**
-     * The id of the variables for a variable/variable association.
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'variable_ids'?: Array<string>;
-    /**
-     * The ids of the features that are being directed at.
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'directed_at_feature_ids'?: Array<string>;
-    /**
-     * Values of the association.
-     * @type {Array<AssociationValueIn>}
-     * @memberof AssociationIn
-     */
-    'association_values'?: Array<AssociationValueIn>;
-    /**
-     * The partial dependence plot information.
-     * @type {Array<PartialDependencePlotIn>}
-     * @memberof AssociationIn
-     */
-    'pdps'?: Array<PartialDependencePlotIn>;
-    /**
-     * Statistical controls of the association. (overrides model)
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'statistical_controls'?: Array<string>;
-    /**
-     * Populations of the association. (overrides dataset)
-     * @type {Array<string>}
-     * @memberof AssociationIn
-     */
-    'population_strings'?: Array<string>;
-}
-/**
  * Association resource links.
  * @export
  * @interface AssociationLinks
@@ -467,87 +387,6 @@ export declare enum AssociationSortEnum {
     LastUpdatedAt = "last_updated_at"
 }
 /**
- * Association value input class.
- * @export
- * @interface AssociationValueIn
- */
-export interface AssociationValueIn {
-    /**
-     * The strength value of the association.
-     * @type {number}
-     * @memberof AssociationValueIn
-     */
-    'value'?: number;
-    /**
-     * Unit of the association value.
-     * @type {string}
-     * @memberof AssociationValueIn
-     */
-    'unit'?: string;
-    /**
-     * The feature rank based on feature importance
-     * @type {number}
-     * @memberof AssociationValueIn
-     */
-    'feature_rank'?: number;
-    /**
-     * The total number of features in the parent model.
-     * @type {number}
-     * @memberof AssociationValueIn
-     */
-    'feature_count'?: number;
-    /**
-     * Whether one can sum up the feature importance values.
-     * @type {boolean}
-     * @memberof AssociationValueIn
-     */
-    'importance_summation'?: boolean;
-    /**
-     * When using a permutation test for association value, which score type was used to calculate the value.
-     * @type {ValidModelScoreEnum}
-     * @memberof AssociationValueIn
-     */
-    'permutation_score_type'?: ValidModelScoreEnum;
-    /**
-     * Who generated this value.
-     * @type {ValidValueSource}
-     * @memberof AssociationValueIn
-     */
-    'generated_by'?: ValidValueSource;
-    /**
-     * Statistical significance value of the association.
-     * @type {SignificanceValueIn}
-     * @memberof AssociationValueIn
-     */
-    'significance_value'?: SignificanceValueIn;
-    /**
-     * Standard error of the Association value.
-     * @type {number}
-     * @memberof AssociationValueIn
-     */
-    'standard_error'?: number;
-    /**
-     * The method by which the feature importance has been measured.
-     * @type {ValidFeatureContributionMethod}
-     * @memberof AssociationValueIn
-     */
-    'feature_contribution_method': ValidFeatureContributionMethod;
-    /**
-     * Association value properties. Use to prototype.
-     * @type {object}
-     * @memberof AssociationValueIn
-     */
-    'properties'?: object;
-    /**
-     * Historical values.
-     * @type {{ [key: string]: AssociationValueInBase; }}
-     * @memberof AssociationValueIn
-     */
-    'history'?: {
-        [key: string]: AssociationValueInBase;
-    };
-}
-/**
  * Association value class.
  * @export
  * @interface AssociationValueInBase
@@ -706,62 +545,6 @@ export interface AssociationValueOut {
      * @memberof AssociationValueOut
      */
     'primary_association_value'?: boolean;
-}
-/**
- * An Author input data.
- * @export
- * @interface AuthorIn
- */
-export interface AuthorIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof AuthorIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof AuthorIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof AuthorIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AuthorIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof AuthorIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Author\'s name.
-     * @type {string}
-     * @memberof AuthorIn
-     */
-    'name': string;
-    /**
-     * Author\'s affiliation
-     * @type {Array<string>}
-     * @memberof AuthorIn
-     */
-    'affiliation'?: Array<string>;
-    /**
-     * Author\'s ORCID
-     * @type {string}
-     * @memberof AuthorIn
-     */
-    'orcid'?: string;
 }
 /**
  * Author resource links.
@@ -978,145 +761,6 @@ export interface BigQueryCredentialsIn {
     'raw_credentials': string;
 }
 /**
- *
- * @export
- * @interface BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
- */
-export interface BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    'ids': Array<string>;
-}
-/**
- *
- * @export
- * @interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
- */
-export interface BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    'ids': Array<string>;
-}
-/**
- *
- * @export
- * @interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
- */
-export interface BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete {
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    'ids': Array<string>;
-}
-/**
- *
- * @export
- * @interface BodyMergeVariablePostV1VariablesVariableIdMergePost
- */
-export interface BodyMergeVariablePostV1VariablesVariableIdMergePost {
-    /**
-     * Ids to merge with
-     * @type {Array<string>}
-     * @memberof BodyMergeVariablePostV1VariablesVariableIdMergePost
-     */
-    'merge_ids': Array<string>;
-}
-/**
- * Patch a `Association` with provided data.
- * @export
- * @interface BulkPatchAssociationOp
- */
-export interface BulkPatchAssociationOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof BulkPatchAssociationOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof BulkPatchAssociationOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof BulkPatchAssociationOp
-     */
-    'op': PatchOp;
-    /**
-     * The id of resource to apply this patch to.
-     * @type {string}
-     * @memberof BulkPatchAssociationOp
-     */
-    'id': string;
-}
-/**
- * Patch a `Feature` with provided data.
- * @export
- * @interface BulkPatchFeatureOp
- */
-export interface BulkPatchFeatureOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof BulkPatchFeatureOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof BulkPatchFeatureOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof BulkPatchFeatureOp
-     */
-    'op': PatchOp;
-    /**
-     * The id of resource to apply this patch to.
-     * @type {string}
-     * @memberof BulkPatchFeatureOp
-     */
-    'id': string;
-}
-/**
- * Model to represent calibrator bucket params.
- * @export
- * @interface CalibratorBucketParams
- */
-export interface CalibratorBucketParams {
-    /**
-     * Bucket edges for calibrators.
-     * @type {Array<number>}
-     * @memberof CalibratorBucketParams
-     */
-    'buckets': Array<number>;
-    /**
-     * Max value of this relationship type.
-     * @type {number}
-     * @memberof CalibratorBucketParams
-     */
-    'max_value': number;
-    /**
-     * Min value of this relationship type.
-     * @type {number}
-     * @memberof CalibratorBucketParams
-     */
-    'min_value': number;
-}
-/**
  * Represent a structured statistics for a categorical (including binary) feature type.
  * @export
  * @interface CategoricalFeatureStatistics
@@ -1258,56 +902,6 @@ export declare enum ClusteringMethods {
     Agglomerative = "agglomerative",
     Dbscan = "dbscan",
     Paraphrase = "paraphrase"
-}
-/**
- * Concept input resource model.
- * @export
- * @interface ConceptIn
- */
-export interface ConceptIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof ConceptIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof ConceptIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof ConceptIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ConceptIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ConceptIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * The Concept\'s corresponding wikidata id.
-     * @type {string}
-     * @memberof ConceptIn
-     */
-    'wikidata_id': string;
-    /**
-     * Preferred name if different from existing.
-     * @type {string}
-     * @memberof ConceptIn
-     */
-    'preferred_name'?: string;
 }
 /**
  * Concept resource links.
@@ -1965,164 +1559,6 @@ export interface DatabaseUsage {
     };
 }
 /**
- * A System Dataset Resource.
- * @export
- * @interface DatasetIn
- */
-export interface DatasetIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof DatasetIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DatasetIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DatasetIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Dataset name.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'name': string;
-    /**
-     * The link for the download (*necessary for model to be “Reproducible”)
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'url'?: string;
-    /**
-     * The link for the API
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'api_url'?: string;
-    /**
-     * Location of a page describing the dataset.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'desc_url'?: string;
-    /**
-     * An identifier, such as a DOI or a Compact Identifier. If the dataset has more than one identifier, repeat the identifier property. If using JSON-LD, this is represented using JSON list syntax.
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'identifiers'?: Array<string>;
-    /**
-     * The version number for the dataset.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'version'?: string;
-    /**
-     * Dataset description.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'description'?: string;
-    /**
-     * The individual or organization to whom this dataset belongs (e.g. holds copyright).
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'owner'?: string;
-    /**
-     * The file format of the dataset.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'format'?: string;
-    /**
-     * Alternative name that have been used to refer to this dataset, such as alias or abbreviation.
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'aliases'?: Array<string>;
-    /**
-     * Catalogs to which the dataset belongs
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'data_catalogs'?: Array<string>;
-    /**
-     * Sample size of dataset if known and fixed.
-     * @type {number}
-     * @memberof DatasetIn
-     */
-    'sample_size'?: number;
-    /**
-     * Does the dataset contain personally identifiable information?
-     * @type {boolean}
-     * @memberof DatasetIn
-     */
-    'has_pii'?: boolean;
-    /**
-     * Does the dataset contain personally identifiable health information?
-     * @type {boolean}
-     * @memberof DatasetIn
-     */
-    'has_phi'?: boolean;
-    /**
-     * A license under which the dataset is distributed.
-     * @type {ValidDatasetLicenseEnum}
-     * @memberof DatasetIn
-     */
-    'license'?: ValidDatasetLicenseEnum;
-    /**
-     * A database query that a user can execute to produce the dataset object.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'db_query'?: string;
-    /**
-     * A database connection string to execute db_query. Might include free-text instructions.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'db_connection_string'?: string;
-    /**
-     * The database language or protocol (e.g., Azure Storage, Postgres, MySQL, OpenOffice) used to produce the dataset object.
-     * @type {string}
-     * @memberof DatasetIn
-     */
-    'db_language'?: string;
-    /**
-     * Database Usage JSON object (stored as string) used to populate Usage tab.
-     * @type {Array<DatabaseUsage>}
-     * @memberof DatasetIn
-     */
-    'db_usage'?: Array<DatabaseUsage>;
-    /**
-     * String descriptions of populations.
-     * @type {Array<string>}
-     * @memberof DatasetIn
-     */
-    'population_strings'?: Array<string>;
-}
-/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -2568,63 +2004,6 @@ export declare enum DeploymentStageEnum {
     Invalid = "invalid"
 }
 /**
- * Direction input for directionality post.
- * @export
- * @interface DirectionIn
- */
-export interface DirectionIn {
-    /**
-     * The id of the features that are being directed at.
-     * @type {Array<string>}
-     * @memberof DirectionIn
-     */
-    'directed_at_ids': Array<string>;
-}
-/**
- * A doi input for studies.
- * @export
- * @interface DoiIn
- */
-export interface DoiIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof DoiIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof DoiIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof DoiIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DoiIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof DoiIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * The DOI of the study.
-     * @type {string}
-     * @memberof DoiIn
-     */
-    'doi': string;
-}
-/**
  * Represent dynamic series statistics for a dynamic feature type.
  * @export
  * @interface DynamicFeatureStatistics
@@ -2910,68 +2289,6 @@ export interface FeatureContributionMethodFilterCounts {
      * @memberof FeatureContributionMethodFilterCounts
      */
     'count'?: number;
-}
-/**
- * A real-world machine learning or statistical feature.
- * @export
- * @interface FeatureIn
- */
-export interface FeatureIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof FeatureIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof FeatureIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof FeatureIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FeatureIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof FeatureIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Features\'s name.
-     * @type {string}
-     * @memberof FeatureIn
-     */
-    'name': string;
-    /**
-     * Descriptive statistics of the feature.
-     * @type {Array<FeatureStatistics>}
-     * @memberof FeatureIn
-     */
-    'feature_statistics'?: Array<FeatureStatistics>;
-    /**
-     * ID of Variable this Feature operationalizes.
-     * @type {string}
-     * @memberof FeatureIn
-     */
-    'variable_id'?: string;
-    /**
-     * Filtered by values.
-     * @type {Array<FilterValue>}
-     * @memberof FeatureIn
-     */
-    'filtered_by_values'?: Array<FilterValue>;
 }
 /**
  * Variable resource links.
@@ -4057,128 +3374,6 @@ export interface ModelFilters {
     'performance'?: Array<Array<number | ModelScoreEnum>>;
 }
 /**
- * A real-world machine learning or statistical model input data.
- * @export
- * @interface ModelIn
- */
-export interface ModelIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof ModelIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof ModelIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof ModelIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ModelIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof ModelIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Model algorithm.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'algorithm'?: string;
-    /**
-     * Standardized ModelDB algorithm id.
-     * @type {number}
-     * @memberof ModelIn
-     */
-    'standardized_algorithm_id': number;
-    /**
-     * Number of observations or nobs..
-     * @type {number}
-     * @memberof ModelIn
-     */
-    'number_of_observations'?: number;
-    /**
-     * Model\'s hyper parameters.
-     * @type {ModelParams}
-     * @memberof ModelIn
-     */
-    'model_params'?: ModelParams;
-    /**
-     * Model label.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'name'?: string;
-    /**
-     * Description of the model.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'description'?: string;
-    /**
-     * Statistical controls of the model.
-     * @type {Array<string>}
-     * @memberof ModelIn
-     */
-    'statistical_controls'?: Array<string>;
-    /**
-     * Location of the source code.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'source'?: string;
-    /**
-     * System ID of training dataset.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'training_dataset_id': string;
-    /**
-     * System Evaluator specific field.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'stub_id'?: string;
-    /**
-     * The performance of the model.
-     * @type {Array<ModelPerformanceIn>}
-     * @memberof ModelIn
-     */
-    'performance'?: Array<ModelPerformanceIn>;
-    /**
-     * System ID of target of the model.
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'target_feature_id'?: string;
-    /**
-     * Model\'s deployment information.
-     * @type {Deployment}
-     * @memberof ModelIn
-     */
-    'deployment'?: Deployment;
-    /**
-     * Model\'s module and class
-     * @type {string}
-     * @memberof ModelIn
-     */
-    'library'?: string;
-}
-/**
  * Model resource links.
  * @export
  * @interface ModelLinks
@@ -4483,57 +3678,6 @@ export interface ModelPerformanceBaseIn {
      * @memberof ModelPerformanceBaseIn
      */
     'complex_value'?: Array<any>;
-}
-/**
- * Model performance input.
- * @export
- * @interface ModelPerformanceIn
- */
-export interface ModelPerformanceIn {
-    /**
-     * Who generated this model performance.
-     * @type {ValidValueSource}
-     * @memberof ModelPerformanceIn
-     */
-    'generated_by'?: ValidValueSource;
-    /**
-     * Standard error of the Performance Value.
-     * @type {number}
-     * @memberof ModelPerformanceIn
-     */
-    'standard_error'?: number;
-    /**
-     * The test dataset of this performance.
-     * @type {TestDataset}
-     * @memberof ModelPerformanceIn
-     */
-    'test_dataset'?: TestDataset;
-    /**
-     * Model performance score type.
-     * @type {ValidModelScoreEnum}
-     * @memberof ModelPerformanceIn
-     */
-    'score_type': ValidModelScoreEnum;
-    /**
-     * Model performance value.
-     * @type {number}
-     * @memberof ModelPerformanceIn
-     */
-    'value'?: number;
-    /**
-     * Complex model performance value.
-     * @type {Array<any>}
-     * @memberof ModelPerformanceIn
-     */
-    'complex_value'?: Array<any>;
-    /**
-     * History of this model performance value.
-     * @type {{ [key: string]: ModelPerformanceBaseIn; }}
-     * @memberof ModelPerformanceIn
-     */
-    'history'?: {
-        [key: string]: ModelPerformanceBaseIn;
-    };
 }
 /**
  * Model performance input.
@@ -5024,166 +4168,6 @@ export interface PartialDependencePlotIn {
     'generated_by'?: ValidValueSource;
 }
 /**
- * Patch a `Variable` with provided data.
- * @export
- * @interface PatchConceptOp
- */
-export interface PatchConceptOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchConceptOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchConceptOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchConceptOp
-     */
-    'op': PatchOp;
-}
-/**
- * Patch a `Dataset` with provided data.
- * @export
- * @interface PatchDatasetOp
- */
-export interface PatchDatasetOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchDatasetOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchDatasetOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchDatasetOp
-     */
-    'op': PatchOp;
-}
-/**
- * Patch a `Feature` with provided data.
- * @export
- * @interface PatchFeatureOp
- */
-export interface PatchFeatureOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchFeatureOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchFeatureOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchFeatureOp
-     */
-    'op': PatchOp;
-}
-/**
- * Patch a `Model` with provided data.
- * @export
- * @interface PatchModelOp
- */
-export interface PatchModelOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchModelOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchModelOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchModelOp
-     */
-    'op': PatchOp;
-}
-/**
- * Enum for PATCH operations.
- * @export
- * @enum {string}
- */
-export declare enum PatchOp {
-    Update = "update",
-    Append = "append",
-    Delete = "delete"
-}
-/**
- * Patch a `Study` with provided data.
- * @export
- * @interface PatchStudyOp
- */
-export interface PatchStudyOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchStudyOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchStudyOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchStudyOp
-     */
-    'op': PatchOp;
-}
-/**
- * Patch a `Variable` with provided data.
- * @export
- * @interface PatchVariableOp
- */
-export interface PatchVariableOp {
-    /**
-     * Name of field in resource to modify.
-     * @type {string}
-     * @memberof PatchVariableOp
-     */
-    'field': string;
-    /**
-     * Value to set resource field if not deleting.
-     * @type {any}
-     * @memberof PatchVariableOp
-     */
-    'value'?: any;
-    /**
-     * Operation to perform on resource field.
-     * @type {PatchOp}
-     * @memberof PatchVariableOp
-     */
-    'op': PatchOp;
-}
-/**
  * Polling status enum.
  * @export
  * @enum {string}
@@ -5627,45 +4611,6 @@ export interface RelationshipReproducibility {
      * @memberof RelationshipReproducibility
      */
     'has_significance': boolean;
-}
-/**
- * Model to represent strength of an Association.
- * @export
- * @interface RelationshipStrength
- */
-export interface RelationshipStrength {
-    /**
-     * Strength of the association.
-     * @type {ValidRelationshipStrengthEnum}
-     * @memberof RelationshipStrength
-     */
-    'level': ValidRelationshipStrengthEnum;
-    /**
-     * Relationship value.
-     * @type {number}
-     * @memberof RelationshipStrength
-     */
-    'relationship_value': number;
-    /**
-     * Type of relationship.
-     * @type {ValidCalibratedRelationshipType}
-     * @memberof RelationshipStrength
-     */
-    'relationship_type': ValidCalibratedRelationshipType;
-    /**
-     * Relationship model performance value.
-     * @type {number}
-     * @memberof RelationshipStrength
-     */
-    'relationship_model_performance'?: number;
-    /**
-     * Max values map.
-     * @type {{ [key: string]: CalibratorBucketParams; }}
-     * @memberof RelationshipStrength
-     */
-    'all_max_values': {
-        [key: string]: CalibratorBucketParams;
-    };
 }
 /**
  * API resource action enum.
@@ -6265,110 +5210,6 @@ export interface StudyFindingsOut {
      * @memberof StudyFindingsOut
      */
     'studies': Array<StudyFindings>;
-}
-/**
- * A real world study.
- * @export
- * @interface StudyIn
- */
-export interface StudyIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof StudyIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof StudyIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof StudyIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof StudyIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof StudyIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Study\'s name.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'name': string;
-    /**
-     * Study\'s description.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'description'?: string;
-    /**
-     * The source (e.g. github link) of the study.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'source'?: string;
-    /**
-     * The type of study.
-     * @type {StudyTypeEnum}
-     * @memberof StudyIn
-     */
-    'study_type'?: StudyTypeEnum;
-    /**
-     * The DOI of the study.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'doi'?: string;
-    /**
-     * The lede of the study.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'lede'?: string;
-    /**
-     * External assets data.
-     * @type {Array<ExternalAsset>}
-     * @memberof StudyIn
-     */
-    'external_assets'?: Array<ExternalAsset>;
-    /**
-     * Optional add flow context flag.
-     * @type {AddFlowContext}
-     * @memberof StudyIn
-     */
-    'add_context'?: AddFlowContext;
-    /**
-     * Insights generated by this study.
-     * @type {Array<string>}
-     * @memberof StudyIn
-     */
-    'insights'?: Array<string>;
-    /**
-     * Publication info of study.
-     * @type {PublicationInfo}
-     * @memberof StudyIn
-     */
-    'publication_info'?: PublicationInfo;
-    /**
-     * Publication type string field.
-     * @type {string}
-     * @memberof StudyIn
-     */
-    'publication_type'?: string;
 }
 /**
  * Study resource links.
@@ -7959,27 +6800,6 @@ export declare enum ValidCalibratedRelationshipType {
     SiEffectSizeW = "si_effect_size_w"
 }
 /**
- * Enum for valid dataset license.
- * @export
- * @enum {string}
- */
-export declare enum ValidDatasetLicenseEnum {
-    PublicDomain = "public_domain",
-    CreativeCommonsPublicDomainDedication = "creative_commons_public_domain_dedication",
-    OpendataCommonsPublicDomainDedicationAndLicense = "opendata_commons_public_domain_dedication_and_license",
-    CreativeCommonsAttributionInternational = "creative_commons_attribution_international",
-    CommunityDataLicenseAgreementVersion1Permissive = "community_data_license_agreement_version_1_permissive",
-    OpenDataCommonsAttributionLicense = "open_data_commons_attribution_license",
-    CreativeCommonsAttributionShareAlike4International = "creative_commons_attribution_share_alike_4_international",
-    CommunityDataLicenseAgreementVersion1Sharing = "community_data_license_agreement_version_1_sharing",
-    OpenDataCommonsOpenDatabaseLicense = "open_data_commons_open_database_license",
-    CreativeCommonsAttributionNoncommercial4International = "creative_commons_attribution_noncommercial_4_international",
-    CreativeCommonsAttributionNoderivatives4International = "creative_commons_attribution_noderivatives_4_international",
-    CreativeCommonsAttributionNoncommercialShareAlike4International = "creative_commons_attribution_noncommercial_share_alike_4_international",
-    CreativeCommonsAttributionNoncommercialNoderivatives4International = "creative_commons_attribution_noncommercial_noderivatives_4_international",
-    Other = "other"
-}
-/**
  * Valid feature contribution method enums.
  * @export
  * @enum {string}
@@ -8113,19 +6933,6 @@ export declare enum ValidRelationshipDirectionEnum {
     Invalid = "invalid"
 }
 /**
- * Enum for valid relationship strength.
- * @export
- * @enum {string}
- */
-export declare enum ValidRelationshipStrengthEnum {
-    Invalid = "invalid",
-    VeryWeak = "very_weak",
-    Weak = "weak",
-    Moderate = "moderate",
-    Strong = "strong",
-    VeryStrong = "very_strong"
-}
-/**
  * Enum for valid reproducibility level.
  * @export
  * @enum {string}
@@ -8215,100 +7022,6 @@ export declare enum ValueSourceEnum {
     RemoteEvaluator = "remote_evaluator",
     User = "user",
     Invalid = "invalid"
-}
-/**
- * A real-world variable that is measured on a concept.
- * @export
- * @interface VariableIn
- */
-export interface VariableIn {
-    /**
-     * Tags to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof VariableIn
-     */
-    'tags'?: Array<string>;
-    /**
-     * Search terms to attach to resource (max 64).
-     * @type {Array<string>}
-     * @memberof VariableIn
-     */
-    'search_terms'?: Array<string>;
-    /**
-     * A hidden object is not meant to be shown on the frontend.
-     * @type {boolean}
-     * @memberof VariableIn
-     */
-    'is_hidden'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof VariableIn
-     */
-    'is_private'?: boolean;
-    /**
-     * Notes whether the resource is private or not
-     * @type {boolean}
-     * @memberof VariableIn
-     * @deprecated
-     */
-    '_private'?: boolean;
-    /**
-     * Variable\'s name.
-     * @type {string}
-     * @memberof VariableIn
-     */
-    'name': string;
-    /**
-     * A short description of the variable.
-     * @type {string}
-     * @memberof VariableIn
-     */
-    'description'?: string;
-    /**
-     * Other names for the variable.
-     * @type {Array<string>}
-     * @memberof VariableIn
-     */
-    'aliases'?: Array<string>;
-    /**
-     * External identifier mapping from source to id.
-     * @type {{ [key: string]: string; }}
-     * @memberof VariableIn
-     */
-    'xid'?: {
-        [key: string]: string;
-    };
-    /**
-     * Type of the variable.
-     * @type {VariableType}
-     * @memberof VariableIn
-     */
-    'variable_type'?: VariableType;
-    /**
-     * The id of the Variable\'s Concept.
-     * @type {string}
-     * @memberof VariableIn
-     */
-    'concept_id'?: string;
-    /**
-     * The monitoring rules for the metric.
-     * @type {MetricMonitoring}
-     * @memberof VariableIn
-     */
-    'monitoring'?: MetricMonitoring;
-    /**
-     * The uuid of the metric cluster.
-     * @type {string}
-     * @memberof VariableIn
-     */
-    'cluster_id'?: string;
-    /**
-     * The name of the metric cluster.
-     * @type {string}
-     * @memberof VariableIn
-     */
-    'cluster_name'?: string;
 }
 /**
  * Variable resource links.
@@ -8587,57 +7300,6 @@ export declare enum VariableTypeEnum {
  */
 export declare const AssociationsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get strength of this association.
      * @summary Flag Association
      * @param {string} associationId
@@ -8683,15 +7345,6 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet: (associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet: (associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -8828,84 +7481,12 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @throws {RequiredError}
      */
     listFreeMetadataV1AssociationsFreeMetadataGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AssociationsApi - functional programming interface
  * @export
  */
 export declare const AssociationsApiFp: (configuration?: Configuration) => {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -8952,15 +7533,6 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipReproducibility>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RelationshipStrength>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -9097,84 +7669,12 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
 };
 /**
  * AssociationsApi - factory interface
  * @export
  */
 export declare const AssociationsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -9221,15 +7721,6 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(associationId: string, teamId?: string, options?: any): AxiosPromise<RelationshipReproducibility>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(associationId: string, teamId?: string, options?: any): AxiosPromise<RelationshipStrength>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -9366,159 +7857,7 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
      * @throws {RequiredError}
      */
     listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
 };
-/**
- * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in AssociationsApi.
- * @export
- * @interface AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest
- */
-export interface AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAssociationsV1ModelsModelIdAssociationsPost operation in AssociationsApi.
- * @export
- * @interface AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest
- */
-export interface AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly mergeFeatures?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest
- */
-export interface AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteAssociationsV1ModelsModelIdAssociationsDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest
- */
-export interface AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete}
-     * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in AssociationsApi.
- * @export
- * @interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
- */
-export interface AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly teamId?: string;
-}
 /**
  * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
  * @export
@@ -9617,25 +7956,6 @@ export interface AssociationsApiGetRelationshipReproducibilityV1AssociationsAsso
      *
      * @type {string}
      * @memberof AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for getRelationshipStrengthV1AssociationsAssociationIdStrengthGet operation in AssociationsApi.
- * @export
- * @interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest
- */
-export interface AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGet
      */
     readonly teamId?: string;
 }
@@ -10211,113 +8531,12 @@ export interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetReq
     readonly ids?: Array<string>;
 }
 /**
- * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in AssociationsApi.
- * @export
- * @interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest
- */
-export interface AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {Array<BulkPatchAssociationOp>}
-     * @memberof AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost operation in AssociationsApi.
- * @export
- * @interface AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
- */
-export interface AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {DirectionIn}
-     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly directionIn: DirectionIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly teamId?: string;
-}
-/**
  * AssociationsApi - object-oriented interface
  * @export
  * @class AssociationsApi
  * @extends {BaseAPI}
  */
 export declare class AssociationsApi extends BaseAPI {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(requestParameters: AssociationsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters: AssociationsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: AssociationsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: AssociationsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -10363,15 +8582,6 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     getRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGet(requestParameters: AssociationsApiGetRelationshipReproducibilityV1AssociationsAssociationIdReproducibilityGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RelationshipReproducibility>>;
-    /**
-     * Get strength of this association.
-     * @summary Get Relationship Strength
-     * @param {AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    getRelationshipStrengthV1AssociationsAssociationIdStrengthGet(requestParameters: AssociationsApiGetRelationshipStrengthV1AssociationsAssociationIdStrengthGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<RelationshipStrength>>;
     /**
      * List association in study by authenticated user.
      * @summary List Associations In The Authenticated User\'S Study.
@@ -10435,76 +8645,12 @@ export declare class AssociationsApi extends BaseAPI {
      * @memberof AssociationsApi
      */
     listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters: AssociationsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AssociationsApi
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: AssociationsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
 }
 /**
  * AuthorsApi - axios parameter creator
  * @export
  */
 export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {AuthorIn} authorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1AuthorsPost: (authorIn: AuthorIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create mulitple Authors.
-     * @summary Create Multiple Authors.
-     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleAuthorsV1AuthorsBulkPost: (arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1AuthorsAuthorIdDelete: (authorId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Author.
      * @summary Get Author
@@ -10531,68 +8677,12 @@ export declare const AuthorsApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet: (teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AuthorsApi - functional programming interface
  * @export
  */
 export declare const AuthorsApiFp: (configuration?: Configuration) => {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {AuthorIn} authorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1AuthorsPost(authorIn: AuthorIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorOut>>;
-    /**
-     * Create mulitple Authors.
-     * @summary Create Multiple Authors.
-     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AuthorOut>>>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -10619,68 +8709,12 @@ export declare const AuthorsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthorPaginationOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * AuthorsApi - factory interface
  * @export
  */
 export declare const AuthorsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {AuthorIn} authorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAuthorV1AuthorsPost(authorIn: AuthorIn, teamId?: string, options?: any): AxiosPromise<AuthorOut>;
-    /**
-     * Create mulitple Authors.
-     * @summary Create Multiple Authors.
-     * @param {Array<AuthorIn> | AuthorIn} arrayAuthorInAuthorIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleAuthorsV1AuthorsBulkPost(arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn, teamId?: string, options?: any): AxiosPromise<Array<AuthorOut>>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {string} authorId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAuthorV1AuthorsAuthorIdDelete(authorId: string, options?: any): AxiosPromise<void>;
     /**
      * Get Author.
      * @summary Get Author
@@ -10707,118 +8741,7 @@ export declare const AuthorsApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     listAuthorsV1AuthorsGet(teamId?: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: AuthorSortEnum, ordering?: Ordering, sortBy?: string, options?: any): AxiosPromise<AuthorPaginationOut>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
 };
-/**
- * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in AuthorsApi.
- * @export
- * @interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest
- */
-export interface AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly authorId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost operation in AuthorsApi.
- * @export
- * @interface AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest
- */
-export interface AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost}
-     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAuthorV1AuthorsPost operation in AuthorsApi.
- * @export
- * @interface AuthorsApiCreateAuthorV1AuthorsPostRequest
- */
-export interface AuthorsApiCreateAuthorV1AuthorsPostRequest {
-    /**
-     *
-     * @type {AuthorIn}
-     * @memberof AuthorsApiCreateAuthorV1AuthorsPost
-     */
-    readonly authorIn: AuthorIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiCreateAuthorV1AuthorsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createMultipleAuthorsV1AuthorsBulkPost operation in AuthorsApi.
- * @export
- * @interface AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest
- */
-export interface AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest {
-    /**
-     *
-     * @type {Array<AuthorIn> | AuthorIn}
-     * @memberof AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPost
-     */
-    readonly arrayAuthorInAuthorIn: Array<AuthorIn> | AuthorIn;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteAuthorV1AuthorsAuthorIdDelete operation in AuthorsApi.
- * @export
- * @interface AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest
- */
-export interface AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiDeleteAuthorV1AuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-}
 /**
  * Request parameters for getAuthorV1AuthorsAuthorIdGet operation in AuthorsApi.
  * @export
@@ -10906,82 +8829,12 @@ export interface AuthorsApiListAuthorsV1AuthorsGetRequest {
     readonly sortBy?: string;
 }
 /**
- * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in AuthorsApi.
- * @export
- * @interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
- */
-export interface AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
  * AuthorsApi - object-oriented interface
  * @export
  * @class AuthorsApi
  * @extends {BaseAPI}
  */
 export declare class AuthorsApi extends BaseAPI {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: AuthorsApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters: AuthorsApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Create an Author.
-     * @summary Create Author
-     * @param {AuthorsApiCreateAuthorV1AuthorsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    createAuthorV1AuthorsPost(requestParameters: AuthorsApiCreateAuthorV1AuthorsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuthorOut>>;
-    /**
-     * Create mulitple Authors.
-     * @summary Create Multiple Authors.
-     * @param {AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    createMultipleAuthorsV1AuthorsBulkPost(requestParameters: AuthorsApiCreateMultipleAuthorsV1AuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuthorOut[]>>;
-    /**
-     * Delete an Author.
-     * @summary Delete Author
-     * @param {AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    deleteAuthorV1AuthorsAuthorIdDelete(requestParameters: AuthorsApiDeleteAuthorV1AuthorsAuthorIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Author.
      * @summary Get Author
@@ -11000,38 +8853,12 @@ export declare class AuthorsApi extends BaseAPI {
      * @memberof AuthorsApi
      */
     listAuthorsV1AuthorsGet(requestParameters?: AuthorsApiListAuthorsV1AuthorsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AuthorPaginationOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthorsApi
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: AuthorsApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * ConceptsApi - axios parameter creator
  * @export
  */
 export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuration) => {
-    /**
-     * Create a Concept.
-     * @summary Create Concept
-     * @param {ConceptIn} conceptIn
-     * @param {boolean} [overwriteExisting]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConceptV1ConceptsPost: (conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
-     * @summary Delete Concept
-     * @param {string} conceptId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteConceptV1ConceptsConceptIdDelete: (conceptId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -11109,15 +8936,6 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      */
     listUserConceptsV1UsersUserIdConceptsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Concept
-     * @param {string} conceptId
-     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchConceptV1ConceptsConceptIdPatch: (conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
@@ -11134,23 +8952,6 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
  * @export
  */
 export declare const ConceptsApiFp: (configuration?: Configuration) => {
-    /**
-     * Create a Concept.
-     * @summary Create Concept
-     * @param {ConceptIn} conceptIn
-     * @param {boolean} [overwriteExisting]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConceptV1ConceptsPost(conceptIn: ConceptIn, overwriteExisting?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
-    /**
-     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
-     * @summary Delete Concept
-     * @param {string} conceptId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -11228,15 +9029,6 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      */
     listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
     /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Concept
-     * @param {string} conceptId
-     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
@@ -11253,23 +9045,6 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const ConceptsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Create a Concept.
-     * @summary Create Concept
-     * @param {ConceptIn} conceptIn
-     * @param {boolean} [overwriteExisting]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createConceptV1ConceptsPost(conceptIn: ConceptIn, overwriteExisting?: boolean, options?: any): AxiosPromise<ConceptOut>;
-    /**
-     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
-     * @summary Delete Concept
-     * @param {string} conceptId
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteConceptV1ConceptsConceptIdDelete(conceptId: string, options?: any): AxiosPromise<void>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -11347,15 +9122,6 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      */
     listUserConceptsV1UsersUserIdConceptsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, teamId?: string, options?: any): AxiosPromise<ConceptPaginationOut>;
     /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Concept
-     * @param {string} conceptId
-     * @param {PatchConceptOp | Array<PatchConceptOp>} patchConceptOpArrayPatchConceptOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchConceptV1ConceptsConceptIdPatch(conceptId: string, patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>, options?: any): AxiosPromise<void>;
-    /**
      * List Concepts.
      * @summary Semantic Search Concepts
      * @param {string} query Query for the search.
@@ -11367,38 +9133,6 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      */
     semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
 };
-/**
- * Request parameters for createConceptV1ConceptsPost operation in ConceptsApi.
- * @export
- * @interface ConceptsApiCreateConceptV1ConceptsPostRequest
- */
-export interface ConceptsApiCreateConceptV1ConceptsPostRequest {
-    /**
-     *
-     * @type {ConceptIn}
-     * @memberof ConceptsApiCreateConceptV1ConceptsPost
-     */
-    readonly conceptIn: ConceptIn;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ConceptsApiCreateConceptV1ConceptsPost
-     */
-    readonly overwriteExisting?: boolean;
-}
-/**
- * Request parameters for deleteConceptV1ConceptsConceptIdDelete operation in ConceptsApi.
- * @export
- * @interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest
- */
-export interface ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ConceptsApiDeleteConceptV1ConceptsConceptIdDelete
-     */
-    readonly conceptId: string;
-}
 /**
  * Request parameters for getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet operation in ConceptsApi.
  * @export
@@ -11681,25 +9415,6 @@ export interface ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for patchConceptV1ConceptsConceptIdPatch operation in ConceptsApi.
- * @export
- * @interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest
- */
-export interface ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
-     */
-    readonly conceptId: string;
-    /**
-     *
-     * @type {PatchConceptOp | Array<PatchConceptOp>}
-     * @memberof ConceptsApiPatchConceptV1ConceptsConceptIdPatch
-     */
-    readonly patchConceptOpArrayPatchConceptOp: PatchConceptOp | Array<PatchConceptOp>;
-}
-/**
  * Request parameters for semanticSearchConceptsV1ConceptsSemanticGet operation in ConceptsApi.
  * @export
  * @interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest
@@ -11737,24 +9452,6 @@ export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
  * @extends {BaseAPI}
  */
 export declare class ConceptsApi extends BaseAPI {
-    /**
-     * Create a Concept.
-     * @summary Create Concept
-     * @param {ConceptsApiCreateConceptV1ConceptsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConceptsApi
-     */
-    createConceptV1ConceptsPost(requestParameters: ConceptsApiCreateConceptV1ConceptsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptOut>>;
-    /**
-     * Delete a Concept.  Deletion will fail if this Concept is attached to any existing variables.
-     * @summary Delete Concept
-     * @param {ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConceptsApi
-     */
-    deleteConceptV1ConceptsConceptIdDelete(requestParameters: ConceptsApiDeleteConceptV1ConceptsConceptIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
@@ -11800,15 +9497,6 @@ export declare class ConceptsApi extends BaseAPI {
      * @memberof ConceptsApi
      */
     listUserConceptsV1UsersUserIdConceptsGet(requestParameters: ConceptsApiListUserConceptsV1UsersUserIdConceptsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
-    /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Concept
-     * @param {ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConceptsApi
-     */
-    patchConceptV1ConceptsConceptIdPatch(requestParameters: ConceptsApiPatchConceptV1ConceptsConceptIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * List Concepts.
      * @summary Semantic Search Concepts
@@ -12497,76 +10185,6 @@ export declare class DashboardsApi extends BaseAPI {
  */
 export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut: (datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost: (datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1DatasetsPost: (datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} datasetId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1DatasetsDatasetIdDelete: (datasetId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: (datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get a Dataset.
      * @summary Get Dataset
      * @param {string} datasetId
@@ -12720,142 +10338,12 @@ export declare const DatasetsApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listUserDatasetsV1UsersUserIdDatasetsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1DatasetsDatasetIdPatch: (datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete: (datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete: (datasetId: string, parentId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1DatasetsDatasetIdPut: (datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut: (datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * DatasetsApi - functional programming interface
  * @export
  */
 export declare const DatasetsApiFp: (configuration?: Configuration) => {
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1DatasetsPost(datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} datasetId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -13010,142 +10498,12 @@ export declare const DatasetsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetPaginationOut>>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DatasetOut>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * DatasetsApi - factory interface
  * @export
  */
 export declare const DatasetsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {boolean} [reconcileFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(datasetId: string, parentId: string, reconcileFeatures?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: any): AxiosPromise<Array<FeatureOut>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} datasetId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(datasetId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, teamId?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createDatasetV1DatasetsPost(datasetIn: DatasetIn, teamId?: string, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {string} datasetId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteDatasetV1DatasetsDatasetIdDelete(datasetId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {string} datasetId
-     * @param {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete} bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(datasetId: string, bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -13300,242 +10658,7 @@ export declare const DatasetsApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: DatasetSortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<DatasetPaginationOut>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {string} datasetId
-     * @param {PatchDatasetOp | Array<PatchDatasetOp>} patchDatasetOpArrayPatchDatasetOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchDatasetV1DatasetsDatasetIdPatch(datasetId: string, patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(datasetId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {string} datasetId
-     * @param {string} parentId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(datasetId: string, parentId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {string} datasetId
-     * @param {DatasetIn} datasetIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceDatasetV1DatasetsDatasetIdPut(datasetId: string, datasetIn: DatasetIn, teamId?: string, options?: any): AxiosPromise<DatasetOut>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} datasetId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(datasetId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
 };
-/**
- * Request parameters for addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest
- */
-export interface DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     * If true, then set the feature as the dataset index.
-     * @type {boolean}
-     * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly index?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for addParentDatasetV1DatasetsDatasetIdParentsParentIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest
- */
-export interface DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
-     */
-    readonly parentId: string;
-    /**
-     *
-     * @type {boolean}
-     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
-     */
-    readonly reconcileFeatures?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest
- */
-export interface DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {Array<FeatureIn>}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly featureIn: Array<FeatureIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAssociationsV1DatasetsDatasetIdAssociationsPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest
- */
-export interface DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createDatasetV1DatasetsPost operation in DatasetsApi.
- * @export
- * @interface DatasetsApiCreateDatasetV1DatasetsPostRequest
- */
-export interface DatasetsApiCreateDatasetV1DatasetsPostRequest {
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof DatasetsApiCreateDatasetV1DatasetsPost
-     */
-    readonly datasetIn: DatasetIn;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiCreateDatasetV1DatasetsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteDatasetV1DatasetsDatasetIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest
- */
-export interface DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteDatasetV1DatasetsDatasetIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest
- */
-export interface DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly bodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete: BodyDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete
-     */
-    readonly teamId?: string;
-}
 /**
  * Request parameters for getDatasetV1DatasetsDatasetIdGet operation in DatasetsApi.
  * @export
@@ -14181,225 +11304,12 @@ export interface DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for patchDatasetV1DatasetsDatasetIdPatch operation in DatasetsApi.
- * @export
- * @interface DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest
- */
-export interface DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiPatchDatasetV1DatasetsDatasetIdPatch
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {PatchDatasetOp | Array<PatchDatasetOp>}
-     * @memberof DatasetsApiPatchDatasetV1DatasetsDatasetIdPatch
-     */
-    readonly patchDatasetOpArrayPatchDatasetOp: PatchDatasetOp | Array<PatchDatasetOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiPatchDatasetV1DatasetsDatasetIdPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest
- */
-export interface DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete operation in DatasetsApi.
- * @export
- * @interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest
- */
-export interface DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly parentId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for replaceDatasetV1DatasetsDatasetIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest
- */
-export interface DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {DatasetIn}
-     * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
-     */
-    readonly datasetIn: DatasetIn;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiReplaceDatasetV1DatasetsDatasetIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut operation in DatasetsApi.
- * @export
- * @interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest
- */
-export interface DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut
-     */
-    readonly teamId?: string;
-}
-/**
  * DatasetsApi - object-oriented interface
  * @export
  * @class DatasetsApi
  * @extends {BaseAPI}
  */
 export declare class DatasetsApi extends BaseAPI {
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: DatasetsApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a parent dataset.
-     * @summary Add Parent Dataset
-     * @param {DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    addParentDatasetV1DatasetsDatasetIdParentsParentIdPut(requestParameters: DatasetsApiAddParentDatasetV1DatasetsDatasetIdParentsParentIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters: DatasetsApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 1000 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createAssociationsV1DatasetsDatasetIdAssociationsPost(requestParameters: DatasetsApiCreateAssociationsV1DatasetsDatasetIdAssociationsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create a new Dataset.
-     * @summary Create Dataset
-     * @param {DatasetsApiCreateDatasetV1DatasetsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    createDatasetV1DatasetsPost(requestParameters: DatasetsApiCreateDatasetV1DatasetsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Delete a Dataset.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Dataset
-     * @param {DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    deleteDatasetV1DatasetsDatasetIdDelete(requestParameters: DatasetsApiDeleteDatasetV1DatasetsDatasetIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Interaction Associations
-     * @param {DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    deleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDelete(requestParameters: DatasetsApiDeleteInteractionAssociationsV1DatasetsDatasetIdAssociationsDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get a Dataset.
      * @summary Get Dataset
@@ -14472,60 +11382,6 @@ export declare class DatasetsApi extends BaseAPI {
      * @memberof DatasetsApi
      */
     listUserDatasetsV1UsersUserIdDatasetsGet(requestParameters: DatasetsApiListUserDatasetsV1UsersUserIdDatasetsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<DatasetPaginationOut>>;
-    /**
-     * Modify Dataset resource with partial update.
-     * @summary Patch Dataset
-     * @param {DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    patchDatasetV1DatasetsDatasetIdPatch(requestParameters: DatasetsApiPatchDatasetV1DatasetsDatasetIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: DatasetsApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Remove Object Tag From Dataset
-     * @param {DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDelete(requestParameters: DatasetsApiRemoveObjectTagFromDatasetV1DatasetsDatasetIdObjectTagsTagObjectIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a parent dataset.
-     * @summary Remove Parent Dataset
-     * @param {DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    removeParentDatasetV1DatasetsDatasetIdParentsParentIdDelete(requestParameters: DatasetsApiRemoveParentDatasetV1DatasetsDatasetIdParentsParentIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Replace a Dataset.
-     * @summary Replace Dataset
-     * @param {DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    replaceDatasetV1DatasetsDatasetIdPut(requestParameters: DatasetsApiReplaceDatasetV1DatasetsDatasetIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<DatasetOut>>;
-    /**
-     * Tag the dataset with object with provided id.
-     * @summary Tag Study With Object
-     * @param {DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof DatasetsApi
-     */
-    tagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPut(requestParameters: DatasetsApiTagStudyWithObjectV1DatasetsDatasetIdObjectTagsTagObjectIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * EnterpriseApi - axios parameter creator
@@ -15038,45 +11894,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut: (dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut: (datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost: (datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1FeaturesPost: (featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1FeaturesFeatureIdDelete: (featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get feature.
      * @summary Get Feature
      * @param {string} featureId
@@ -15203,44 +12020,6 @@ export declare const FeaturesApiAxiosParamCreator: (configuration?: Configuratio
      * @throws {RequiredError}
      */
     listUserFeaturesV1UsersUserIdFeaturesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
-     * @summary Patch Feature
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1FeaturesFeatureIdPatch: (featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1FeaturesPatch: (bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete: (datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1FeaturesFeatureIdPut: (featureId: string, featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FeaturesApi - functional programming interface
@@ -15257,45 +12036,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<FeatureOut>>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1FeaturesPost(featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -15423,44 +12163,6 @@ export declare const FeaturesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeaturePaginationOut>>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
-     * @summary Patch Feature
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FeatureOut>>;
 };
 /**
  * FeaturesApi - factory interface
@@ -15477,45 +12179,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(dashboardId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {boolean} [index] If true, then set the feature as the dataset index.
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(datasetId: string, featureId: string, index?: boolean, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {string} datasetId
-     * @param {Array<FeatureIn>} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(datasetId: string, featureIn: Array<FeatureIn>, teamId?: string, options?: any): AxiosPromise<Array<FeatureOut>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createFeatureV1FeaturesPost(featureIn: FeatureIn, teamId?: string, options?: any): AxiosPromise<FeatureOut>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteFeatureV1FeaturesFeatureIdDelete(featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -15643,44 +12306,6 @@ export declare const FeaturesApiFactory: (configuration?: Configuration, basePat
      * @throws {RequiredError}
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: FeatureSortEnum, ordering?: Ordering, sortBy?: string, inFeatureGraph?: boolean, teamId?: string, options?: any): AxiosPromise<FeaturePaginationOut>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
-     * @summary Patch Feature
-     * @param {string} featureId
-     * @param {PatchFeatureOp | Array<PatchFeatureOp>} patchFeatureOpArrayPatchFeatureOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchFeatureV1FeaturesFeatureIdPatch(featureId: string, patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {Array<BulkPatchFeatureOp>} bulkPatchFeatureOp
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchMultipleFeaturesV1FeaturesPatch(bulkPatchFeatureOp: Array<BulkPatchFeatureOp>, options?: any): AxiosPromise<void>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {string} datasetId
-     * @param {string} featureId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(datasetId: string, featureId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {string} featureId
-     * @param {FeatureIn} featureIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceFeatureV1FeaturesFeatureIdPut(featureId: string, featureIn: FeatureIn, teamId?: string, options?: any): AxiosPromise<FeatureOut>;
 };
 /**
  * Request parameters for addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut operation in FeaturesApi.
@@ -15704,100 +12329,6 @@ export interface FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardId
      *
      * @type {string}
      * @memberof FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest
- */
-export interface FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     * If true, then set the feature as the dataset index.
-     * @type {boolean}
-     * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly index?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest
- */
-export interface FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {Array<FeatureIn>}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly featureIn: Array<FeatureIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createFeatureV1FeaturesPost operation in FeaturesApi.
- * @export
- * @interface FeaturesApiCreateFeatureV1FeaturesPostRequest
- */
-export interface FeaturesApiCreateFeatureV1FeaturesPostRequest {
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof FeaturesApiCreateFeatureV1FeaturesPost
-     */
-    readonly featureIn: FeatureIn;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiCreateFeatureV1FeaturesPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteFeatureV1FeaturesFeatureIdDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest
- */
-export interface FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiDeleteFeatureV1FeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiDeleteFeatureV1FeaturesFeatureIdDelete
      */
     readonly teamId?: string;
 }
@@ -16319,94 +12850,6 @@ export interface FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for patchFeatureV1FeaturesFeatureIdPatch operation in FeaturesApi.
- * @export
- * @interface FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest
- */
-export interface FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiPatchFeatureV1FeaturesFeatureIdPatch
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {PatchFeatureOp | Array<PatchFeatureOp>}
-     * @memberof FeaturesApiPatchFeatureV1FeaturesFeatureIdPatch
-     */
-    readonly patchFeatureOpArrayPatchFeatureOp: PatchFeatureOp | Array<PatchFeatureOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiPatchFeatureV1FeaturesFeatureIdPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for patchMultipleFeaturesV1FeaturesPatch operation in FeaturesApi.
- * @export
- * @interface FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest
- */
-export interface FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest {
-    /**
-     *
-     * @type {Array<BulkPatchFeatureOp>}
-     * @memberof FeaturesApiPatchMultipleFeaturesV1FeaturesPatch
-     */
-    readonly bulkPatchFeatureOp: Array<BulkPatchFeatureOp>;
-}
-/**
- * Request parameters for removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete operation in FeaturesApi.
- * @export
- * @interface FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest
- */
-export interface FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly datasetId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for replaceFeatureV1FeaturesFeatureIdPut operation in FeaturesApi.
- * @export
- * @interface FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest
- */
-export interface FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
-     */
-    readonly featureId: string;
-    /**
-     *
-     * @type {FeatureIn}
-     * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
-     */
-    readonly featureIn: FeatureIn;
-    /**
-     *
-     * @type {string}
-     * @memberof FeaturesApiReplaceFeatureV1FeaturesFeatureIdPut
-     */
-    readonly teamId?: string;
-}
-/**
  * FeaturesApi - object-oriented interface
  * @export
  * @class FeaturesApi
@@ -16422,42 +12865,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     addFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDashboardEndpointV1DashboardsDashboardIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add a feature to a dataset.  The feature can be marked as the dataset\'s index feature via the `index` query parameter if True or it can be removed as the index if False. A 400 error is returned if the index feature is already set and the user tries to set a different feature to the index.
-     * @summary Add Feature To Dataset
-     * @param {FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    addFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPut(requestParameters: FeaturesApiAddFeatureToDatasetV1DatasetsDatasetIdFeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Create and attach Features to Dataset in bulk.
-     * @summary Create And Attach Features
-     * @param {FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    createAndAttachFeaturesV1DatasetsDatasetIdFeaturesPost(requestParameters: FeaturesApiCreateAndAttachFeaturesV1DatasetsDatasetIdFeaturesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut[]>>;
-    /**
-     * Create a new Feature.
-     * @summary Create Feature
-     * @param {FeaturesApiCreateFeatureV1FeaturesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    createFeatureV1FeaturesPost(requestParameters: FeaturesApiCreateFeatureV1FeaturesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut>>;
-    /**
-     * Delete a feature.
-     * @summary Delete Feature
-     * @param {FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    deleteFeatureV1FeaturesFeatureIdDelete(requestParameters: FeaturesApiDeleteFeatureV1FeaturesFeatureIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get feature.
      * @summary Get Feature
@@ -16521,42 +12928,6 @@ export declare class FeaturesApi extends BaseAPI {
      * @memberof FeaturesApi
      */
     listUserFeaturesV1UsersUserIdFeaturesGet(requestParameters: FeaturesApiListUserFeaturesV1UsersUserIdFeaturesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeaturePaginationOut>>;
-    /**
-     * Modify Feature resource with partial update.  Updating `feature_statistics` will replace all current feature statistics.
-     * @summary Patch Feature
-     * @param {FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    patchFeatureV1FeaturesFeatureIdPatch(requestParameters: FeaturesApiPatchFeatureV1FeaturesFeatureIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Batch feature patching.
-     * @summary Patch Multiple Features
-     * @param {FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    patchMultipleFeaturesV1FeaturesPatch(requestParameters: FeaturesApiPatchMultipleFeaturesV1FeaturesPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Remove a feature from a dataset.  If the feature is also the index of the dataset, index information will also be deleted.
-     * @summary Remove Feature From Dataset
-     * @param {FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    removeFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDelete(requestParameters: FeaturesApiRemoveFeatureFromDatasetV1DatasetsDatasetIdFeaturesFeatureIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Replace a Feature.
-     * @summary Replace Feature
-     * @param {FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof FeaturesApi
-     */
-    replaceFeatureV1FeaturesFeatureIdPut(requestParameters: FeaturesApiReplaceFeatureV1FeaturesFeatureIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FeatureOut>>;
 }
 /**
  * FeedbackApi - axios parameter creator
@@ -17438,56 +13809,6 @@ export declare class ModeldbApi extends BaseAPI {
  */
 export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost: (modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete: (modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete: (modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} modelId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1ModelsModelIdDelete: (modelId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get an Association.
      * @summary Get Association
      * @param {string} associationId
@@ -17625,103 +13946,12 @@ export declare const ModelsApiAxiosParamCreator: (configuration?: Configuration)
      * @throws {RequiredError}
      */
     listUserModelsV1UsersUserIdModelsGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch: (modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1ModelsModelIdPatch: (modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost: (associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1ModelsModelIdPut: (modelId: string, modelIn: ModelIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ModelsApi - functional programming interface
  * @export
  */
 export declare const ModelsApiFp: (configuration?: Configuration) => {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AssociationOut>>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} modelId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1ModelsModelIdDelete(modelId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -17860,103 +14090,12 @@ export declare const ModelsApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelPaginationOut>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AssociationOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ModelOut>>;
 };
 /**
  * ModelsApi - factory interface
  * @export
  */
 export declare const ModelsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {string} modelId
-     * @param {AssociationIn | Array<AssociationIn>} associationInArrayAssociationIn
-     * @param {boolean} [mergeFeatures]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(modelId: string, associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>, mergeFeatures?: boolean, teamId?: string, options?: any): AxiosPromise<Array<AssociationOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: any): AxiosPromise<Array<ModelOut>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {string} modelId
-     * @param {string} associationId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(modelId: string, associationId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {string} modelId
-     * @param {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete} bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(modelId: string, bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {string} modelId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteModelV1ModelsModelIdDelete(modelId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -18095,173 +14234,7 @@ export declare const ModelsApiFactory: (configuration?: Configuration, basePath?
      * @throws {RequiredError}
      */
     listUserModelsV1UsersUserIdModelsGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ModelSortEnum, ordering?: Ordering, sortBy?: string, containsVariableId?: string, teamId?: string, options?: any): AxiosPromise<ModelPaginationOut>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {string} modelId
-     * @param {Array<BulkPatchAssociationOp>} bulkPatchAssociationOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(modelId: string, bulkPatchAssociationOp: Array<BulkPatchAssociationOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {string} modelId
-     * @param {PatchModelOp | Array<PatchModelOp>} patchModelOpArrayPatchModelOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchModelV1ModelsModelIdPatch(modelId: string, patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {string} associationId
-     * @param {string} modelId
-     * @param {DirectionIn} directionIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(associationId: string, modelId: string, directionIn: DirectionIn, teamId?: string, options?: any): AxiosPromise<AssociationOut>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {string} modelId
-     * @param {ModelIn} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    replaceModelV1ModelsModelIdPut(modelId: string, modelIn: ModelIn, teamId?: string, options?: any): AxiosPromise<ModelOut>;
 };
-/**
- * Request parameters for createAssociationsV1ModelsModelIdAssociationsPost operation in ModelsApi.
- * @export
- * @interface ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest
- */
-export interface ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {AssociationIn | Array<AssociationIn>}
-     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly associationInArrayAssociationIn: AssociationIn | Array<AssociationIn>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly mergeFeatures?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in ModelsApi.
- * @export
- * @interface ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest
- */
-export interface ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {Array<ModelIn>}
-     * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly modelIn: Array<ModelIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest
- */
-export interface ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteAssociationsV1ModelsModelIdAssociationsDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest
- */
-export interface ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete}
-     * @memberof ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly bodyDeleteAssociationsV1ModelsModelIdAssociationsDelete: BodyDeleteAssociationsV1ModelsModelIdAssociationsDelete;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteModelV1ModelsModelIdDelete operation in ModelsApi.
- * @export
- * @interface ModelsApiDeleteModelV1ModelsModelIdDeleteRequest
- */
-export interface ModelsApiDeleteModelV1ModelsModelIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteModelV1ModelsModelIdDelete
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiDeleteModelV1ModelsModelIdDelete
-     */
-    readonly teamId?: string;
-}
 /**
  * Request parameters for getAssociationV1ModelsModelIdAssociationsAssociationIdGet operation in ModelsApi.
  * @export
@@ -18811,163 +14784,12 @@ export interface ModelsApiListUserModelsV1UsersUserIdModelsGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for patchAssociationsV1ModelsModelIdAssociationsPatch operation in ModelsApi.
- * @export
- * @interface ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest
- */
-export interface ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {Array<BulkPatchAssociationOp>}
-     * @memberof ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly bulkPatchAssociationOp: Array<BulkPatchAssociationOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for patchModelV1ModelsModelIdPatch operation in ModelsApi.
- * @export
- * @interface ModelsApiPatchModelV1ModelsModelIdPatchRequest
- */
-export interface ModelsApiPatchModelV1ModelsModelIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {PatchModelOp | Array<PatchModelOp>}
-     * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
-     */
-    readonly patchModelOpArrayPatchModelOp: PatchModelOp | Array<PatchModelOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPatchModelV1ModelsModelIdPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost operation in ModelsApi.
- * @export
- * @interface ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest
- */
-export interface ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly associationId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {DirectionIn}
-     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly directionIn: DirectionIn;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for replaceModelV1ModelsModelIdPut operation in ModelsApi.
- * @export
- * @interface ModelsApiReplaceModelV1ModelsModelIdPutRequest
- */
-export interface ModelsApiReplaceModelV1ModelsModelIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiReplaceModelV1ModelsModelIdPut
-     */
-    readonly modelId: string;
-    /**
-     *
-     * @type {ModelIn}
-     * @memberof ModelsApiReplaceModelV1ModelsModelIdPut
-     */
-    readonly modelIn: ModelIn;
-    /**
-     *
-     * @type {string}
-     * @memberof ModelsApiReplaceModelV1ModelsModelIdPut
-     */
-    readonly teamId?: string;
-}
-/**
  * ModelsApi - object-oriented interface
  * @export
  * @class ModelsApi
  * @extends {BaseAPI}
  */
 export declare class ModelsApi extends BaseAPI {
-    /**
-     * Create and add Associations to a Model.  Constraints:      1. A max of 25 can be created in one request.     2. The Feature ids must be unique per Association.     3. The Features must be members of the Model\'s training dataset.
-     * @summary Create Associations
-     * @param {ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    createAssociationsV1ModelsModelIdAssociationsPost(requestParameters: ModelsApiCreateAssociationsV1ModelsModelIdAssociationsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut[]>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    createModelsV1StudiesStudyIdModelsPost(requestParameters: ModelsApiCreateModelsV1StudiesStudyIdModelsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelOut[]>>;
-    /**
-     * Delete an Association.
-     * @summary Delete Association
-     * @param {ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteAssociationV1ModelsModelIdAssociationsAssociationIdDelete(requestParameters: ModelsApiDeleteAssociationV1ModelsModelIdAssociationsAssociationIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete multiple Associations in a Model.
-     * @summary Delete Associations
-     * @param {ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteAssociationsV1ModelsModelIdAssociationsDelete(requestParameters: ModelsApiDeleteAssociationsV1ModelsModelIdAssociationsDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Delete Model and related resources from SystemDB.  Related resources also removed:  - All model associations.  - Training dataset if not referenced by other objects (e.x. as a parent).  - If deleting the training dataset, its features will also be    removed unless used in other datasets.
-     * @summary Delete Model
-     * @param {ModelsApiDeleteModelV1ModelsModelIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    deleteModelV1ModelsModelIdDelete(requestParameters: ModelsApiDeleteModelV1ModelsModelIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get an Association.
      * @summary Get Association
@@ -19040,42 +14862,6 @@ export declare class ModelsApi extends BaseAPI {
      * @memberof ModelsApi
      */
     listUserModelsV1UsersUserIdModelsGet(requestParameters: ModelsApiListUserModelsV1UsersUserIdModelsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelPaginationOut>>;
-    /**
-     * Bulk association patching.
-     * @summary Patch Associations
-     * @param {ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    patchAssociationsV1ModelsModelIdAssociationsPatch(requestParameters: ModelsApiPatchAssociationsV1ModelsModelIdAssociationsPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Modify Model resource with partial update.
-     * @summary Patch Model
-     * @param {ModelsApiPatchModelV1ModelsModelIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    patchModelV1ModelsModelIdPatch(requestParameters: ModelsApiPatchModelV1ModelsModelIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Get an Association.
-     * @summary Post Association Direction
-     * @param {ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    postAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPost(requestParameters: ModelsApiPostAssociationDirectionV1ModelsModelIdAssociationsAssociationIdDirectedAtPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AssociationOut>>;
-    /**
-     * Replace a Model.
-     * @summary Replace Model
-     * @param {ModelsApiReplaceModelV1ModelsModelIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ModelsApi
-     */
-    replaceModelV1ModelsModelIdPut(requestParameters: ModelsApiReplaceModelV1ModelsModelIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelOut>>;
 }
 /**
  * PassthroughApi - axios parameter creator
@@ -20340,55 +16126,6 @@ export declare class StripeApi extends BaseAPI {
  */
 export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: (studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {StudyIn | DoiIn} studyInDoiIn
-     * @param {boolean} [updateExisting]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1StudiesPost: (studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost: (studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1StudiesStudyIdDelete: (studyId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get Study.
      * @summary Get Study
      * @param {string} studyId
@@ -20520,110 +16257,12 @@ export declare const StudiesApiAxiosParamCreator: (configuration?: Configuration
      * @throws {RequiredError}
      */
     listUserStudiesV1UsersUserIdStudiesGet: (userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1StudiesStudyIdPatch: (studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1StudiesStudyIdPublishPost: (studyId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete: (studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete: (studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut: (studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StudiesApi - functional programming interface
  * @export
  */
 export declare const StudiesApiFp: (configuration?: Configuration) => {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {StudyIn | DoiIn} studyInDoiIn
-     * @param {boolean} [updateExisting]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ModelOut>>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1StudiesStudyIdDelete(studyId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -20756,110 +16395,12 @@ export declare const StudiesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyPaginationOut>>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1StudiesStudyIdPublishPost(studyId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * StudiesApi - factory interface
  * @export
  */
 export declare const StudiesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {string} studyId
-     * @param {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost} bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(studyId: string, bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {StudyIn | DoiIn} studyInDoiIn
-     * @param {boolean} [updateExisting]
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAStudyV1StudiesPost(studyInDoiIn: StudyIn | DoiIn, updateExisting?: boolean, teamId?: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {string} studyId
-     * @param {Array<ModelIn>} modelIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createModelsV1StudiesStudyIdModelsPost(studyId: string, modelIn: Array<ModelIn>, teamId?: string, options?: any): AxiosPromise<Array<ModelOut>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteStudyV1StudiesStudyIdDelete(studyId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get Study.
      * @summary Get Study
@@ -20992,175 +16533,7 @@ export declare const StudiesApiFactory: (configuration?: Configuration, basePath
      * @throws {RequiredError}
      */
     listUserStudiesV1UsersUserIdStudiesGet(userId: string, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: StudySortEnum, ordering?: Ordering, sortBy?: string, variableTag?: string, conceptTag?: string, teamId?: string, options?: any): AxiosPromise<StudyPaginationOut>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {string} studyId
-     * @param {PatchStudyOp | Array<PatchStudyOp>} patchStudyOpArrayPatchStudyOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchStudyEndpointV1StudiesStudyIdPatch(studyId: string, patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {string} studyId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    publishStudyV1StudiesStudyIdPublishPost(studyId: string, teamId?: string, options?: any): AxiosPromise<StudyOut>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {string} studyId
-     * @param {string} authorId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(studyId: string, authorId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(studyId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {string} studyId
-     * @param {string} tagObjectId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(studyId: string, tagObjectId: string, teamId?: string, options?: any): AxiosPromise<void>;
 };
-/**
- * Request parameters for addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut operation in StudiesApi.
- * @export
- * @interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest
- */
-export interface StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly authorId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost operation in StudiesApi.
- * @export
- * @interface StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest
- */
-export interface StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost}
-     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly bodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost: BodyBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createAStudyV1StudiesPost operation in StudiesApi.
- * @export
- * @interface StudiesApiCreateAStudyV1StudiesPostRequest
- */
-export interface StudiesApiCreateAStudyV1StudiesPostRequest {
-    /**
-     *
-     * @type {StudyIn | DoiIn}
-     * @memberof StudiesApiCreateAStudyV1StudiesPost
-     */
-    readonly studyInDoiIn: StudyIn | DoiIn;
-    /**
-     *
-     * @type {boolean}
-     * @memberof StudiesApiCreateAStudyV1StudiesPost
-     */
-    readonly updateExisting?: boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateAStudyV1StudiesPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createModelsV1StudiesStudyIdModelsPost operation in StudiesApi.
- * @export
- * @interface StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest
- */
-export interface StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {Array<ModelIn>}
-     * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly modelIn: Array<ModelIn>;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiCreateModelsV1StudiesStudyIdModelsPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteStudyV1StudiesStudyIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest
- */
-export interface StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiDeleteStudyV1StudiesStudyIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiDeleteStudyV1StudiesStudyIdDelete
-     */
-    readonly teamId?: string;
-}
 /**
  * Request parameters for getStudyV1StudiesStudyIdGet operation in StudiesApi.
  * @export
@@ -21709,176 +17082,12 @@ export interface StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for patchStudyEndpointV1StudiesStudyIdPatch operation in StudiesApi.
- * @export
- * @interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest
- */
-export interface StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {PatchStudyOp | Array<PatchStudyOp>}
-     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
-     */
-    readonly patchStudyOpArrayPatchStudyOp: PatchStudyOp | Array<PatchStudyOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPatchStudyEndpointV1StudiesStudyIdPatch
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for publishStudyV1StudiesStudyIdPublishPost operation in StudiesApi.
- * @export
- * @interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest
- */
-export interface StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiPublishStudyV1StudiesStudyIdPublishPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest
- */
-export interface StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly authorId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete operation in StudiesApi.
- * @export
- * @interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest
- */
-export interface StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly tagObjectId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut operation in StudiesApi.
- * @export
- * @interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest
- */
-export interface StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly studyId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly tagObjectId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut
-     */
-    readonly teamId?: string;
-}
-/**
  * StudiesApi - object-oriented interface
  * @export
  * @class StudiesApi
  * @extends {BaseAPI}
  */
 export declare class StudiesApi extends BaseAPI {
-    /**
-     * Add an author to a study.
-     * @summary Add Author To Study
-     * @param {StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    addAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPut(requestParameters: StudiesApiAddAuthorToStudyV1StudiesStudyIdAuthorsAuthorIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Add an author to a study.
-     * @summary Bulk Add Authors To Study
-     * @param {StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    bulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPost(requestParameters: StudiesApiBulkAddAuthorsToStudyV1StudiesStudyIdAuthorsBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Create a Study.
-     * @summary Create A Study.
-     * @param {StudiesApiCreateAStudyV1StudiesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    createAStudyV1StudiesPost(requestParameters: StudiesApiCreateAStudyV1StudiesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
-     * Create models and add to study.
-     * @summary Create Models
-     * @param {StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    createModelsV1StudiesStudyIdModelsPost(requestParameters: StudiesApiCreateModelsV1StudiesStudyIdModelsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ModelOut[]>>;
-    /**
-     * Delete a Study.  Deletion will fail if this Dataset is attached to any existing experiments or parent datasets.
-     * @summary Delete Study
-     * @param {StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    deleteStudyV1StudiesStudyIdDelete(requestParameters: StudiesApiDeleteStudyV1StudiesStudyIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Study.
      * @summary Get Study
@@ -21942,51 +17151,6 @@ export declare class StudiesApi extends BaseAPI {
      * @memberof StudiesApi
      */
     listUserStudiesV1UsersUserIdStudiesGet(requestParameters: StudiesApiListUserStudiesV1UsersUserIdStudiesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyPaginationOut>>;
-    /**
-     * Modify Study resource with partial update.
-     * @summary Patch Study Endpoint
-     * @param {StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    patchStudyEndpointV1StudiesStudyIdPatch(requestParameters: StudiesApiPatchStudyEndpointV1StudiesStudyIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Publish the study making it visible to other users.
-     * @summary Publish Study
-     * @param {StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    publishStudyV1StudiesStudyIdPublishPost(requestParameters: StudiesApiPublishStudyV1StudiesStudyIdPublishPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyOut>>;
-    /**
-     * Remove an author from a study.
-     * @summary Remove Author From Study
-     * @param {StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    removeAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDelete(requestParameters: StudiesApiRemoveAuthorFromStudyV1StudiesStudyIdAuthorsAuthorIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Remove Object Tag From Study
-     * @param {StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    removeObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDelete(requestParameters: StudiesApiRemoveObjectTagFromStudyV1StudiesStudyIdObjectTagsTagObjectIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
-    /**
-     * Tag the study with object with provided id.
-     * @summary Tag Study With Object
-     * @param {StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof StudiesApi
-     */
-    tagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPut(requestParameters: StudiesApiTagStudyWithObjectV1StudiesStudyIdObjectTagsTagObjectIdPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
 }
 /**
  * StudyMetadataApi - axios parameter creator
@@ -24807,33 +19971,6 @@ export declare class UsersApi extends BaseAPI {
  */
 export declare const VariablesApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Create a Variable.
-     * @summary Create A Variable.
-     * @param {VariableIn} variableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAVariableV1VariablesPost: (variableIn: VariableIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Create mulitple Variables.
-     * @summary Create Multiple Variables.
-     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleVariablesV1VariablesBulkPost: (arrayVariableInVariableIn: Array<VariableIn> | VariableIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
-     * @summary Delete Variable
-     * @param {string} variableId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteVariableV1VariablesVariableIdDelete: (variableId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
      * Get Variable.
      * @summary Get Variable
      * @param {string} variableId
@@ -24943,59 +20080,12 @@ export declare const VariablesApiAxiosParamCreator: (configuration?: Configurati
      * @throws {RequiredError}
      */
     listVariablesV1VariablesGet: (query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Merge a variable with other ids.
-     * @summary Merge Variable Post
-     * @param {string} variableId
-     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    mergeVariablePostV1VariablesVariableIdMergePost: (variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
-    /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Variable
-     * @param {string} variableId
-     * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchVariableV1VariablesVariableIdPatch: (variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * VariablesApi - functional programming interface
  * @export
  */
 export declare const VariablesApiFp: (configuration?: Configuration) => {
-    /**
-     * Create a Variable.
-     * @summary Create A Variable.
-     * @param {VariableIn} variableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAVariableV1VariablesPost(variableIn: VariableIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariableOut>>;
-    /**
-     * Create mulitple Variables.
-     * @summary Create Multiple Variables.
-     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn: Array<VariableIn> | VariableIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VariableOut>>>;
-    /**
-     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
-     * @summary Delete Variable
-     * @param {string} variableId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteVariableV1VariablesVariableIdDelete(variableId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -25106,59 +20196,12 @@ export declare const VariablesApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VariablePaginationOut>>;
-    /**
-     * Merge a variable with other ids.
-     * @summary Merge Variable Post
-     * @param {string} variableId
-     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    mergeVariablePostV1VariablesVariableIdMergePost(variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
-    /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Variable
-     * @param {string} variableId
-     * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>>;
 };
 /**
  * VariablesApi - factory interface
  * @export
  */
 export declare const VariablesApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
-    /**
-     * Create a Variable.
-     * @summary Create A Variable.
-     * @param {VariableIn} variableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createAVariableV1VariablesPost(variableIn: VariableIn, teamId?: string, options?: any): AxiosPromise<VariableOut>;
-    /**
-     * Create mulitple Variables.
-     * @summary Create Multiple Variables.
-     * @param {Array<VariableIn> | VariableIn} arrayVariableInVariableIn
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    createMultipleVariablesV1VariablesBulkPost(arrayVariableInVariableIn: Array<VariableIn> | VariableIn, teamId?: string, options?: any): AxiosPromise<Array<VariableOut>>;
-    /**
-     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
-     * @summary Delete Variable
-     * @param {string} variableId
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    deleteVariableV1VariablesVariableIdDelete(variableId: string, teamId?: string, options?: any): AxiosPromise<void>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -25269,84 +20312,7 @@ export declare const VariablesApiFactory: (configuration?: Configuration, basePa
      * @throws {RequiredError}
      */
     listVariablesV1VariablesGet(query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: VariableSortEnum, ordering?: Ordering, sortBy?: string, inVariableGraph?: boolean, tags?: Array<string>, teamId?: string, options?: any): AxiosPromise<VariablePaginationOut>;
-    /**
-     * Merge a variable with other ids.
-     * @summary Merge Variable Post
-     * @param {string} variableId
-     * @param {BodyMergeVariablePostV1VariablesVariableIdMergePost} bodyMergeVariablePostV1VariablesVariableIdMergePost
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    mergeVariablePostV1VariablesVariableIdMergePost(variableId: string, bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost, teamId?: string, options?: any): AxiosPromise<any>;
-    /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Variable
-     * @param {string} variableId
-     * @param {PatchVariableOp | Array<PatchVariableOp>} patchVariableOpArrayPatchVariableOp
-     * @param {string} [teamId]
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     */
-    patchVariableV1VariablesVariableIdPatch(variableId: string, patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>, teamId?: string, options?: any): AxiosPromise<void>;
 };
-/**
- * Request parameters for createAVariableV1VariablesPost operation in VariablesApi.
- * @export
- * @interface VariablesApiCreateAVariableV1VariablesPostRequest
- */
-export interface VariablesApiCreateAVariableV1VariablesPostRequest {
-    /**
-     *
-     * @type {VariableIn}
-     * @memberof VariablesApiCreateAVariableV1VariablesPost
-     */
-    readonly variableIn: VariableIn;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiCreateAVariableV1VariablesPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for createMultipleVariablesV1VariablesBulkPost operation in VariablesApi.
- * @export
- * @interface VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest
- */
-export interface VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest {
-    /**
-     *
-     * @type {Array<VariableIn> | VariableIn}
-     * @memberof VariablesApiCreateMultipleVariablesV1VariablesBulkPost
-     */
-    readonly arrayVariableInVariableIn: Array<VariableIn> | VariableIn;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiCreateMultipleVariablesV1VariablesBulkPost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for deleteVariableV1VariablesVariableIdDelete operation in VariablesApi.
- * @export
- * @interface VariablesApiDeleteVariableV1VariablesVariableIdDeleteRequest
- */
-export interface VariablesApiDeleteVariableV1VariablesVariableIdDeleteRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiDeleteVariableV1VariablesVariableIdDelete
-     */
-    readonly variableId: string;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiDeleteVariableV1VariablesVariableIdDelete
-     */
-    readonly teamId?: string;
-}
 /**
  * Request parameters for getVariableV1VariablesVariableIdGet operation in VariablesApi.
  * @export
@@ -25798,89 +20764,12 @@ export interface VariablesApiListVariablesV1VariablesGetRequest {
     readonly teamId?: string;
 }
 /**
- * Request parameters for mergeVariablePostV1VariablesVariableIdMergePost operation in VariablesApi.
- * @export
- * @interface VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest
- */
-export interface VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
-     */
-    readonly variableId: string;
-    /**
-     *
-     * @type {BodyMergeVariablePostV1VariablesVariableIdMergePost}
-     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
-     */
-    readonly bodyMergeVariablePostV1VariablesVariableIdMergePost: BodyMergeVariablePostV1VariablesVariableIdMergePost;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiMergeVariablePostV1VariablesVariableIdMergePost
-     */
-    readonly teamId?: string;
-}
-/**
- * Request parameters for patchVariableV1VariablesVariableIdPatch operation in VariablesApi.
- * @export
- * @interface VariablesApiPatchVariableV1VariablesVariableIdPatchRequest
- */
-export interface VariablesApiPatchVariableV1VariablesVariableIdPatchRequest {
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiPatchVariableV1VariablesVariableIdPatch
-     */
-    readonly variableId: string;
-    /**
-     *
-     * @type {PatchVariableOp | Array<PatchVariableOp>}
-     * @memberof VariablesApiPatchVariableV1VariablesVariableIdPatch
-     */
-    readonly patchVariableOpArrayPatchVariableOp: PatchVariableOp | Array<PatchVariableOp>;
-    /**
-     *
-     * @type {string}
-     * @memberof VariablesApiPatchVariableV1VariablesVariableIdPatch
-     */
-    readonly teamId?: string;
-}
-/**
  * VariablesApi - object-oriented interface
  * @export
  * @class VariablesApi
  * @extends {BaseAPI}
  */
 export declare class VariablesApi extends BaseAPI {
-    /**
-     * Create a Variable.
-     * @summary Create A Variable.
-     * @param {VariablesApiCreateAVariableV1VariablesPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VariablesApi
-     */
-    createAVariableV1VariablesPost(requestParameters: VariablesApiCreateAVariableV1VariablesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VariableOut>>;
-    /**
-     * Create mulitple Variables.
-     * @summary Create Multiple Variables.
-     * @param {VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VariablesApi
-     */
-    createMultipleVariablesV1VariablesBulkPost(requestParameters: VariablesApiCreateMultipleVariablesV1VariablesBulkPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VariableOut[]>>;
-    /**
-     * Delete a Variable.  Deletion will fail if this Variable is attached to any existing Feature.
-     * @summary Delete Variable
-     * @param {VariablesApiDeleteVariableV1VariablesVariableIdDeleteRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VariablesApi
-     */
-    deleteVariableV1VariablesVariableIdDelete(requestParameters: VariablesApiDeleteVariableV1VariablesVariableIdDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
     /**
      * Get Variable.
      * @summary Get Variable
@@ -25935,22 +20824,4 @@ export declare class VariablesApi extends BaseAPI {
      * @memberof VariablesApi
      */
     listVariablesV1VariablesGet(requestParameters?: VariablesApiListVariablesV1VariablesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<VariablePaginationOut>>;
-    /**
-     * Merge a variable with other ids.
-     * @summary Merge Variable Post
-     * @param {VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VariablesApi
-     */
-    mergeVariablePostV1VariablesVariableIdMergePost(requestParameters: VariablesApiMergeVariablePostV1VariablesVariableIdMergePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
-    /**
-     * Modify Variable resource with partial update.
-     * @summary Patch Variable
-     * @param {VariablesApiPatchVariableV1VariablesVariableIdPatchRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof VariablesApi
-     */
-    patchVariableV1VariablesVariableIdPatch(requestParameters: VariablesApiPatchVariableV1VariablesVariableIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<void>>;
 }
