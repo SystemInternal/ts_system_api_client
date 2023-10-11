@@ -870,10 +870,10 @@ export interface ClusterOutStatus {
 export interface ClusteredRelationship {
     /**
      *
-     * @type {Array<FlexibleSimpleBaseObject>}
+     * @type {Array<ExtendedFlexibleSimpleBaseObject>}
      * @memberof ClusteredRelationship
      */
-    'variables': Array<FlexibleSimpleBaseObject>;
+    'variables': Array<ExtendedFlexibleSimpleBaseObject>;
     /**
      *
      * @type {Array<string>}
@@ -2182,6 +2182,43 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
+ * Extended object schema.
+ * @export
+ * @interface ExtendedFlexibleSimpleBaseObject
+ */
+export interface ExtendedFlexibleSimpleBaseObject {
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedFlexibleSimpleBaseObject
+     */
+    'system_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedFlexibleSimpleBaseObject
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedFlexibleSimpleBaseObject
+     */
+    'topic_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedFlexibleSimpleBaseObject
+     */
+    'topic_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ExtendedFlexibleSimpleBaseObject
+     */
+    'topic_wikidata_id'?: string;
+}
+/**
  * External asset model.
  * @export
  * @interface ExternalAsset
@@ -2750,25 +2787,6 @@ export interface FirstLastPaginationLinks {
      * @memberof FirstLastPaginationLinks
      */
     'last'?: string;
-}
-/**
- * Optional id base object.
- * @export
- * @interface FlexibleSimpleBaseObject
- */
-export interface FlexibleSimpleBaseObject {
-    /**
-     *
-     * @type {string}
-     * @memberof FlexibleSimpleBaseObject
-     */
-    'system_id'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof FlexibleSimpleBaseObject
-     */
-    'name': string;
 }
 /**
  * A frequency object.
