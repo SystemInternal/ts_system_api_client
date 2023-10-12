@@ -7401,6 +7401,111 @@ export enum VariableTypeEnum {
 
 
 /**
+ * AccessApi - axios parameter creator
+ * @export
+ */
+export const AccessApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Register user\'s interest in access to Maps Beta.
+         * @summary Request Maps Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestMapsAccessV1AccessMapsPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/access/maps`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccessApi - functional programming interface
+ * @export
+ */
+export const AccessApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccessApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Register user\'s interest in access to Maps Beta.
+         * @summary Request Maps Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestMapsAccessV1AccessMapsPost(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AccessApi - factory interface
+ * @export
+ */
+export const AccessApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccessApiFp(configuration)
+    return {
+        /**
+         * Register user\'s interest in access to Maps Beta.
+         * @summary Request Maps Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestMapsAccessV1AccessMapsPost(options?: any): AxiosPromise<any> {
+            return localVarFp.requestMapsAccessV1AccessMapsPost(options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * AccessApi - object-oriented interface
+ * @export
+ * @class AccessApi
+ * @extends {BaseAPI}
+ */
+export class AccessApi extends BaseAPI {
+    /**
+     * Register user\'s interest in access to Maps Beta.
+     * @summary Request Maps Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessApi
+     */
+    public requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig) {
+        return AccessApiFp(this.configuration).requestMapsAccessV1AccessMapsPost(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * AssociationsApi - axios parameter creator
  * @export
  */
