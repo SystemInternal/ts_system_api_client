@@ -7313,6 +7313,61 @@ export declare enum VariableTypeEnum {
     NumericalContinuous = "numerical_continuous"
 }
 /**
+ * AccessApi - axios parameter creator
+ * @export
+ */
+export declare const AccessApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Register user\'s interest in access to Maps Beta.
+     * @summary Request Maps Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestMapsAccessV1AccessMapsPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * AccessApi - functional programming interface
+ * @export
+ */
+export declare const AccessApiFp: (configuration?: Configuration) => {
+    /**
+     * Register user\'s interest in access to Maps Beta.
+     * @summary Request Maps Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+};
+/**
+ * AccessApi - factory interface
+ * @export
+ */
+export declare const AccessApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Register user\'s interest in access to Maps Beta.
+     * @summary Request Maps Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestMapsAccessV1AccessMapsPost(options?: any): AxiosPromise<any>;
+};
+/**
+ * AccessApi - object-oriented interface
+ * @export
+ * @class AccessApi
+ * @extends {BaseAPI}
+ */
+export declare class AccessApi extends BaseAPI {
+    /**
+     * Register user\'s interest in access to Maps Beta.
+     * @summary Request Maps Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessApi
+     */
+    requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
  * AssociationsApi - axios parameter creator
  * @export
  */
