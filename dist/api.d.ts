@@ -863,6 +863,37 @@ export interface ClusterOutStatus {
     'cluster_out'?: ClusterOut;
 }
 /**
+ * Clustered evidence metadata.  # noqa: E501
+ * @export
+ * @interface ClusteredEvidenceMetadata
+ */
+export interface ClusteredEvidenceMetadata {
+    /**
+     *
+     * @type {number}
+     * @memberof ClusteredEvidenceMetadata
+     */
+    'citation_count_min'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof ClusteredEvidenceMetadata
+     */
+    'citation_count_max'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof ClusteredEvidenceMetadata
+     */
+    'publish_date_earliest'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof ClusteredEvidenceMetadata
+     */
+    'publish_date_latest'?: string;
+}
+/**
  * Schema for clustered relationship response.
  * @export
  * @interface ClusteredRelationship
@@ -4749,6 +4780,12 @@ export interface ScoredCluster {
      * @memberof ScoredCluster
      */
     'stat_descriptor'?: string;
+    /**
+     * Cluster-level metadata
+     * @type {ClusteredEvidenceMetadata}
+     * @memberof ScoredCluster
+     */
+    'cluster_metadata'?: ClusteredEvidenceMetadata;
     /**
      *
      * @type {number}
