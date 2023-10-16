@@ -7355,6 +7355,13 @@ export declare enum VariableTypeEnum {
  */
 export declare const AccessApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Register user\'s interest in access to Data Beta.
+     * @summary Request Data Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDataAccessV1AccessDataPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
      * @param {*} [options] Override http request option.
@@ -7368,6 +7375,13 @@ export declare const AccessApiAxiosParamCreator: (configuration?: Configuration)
  */
 export declare const AccessApiFp: (configuration?: Configuration) => {
     /**
+     * Register user\'s interest in access to Data Beta.
+     * @summary Request Data Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
      * @param {*} [options] Override http request option.
@@ -7380,6 +7394,13 @@ export declare const AccessApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const AccessApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Register user\'s interest in access to Data Beta.
+     * @summary Request Data Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDataAccessV1AccessDataPost(options?: any): AxiosPromise<any>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
@@ -7395,6 +7416,14 @@ export declare const AccessApiFactory: (configuration?: Configuration, basePath?
  * @extends {BaseAPI}
  */
 export declare class AccessApi extends BaseAPI {
+    /**
+     * Register user\'s interest in access to Data Beta.
+     * @summary Request Data Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessApi
+     */
+    requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access

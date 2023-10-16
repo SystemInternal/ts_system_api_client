@@ -900,6 +900,36 @@ var VariableTypeEnum;
 exports.AccessApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Register user\'s interest in access to Data Beta.
+         * @summary Request Data Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDataAccessV1AccessDataPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/access/data`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Register user\'s interest in access to Maps Beta.
          * @summary Request Maps Access
          * @param {*} [options] Override http request option.
@@ -939,6 +969,18 @@ exports.AccessApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.AccessApiAxiosParamCreator(configuration);
     return {
         /**
+         * Register user\'s interest in access to Data Beta.
+         * @summary Request Data Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDataAccessV1AccessDataPost(options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.requestDataAccessV1AccessDataPost(options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Register user\'s interest in access to Maps Beta.
          * @summary Request Maps Access
          * @param {*} [options] Override http request option.
@@ -960,6 +1002,15 @@ exports.AccessApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.AccessApiFp(configuration);
     return {
         /**
+         * Register user\'s interest in access to Data Beta.
+         * @summary Request Data Access
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDataAccessV1AccessDataPost(options) {
+            return localVarFp.requestDataAccessV1AccessDataPost(options).then((request) => request(axios, basePath));
+        },
+        /**
          * Register user\'s interest in access to Maps Beta.
          * @summary Request Maps Access
          * @param {*} [options] Override http request option.
@@ -977,6 +1028,16 @@ exports.AccessApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class AccessApi extends base_1.BaseAPI {
+    /**
+     * Register user\'s interest in access to Data Beta.
+     * @summary Request Data Access
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessApi
+     */
+    requestDataAccessV1AccessDataPost(options) {
+        return exports.AccessApiFp(this.configuration).requestDataAccessV1AccessDataPost(options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
