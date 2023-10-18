@@ -3023,11 +3023,12 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {string} query Query for the search.
      * @param {number} [alpha] Alpha for the search.
      * @param {number} [autocut] Autocut for the search.
+     * @param {number} [customCutoffScore] Custom cutoff score.
      * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet: (query: string, alpha?: number, autocut?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    semanticSearchConceptsV1ConceptsSemanticGet: (query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -3077,11 +3078,12 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {string} query Query for the search.
      * @param {number} [alpha] Alpha for the search.
      * @param {number} [autocut] Autocut for the search.
+     * @param {number} [customCutoffScore] Custom cutoff score.
      * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>>;
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -3131,11 +3133,12 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
      * @param {string} query Query for the search.
      * @param {number} [alpha] Alpha for the search.
      * @param {number} [autocut] Autocut for the search.
+     * @param {number} [customCutoffScore] Custom cutoff score.
      * @param {number} [limit] Limit for the search.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
+    semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>>;
 };
 /**
  * Request parameters for getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet operation in ConceptsApi.
@@ -3278,6 +3281,12 @@ export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
      * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
      */
     readonly autocut?: number;
+    /**
+     * Custom cutoff score.
+     * @type {number}
+     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
+     */
+    readonly customCutoffScore?: number;
     /**
      * Limit for the search.
      * @type {number}
