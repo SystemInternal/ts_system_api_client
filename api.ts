@@ -1760,6 +1760,25 @@ export interface ResourceFlag {
     'added_by': string;
 }
 /**
+ * A System Resource Flag Input Object.
+ * @export
+ * @interface ResourceFlagIn
+ */
+export interface ResourceFlagIn {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlagIn
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlagIn
+     */
+    'meta'?: object;
+}
+/**
  * Table retrieval status.
  * @export
  * @enum {string}
@@ -3103,6 +3122,339 @@ export class AccessApi extends BaseAPI {
      */
     public requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig) {
         return AccessApiFp(this.configuration).requestMapsAccessV1AccessMapsPost(options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * AssociationsApi - axios parameter creator
+ * @export
+ */
+export const AssociationsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'associationId' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'associationId', associationId)
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'resourceFlagIn', resourceFlagIn)
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/associations/free_metadata`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AssociationsApi - functional programming interface
+ * @export
+ */
+export const AssociationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AssociationsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AssociationsApi - factory interface
+ * @export
+ */
+export const AssociationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AssociationsApiFp(configuration)
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>> {
+            return localVarFp.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn
+}
+
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost_1 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request {
+    /**
+     * 
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string
+
+    /**
+     * 
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn
+}
+
+/**
+ * Request parameters for listFreeMetadataV1AssociationsFreeMetadataGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest
+ */
+export interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest {
+    /**
+     * List of association IDs to fetch free metadata for.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGet
+     */
+    readonly ids?: Array<string>
+}
+
+/**
+ * AssociationsApi - object-oriented interface
+ * @export
+ * @class AssociationsApi
+ * @extends {BaseAPI}
+ */
+export class AssociationsApi extends BaseAPI {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    public listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest = {}, options?: AxiosRequestConfig) {
+        return AssociationsApiFp(this.configuration).listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
