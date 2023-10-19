@@ -1723,6 +1723,25 @@ export interface ResourceFlag {
     'added_by': string;
 }
 /**
+ * A System Resource Flag Input Object.
+ * @export
+ * @interface ResourceFlagIn
+ */
+export interface ResourceFlagIn {
+    /**
+     * Given reasons for the flag.
+     * @type {Array<string>}
+     * @memberof ResourceFlagIn
+     */
+    'reasons': Array<string>;
+    /**
+     * Additional metadata for the flag.
+     * @type {object}
+     * @memberof ResourceFlagIn
+     */
+    'meta'?: object;
+}
+/**
  * Table retrieval status.
  * @export
  * @enum {string}
@@ -2974,6 +2993,188 @@ export declare class AccessApi extends BaseAPI {
      * @memberof AccessApi
      */
     requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
+ * AssociationsApi - axios parameter creator
+ * @export
+ */
+export declare const AssociationsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * AssociationsApi - functional programming interface
+ * @export
+ */
+export declare const AssociationsApiFp: (configuration?: Configuration) => {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+};
+/**
+ * AssociationsApi - factory interface
+ * @export
+ */
+export declare const AssociationsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
+};
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
+}
+/**
+ * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost_1 operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request
+ */
+export interface AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request {
+    /**
+     *
+     * @type {string}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly associationId: string;
+    /**
+     *
+     * @type {ResourceFlagIn}
+     * @memberof AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0
+     */
+    readonly resourceFlagIn: ResourceFlagIn;
+}
+/**
+ * Request parameters for listFreeMetadataV1AssociationsFreeMetadataGet operation in AssociationsApi.
+ * @export
+ * @interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest
+ */
+export interface AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest {
+    /**
+     * List of association IDs to fetch free metadata for.
+     * @type {Array<string>}
+     * @memberof AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
+ * AssociationsApi - object-oriented interface
+ * @export
+ * @class AssociationsApi
+ * @extends {BaseAPI}
+ */
+export declare class AssociationsApi extends BaseAPI {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
 }
 /**
  * ConceptsApi - axios parameter creator

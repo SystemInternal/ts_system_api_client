@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FeatureContributionMethod = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
+exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FeatureContributionMethod = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -437,6 +437,259 @@ class AccessApi extends base_1.BaseAPI {
     }
 }
 exports.AccessApi = AccessApi;
+/**
+ * AssociationsApi - axios parameter creator
+ * @export
+ */
+exports.AssociationsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId, resourceFlagIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'associationId' is not null or undefined
+            common_1.assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'associationId', associationId);
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            common_1.assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'resourceFlagIn', resourceFlagIn);
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId, resourceFlagIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'associationId' is not null or undefined
+            common_1.assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'associationId', associationId);
+            // verify required parameter 'resourceFlagIn' is not null or undefined
+            common_1.assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'resourceFlagIn', resourceFlagIn);
+            const localVarPath = `/v1/associations/{association_id}/flags`
+                .replace(`{${"association_id"}}`, encodeURIComponent(String(associationId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(resourceFlagIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet: (ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/associations/free_metadata`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * AssociationsApi - functional programming interface
+ * @export
+ */
+exports.AssociationsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.AssociationsApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * AssociationsApi - factory interface
+ * @export
+ */
+exports.AssociationsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.AssociationsApiFp(configuration);
+    return {
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options) {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get strength of this association.
+         * @summary Flag Association
+         * @param {string} associationId
+         * @param {ResourceFlagIn} resourceFlagIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options) {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Associations.
+         * @summary List Free Metadata
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids, options) {
+            return localVarFp.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * AssociationsApi - object-oriented interface
+ * @export
+ * @class AssociationsApi
+ * @extends {BaseAPI}
+ */
+class AssociationsApi extends base_1.BaseAPI {
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get strength of this association.
+     * @summary Flag Association
+     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters, options) {
+        return exports.AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * List Associations.
+     * @summary List Free Metadata
+     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AssociationsApi
+     */
+    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters = {}, options) {
+        return exports.AssociationsApiFp(this.configuration).listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.AssociationsApi = AssociationsApi;
 /**
  * ConceptsApi - axios parameter creator
  * @export
