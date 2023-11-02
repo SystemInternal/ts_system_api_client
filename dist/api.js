@@ -2310,6 +2310,41 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Post GetFTR entitlements endpoint.
+         * @summary Get Ftr Entitlements
+         * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'getFTREntitlementsIn' is not null or undefined
+            common_1.assertParamExists('getFtrEntitlementsV1GetftrEntitlementsPost', 'getFTREntitlementsIn', getFTREntitlementsIn);
+            const localVarPath = `/v1/getftr/entitlements`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(getFTREntitlementsIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Forward request to ORCID.
          * @summary Get Orcid
          * @param {any} restOfPath
@@ -2503,6 +2538,19 @@ exports.PassthroughApiFp = function (configuration) {
             });
         },
         /**
+         * Post GetFTR entitlements endpoint.
+         * @summary Get Ftr Entitlements
+         * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Forward request to ORCID.
          * @summary Get Orcid
          * @param {any} restOfPath
@@ -2587,6 +2635,16 @@ exports.PassthroughApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
+         * Post GetFTR entitlements endpoint.
+         * @summary Get Ftr Entitlements
+         * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options) {
+            return localVarFp.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Forward request to ORCID.
          * @summary Get Orcid
          * @param {any} restOfPath
@@ -2655,6 +2713,17 @@ class PassthroughApi extends base_1.BaseAPI {
      */
     getCrossrefV1CrossrefRestOfPathGet(requestParameters, options) {
         return exports.PassthroughApiFp(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Post GetFTR entitlements endpoint.
+     * @summary Get Ftr Entitlements
+     * @param {PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters, options) {
+        return exports.PassthroughApiFp(this.configuration).getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward request to ORCID.

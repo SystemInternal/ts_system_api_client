@@ -924,6 +924,137 @@ export declare enum FunctionStatus {
     Error = "error"
 }
 /**
+ * Document model.
+ * @export
+ * @interface GetFTRDocument
+ */
+export interface GetFTRDocument {
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTRDocument
+     */
+    'contentType': string;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTRDocument
+     */
+    'url': string;
+}
+/**
+ * Entitlement model.
+ * @export
+ * @interface GetFTREntitlement
+ */
+export interface GetFTREntitlement {
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTREntitlement
+     */
+    'doi': string;
+    /**
+     *
+     * @type {number}
+     * @memberof GetFTREntitlement
+     */
+    'statusCode': number;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTREntitlement
+     */
+    'entitled': string;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTREntitlement
+     */
+    'accessType'?: string;
+    /**
+     *
+     * @type {GetFTROrganization}
+     * @memberof GetFTREntitlement
+     */
+    'org'?: GetFTROrganization;
+    /**
+     *
+     * @type {Array<GetFTRDocument>}
+     * @memberof GetFTREntitlement
+     */
+    'vor'?: Array<GetFTRDocument>;
+    /**
+     *
+     * @type {Array<GetFTRDocument>}
+     * @memberof GetFTREntitlement
+     */
+    'av'?: Array<GetFTRDocument>;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTREntitlement
+     */
+    'document': string;
+}
+/**
+ * Entitlements input model.
+ * @export
+ * @interface GetFTREntitlementsIn
+ */
+export interface GetFTREntitlementsIn {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof GetFTREntitlementsIn
+     */
+    'dois': Array<string>;
+    /**
+     *
+     * @type {GetFTROrganization}
+     * @memberof GetFTREntitlementsIn
+     */
+    'org'?: GetFTROrganization;
+}
+/**
+ * Entitlements output model.
+ * @export
+ * @interface GetFTREntitlementsOut
+ */
+export interface GetFTREntitlementsOut {
+    /**
+     *
+     * @type {Array<GetFTREntitlement>}
+     * @memberof GetFTREntitlementsOut
+     */
+    'entitlements': Array<GetFTREntitlement>;
+}
+/**
+ * Organization model.
+ * @export
+ * @interface GetFTROrganization
+ */
+export interface GetFTROrganization {
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTROrganization
+     */
+    'ipv4'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTROrganization
+     */
+    'entityID'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GetFTROrganization
+     */
+    'ringgoldID'?: string;
+}
+/**
  * Graph Data model.  # noqa: E501
  * @export
  * @interface GraphData
@@ -4365,6 +4496,14 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      */
     getCrossrefV1CrossrefRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Post GetFTR entitlements endpoint.
+     * @summary Get Ftr Entitlements
+     * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn: GetFTREntitlementsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Forward request to ORCID.
      * @summary Get Orcid
      * @param {any} restOfPath
@@ -4418,6 +4557,14 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    /**
+     * Post GetFTR entitlements endpoint.
+     * @summary Get Ftr Entitlements
+     * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetFTREntitlementsOut>>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
@@ -4473,6 +4620,14 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
      */
     getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
+     * Post GetFTR entitlements endpoint.
+     * @summary Get Ftr Entitlements
+     * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: any): AxiosPromise<GetFTREntitlementsOut>;
+    /**
      * Forward request to ORCID.
      * @summary Get Orcid
      * @param {any} restOfPath
@@ -4525,6 +4680,19 @@ export interface PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest {
      * @memberof PassthroughApiGetCrossrefV1CrossrefRestOfPathGet
      */
     readonly restOfPath: any;
+}
+/**
+ * Request parameters for getFtrEntitlementsV1GetftrEntitlementsPost operation in PassthroughApi.
+ * @export
+ * @interface PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest
+ */
+export interface PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest {
+    /**
+     *
+     * @type {GetFTREntitlementsIn}
+     * @memberof PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPost
+     */
+    readonly getFTREntitlementsIn: GetFTREntitlementsIn;
 }
 /**
  * Request parameters for getOrcidV1OrcidRestOfPathGet operation in PassthroughApi.
@@ -4607,6 +4775,15 @@ export declare class PassthroughApi extends BaseAPI {
      * @memberof PassthroughApi
      */
     getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+    /**
+     * Post GetFTR entitlements endpoint.
+     * @summary Get Ftr Entitlements
+     * @param {PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PassthroughApi
+     */
+    getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GetFTREntitlementsOut>>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
