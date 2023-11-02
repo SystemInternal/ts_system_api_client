@@ -965,7 +965,7 @@ export interface GetFTREntitlement {
      * @type {string}
      * @memberof GetFTREntitlement
      */
-    'entitled': string;
+    'entitled'?: string;
     /**
      *
      * @type {string}
@@ -995,7 +995,7 @@ export interface GetFTREntitlement {
      * @type {string}
      * @memberof GetFTREntitlement
      */
-    'document': string;
+    'document'?: string;
 }
 /**
  * Entitlements input model.
