@@ -2594,6 +2594,12 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'use_gpt4'?: boolean;
+    /**
+     * Filter studies that were added after this date (in yyyy/mm/dd format).
+     * @type {string}
+     * @memberof SystemSearchIn
+     */
+    'added_after'?: string;
 }
 /**
  * A table object.
