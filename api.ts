@@ -2626,35 +2626,17 @@ export interface SystemSearchIn {
      */
     'clustering_method'?: ClusteringMethods;
     /**
-     * OpenAI model name
-     * @type {string}
-     * @memberof SystemSearchIn
-     */
-    'model_name'?: string;
-    /**
-     * Length of synthesis paragraph, in sentences.
-     * @type {string}
-     * @memberof SystemSearchIn
-     */
-    'length'?: string;
-    /**
      * Temperature of summary
      * @type {number}
      * @memberof SystemSearchIn
      */
     'temperature'?: number;
     /**
-     * Maximum token size
-     * @type {number}
+     * Use GPT4 model.
+     * @type {boolean}
      * @memberof SystemSearchIn
      */
-    'max_tokens'?: number;
-    /**
-     * Number of choices for OpenAI to produce.
-     * @type {number}
-     * @memberof SystemSearchIn
-     */
-    'choices'?: number;
+    'use_gpt4'?: boolean;
 }
 /**
  * A table object.
