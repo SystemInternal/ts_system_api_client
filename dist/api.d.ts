@@ -227,10 +227,10 @@ export interface ClusteredEvidenceMetadata {
 export interface ClusteredRelationship {
     /**
      *
-     * @type {Array<ExtendedFlexibleSimpleBaseObject>}
+     * @type {Array<GroundedVariable>}
      * @memberof ClusteredRelationship
      */
-    'variables': Array<ExtendedFlexibleSimpleBaseObject>;
+    'variables': Array<GroundedVariable>;
     /**
      *
      * @type {Array<string>}
@@ -614,43 +614,6 @@ export interface EnterpriseIn {
      * @memberof EnterpriseIn
      */
     'idp_metadata'?: string;
-}
-/**
- * Extended object schema.
- * @export
- * @interface ExtendedFlexibleSimpleBaseObject
- */
-export interface ExtendedFlexibleSimpleBaseObject {
-    /**
-     *
-     * @type {string}
-     * @memberof ExtendedFlexibleSimpleBaseObject
-     */
-    'system_id'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ExtendedFlexibleSimpleBaseObject
-     */
-    'name': string;
-    /**
-     *
-     * @type {string}
-     * @memberof ExtendedFlexibleSimpleBaseObject
-     */
-    'topic_id'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ExtendedFlexibleSimpleBaseObject
-     */
-    'topic_name'?: string;
-    /**
-     *
-     * @type {string}
-     * @memberof ExtendedFlexibleSimpleBaseObject
-     */
-    'topic_wikidata_id'?: string;
 }
 /**
  * Edge Typed Link model.  # noqa: E501
@@ -1171,6 +1134,49 @@ export interface GroundedEntity {
      * @memberof GroundedEntity
      */
     'groundings'?: Array<QueryParserApiModelsPydanticGrounding>;
+}
+/**
+ * Variable object schema for relationships.
+ * @export
+ * @interface GroundedVariable
+ */
+export interface GroundedVariable {
+    /**
+     *
+     * @type {string}
+     * @memberof GroundedVariable
+     */
+    'system_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GroundedVariable
+     */
+    'name': string;
+    /**
+     *
+     * @type {Array<VariableGrounding>}
+     * @memberof GroundedVariable
+     */
+    'groundings'?: Array<VariableGrounding>;
+    /**
+     *
+     * @type {string}
+     * @memberof GroundedVariable
+     */
+    'topic_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GroundedVariable
+     */
+    'topic_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof GroundedVariable
+     */
+    'topic_wikidata_id'?: string;
 }
 /**
  *
@@ -3028,6 +3034,31 @@ export interface ValidationError {
      * @memberof ValidationError
      */
     'type': string;
+}
+/**
+ * Variable grounding model.
+ * @export
+ * @interface VariableGrounding
+ */
+export interface VariableGrounding {
+    /**
+     *
+     * @type {string}
+     * @memberof VariableGrounding
+     */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariableGrounding
+     */
+    'namespace': string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariableGrounding
+     */
+    'name': string;
 }
 /**
  * AccessApi - axios parameter creator
