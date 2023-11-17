@@ -183,10 +183,10 @@ export interface ClusterOutStatus {
     'status': FunctionStatus;
     /**
      *
-     * @type {ClusterOut}
+     * @type {SynthesisResponse}
      * @memberof ClusterOutStatus
      */
-    'cluster_out'?: ClusterOut;
+    'cluster_out'?: SynthesisResponse;
 }
 /**
  * Clustered evidence metadata.  # noqa: E501
