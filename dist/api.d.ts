@@ -2522,6 +2522,25 @@ export interface SynthesisOut {
     'synthesis': Synthesis;
 }
 /**
+ * Synthesis response model.
+ * @export
+ * @interface SynthesisResponse
+ */
+export interface SynthesisResponse {
+    /**
+     *
+     * @type {ClusterOut}
+     * @memberof SynthesisResponse
+     */
+    'main': ClusterOut;
+    /**
+     *
+     * @type {ClusterOut}
+     * @memberof SynthesisResponse
+     */
+    'recent'?: ClusterOut;
+}
+/**
  * System search underlying data.
  * @export
  * @interface SystemSearchData
@@ -2606,6 +2625,12 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'added_after'?: string;
+    /**
+     * Kickoff a recent synthesis.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'kickoff_recent_synthesis'?: boolean;
 }
 /**
  * A table object.
@@ -5005,7 +5030,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
@@ -5069,7 +5094,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<ClusterOut>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SynthesisResponse>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
@@ -5240,7 +5265,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOut>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisResponse>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
