@@ -2565,6 +2565,25 @@ export interface SynthesisOut {
     'synthesis': Synthesis;
 }
 /**
+ * Synthesis response model.
+ * @export
+ * @interface SynthesisResponse
+ */
+export interface SynthesisResponse {
+    /**
+     * 
+     * @type {ClusterOut}
+     * @memberof SynthesisResponse
+     */
+    'main': ClusterOut;
+    /**
+     * 
+     * @type {ClusterOut}
+     * @memberof SynthesisResponse
+     */
+    'recent'?: ClusterOut;
+}
+/**
  * System search underlying data.
  * @export
  * @interface SystemSearchData
@@ -2649,6 +2668,12 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'added_after'?: string;
+    /**
+     * Kickoff a recent synthesis.
+     * @type {boolean}
+     * @memberof SystemSearchIn
+     */
+    'kickoff_recent_synthesis'?: boolean;
 }
 /**
  * A table object.
@@ -6879,7 +6904,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOut>> {
+        async asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -6967,7 +6992,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<ClusterOut> {
+        asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SynthesisResponse> {
             return localVarFp.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
