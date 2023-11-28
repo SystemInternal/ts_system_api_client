@@ -629,6 +629,17 @@ export interface EnterpriseIn {
     'idp_metadata'?: string;
 }
 /**
+ * Evidence category.
+ * @export
+ * @enum {string}
+ */
+
+export enum EvidenceCategory {
+    Statistical = 'statistical',
+    Mechanistic = 'mechanistic'
+}
+
+/**
  * Edge Typed Link model.  # noqa: E501
  * @export
  * @interface ExtendedLinkObject
@@ -1981,6 +1992,12 @@ export interface ScoredCluster {
      * @memberof ScoredCluster
      */
     'cluster_metadata'?: ClusteredEvidenceMetadata;
+    /**
+     * 
+     * @type {EvidenceCategory}
+     * @memberof ScoredCluster
+     */
+    'evidence_category'?: EvidenceCategory;
     /**
      * 
      * @type {number}
