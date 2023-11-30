@@ -2390,6 +2390,12 @@ export interface StudyMetadataIn {
      * @type {Array<string>}
      * @memberof StudyMetadataIn
      */
+    'dois'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof StudyMetadataIn
+     */
     'pmids': Array<string>;
 }
 /**
