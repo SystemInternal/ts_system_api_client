@@ -2601,6 +2601,25 @@ export interface SynthesisResponse {
     'recent'?: ClusterOut;
 }
 /**
+ * System collection payload.
+ * @export
+ * @interface SystemSearchCollectionIn
+ */
+export interface SystemSearchCollectionIn {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemSearchCollectionIn
+     */
+    'dois'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemSearchCollectionIn
+     */
+    'pmids'?: Array<string>;
+}
+/**
  * System search underlying data.
  * @export
  * @interface SystemSearchData
@@ -6753,6 +6772,49 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get data for a collection.
+         * @summary Get Collection Data
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCollectionDataV1SemanticSearchCollectionDataPost: async (systemSearchCollectionIn: SystemSearchCollectionIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'systemSearchCollectionIn' is not null or undefined
+            assertParamExists('getCollectionDataV1SemanticSearchCollectionDataPost', 'systemSearchCollectionIn', systemSearchCollectionIn)
+            const localVarPath = `/v1/semantic-search/collection/data`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchCollectionIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -6838,6 +6900,49 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Kickoff synthesis for a collection of studies.
+         * @summary Kickoff Collection Synthesis
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        kickoffCollectionSynthesisV1SemanticSearchCollectionPost: async (systemSearchCollectionIn: SystemSearchCollectionIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'systemSearchCollectionIn' is not null or undefined
+            assertParamExists('kickoffCollectionSynthesisV1SemanticSearchCollectionPost', 'systemSearchCollectionIn', systemSearchCollectionIn)
+            const localVarPath = `/v1/semantic-search/collection`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchCollectionIn, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -6948,6 +7053,17 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get data for a collection.
+         * @summary Get Collection Data
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCollectionDataV1SemanticSearchCollectionDataPost(systemSearchCollectionIn: SystemSearchCollectionIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCollectionDataV1SemanticSearchCollectionDataPost(systemSearchCollectionIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -6968,6 +7084,17 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          */
         async getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Kickoff synthesis for a collection of studies.
+         * @summary Kickoff Collection Synthesis
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async kickoffCollectionSynthesisV1SemanticSearchCollectionPost(systemSearchCollectionIn: SystemSearchCollectionIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.kickoffCollectionSynthesisV1SemanticSearchCollectionPost(systemSearchCollectionIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -7033,6 +7160,16 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
             return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get data for a collection.
+         * @summary Get Collection Data
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCollectionDataV1SemanticSearchCollectionDataPost(systemSearchCollectionIn: SystemSearchCollectionIn, options?: any): AxiosPromise<SystemSearchData> {
+            return localVarFp.getCollectionDataV1SemanticSearchCollectionDataPost(systemSearchCollectionIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -7052,6 +7189,16 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          */
         getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData> {
             return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Kickoff synthesis for a collection of studies.
+         * @summary Kickoff Collection Synthesis
+         * @param {SystemSearchCollectionIn} systemSearchCollectionIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        kickoffCollectionSynthesisV1SemanticSearchCollectionPost(systemSearchCollectionIn: SystemSearchCollectionIn, options?: any): AxiosPromise<SynthesisResponse> {
+            return localVarFp.kickoffCollectionSynthesisV1SemanticSearchCollectionPost(systemSearchCollectionIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -7124,6 +7271,20 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
 }
 
 /**
+ * Request parameters for getCollectionDataV1SemanticSearchCollectionDataPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetCollectionDataV1SemanticSearchCollectionDataPostRequest
+ */
+export interface SemanticSearchApiGetCollectionDataV1SemanticSearchCollectionDataPostRequest {
+    /**
+     * 
+     * @type {SystemSearchCollectionIn}
+     * @memberof SemanticSearchApiGetCollectionDataV1SemanticSearchCollectionDataPost
+     */
+    readonly systemSearchCollectionIn: SystemSearchCollectionIn
+}
+
+/**
  * Request parameters for getSemanticSearchUsageV1SemanticSearchUsageGet operation in SemanticSearchApi.
  * @export
  * @interface SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest
@@ -7156,6 +7317,20 @@ export interface SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDat
      * @memberof SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPost
      */
     readonly systemSearchIn: SystemSearchIn
+}
+
+/**
+ * Request parameters for kickoffCollectionSynthesisV1SemanticSearchCollectionPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiKickoffCollectionSynthesisV1SemanticSearchCollectionPostRequest
+ */
+export interface SemanticSearchApiKickoffCollectionSynthesisV1SemanticSearchCollectionPostRequest {
+    /**
+     * 
+     * @type {SystemSearchCollectionIn}
+     * @memberof SemanticSearchApiKickoffCollectionSynthesisV1SemanticSearchCollectionPost
+     */
+    readonly systemSearchCollectionIn: SystemSearchCollectionIn
 }
 
 /**
@@ -7235,6 +7410,18 @@ export class SemanticSearchApi extends BaseAPI {
     }
 
     /**
+     * Get data for a collection.
+     * @summary Get Collection Data
+     * @param {SemanticSearchApiGetCollectionDataV1SemanticSearchCollectionDataPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getCollectionDataV1SemanticSearchCollectionDataPost(requestParameters: SemanticSearchApiGetCollectionDataV1SemanticSearchCollectionDataPostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getCollectionDataV1SemanticSearchCollectionDataPost(requestParameters.systemSearchCollectionIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
@@ -7256,6 +7443,18 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Kickoff synthesis for a collection of studies.
+     * @summary Kickoff Collection Synthesis
+     * @param {SemanticSearchApiKickoffCollectionSynthesisV1SemanticSearchCollectionPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public kickoffCollectionSynthesisV1SemanticSearchCollectionPost(requestParameters: SemanticSearchApiKickoffCollectionSynthesisV1SemanticSearchCollectionPostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).kickoffCollectionSynthesisV1SemanticSearchCollectionPost(requestParameters.systemSearchCollectionIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
