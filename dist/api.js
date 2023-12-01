@@ -3892,6 +3892,41 @@ exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'studyMetadataIn' is not null or undefined
+            common_1.assertParamExists('getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost', 'studyMetadataIn', studyMetadataIn);
+            const localVarPath = `/v1/study-metadata/new`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyMetadataIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -3914,6 +3949,19 @@ exports.StudyMetadataApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -3932,6 +3980,16 @@ exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
          */
         getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options) {
             return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options) {
+            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3952,6 +4010,17 @@ class StudyMetadataApi extends base_1.BaseAPI {
      */
     getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters, options) {
         return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get study metadata from SystemRDB via pmids.
+     * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+     * @param {StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyMetadataApi
+     */
+    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters, options) {
+        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudyMetadataApi = StudyMetadataApi;
