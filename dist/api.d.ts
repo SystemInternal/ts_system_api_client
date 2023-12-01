@@ -2262,7 +2262,7 @@ export interface StudyFindingsOut {
     'studies': Array<StudyFindings>;
 }
 /**
- * Interface for Study Metadata retrieved from DynamoDB and OpenAlex.
+ * Interface for Study Metadata retrieved from DynamoD and OpenAlex.
  * @export
  * @interface StudyMetadata
  */
@@ -2348,10 +2348,10 @@ export interface StudyMetadataIn {
     'pmids': Array<string>;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof StudyMetadataIn
      */
-    'filters'?: string;
+    'filters'?: Array<string>;
     /**
      *
      * @type {string}
