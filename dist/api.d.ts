@@ -1471,6 +1471,105 @@ export interface LookerCredentialsIn {
     'client_secret': string;
 }
 /**
+ * Path.  # noqa: E501
+ * @export
+ * @interface MapPath
+ */
+export interface MapPath {
+    /**
+     * Sorted list of edge IDs
+     * @type {Array<string>}
+     * @memberof MapPath
+     */
+    'edge_ids': Array<string>;
+    /**
+     *
+     * @type {number}
+     * @memberof MapPath
+     */
+    'evidence_count': number;
+}
+/**
+ * Map paths out.  # noqa: E501
+ * @export
+ * @interface MapPathsOut
+ */
+export interface MapPathsOut {
+    /**
+     *
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'page': number;
+    /**
+     *
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'page_size': number;
+    /**
+     *
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'total': number;
+    /**
+     *
+     * @type {Array<TopicNode>}
+     * @memberof MapPathsOut
+     */
+    'nodes': Array<TopicNode>;
+    /**
+     *
+     * @type {Array<MapRelationship>}
+     * @memberof MapPathsOut
+     */
+    'links': Array<MapRelationship>;
+    /**
+     *
+     * @type {Array<MapPath>}
+     * @memberof MapPathsOut
+     */
+    'paths': Array<MapPath>;
+}
+/**
+ * Map relationship.  # noqa: E501
+ * @export
+ * @interface MapRelationship
+ */
+export interface MapRelationship {
+    /**
+     *
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'edge_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'source': string;
+    /**
+     *
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'target': string;
+    /**
+     * Association IDs
+     * @type {Array<string>}
+     * @memberof MapRelationship
+     */
+    'association_ids'?: Array<string>;
+    /**
+     * Evidence IDs
+     * @type {Array<string>}
+     * @memberof MapRelationship
+     */
+    'evidence_ids'?: Array<string>;
+}
+/**
  * A Message object.
  * @export
  * @interface MessageIn
@@ -2860,6 +2959,31 @@ export interface TopicCategories {
      * @memberof TopicCategories
      */
     'mediators'?: NodeGroup;
+}
+/**
+ * Topic node.  # noqa: E501
+ * @export
+ * @interface TopicNode
+ */
+export interface TopicNode {
+    /**
+     *
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'category'?: string;
 }
 /**
  * User profile data input.
@@ -5861,6 +5985,17 @@ export declare class StudyMetadataApi extends BaseAPI {
  */
 export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Get downstream paths.
+     * @summary Get Downstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDownstreamEndpointV1SystemGraphDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
      * @param {string} topicId
@@ -5868,6 +6003,17 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: (topicId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get relationship path.
+     * @summary Get Relationship Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipEndpointV1SystemGraphRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -5909,12 +6055,34 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get upstream paths.
+     * @summary Get Upstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUpstreamEndpointV1SystemGraphUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
  * @export
  */
 export declare const SystemGraphApiFp: (configuration?: Configuration) => {
+    /**
+     * Get downstream paths.
+     * @summary Get Downstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -5923,6 +6091,17 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Relationship Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -5964,12 +6143,34 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>>;
+    /**
+     * Get upstream paths.
+     * @summary Get Upstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
 };
 /**
  * SystemGraphApi - factory interface
  * @export
  */
 export declare const SystemGraphApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get downstream paths.
+     * @summary Get Downstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -5978,6 +6179,17 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<ConceptRelationshipsOut>;
+    /**
+     * Get relationship path.
+     * @summary Get Relationship Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6019,7 +6231,49 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories>;
+    /**
+     * Get upstream paths.
+     * @summary Get Upstream Endpoint
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
 };
+/**
+ * Request parameters for getDownstreamEndpointV1SystemGraphDownstreamGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest
+ */
+export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest {
+    /**
+     * System ID of topic node
+     * @type {string}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly node: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Number of hops
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly nHops?: number;
+}
 /**
  * Request parameters for getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet operation in SystemGraphApi.
  * @export
@@ -6032,6 +6286,37 @@ export interface SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOne
      * @memberof SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet
      */
     readonly topicId: string;
+}
+/**
+ * Request parameters for getRelationshipEndpointV1SystemGraphRelationshipGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest
+ */
+export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly source: string;
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly target: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly pageSize?: number;
 }
 /**
  * Request parameters for getSemanticGraphEndpointV1SystemGraphSemanticGraphGet operation in SystemGraphApi.
@@ -6140,12 +6425,52 @@ export interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopo
     readonly offset?: number;
 }
 /**
+ * Request parameters for getUpstreamEndpointV1SystemGraphUpstreamGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest
+ */
+export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest {
+    /**
+     * System ID of topic node
+     * @type {string}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly node: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Number of hops
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly nHops?: number;
+}
+/**
  * SystemGraphApi - object-oriented interface
  * @export
  * @class SystemGraphApi
  * @extends {BaseAPI}
  */
 export declare class SystemGraphApi extends BaseAPI {
+    /**
+     * Get downstream paths.
+     * @summary Get Downstream Endpoint
+     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6155,6 +6480,15 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Relationship Endpoint
+     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6191,6 +6525,15 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicCategories>>;
+    /**
+     * Get upstream paths.
+     * @summary Get Upstream Endpoint
+     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
 }
 /**
  * UsersApi - axios parameter creator
