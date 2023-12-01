@@ -1500,6 +1500,105 @@ export interface LookerCredentialsIn {
     'client_secret': string;
 }
 /**
+ * Path.  # noqa: E501
+ * @export
+ * @interface MapPath
+ */
+export interface MapPath {
+    /**
+     * Sorted list of edge IDs
+     * @type {Array<string>}
+     * @memberof MapPath
+     */
+    'edge_ids': Array<string>;
+    /**
+     * 
+     * @type {number}
+     * @memberof MapPath
+     */
+    'evidence_count': number;
+}
+/**
+ * Map paths out.  # noqa: E501
+ * @export
+ * @interface MapPathsOut
+ */
+export interface MapPathsOut {
+    /**
+     * 
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'page': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'page_size': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof MapPathsOut
+     */
+    'total': number;
+    /**
+     * 
+     * @type {Array<TopicNode>}
+     * @memberof MapPathsOut
+     */
+    'nodes': Array<TopicNode>;
+    /**
+     * 
+     * @type {Array<MapRelationship>}
+     * @memberof MapPathsOut
+     */
+    'links': Array<MapRelationship>;
+    /**
+     * 
+     * @type {Array<MapPath>}
+     * @memberof MapPathsOut
+     */
+    'paths': Array<MapPath>;
+}
+/**
+ * Map relationship.  # noqa: E501
+ * @export
+ * @interface MapRelationship
+ */
+export interface MapRelationship {
+    /**
+     * 
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'edge_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'source': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MapRelationship
+     */
+    'target': string;
+    /**
+     * Association IDs
+     * @type {Array<string>}
+     * @memberof MapRelationship
+     */
+    'association_ids'?: Array<string>;
+    /**
+     * Evidence IDs
+     * @type {Array<string>}
+     * @memberof MapRelationship
+     */
+    'evidence_ids'?: Array<string>;
+}
+/**
  * A Message object.
  * @export
  * @interface MessageIn
@@ -2905,6 +3004,31 @@ export interface TopicCategories {
      * @memberof TopicCategories
      */
     'mediators'?: NodeGroup;
+}
+/**
+ * Topic node.  # noqa: E501
+ * @export
+ * @interface TopicNode
+ */
+export interface TopicNode {
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'category'?: string;
 }
 /**
  * User profile data input.
@@ -8152,6 +8276,65 @@ export class StudyMetadataApi extends BaseAPI {
 export const SystemGraphApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Get downstream paths.
+         * @summary Get Downstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDownstreamEndpointV1SystemGraphDownstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'node' is not null or undefined
+            assertParamExists('getDownstreamEndpointV1SystemGraphDownstreamGet', 'node', node)
+            const localVarPath = `/v1/system_graph/downstream`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (node !== undefined) {
+                localVarQueryParameter['node'] = node;
+            }
+
+            if (nHops !== undefined) {
+                localVarQueryParameter['n_hops'] = nHops;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get system graph from the database.
          * @summary Get One Degree From Topic
          * @param {string} topicId 
@@ -8180,6 +8363,67 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Relationship Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipEndpointV1SystemGraphRelationshipGet: async (source: string, target: string, page?: number, pageSize?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'source' is not null or undefined
+            assertParamExists('getRelationshipEndpointV1SystemGraphRelationshipGet', 'source', source)
+            // verify required parameter 'target' is not null or undefined
+            assertParamExists('getRelationshipEndpointV1SystemGraphRelationshipGet', 'target', target)
+            const localVarPath = `/v1/system_graph/relationship`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+
+            if (target !== undefined) {
+                localVarQueryParameter['target'] = target;
+            }
 
 
     
@@ -8409,6 +8653,65 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Get upstream paths.
+         * @summary Get Upstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUpstreamEndpointV1SystemGraphUpstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'node' is not null or undefined
+            assertParamExists('getUpstreamEndpointV1SystemGraphUpstreamGet', 'node', node)
+            const localVarPath = `/v1/system_graph/upstream`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (node !== undefined) {
+                localVarQueryParameter['node'] = node;
+            }
+
+            if (nHops !== undefined) {
+                localVarQueryParameter['n_hops'] = nHops;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -8420,6 +8723,20 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SystemGraphApiAxiosParamCreator(configuration)
     return {
         /**
+         * Get downstream paths.
+         * @summary Get Downstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get system graph from the database.
          * @summary Get One Degree From Topic
          * @param {string} topicId 
@@ -8428,6 +8745,20 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          */
         async getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Relationship Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -8483,6 +8814,20 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Get upstream paths.
+         * @summary Get Upstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -8494,6 +8839,19 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
     const localVarFp = SystemGraphApiFp(configuration)
     return {
         /**
+         * Get downstream paths.
+         * @summary Get Downstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get system graph from the database.
          * @summary Get One Degree From Topic
          * @param {string} topicId 
@@ -8502,6 +8860,19 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          */
         getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<ConceptRelationshipsOut> {
             return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Relationship Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
@@ -8552,8 +8923,56 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
         getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories> {
             return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Get upstream paths.
+         * @summary Get Upstream Endpoint
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for getDownstreamEndpointV1SystemGraphDownstreamGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest
+ */
+export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest {
+    /**
+     * System ID of topic node
+     * @type {string}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly node: string
+
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly page?: number
+
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Number of hops
+     * @type {number}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     */
+    readonly nHops?: number
+}
 
 /**
  * Request parameters for getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet operation in SystemGraphApi.
@@ -8567,6 +8986,41 @@ export interface SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOne
      * @memberof SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet
      */
     readonly topicId: string
+}
+
+/**
+ * Request parameters for getRelationshipEndpointV1SystemGraphRelationshipGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest
+ */
+export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly source: string
+
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly target: string
+
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly page?: number
+
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     */
+    readonly pageSize?: number
 }
 
 /**
@@ -8689,12 +9143,59 @@ export interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopo
 }
 
 /**
+ * Request parameters for getUpstreamEndpointV1SystemGraphUpstreamGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest
+ */
+export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest {
+    /**
+     * System ID of topic node
+     * @type {string}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly node: string
+
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly page?: number
+
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly pageSize?: number
+
+    /**
+     * Number of hops
+     * @type {number}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     */
+    readonly nHops?: number
+}
+
+/**
  * SystemGraphApi - object-oriented interface
  * @export
  * @class SystemGraphApi
  * @extends {BaseAPI}
  */
 export class SystemGraphApi extends BaseAPI {
+    /**
+     * Get downstream paths.
+     * @summary Get Downstream Endpoint
+     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    public getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest, options?: AxiosRequestConfig) {
+        return SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -8705,6 +9206,18 @@ export class SystemGraphApi extends BaseAPI {
      */
     public getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get relationship path.
+     * @summary Get Relationship Endpoint
+     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    public getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest, options?: AxiosRequestConfig) {
+        return SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -8753,6 +9266,18 @@ export class SystemGraphApi extends BaseAPI {
      */
     public getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get upstream paths.
+     * @summary Get Upstream Endpoint
+     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    public getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest, options?: AxiosRequestConfig) {
+        return SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
