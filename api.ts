@@ -2326,10 +2326,16 @@ export interface StudyMetadata {
     'doi'?: string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof StudyMetadata
      */
-    'cited_by'?: number;
+    'name'?: string;
+    /**
+     * 
+     * @type {Array<StudyAuthor>}
+     * @memberof StudyMetadata
+     */
+    'authors'?: Array<StudyAuthor>;
     /**
      * 
      * @type {string}
@@ -2344,6 +2350,12 @@ export interface StudyMetadata {
     'journal_id'?: string;
     /**
      * 
+     * @type {number}
+     * @memberof StudyMetadata
+     */
+    'cited_by'?: number;
+    /**
+     * 
      * @type {string}
      * @memberof StudyMetadata
      */
@@ -2354,18 +2366,6 @@ export interface StudyMetadata {
      * @memberof StudyMetadata
      */
     'link'?: string;
-    /**
-     * 
-     * @type {Array<StudyAuthor>}
-     * @memberof StudyMetadata
-     */
-    'authors'?: Array<StudyAuthor>;
-    /**
-     * 
-     * @type {string}
-     * @memberof StudyMetadata
-     */
-    'name'?: string;
     /**
      * 
      * @type {string}
@@ -2391,6 +2391,18 @@ export interface StudyMetadataIn {
      * @memberof StudyMetadataIn
      */
     'pmids': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataIn
+     */
+    'filters'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataIn
+     */
+    'sort'?: string;
 }
 /**
  * Interface for /study-metadata response type.
@@ -2404,6 +2416,104 @@ export interface StudyMetadataOut {
      * @memberof StudyMetadataOut
      */
     'study_metadata': Array<StudyMetadata>;
+}
+/**
+ * Interface for Study Metadata retrieved from SystemRDB.
+ * @export
+ * @interface StudyMetadataRDB
+ */
+export interface StudyMetadataRDB {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'pmid'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'doi'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {Array<StudyAuthor>}
+     * @memberof StudyMetadataRDB
+     */
+    'authors'?: Array<StudyAuthor>;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'journal'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyMetadataRDB
+     */
+    'cited_by'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'publish_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'summary'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof StudyMetadataRDB
+     */
+    'retracted'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'study_type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'abstract'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'study_summary'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyMetadataRDB
+     */
+    'study_population'?: string;
+}
+/**
+ * Interface for /study-metadata RDB response type.
+ * @export
+ * @interface StudyMetadataRDBOut
+ */
+export interface StudyMetadataRDBOut {
+    /**
+     * 
+     * @type {Array<StudyMetadataRDB>}
+     * @memberof StudyMetadataRDBOut
+     */
+    'study_metadata': Array<StudyMetadataRDB>;
 }
 /**
  * Subscription seats.
@@ -7866,6 +7976,49 @@ export const StudyMetadataApiAxiosParamCreator = function (configuration?: Confi
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: async (studyMetadataIn: StudyMetadataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'studyMetadataIn' is not null or undefined
+            assertParamExists('getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost', 'studyMetadataIn', studyMetadataIn)
+            const localVarPath = `/v1/study-metadata/new`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(studyMetadataIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -7885,6 +8038,17 @@ export const StudyMetadataApiFp = function(configuration?: Configuration) {
          */
         async getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataRDBOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -7907,6 +8071,16 @@ export const StudyMetadataApiFactory = function (configuration?: Configuration, 
         getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut> {
             return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Get study metadata from SystemRDB via pmids.
+         * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+         * @param {StudyMetadataIn} studyMetadataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataRDBOut> {
+            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -7920,6 +8094,20 @@ export interface StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmid
      * 
      * @type {StudyMetadataIn}
      * @memberof StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost
+     */
+    readonly studyMetadataIn: StudyMetadataIn
+}
+
+/**
+ * Request parameters for getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost operation in StudyMetadataApi.
+ * @export
+ * @interface StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest
+ */
+export interface StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest {
+    /**
+     * 
+     * @type {StudyMetadataIn}
+     * @memberof StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost
      */
     readonly studyMetadataIn: StudyMetadataIn
 }
@@ -7941,6 +8129,18 @@ export class StudyMetadataApi extends BaseAPI {
      */
     public getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: AxiosRequestConfig) {
         return StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get study metadata from SystemRDB via pmids.
+     * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
+     * @param {StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyMetadataApi
+     */
+    public getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: AxiosRequestConfig) {
+        return StudyMetadataApiFp(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
