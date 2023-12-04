@@ -640,6 +640,103 @@ export enum EvidenceCategory {
 }
 
 /**
+ * Variable output.
+ * @export
+ * @interface EvidenceRDBOut
+ */
+export interface EvidenceRDBOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'study_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'statement_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_hash': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'mechanism_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_1_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_1_name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'concept_1_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_2_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_2_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'concept_2_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_api'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof EvidenceRDBOut
+     */
+    'pubmed_id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'evidence_raw_text'?: string;
+}
+/**
  * Edge Typed Link model.  # noqa: E501
  * @export
  * @interface ExtendedLinkObject
@@ -6799,6 +6896,133 @@ export class QuerySuggestionsApi extends BaseAPI {
      */
     public getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: AxiosRequestConfig) {
         return QuerySuggestionsApiFp(this.configuration).getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * RdbApi - axios parameter creator
+ * @export
+ */
+export const RdbApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Read variables.
+         * @summary Read Variables
+         * @param {Array<string>} [ids] Evidence ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readVariablesV1RdbEvidencesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/rdb/evidences`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * RdbApi - functional programming interface
+ * @export
+ */
+export const RdbApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RdbApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Read variables.
+         * @summary Read Variables
+         * @param {Array<string>} [ids] Evidence ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.readVariablesV1RdbEvidencesGet(ids, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * RdbApi - factory interface
+ * @export
+ */
+export const RdbApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RdbApiFp(configuration)
+    return {
+        /**
+         * Read variables.
+         * @summary Read Variables
+         * @param {Array<string>} [ids] Evidence ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>> {
+            return localVarFp.readVariablesV1RdbEvidencesGet(ids, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for readVariablesV1RdbEvidencesGet operation in RdbApi.
+ * @export
+ * @interface RdbApiReadVariablesV1RdbEvidencesGetRequest
+ */
+export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
+    /**
+     * Evidence ids
+     * @type {Array<string>}
+     * @memberof RdbApiReadVariablesV1RdbEvidencesGet
+     */
+    readonly ids?: Array<string>
+}
+
+/**
+ * RdbApi - object-oriented interface
+ * @export
+ * @class RdbApi
+ * @extends {BaseAPI}
+ */
+export class RdbApi extends BaseAPI {
+    /**
+     * Read variables.
+     * @summary Read Variables
+     * @param {RdbApiReadVariablesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RdbApi
+     */
+    public readVariablesV1RdbEvidencesGet(requestParameters: RdbApiReadVariablesV1RdbEvidencesGetRequest = {}, options?: AxiosRequestConfig) {
+        return RdbApiFp(this.configuration).readVariablesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
