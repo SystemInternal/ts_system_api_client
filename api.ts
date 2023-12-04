@@ -2566,12 +2566,6 @@ export interface StudyMetadataRDB {
     'publish_date'?: string;
     /**
      * 
-     * @type {string}
-     * @memberof StudyMetadataRDB
-     */
-    'summary'?: string;
-    /**
-     * 
      * @type {boolean}
      * @memberof StudyMetadataRDB
      */
