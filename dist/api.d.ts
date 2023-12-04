@@ -625,6 +625,103 @@ export declare enum EvidenceCategory {
     Mechanistic = "mechanistic"
 }
 /**
+ * Variable output.
+ * @export
+ * @interface EvidenceRDBOut
+ */
+export interface EvidenceRDBOut {
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'study_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'statement_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_hash': string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'mechanism_type': string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_1_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_1_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'concept_1_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_2_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'variable_2_name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'concept_2_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_api'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof EvidenceRDBOut
+     */
+    'pubmed_id'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'source_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof EvidenceRDBOut
+     */
+    'evidence_raw_text'?: string;
+}
+/**
  * Edge Typed Link model.  # noqa: E501
  * @export
  * @interface ExtendedLinkObject
@@ -5188,6 +5285,78 @@ export declare class QuerySuggestionsApi extends BaseAPI {
      * @memberof QuerySuggestionsApi
      */
     getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SuggestedQueriesOut>>;
+}
+/**
+ * RdbApi - axios parameter creator
+ * @export
+ */
+export declare const RdbApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Read variables.
+     * @summary Read Variables
+     * @param {Array<string>} [ids] Evidence ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readVariablesV1RdbEvidencesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * RdbApi - functional programming interface
+ * @export
+ */
+export declare const RdbApiFp: (configuration?: Configuration) => {
+    /**
+     * Read variables.
+     * @summary Read Variables
+     * @param {Array<string>} [ids] Evidence ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>>;
+};
+/**
+ * RdbApi - factory interface
+ * @export
+ */
+export declare const RdbApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Read variables.
+     * @summary Read Variables
+     * @param {Array<string>} [ids] Evidence ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>>;
+};
+/**
+ * Request parameters for readVariablesV1RdbEvidencesGet operation in RdbApi.
+ * @export
+ * @interface RdbApiReadVariablesV1RdbEvidencesGetRequest
+ */
+export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
+    /**
+     * Evidence ids
+     * @type {Array<string>}
+     * @memberof RdbApiReadVariablesV1RdbEvidencesGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
+ * RdbApi - object-oriented interface
+ * @export
+ * @class RdbApi
+ * @extends {BaseAPI}
+ */
+export declare class RdbApi extends BaseAPI {
+    /**
+     * Read variables.
+     * @summary Read Variables
+     * @param {RdbApiReadVariablesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RdbApi
+     */
+    readVariablesV1RdbEvidencesGet(requestParameters?: RdbApiReadVariablesV1RdbEvidencesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EvidenceRDBOut[]>>;
 }
 /**
  * SemanticSearchApi - axios parameter creator
