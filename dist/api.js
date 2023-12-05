@@ -4143,10 +4143,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphDownstreamGet: (node, page, pageSize, nHops, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node, page, pageSize, nHops, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'node' is not null or undefined
-            common_1.assertParamExists('getDownstreamEndpointV1SystemGraphDownstreamGet', 'node', node);
-            const localVarPath = `/v1/system_graph/downstream`;
+            common_1.assertParamExists('getDownstreamEndpointV1SystemGraphPathsDownstreamGet', 'node', node);
+            const localVarPath = `/v1/system_graph/paths/downstream`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -4172,6 +4172,56 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             }
             if (nHops !== undefined) {
                 localVarQueryParameter['n_hops'] = nHops;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get relationship path.
+         * @summary Get Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source, target, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'source' is not null or undefined
+            common_1.assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'source', source);
+            // verify required parameter 'target' is not null or undefined
+            common_1.assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'target', target);
+            const localVarPath = `/v1/system_graph/paths/mediators`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (target !== undefined) {
+                localVarQueryParameter['target'] = target;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4225,12 +4275,12 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphRelationshipGet: (source, target, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source, target, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphRelationshipGet', 'source', source);
+            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphRelationshipGet', 'target', target);
-            const localVarPath = `/v1/system_graph/relationship`;
+            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'target', target);
+            const localVarPath = `/v1/system_graph/paths/relationship`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -4350,6 +4400,106 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get relationship path.
+         * @summary Get Shared Sources Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source, target, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'source' is not null or undefined
+            common_1.assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'source', source);
+            // verify required parameter 'target' is not null or undefined
+            common_1.assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'target', target);
+            const localVarPath = `/v1/system_graph/paths/shared-sources`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (target !== undefined) {
+                localVarQueryParameter['target'] = target;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get relationship path.
+         * @summary Get Shared Targets Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source, target, page, pageSize, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'source' is not null or undefined
+            common_1.assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'source', source);
+            // verify required parameter 'target' is not null or undefined
+            common_1.assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'target', target);
+            const localVarPath = `/v1/system_graph/paths/shared-targets`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (target !== undefined) {
+                localVarQueryParameter['target'] = target;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
          * @param {number} [numRelationships] Number of relationships to return.
@@ -4451,10 +4601,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphUpstreamGet: (node, page, pageSize, nHops, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node, page, pageSize, nHops, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'node' is not null or undefined
-            common_1.assertParamExists('getUpstreamEndpointV1SystemGraphUpstreamGet', 'node', node);
-            const localVarPath = `/v1/system_graph/upstream`;
+            common_1.assertParamExists('getUpstreamEndpointV1SystemGraphPathsUpstreamGet', 'node', node);
+            const localVarPath = `/v1/system_graph/paths/upstream`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -4508,9 +4658,25 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options) {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4537,9 +4703,9 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options) {
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4570,6 +4736,38 @@ exports.SystemGraphApiFp = function (configuration) {
         getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Shared Sources Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Shared Targets Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4614,9 +4812,9 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options) {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4639,8 +4837,21 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options) {
-            return localVarFp.getDownstreamEndpointV1SystemGraphDownstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, options) {
+            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, options) {
+            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
@@ -4662,8 +4873,8 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options) {
-            return localVarFp.getRelationshipEndpointV1SystemGraphRelationshipGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, options) {
+            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
@@ -4688,6 +4899,32 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          */
         getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options) {
             return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Shared Sources Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, options) {
+            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get relationship path.
+         * @summary Get Shared Targets Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, options) {
+            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
@@ -4724,8 +4961,8 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options) {
-            return localVarFp.getUpstreamEndpointV1SystemGraphUpstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, options) {
+            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4739,13 +4976,24 @@ class SystemGraphApi extends base_1.BaseAPI {
     /**
      * Get downstream paths.
      * @summary Get Downstream Endpoint
-     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship path.
+     * @summary Get Mediators Endpoint
+     * @param {SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
@@ -4761,13 +5009,13 @@ class SystemGraphApi extends base_1.BaseAPI {
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
-     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch semantic graph.
@@ -4790,6 +5038,28 @@ class SystemGraphApi extends base_1.BaseAPI {
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters = {}, options) {
         return exports.SystemGraphApiFp(this.configuration).getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship path.
+     * @summary Get Shared Sources Endpoint
+     * @param {SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship path.
+     * @summary Get Shared Targets Endpoint
+     * @param {SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
@@ -4816,13 +5086,13 @@ class SystemGraphApi extends base_1.BaseAPI {
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
-     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemGraphApi = SystemGraphApi;

@@ -6157,7 +6157,18 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get relationship path.
+     * @summary Get Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6176,7 +6187,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6197,6 +6208,28 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Sources Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Targets Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6228,7 +6261,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -6245,7 +6278,18 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6264,7 +6308,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6285,6 +6329,28 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Sources Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Targets Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6316,7 +6382,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -6333,7 +6399,18 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
+    /**
+     * Get relationship path.
+     * @summary Get Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6352,7 +6429,7 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6373,6 +6450,28 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Sources Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Targets Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6404,38 +6503,69 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
 };
 /**
- * Request parameters for getDownstreamEndpointV1SystemGraphDownstreamGet operation in SystemGraphApi.
+ * Request parameters for getDownstreamEndpointV1SystemGraphPathsDownstreamGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest
+ * @interface SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest
  */
-export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest {
+export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest {
     /**
      * System ID of topic node
      * @type {string}
-     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
     readonly node: string;
     /**
      * Page number
      * @type {number}
-     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
     readonly page?: number;
     /**
      * Page size
      * @type {number}
-     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
     readonly pageSize?: number;
     /**
      * Number of hops
      * @type {number}
-     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGet
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
     readonly nHops?: number;
+}
+/**
+ * Request parameters for getMediatorsEndpointV1SystemGraphPathsMediatorsGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest
+ */
+export interface SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly source: string;
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly target: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly pageSize?: number;
 }
 /**
  * Request parameters for getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet operation in SystemGraphApi.
@@ -6451,33 +6581,33 @@ export interface SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOne
     readonly topicId: string;
 }
 /**
- * Request parameters for getRelationshipEndpointV1SystemGraphRelationshipGet operation in SystemGraphApi.
+ * Request parameters for getRelationshipEndpointV1SystemGraphPathsRelationshipGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest
+ * @interface SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest
  */
-export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest {
+export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest {
     /**
      * System ID of source
      * @type {string}
-     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly source: string;
     /**
      * System ID of target
      * @type {string}
-     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly target: string;
     /**
      * Page number
      * @type {number}
-     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly page?: number;
     /**
      * Page size
      * @type {number}
-     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGet
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly pageSize?: number;
 }
@@ -6530,6 +6660,68 @@ export interface SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanti
      * @memberof SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet
      */
     readonly topicIds?: Array<string>;
+}
+/**
+ * Request parameters for getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest
+ */
+export interface SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly source: string;
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly target: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly pageSize?: number;
+}
+/**
+ * Request parameters for getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest
+ */
+export interface SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly source: string;
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly target: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly pageSize?: number;
 }
 /**
  * Request parameters for getSystemGraphEndpointV1SystemGraphSystemGraphGet operation in SystemGraphApi.
@@ -6588,33 +6780,33 @@ export interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopo
     readonly offset?: number;
 }
 /**
- * Request parameters for getUpstreamEndpointV1SystemGraphUpstreamGet operation in SystemGraphApi.
+ * Request parameters for getUpstreamEndpointV1SystemGraphPathsUpstreamGet operation in SystemGraphApi.
  * @export
- * @interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest
+ * @interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest
  */
-export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest {
+export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest {
     /**
      * System ID of topic node
      * @type {string}
-     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
     readonly node: string;
     /**
      * Page number
      * @type {number}
-     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
     readonly page?: number;
     /**
      * Page size
      * @type {number}
-     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
     readonly pageSize?: number;
     /**
      * Number of hops
      * @type {number}
-     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGet
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
     readonly nHops?: number;
 }
@@ -6628,12 +6820,21 @@ export declare class SystemGraphApi extends BaseAPI {
     /**
      * Get downstream paths.
      * @summary Get Downstream Endpoint
-     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getDownstreamEndpointV1SystemGraphDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphDownstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Mediators Endpoint
+     * @param {SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6646,12 +6847,12 @@ export declare class SystemGraphApi extends BaseAPI {
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
-     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getRelationshipEndpointV1SystemGraphRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphRelationshipGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6670,6 +6871,24 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Sources Endpoint
+     * @param {SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    /**
+     * Get relationship path.
+     * @summary Get Shared Targets Endpoint
+     * @param {SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6691,12 +6910,12 @@ export declare class SystemGraphApi extends BaseAPI {
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
-     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest} requestParameters Request parameters.
+     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getUpstreamEndpointV1SystemGraphUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphUpstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
 }
 /**
  * UsersApi - axios parameter creator
