@@ -625,7 +625,7 @@ export declare enum EvidenceCategory {
     Mechanistic = "mechanistic"
 }
 /**
- * Variable output.
+ * Evidence output.
  * @export
  * @interface EvidenceRDBOut
  */
@@ -2659,6 +2659,91 @@ export interface StudyMetadataRDBOut {
      * @memberof StudyMetadataRDBOut
      */
     'study_metadata': Array<StudyMetadataRDB>;
+}
+/**
+ * Study output.
+ * @export
+ * @interface StudyRDBOut
+ */
+export interface StudyRDBOut {
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'doi'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyRDBOut
+     */
+    'pmid'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'description'?: string;
+    /**
+     *
+     * @type {object}
+     * @memberof StudyRDBOut
+     */
+    'authors'?: object;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'abstract'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_summary'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_population'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'journal'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyRDBOut
+     */
+    'cited_by'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'publish_date'?: string;
 }
 /**
  * Subscription seats.
@@ -5292,13 +5377,21 @@ export declare class QuerySuggestionsApi extends BaseAPI {
  */
 export declare const RdbApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
-     * Read variables.
-     * @summary Read Variables
+     * Read evidences.
+     * @summary Read Evidences
      * @param {Array<string>} [ids] Evidence ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readVariablesV1RdbEvidencesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    readEvidencesV1RdbEvidencesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Read studies.
+     * @summary Read Studies
+     * @param {Array<string>} [ids] Study ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readStudiesV1RdbStudiesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * RdbApi - functional programming interface
@@ -5306,13 +5399,21 @@ export declare const RdbApiAxiosParamCreator: (configuration?: Configuration) =>
  */
 export declare const RdbApiFp: (configuration?: Configuration) => {
     /**
-     * Read variables.
-     * @summary Read Variables
+     * Read evidences.
+     * @summary Read Evidences
      * @param {Array<string>} [ids] Evidence ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>>;
+    readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>>;
+    /**
+     * Read studies.
+     * @summary Read Studies
+     * @param {Array<string>} [ids] Study ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>>;
 };
 /**
  * RdbApi - factory interface
@@ -5320,24 +5421,45 @@ export declare const RdbApiFp: (configuration?: Configuration) => {
  */
 export declare const RdbApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
-     * Read variables.
-     * @summary Read Variables
+     * Read evidences.
+     * @summary Read Evidences
      * @param {Array<string>} [ids] Evidence ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>>;
+    readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>>;
+    /**
+     * Read studies.
+     * @summary Read Studies
+     * @param {Array<string>} [ids] Study ids
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<StudyRDBOut>>;
 };
 /**
- * Request parameters for readVariablesV1RdbEvidencesGet operation in RdbApi.
+ * Request parameters for readEvidencesV1RdbEvidencesGet operation in RdbApi.
  * @export
- * @interface RdbApiReadVariablesV1RdbEvidencesGetRequest
+ * @interface RdbApiReadEvidencesV1RdbEvidencesGetRequest
  */
-export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
+export interface RdbApiReadEvidencesV1RdbEvidencesGetRequest {
     /**
      * Evidence ids
      * @type {Array<string>}
-     * @memberof RdbApiReadVariablesV1RdbEvidencesGet
+     * @memberof RdbApiReadEvidencesV1RdbEvidencesGet
+     */
+    readonly ids?: Array<string>;
+}
+/**
+ * Request parameters for readStudiesV1RdbStudiesGet operation in RdbApi.
+ * @export
+ * @interface RdbApiReadStudiesV1RdbStudiesGetRequest
+ */
+export interface RdbApiReadStudiesV1RdbStudiesGetRequest {
+    /**
+     * Study ids
+     * @type {Array<string>}
+     * @memberof RdbApiReadStudiesV1RdbStudiesGet
      */
     readonly ids?: Array<string>;
 }
@@ -5349,14 +5471,23 @@ export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
  */
 export declare class RdbApi extends BaseAPI {
     /**
-     * Read variables.
-     * @summary Read Variables
-     * @param {RdbApiReadVariablesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+     * Read evidences.
+     * @summary Read Evidences
+     * @param {RdbApiReadEvidencesV1RdbEvidencesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    readVariablesV1RdbEvidencesGet(requestParameters?: RdbApiReadVariablesV1RdbEvidencesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EvidenceRDBOut[]>>;
+    readEvidencesV1RdbEvidencesGet(requestParameters?: RdbApiReadEvidencesV1RdbEvidencesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EvidenceRDBOut[]>>;
+    /**
+     * Read studies.
+     * @summary Read Studies
+     * @param {RdbApiReadStudiesV1RdbStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RdbApi
+     */
+    readStudiesV1RdbStudiesGet(requestParameters?: RdbApiReadStudiesV1RdbStudiesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyRDBOut[]>>;
 }
 /**
  * SemanticSearchApi - axios parameter creator
