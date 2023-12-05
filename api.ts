@@ -640,7 +640,7 @@ export enum EvidenceCategory {
 }
 
 /**
- * Variable output.
+ * Evidence output.
  * @export
  * @interface EvidenceRDBOut
  */
@@ -2704,6 +2704,91 @@ export interface StudyMetadataRDBOut {
      * @memberof StudyMetadataRDBOut
      */
     'study_metadata': Array<StudyMetadataRDB>;
+}
+/**
+ * Study output.
+ * @export
+ * @interface StudyRDBOut
+ */
+export interface StudyRDBOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'doi'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyRDBOut
+     */
+    'pmid'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof StudyRDBOut
+     */
+    'authors'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'abstract'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_summary'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'study_population'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'journal'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyRDBOut
+     */
+    'cited_by'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof StudyRDBOut
+     */
+    'publish_date'?: string;
 }
 /**
  * Subscription seats.
@@ -6907,14 +6992,56 @@ export class QuerySuggestionsApi extends BaseAPI {
 export const RdbApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Read variables.
-         * @summary Read Variables
+         * Read evidences.
+         * @summary Read Evidences
          * @param {Array<string>} [ids] Evidence ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readVariablesV1RdbEvidencesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        readEvidencesV1RdbEvidencesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/rdb/evidences`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (ids) {
+                localVarQueryParameter['ids'] = ids;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Read studies.
+         * @summary Read Studies
+         * @param {Array<string>} [ids] Study ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readStudiesV1RdbStudiesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/rdb/studies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6959,14 +7086,25 @@ export const RdbApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RdbApiAxiosParamCreator(configuration)
     return {
         /**
-         * Read variables.
-         * @summary Read Variables
+         * Read evidences.
+         * @summary Read Evidences
          * @param {Array<string>} [ids] Evidence ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.readVariablesV1RdbEvidencesGet(ids, options);
+        async readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.readEvidencesV1RdbEvidencesGet(ids, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Read studies.
+         * @summary Read Studies
+         * @param {Array<string>} [ids] Study ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.readStudiesV1RdbStudiesGet(ids, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -6980,28 +7118,52 @@ export const RdbApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = RdbApiFp(configuration)
     return {
         /**
-         * Read variables.
-         * @summary Read Variables
+         * Read evidences.
+         * @summary Read Evidences
          * @param {Array<string>} [ids] Evidence ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readVariablesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>> {
-            return localVarFp.readVariablesV1RdbEvidencesGet(ids, options).then((request) => request(axios, basePath));
+        readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>> {
+            return localVarFp.readEvidencesV1RdbEvidencesGet(ids, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Read studies.
+         * @summary Read Studies
+         * @param {Array<string>} [ids] Study ids
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<StudyRDBOut>> {
+            return localVarFp.readStudiesV1RdbStudiesGet(ids, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for readVariablesV1RdbEvidencesGet operation in RdbApi.
+ * Request parameters for readEvidencesV1RdbEvidencesGet operation in RdbApi.
  * @export
- * @interface RdbApiReadVariablesV1RdbEvidencesGetRequest
+ * @interface RdbApiReadEvidencesV1RdbEvidencesGetRequest
  */
-export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
+export interface RdbApiReadEvidencesV1RdbEvidencesGetRequest {
     /**
      * Evidence ids
      * @type {Array<string>}
-     * @memberof RdbApiReadVariablesV1RdbEvidencesGet
+     * @memberof RdbApiReadEvidencesV1RdbEvidencesGet
+     */
+    readonly ids?: Array<string>
+}
+
+/**
+ * Request parameters for readStudiesV1RdbStudiesGet operation in RdbApi.
+ * @export
+ * @interface RdbApiReadStudiesV1RdbStudiesGetRequest
+ */
+export interface RdbApiReadStudiesV1RdbStudiesGetRequest {
+    /**
+     * Study ids
+     * @type {Array<string>}
+     * @memberof RdbApiReadStudiesV1RdbStudiesGet
      */
     readonly ids?: Array<string>
 }
@@ -7014,15 +7176,27 @@ export interface RdbApiReadVariablesV1RdbEvidencesGetRequest {
  */
 export class RdbApi extends BaseAPI {
     /**
-     * Read variables.
-     * @summary Read Variables
-     * @param {RdbApiReadVariablesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+     * Read evidences.
+     * @summary Read Evidences
+     * @param {RdbApiReadEvidencesV1RdbEvidencesGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    public readVariablesV1RdbEvidencesGet(requestParameters: RdbApiReadVariablesV1RdbEvidencesGetRequest = {}, options?: AxiosRequestConfig) {
-        return RdbApiFp(this.configuration).readVariablesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+    public readEvidencesV1RdbEvidencesGet(requestParameters: RdbApiReadEvidencesV1RdbEvidencesGetRequest = {}, options?: AxiosRequestConfig) {
+        return RdbApiFp(this.configuration).readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Read studies.
+     * @summary Read Studies
+     * @param {RdbApiReadStudiesV1RdbStudiesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RdbApi
+     */
+    public readStudiesV1RdbStudiesGet(requestParameters: RdbApiReadStudiesV1RdbStudiesGetRequest = {}, options?: AxiosRequestConfig) {
+        return RdbApiFp(this.configuration).readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
