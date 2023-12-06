@@ -3219,10 +3219,10 @@ export interface TopicNode {
     'name': string;
     /**
      * 
-     * @type {string}
+     * @type {Array<string>}
      * @memberof TopicNode
      */
-    'category'?: string;
+    'semantic_types'?: Array<string>;
 }
 /**
  * User profile data input.
