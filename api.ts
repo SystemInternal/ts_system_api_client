@@ -388,6 +388,12 @@ export interface ConceptOut {
      */
     'aliases'?: Array<string>;
     /**
+     * The Concept\'s semantic types.
+     * @type {Array<string>}
+     * @memberof ConceptOut
+     */
+    'semantic_types'?: Array<string>;
+    /**
      * 
      * @type {string}
      * @memberof ConceptOut
