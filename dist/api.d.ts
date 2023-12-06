@@ -6285,10 +6285,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6296,10 +6299,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6315,10 +6321,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6346,10 +6355,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -6357,10 +6369,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6389,10 +6404,13 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -6406,10 +6424,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6417,10 +6438,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6436,10 +6460,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6467,10 +6494,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -6478,10 +6508,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6510,10 +6543,13 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -6527,10 +6563,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6538,10 +6577,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -6557,10 +6599,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -6588,10 +6633,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -6599,10 +6647,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {string} target System ID of target
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -6631,10 +6682,13 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeOnlySignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, options?: any): AxiosPromise<MapPathsOut>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeOnlySignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
 };
 /**
  * Request parameters for getDownstreamEndpointV1SystemGraphPathsDownstreamGet operation in SystemGraphApi.
@@ -6666,6 +6720,24 @@ export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstream
      * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
     readonly nHops?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * Request parameters for getMediatorsEndpointV1SystemGraphPathsMediatorsGet operation in SystemGraphApi.
@@ -6697,6 +6769,24 @@ export interface SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGe
      * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
      */
     readonly pageSize?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * Request parameters for getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet operation in SystemGraphApi.
@@ -6741,6 +6831,24 @@ export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelation
      * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly pageSize?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * Request parameters for getSemanticGraphEndpointV1SystemGraphSemanticGraphGet operation in SystemGraphApi.
@@ -6822,6 +6930,24 @@ export interface SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedS
      * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
      */
     readonly pageSize?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * Request parameters for getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet operation in SystemGraphApi.
@@ -6853,6 +6979,24 @@ export interface SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedT
      * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
      */
     readonly pageSize?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * Request parameters for getSystemGraphEndpointV1SystemGraphSystemGraphGet operation in SystemGraphApi.
@@ -6940,6 +7084,24 @@ export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetR
      * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
     readonly nHops?: number;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
+     */
+    readonly includeOnlySignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
+     */
+    readonly semanticTypes?: string;
 }
 /**
  * SystemGraphApi - object-oriented interface
