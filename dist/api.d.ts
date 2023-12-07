@@ -3174,6 +3174,12 @@ export interface TopicNode {
     'name': string;
     /**
      *
+     * @type {string}
+     * @memberof TopicNode
+     */
+    'wikidata_id'?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof TopicNode
      */
