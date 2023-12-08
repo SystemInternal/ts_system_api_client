@@ -101,6 +101,19 @@ export interface AppSchemaGroundingsGrounding {
     'definition'?: string;
 }
 /**
+ * Author output.
+ * @export
+ * @interface AuthorRDBOut
+ */
+export interface AuthorRDBOut {
+    /**
+     *
+     * @type {string}
+     * @memberof AuthorRDBOut
+     */
+    'full_name'?: string;
+}
+/**
  * Credentials for an integration without password.
  * @export
  * @interface BigQueryCredentials
@@ -2704,10 +2717,10 @@ export interface StudyRDBOut {
     'description'?: string;
     /**
      *
-     * @type {object}
+     * @type {Array<AuthorRDBOut>}
      * @memberof StudyRDBOut
      */
-    'authors'?: object;
+    'authors'?: Array<AuthorRDBOut>;
     /**
      *
      * @type {string}
