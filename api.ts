@@ -2864,6 +2864,12 @@ export interface SuggestedQueriesIn {
      * @memberof SuggestedQueriesIn
      */
     'num_pubmed_results': number;
+    /**
+     * 
+     * @type {SuggestedQueryType}
+     * @memberof SuggestedQueriesIn
+     */
+    'suggestion_type'?: SuggestedQueryType;
 }
 /**
  * Schema for query suggestions.  # noqa: E501
@@ -2897,12 +2903,23 @@ export interface SuggestedQuery {
      */
     'num_pubmed_results': number;
     /**
-     * Enum for query suggestion types.
-     * @type {string}
+     * 
+     * @type {SuggestedQueryType}
      * @memberof SuggestedQuery
      */
-    'suggestion_type': string;
+    'suggestion_type': SuggestedQueryType;
 }
+/**
+ * Enum for query suggestion types.
+ * @export
+ * @enum {string}
+ */
+
+export enum SuggestedQueryType {
+    Expanded = 'expanded',
+    Autocorrect = 'autocorrect'
+}
+
 /**
  * Synthesis output schema.  # noqa: E501
  * @export
