@@ -2573,6 +2573,18 @@ export interface StudyMetadataIn {
      * @memberof StudyMetadataIn
      */
     'sort'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyMetadataIn
+     */
+    'limit'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyMetadataIn
+     */
+    'offset'?: number;
 }
 /**
  * Interface for /study-metadata response type.
