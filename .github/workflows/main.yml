@@ -19,3 +19,11 @@ jobs:
           git config --global user.email 'githubActions@system.com'
           git commit -am "Build js client files"
           git push
+      - name: Run semantic release
+        run: |
+          npm install @semantic-release/commit-analyzer
+          npm install @semantic-release/git
+          npm install @semantic-release/github
+          npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
