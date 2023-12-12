@@ -15,10 +15,15 @@ jobs:
           npm run build
       - name: Push back to repo
         run: |
-          git config --global user.name 'SystemInternal'
-          git config --global user.email 'githubActions@system.com'
-          git commit -am "Build js client files"
-          git push
+          if [[ -n "$(git status --porcelain)" ]]; then
+            echo "Changes detected, proceeding with commit and push."
+            git config --global user.name 'SystemInternal'
+            git config --global user.email 'githubActions@system.com'
+            git commit -am "Build js client files"
+            git push
+          else
+            echo "No changes to commit, working tree clean. Skipping commit and push."
+          fi
       - name: Run semantic release
         run: |
           npm install @semantic-release/commit-analyzer
