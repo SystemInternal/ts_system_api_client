@@ -2257,6 +2257,17 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
+ * Search type.
+ * @export
+ * @enum {string}
+ */
+
+export enum SearchType {
+    Semantic = 'semantic',
+    Keyword = 'keyword'
+}
+
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -3271,6 +3282,31 @@ export interface TopicNode {
      * @memberof TopicNode
      */
     'semantic_types'?: Array<string>;
+}
+/**
+ * Topic output.  # noqa: E501
+ * @export
+ * @interface TopicOut
+ */
+export interface TopicOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicOut
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicOut
+     */
+    'wikidata_label': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TopicOut
+     */
+    'semantic_type_tree_numbers'?: Array<string>;
 }
 /**
  * User profile data input.
@@ -9443,6 +9479,75 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Search topics.
+         * @summary Search Topics Endpoint
+         * @param {string} q Search query
+         * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+         * @param {number} [subgraphDepth] Depth of subgraph
+         * @param {SearchType} [searchType] Search type (semantic or keyword)
+         * @param {number} [autocut] Autocut for semantic search
+         * @param {number} [limit] Limit for semantic search
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTopicsEndpointV1SystemGraphSearchGet: async (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'q' is not null or undefined
+            assertParamExists('searchTopicsEndpointV1SystemGraphSearchGet', 'q', q)
+            const localVarPath = `/v1/system_graph/search/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (q !== undefined) {
+                localVarQueryParameter['q'] = q;
+            }
+
+            if (subgraphTopics) {
+                localVarQueryParameter['subgraph_topics'] = subgraphTopics;
+            }
+
+            if (subgraphDepth !== undefined) {
+                localVarQueryParameter['subgraph_depth'] = subgraphDepth;
+            }
+
+            if (searchType !== undefined) {
+                localVarQueryParameter['search_type'] = searchType;
+            }
+
+            if (autocut !== undefined) {
+                localVarQueryParameter['autocut'] = autocut;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -9619,6 +9724,22 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Search topics.
+         * @summary Search Topics Endpoint
+         * @param {string} q Search query
+         * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+         * @param {number} [subgraphDepth] Depth of subgraph
+         * @param {SearchType} [searchType] Search type (semantic or keyword)
+         * @param {number} [autocut] Autocut for semantic search
+         * @param {number} [limit] Limit for semantic search
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -9783,6 +9904,21 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          */
         getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
             return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Search topics.
+         * @summary Search Topics Endpoint
+         * @param {string} q Search query
+         * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+         * @param {number} [subgraphDepth] Depth of subgraph
+         * @param {SearchType} [searchType] Search type (semantic or keyword)
+         * @param {number} [autocut] Autocut for semantic search
+         * @param {number} [limit] Limit for semantic search
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<TopicOut>> {
+            return localVarFp.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10257,6 +10393,55 @@ export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetR
 }
 
 /**
+ * Request parameters for searchTopicsEndpointV1SystemGraphSearchGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest
+ */
+export interface SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest {
+    /**
+     * Search query
+     * @type {string}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly q: string
+
+    /**
+     * Topic ids in subgraph
+     * @type {Array<string>}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly subgraphTopics?: Array<string>
+
+    /**
+     * Depth of subgraph
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly subgraphDepth?: number
+
+    /**
+     * Search type (semantic or keyword)
+     * @type {SearchType}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly searchType?: SearchType
+
+    /**
+     * Autocut for semantic search
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly autocut?: number
+
+    /**
+     * Limit for semantic search
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly limit?: number
+}
+
+/**
  * SystemGraphApi - object-oriented interface
  * @export
  * @class SystemGraphApi
@@ -10393,6 +10578,18 @@ export class SystemGraphApi extends BaseAPI {
      */
     public getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Search topics.
+     * @summary Search Topics Endpoint
+     * @param {SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    public searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig) {
+        return SystemGraphApiFp(this.configuration).searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
