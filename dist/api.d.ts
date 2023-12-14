@@ -2218,6 +2218,15 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
+ * Search type.
+ * @export
+ * @enum {string}
+ */
+export declare enum SearchType {
+    Semantic = "semantic",
+    Keyword = "keyword"
+}
+/**
  * An enumeration.
  * @export
  * @enum {string}
@@ -3224,6 +3233,31 @@ export interface TopicNode {
      * @memberof TopicNode
      */
     'semantic_types'?: Array<string>;
+}
+/**
+ * Topic output.  # noqa: E501
+ * @export
+ * @interface TopicOut
+ */
+export interface TopicOut {
+    /**
+     *
+     * @type {string}
+     * @memberof TopicOut
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicOut
+     */
+    'wikidata_label': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TopicOut
+     */
+    'semantic_type_tree_numbers'?: Array<string>;
 }
 /**
  * User profile data input.
@@ -6475,6 +6509,19 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @throws {RequiredError}
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Search topics.
+     * @summary Search Topics Endpoint
+     * @param {string} q Search query
+     * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+     * @param {number} [subgraphDepth] Depth of subgraph
+     * @param {SearchType} [searchType] Search type (semantic or keyword)
+     * @param {number} [autocut] Autocut for semantic search
+     * @param {number} [limit] Limit for semantic search
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTopicsEndpointV1SystemGraphSearchGet: (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -6614,6 +6661,19 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    /**
+     * Search topics.
+     * @summary Search Topics Endpoint
+     * @param {string} q Search query
+     * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+     * @param {number} [subgraphDepth] Depth of subgraph
+     * @param {SearchType} [searchType] Search type (semantic or keyword)
+     * @param {number} [autocut] Autocut for semantic search
+     * @param {number} [limit] Limit for semantic search
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -6753,6 +6813,19 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
+    /**
+     * Search topics.
+     * @summary Search Topics Endpoint
+     * @param {string} q Search query
+     * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+     * @param {number} [subgraphDepth] Depth of subgraph
+     * @param {SearchType} [searchType] Search type (semantic or keyword)
+     * @param {number} [autocut] Autocut for semantic search
+     * @param {number} [limit] Limit for semantic search
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<TopicOut>>;
 };
 /**
  * Request parameters for getDownstreamEndpointV1SystemGraphPathsDownstreamGet operation in SystemGraphApi.
@@ -7168,6 +7241,49 @@ export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetR
     readonly semanticTypes?: string;
 }
 /**
+ * Request parameters for searchTopicsEndpointV1SystemGraphSearchGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest
+ */
+export interface SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest {
+    /**
+     * Search query
+     * @type {string}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly q: string;
+    /**
+     * Topic ids in subgraph
+     * @type {Array<string>}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly subgraphTopics?: Array<string>;
+    /**
+     * Depth of subgraph
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly subgraphDepth?: number;
+    /**
+     * Search type (semantic or keyword)
+     * @type {SearchType}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly searchType?: SearchType;
+    /**
+     * Autocut for semantic search
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly autocut?: number;
+    /**
+     * Limit for semantic search
+     * @type {number}
+     * @memberof SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGet
+     */
+    readonly limit?: number;
+}
+/**
  * SystemGraphApi - object-oriented interface
  * @export
  * @class SystemGraphApi
@@ -7273,6 +7389,15 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
+    /**
+     * Search topics.
+     * @summary Search Topics Endpoint
+     * @param {SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicOut[]>>;
 }
 /**
  * UsersApi - axios parameter creator
