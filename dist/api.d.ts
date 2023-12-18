@@ -6389,14 +6389,14 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6509,14 +6509,14 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -6543,14 +6543,14 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6663,14 +6663,14 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -6697,14 +6697,14 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -6817,14 +6817,14 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @param {number} [page] Page number
      * @param {number} [pageSize] Page size
      * @param {number} [nHops] Number of hops
-     * @param {string} [additionalNodes] Additional nodes
+     * @param {Array<string>} [additionalNodes] Additional nodes
      * @param {string} [relationshipTypes] Comma separated list of relationship types
      * @param {boolean} [includeNonSignificant] Significant relationships only
      * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: string, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -6871,10 +6871,10 @@ export interface SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstream
     readonly nHops?: number;
     /**
      * Additional nodes
-     * @type {string}
+     * @type {Array<string>}
      * @memberof SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGet
      */
-    readonly additionalNodes?: string;
+    readonly additionalNodes?: Array<string>;
     /**
      * Comma separated list of relationship types
      * @type {string}
@@ -7241,10 +7241,10 @@ export interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetR
     readonly nHops?: number;
     /**
      * Additional nodes
-     * @type {string}
+     * @type {Array<string>}
      * @memberof SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGet
      */
-    readonly additionalNodes?: string;
+    readonly additionalNodes?: Array<string>;
     /**
      * Comma separated list of relationship types
      * @type {string}

@@ -4228,7 +4228,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
@@ -4265,7 +4265,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (nHops !== undefined) {
                 localVarQueryParameter['n_hops'] = nHops;
             }
-            if (additionalNodes !== undefined) {
+            if (additionalNodes) {
                 localVarQueryParameter['additional_nodes'] = additionalNodes;
             }
             if (relationshipTypes !== undefined) {
@@ -4750,7 +4750,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
@@ -4787,7 +4787,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (nHops !== undefined) {
                 localVarQueryParameter['n_hops'] = nHops;
             }
-            if (additionalNodes !== undefined) {
+            if (additionalNodes) {
                 localVarQueryParameter['additional_nodes'] = additionalNodes;
             }
             if (relationshipTypes !== undefined) {
@@ -4879,7 +4879,7 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
@@ -5049,7 +5049,7 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
@@ -5096,7 +5096,7 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
@@ -5236,7 +5236,7 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
-         * @param {string} [additionalNodes] Additional nodes
+         * @param {Array<string>} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
