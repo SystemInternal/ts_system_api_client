@@ -4228,13 +4228,14 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'node' is not null or undefined
             common_1.assertParamExists('getDownstreamEndpointV1SystemGraphPathsDownstreamGet', 'node', node);
             const localVarPath = `/v1/system_graph/paths/downstream`;
@@ -4263,6 +4264,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             }
             if (nHops !== undefined) {
                 localVarQueryParameter['n_hops'] = nHops;
+            }
+            if (additionalNodes !== undefined) {
+                localVarQueryParameter['additional_nodes'] = additionalNodes;
             }
             if (relationshipTypes !== undefined) {
                 localVarQueryParameter['relationship_types'] = relationshipTypes;
@@ -4746,13 +4750,14 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'node' is not null or undefined
             common_1.assertParamExists('getUpstreamEndpointV1SystemGraphPathsUpstreamGet', 'node', node);
             const localVarPath = `/v1/system_graph/paths/upstream`;
@@ -4781,6 +4786,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             }
             if (nHops !== undefined) {
                 localVarQueryParameter['n_hops'] = nHops;
+            }
+            if (additionalNodes !== undefined) {
+                localVarQueryParameter['additional_nodes'] = additionalNodes;
             }
             if (relationshipTypes !== undefined) {
                 localVarQueryParameter['relationship_types'] = relationshipTypes;
@@ -4871,15 +4879,16 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -5040,15 +5049,16 @@ exports.SystemGraphApiFp = function (configuration) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -5086,14 +5096,15 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
@@ -5225,14 +5236,15 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
          * @param {number} [nHops] Number of hops
+         * @param {string} [additionalNodes] Additional nodes
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Search topics.
@@ -5267,7 +5279,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5377,7 +5389,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return exports.SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Search topics.
