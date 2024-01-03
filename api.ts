@@ -8861,13 +8861,15 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -8905,6 +8907,14 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
 
             if (target !== undefined) {
                 localVarQueryParameter['target'] = target;
+            }
+
+            if (additionalSources) {
+                localVarQueryParameter['additional_sources'] = additionalSources;
+            }
+
+            if (additionalTargets) {
+                localVarQueryParameter['additional_targets'] = additionalTargets;
             }
 
             if (relationshipTypes !== undefined) {
@@ -8978,13 +8988,15 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: async (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -9022,6 +9034,14 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
 
             if (target !== undefined) {
                 localVarQueryParameter['target'] = target;
+            }
+
+            if (additionalSources) {
+                localVarQueryParameter['additional_sources'] = additionalSources;
+            }
+
+            if (additionalTargets) {
+                localVarQueryParameter['additional_targets'] = additionalTargets;
             }
 
             if (relationshipTypes !== undefined) {
@@ -9158,13 +9178,15 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: async (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -9204,6 +9226,14 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['target'] = target;
             }
 
+            if (additionalSources) {
+                localVarQueryParameter['additional_sources'] = additionalSources;
+            }
+
+            if (additionalTargets) {
+                localVarQueryParameter['additional_targets'] = additionalTargets;
+            }
+
             if (relationshipTypes !== undefined) {
                 localVarQueryParameter['relationship_types'] = relationshipTypes;
             }
@@ -9234,13 +9264,15 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: async (source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -9278,6 +9310,14 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
 
             if (target !== undefined) {
                 localVarQueryParameter['target'] = target;
+            }
+
+            if (additionalSources) {
+                localVarQueryParameter['additional_sources'] = additionalSources;
+            }
+
+            if (additionalTargets) {
+                localVarQueryParameter['additional_targets'] = additionalTargets;
             }
 
             if (relationshipTypes !== undefined) {
@@ -9599,14 +9639,16 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options);
+        async getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -9627,14 +9669,16 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options);
+        async getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -9670,14 +9714,16 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options);
+        async getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -9687,14 +9733,16 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options);
+        async getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -9792,14 +9840,16 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
-            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
@@ -9818,14 +9868,16 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
-            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
@@ -9858,14 +9910,16 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
-            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
@@ -9874,14 +9928,16 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
          * @param {string} target System ID of target
          * @param {number} [page] Page number
          * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
          * @param {string} [relationshipTypes] Comma separated list of relationship types
          * @param {boolean} [includeNonSignificant] Significant relationships only
          * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
-            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
@@ -10041,6 +10097,20 @@ export interface SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGe
     readonly pageSize?: number
 
     /**
+     * Additional sources
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly additionalSources?: Array<string>
+
+    /**
+     * Additional targets
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
+     */
+    readonly additionalTargets?: Array<string>
+
+    /**
      * Comma separated list of relationship types
      * @type {string}
      * @memberof SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGet
@@ -10109,6 +10179,20 @@ export interface SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelation
      * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
      */
     readonly pageSize?: number
+
+    /**
+     * Additional sources
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
+     */
+    readonly additionalSources?: Array<string>
+
+    /**
+     * Additional targets
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGet
+     */
+    readonly additionalTargets?: Array<string>
 
     /**
      * Comma separated list of relationship types
@@ -10223,6 +10307,20 @@ export interface SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedS
     readonly pageSize?: number
 
     /**
+     * Additional sources
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly additionalSources?: Array<string>
+
+    /**
+     * Additional targets
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
+     */
+    readonly additionalTargets?: Array<string>
+
+    /**
      * Comma separated list of relationship types
      * @type {string}
      * @memberof SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet
@@ -10277,6 +10375,20 @@ export interface SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedT
      * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
      */
     readonly pageSize?: number
+
+    /**
+     * Additional sources
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly additionalSources?: Array<string>
+
+    /**
+     * Additional targets
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet
+     */
+    readonly additionalTargets?: Array<string>
 
     /**
      * Comma separated list of relationship types
@@ -10503,7 +10615,7 @@ export class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     public getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: AxiosRequestConfig) {
-        return SystemGraphApiFp(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return SystemGraphApiFp(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10527,7 +10639,7 @@ export class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     public getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: AxiosRequestConfig) {
-        return SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10563,7 +10675,7 @@ export class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     public getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: AxiosRequestConfig) {
-        return SystemGraphApiFp(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return SystemGraphApiFp(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -10575,7 +10687,7 @@ export class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     public getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: AxiosRequestConfig) {
-        return SystemGraphApiFp(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return SystemGraphApiFp(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
