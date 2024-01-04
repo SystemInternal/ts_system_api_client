@@ -120,7 +120,19 @@ export interface AuthorRDBOut {
      * @type {string}
      * @memberof AuthorRDBOut
      */
-    'full_name'?: string;
+    'full_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthorRDBOut
+     */
+    'openalex_id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthorRDBOut
+     */
+    'orcid'?: string;
 }
 /**
  * Credentials for an integration without password.
