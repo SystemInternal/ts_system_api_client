@@ -4776,6 +4776,76 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get relationship path.
+         * @summary Get Two Hop Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'source' is not null or undefined
+            common_1.assertParamExists('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'source', source);
+            // verify required parameter 'target' is not null or undefined
+            common_1.assertParamExists('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'target', target);
+            const localVarPath = `/v1/system_graph/paths/two-hop-mediators`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+            if (source !== undefined) {
+                localVarQueryParameter['source'] = source;
+            }
+            if (target !== undefined) {
+                localVarQueryParameter['target'] = target;
+            }
+            if (additionalSources) {
+                localVarQueryParameter['additional_sources'] = additionalSources;
+            }
+            if (additionalTargets) {
+                localVarQueryParameter['additional_targets'] = additionalTargets;
+            }
+            if (relationshipTypes !== undefined) {
+                localVarQueryParameter['relationship_types'] = relationshipTypes;
+            }
+            if (includeNonSignificant !== undefined) {
+                localVarQueryParameter['include_non_significant'] = includeNonSignificant;
+            }
+            if (semanticTypes !== undefined) {
+                localVarQueryParameter['semantic_types'] = semanticTypes;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get upstream paths.
          * @summary Get Upstream Endpoint
          * @param {string} node System ID of topic node
@@ -5083,6 +5153,27 @@ exports.SystemGraphApiFp = function (configuration) {
             });
         },
         /**
+         * Get relationship path.
+         * @summary Get Two Hop Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get upstream paths.
          * @summary Get Upstream Endpoint
          * @param {string} node System ID of topic node
@@ -5278,6 +5369,24 @@ exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get relationship path.
+         * @summary Get Two Hop Mediators Endpoint
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
+            return localVarFp.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get upstream paths.
          * @summary Get Upstream Endpoint
          * @param {string} node System ID of topic node
@@ -5427,6 +5536,17 @@ class SystemGraphApi extends base_1.BaseAPI {
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters, options) {
         return exports.SystemGraphApiFp(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get relationship path.
+     * @summary Get Two Hop Mediators Endpoint
+     * @param {SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters, options) {
+        return exports.SystemGraphApiFp(this.configuration).getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get upstream paths.

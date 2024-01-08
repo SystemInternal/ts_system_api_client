@@ -6523,6 +6523,22 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get relationship path.
+     * @summary Get Two Hop Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
      * @param {string} node System ID of topic node
@@ -6685,6 +6701,22 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>>;
     /**
+     * Get relationship path.
+     * @summary Get Two Hop Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
      * @param {string} node System ID of topic node
@@ -6846,6 +6878,22 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
      * @throws {RequiredError}
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories>;
+    /**
+     * Get relationship path.
+     * @summary Get Two Hop Mediators Endpoint
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
@@ -7294,6 +7342,67 @@ export interface SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopo
     readonly offset?: number;
 }
 /**
+ * Request parameters for getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet operation in SystemGraphApi.
+ * @export
+ * @interface SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest
+ */
+export interface SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest {
+    /**
+     * System ID of source
+     * @type {string}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly source: string;
+    /**
+     * System ID of target
+     * @type {string}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly target: string;
+    /**
+     * Page number
+     * @type {number}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly page?: number;
+    /**
+     * Page size
+     * @type {number}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly pageSize?: number;
+    /**
+     * Additional sources
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly additionalSources?: Array<string>;
+    /**
+     * Additional targets
+     * @type {Array<string>}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly additionalTargets?: Array<string>;
+    /**
+     * Comma separated list of relationship types
+     * @type {string}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly relationshipTypes?: string;
+    /**
+     * Significant relationships only
+     * @type {boolean}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly includeNonSignificant?: boolean;
+    /**
+     * Comma separated list of semantic_types
+     * @type {string}
+     * @memberof SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet
+     */
+    readonly semanticTypes?: string;
+}
+/**
  * Request parameters for getUpstreamEndpointV1SystemGraphPathsUpstreamGet operation in SystemGraphApi.
  * @export
  * @interface SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest
@@ -7488,6 +7597,15 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicCategories>>;
+    /**
+     * Get relationship path.
+     * @summary Get Two Hop Mediators Endpoint
+     * @param {SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SystemGraphApi
+     */
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
