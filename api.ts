@@ -2085,67 +2085,6 @@ export interface RedshiftCredentialsIn {
     'db_password': string;
 }
 /**
- * Evidence for summary.
- * @export
- * @interface RelationshipEvidence
- */
-export interface RelationshipEvidence {
-    /**
-     * 
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'value': number;
-    /**
-     * 
-     * @type {FeatureContributionMethod}
-     * @memberof RelationshipEvidence
-     */
-    'method': FeatureContributionMethod;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof RelationshipEvidence
-     */
-    'bidirectional': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof RelationshipEvidence
-     */
-    'is_significant': boolean;
-    /**
-     * 
-     * @type {FindingMeta}
-     * @memberof RelationshipEvidence
-     */
-    'finding_meta': FindingMeta;
-    /**
-     * 
-     * @type {string}
-     * @memberof RelationshipEvidence
-     */
-    'added_on': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'p_value'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'ci_lower'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'ci_upper'?: number;
-}
-/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -2324,25 +2263,6 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
- * Schema for relationship evidence.
- * @export
- * @interface SearchEvidence
- */
-export interface SearchEvidence {
-    /**
-     * 
-     * @type {Array<RelationshipEvidence>}
-     * @memberof SearchEvidence
-     */
-    'evidences': Array<RelationshipEvidence>;
-    /**
-     * 
-     * @type {SemanticSearchRelationship}
-     * @memberof SearchEvidence
-     */
-    'relationship': SemanticSearchRelationship;
-}
-/**
  * Search type.
  * @export
  * @enum {string}
@@ -2353,25 +2273,6 @@ export enum SearchType {
     Keyword = 'keyword'
 }
 
-/**
- * Schema for parsed semantic search relationship.
- * @export
- * @interface SemanticSearchRelationship
- */
-export interface SemanticSearchRelationship {
-    /**
-     * 
-     * @type {SimpleBaseObject}
-     * @memberof SemanticSearchRelationship
-     */
-    'risk_factor': SimpleBaseObject;
-    /**
-     * 
-     * @type {SimpleBaseObject}
-     * @memberof SemanticSearchRelationship
-     */
-    'outcome': SimpleBaseObject;
-}
 /**
  * An enumeration.
  * @export
@@ -2399,25 +2300,6 @@ export enum SignificanceLevel {
     Invalid = 'invalid'
 }
 
-/**
- * Simplified object schema.
- * @export
- * @interface SimpleBaseObject
- */
-export interface SimpleBaseObject {
-    /**
-     * 
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'system_id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'name': string;
-}
 /**
  * Credentials for a Snowflake integration without password.
  * @export
@@ -3468,31 +3350,6 @@ export interface TopicRDBOut {
      * @memberof TopicRDBOut
      */
     'wikidata_id': string;
-}
-/**
- * Interface for input to /topic/variables.
- * @export
- * @interface TopicVariablesIn
- */
-export interface TopicVariablesIn {
-    /**
-     * 
-     * @type {string}
-     * @memberof TopicVariablesIn
-     */
-    'topic_id': string;
-    /**
-     * 
-     * @type {number}
-     * @memberof TopicVariablesIn
-     */
-    'limit'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof TopicVariablesIn
-     */
-    'offset'?: number;
 }
 /**
  * Interface for variables associated with a topic.
@@ -7955,7 +7812,7 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: SearchEvidence; }>> {
+        async getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -8051,7 +7908,7 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<{ [key: string]: SearchEvidence; }> {
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any> {
             return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
@@ -11268,13 +11125,15 @@ export const TopicApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {string} topicId 
+         * @param {number} [limit] 
+         * @param {number} [offset] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet: async (topicVariablesIn: TopicVariablesIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'topicVariablesIn' is not null or undefined
-            assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicVariablesIn', topicVariablesIn)
+        getVariablesRelatedToATopicV1TopicVariablesGet: async (topicId: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicId', topicId)
             const localVarPath = `/v1/topic/variables`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11294,14 +11153,23 @@ export const TopicApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
+            if (topicId !== undefined) {
+                localVarQueryParameter['topic_id'] = topicId;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
 
     
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(topicVariablesIn, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -11321,12 +11189,14 @@ export const TopicApiFp = function(configuration?: Configuration) {
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {string} topicId 
+         * @param {number} [limit] 
+         * @param {number} [offset] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options);
+        async getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -11342,12 +11212,14 @@ export const TopicApiFactory = function (configuration?: Configuration, basePath
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {string} topicId 
+         * @param {number} [limit] 
+         * @param {number} [offset] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: any): AxiosPromise<TopicVariablesOut> {
-            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options).then((request) => request(axios, basePath));
+        getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: any): AxiosPromise<TopicVariablesOut> {
+            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -11360,10 +11232,24 @@ export const TopicApiFactory = function (configuration?: Configuration, basePath
 export interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest {
     /**
      * 
-     * @type {TopicVariablesIn}
+     * @type {string}
      * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
      */
-    readonly topicVariablesIn: TopicVariablesIn
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly limit?: number
+
+    /**
+     * 
+     * @type {number}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly offset?: number
 }
 
 /**
@@ -11382,7 +11268,7 @@ export class TopicApi extends BaseAPI {
      * @memberof TopicApi
      */
     public getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: AxiosRequestConfig) {
-        return TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicVariablesIn, options).then((request) => request(this.axios, this.basePath));
+        return TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
