@@ -951,12 +951,6 @@ export interface FindingMeta {
     'association_id'?: string;
     /**
      * 
-     * @type {boolean}
-     * @memberof FindingMeta
-     */
-    'is_rct': boolean;
-    /**
-     * 
      * @type {string}
      * @memberof FindingMeta
      */
