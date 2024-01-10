@@ -5650,13 +5650,15 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn
+         * @param {string} topicId
+         * @param {number} [limit]
+         * @param {number} [offset]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet: (topicVariablesIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'topicVariablesIn' is not null or undefined
-            common_1.assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicVariablesIn', topicVariablesIn);
+        getVariablesRelatedToATopicV1TopicVariablesGet: (topicId, limit, offset, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topicId' is not null or undefined
+            common_1.assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicId', topicId);
             const localVarPath = `/v1/topic/variables`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5672,11 +5674,18 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
             yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            localVarHeaderParameter['Content-Type'] = 'application/json';
+            if (topicId !== undefined) {
+                localVarQueryParameter['topic_id'] = topicId;
+            }
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(topicVariablesIn, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -5694,13 +5703,15 @@ exports.TopicApiFp = function (configuration) {
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn
+         * @param {string} topicId
+         * @param {number} [limit]
+         * @param {number} [offset]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options) {
+        getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -5716,12 +5727,14 @@ exports.TopicApiFactory = function (configuration, basePath, axios) {
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicVariablesIn} topicVariablesIn
+         * @param {string} topicId
+         * @param {number} [limit]
+         * @param {number} [offset]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options) {
-            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options).then((request) => request(axios, basePath));
+        getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options) {
+            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5741,7 +5754,7 @@ class TopicApi extends base_1.BaseAPI {
      * @memberof TopicApi
      */
     getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters, options) {
-        return exports.TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicVariablesIn, options).then((request) => request(this.axios, this.basePath));
+        return exports.TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.TopicApi = TopicApi;

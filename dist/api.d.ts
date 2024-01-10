@@ -2048,67 +2048,6 @@ export interface RedshiftCredentialsIn {
     'db_password': string;
 }
 /**
- * Evidence for summary.
- * @export
- * @interface RelationshipEvidence
- */
-export interface RelationshipEvidence {
-    /**
-     *
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'value': number;
-    /**
-     *
-     * @type {FeatureContributionMethod}
-     * @memberof RelationshipEvidence
-     */
-    'method': FeatureContributionMethod;
-    /**
-     *
-     * @type {boolean}
-     * @memberof RelationshipEvidence
-     */
-    'bidirectional': boolean;
-    /**
-     *
-     * @type {boolean}
-     * @memberof RelationshipEvidence
-     */
-    'is_significant': boolean;
-    /**
-     *
-     * @type {FindingMeta}
-     * @memberof RelationshipEvidence
-     */
-    'finding_meta': FindingMeta;
-    /**
-     *
-     * @type {string}
-     * @memberof RelationshipEvidence
-     */
-    'added_on': string;
-    /**
-     *
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'p_value'?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'ci_lower'?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof RelationshipEvidence
-     */
-    'ci_upper'?: number;
-}
-/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -2285,25 +2224,6 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
- * Schema for relationship evidence.
- * @export
- * @interface SearchEvidence
- */
-export interface SearchEvidence {
-    /**
-     *
-     * @type {Array<RelationshipEvidence>}
-     * @memberof SearchEvidence
-     */
-    'evidences': Array<RelationshipEvidence>;
-    /**
-     *
-     * @type {SemanticSearchRelationship}
-     * @memberof SearchEvidence
-     */
-    'relationship': SemanticSearchRelationship;
-}
-/**
  * Search type.
  * @export
  * @enum {string}
@@ -2311,25 +2231,6 @@ export interface SearchEvidence {
 export declare enum SearchType {
     Semantic = "semantic",
     Keyword = "keyword"
-}
-/**
- * Schema for parsed semantic search relationship.
- * @export
- * @interface SemanticSearchRelationship
- */
-export interface SemanticSearchRelationship {
-    /**
-     *
-     * @type {SimpleBaseObject}
-     * @memberof SemanticSearchRelationship
-     */
-    'risk_factor': SimpleBaseObject;
-    /**
-     *
-     * @type {SimpleBaseObject}
-     * @memberof SemanticSearchRelationship
-     */
-    'outcome': SimpleBaseObject;
 }
 /**
  * An enumeration.
@@ -2353,25 +2254,6 @@ export declare enum SignificanceLevel {
     NinetyNine = "ninety_nine",
     NinetyNinePointNine = "ninety_nine_point_nine",
     Invalid = "invalid"
-}
-/**
- * Simplified object schema.
- * @export
- * @interface SimpleBaseObject
- */
-export interface SimpleBaseObject {
-    /**
-     *
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'system_id': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SimpleBaseObject
-     */
-    'name': string;
 }
 /**
  * Credentials for a Snowflake integration without password.
@@ -3419,31 +3301,6 @@ export interface TopicRDBOut {
      * @memberof TopicRDBOut
      */
     'wikidata_id': string;
-}
-/**
- * Interface for input to /topic/variables.
- * @export
- * @interface TopicVariablesIn
- */
-export interface TopicVariablesIn {
-    /**
-     *
-     * @type {string}
-     * @memberof TopicVariablesIn
-     */
-    'topic_id': string;
-    /**
-     *
-     * @type {number}
-     * @memberof TopicVariablesIn
-     */
-    'limit'?: number;
-    /**
-     *
-     * @type {number}
-     * @memberof TopicVariablesIn
-     */
-    'offset'?: number;
 }
 /**
  * Interface for variables associated with a topic.
@@ -5933,9 +5790,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
-        [key: string]: SearchEvidence;
-    }>>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -6007,9 +5862,7 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<{
-        [key: string]: SearchEvidence;
-    }>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -6204,9 +6057,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
-        [key: string]: SearchEvidence;
-    }>>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -7897,11 +7748,13 @@ export declare const TopicApiAxiosParamCreator: (configuration?: Configuration) 
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
-     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {string} topicId
+     * @param {number} [limit]
+     * @param {number} [offset]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet: (topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getVariablesRelatedToATopicV1TopicVariablesGet: (topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * TopicApi - functional programming interface
@@ -7911,11 +7764,13 @@ export declare const TopicApiFp: (configuration?: Configuration) => {
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
-     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {string} topicId
+     * @param {number} [limit]
+     * @param {number} [offset]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>>;
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>>;
 };
 /**
  * TopicApi - factory interface
@@ -7925,11 +7780,13 @@ export declare const TopicApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
-     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {string} topicId
+     * @param {number} [limit]
+     * @param {number} [offset]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: any): AxiosPromise<TopicVariablesOut>;
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: any): AxiosPromise<TopicVariablesOut>;
 };
 /**
  * Request parameters for getVariablesRelatedToATopicV1TopicVariablesGet operation in TopicApi.
@@ -7939,10 +7796,22 @@ export declare const TopicApiFactory: (configuration?: Configuration, basePath?:
 export interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest {
     /**
      *
-     * @type {TopicVariablesIn}
+     * @type {string}
      * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
      */
-    readonly topicVariablesIn: TopicVariablesIn;
+    readonly topicId: string;
+    /**
+     *
+     * @type {number}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly limit?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly offset?: number;
 }
 /**
  * TopicApi - object-oriented interface
