@@ -2085,6 +2085,67 @@ export interface RedshiftCredentialsIn {
     'db_password': string;
 }
 /**
+ * Evidence for summary.
+ * @export
+ * @interface RelationshipEvidence
+ */
+export interface RelationshipEvidence {
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'value': number;
+    /**
+     * 
+     * @type {FeatureContributionMethod}
+     * @memberof RelationshipEvidence
+     */
+    'method': FeatureContributionMethod;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RelationshipEvidence
+     */
+    'bidirectional': boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof RelationshipEvidence
+     */
+    'is_significant': boolean;
+    /**
+     * 
+     * @type {FindingMeta}
+     * @memberof RelationshipEvidence
+     */
+    'finding_meta': FindingMeta;
+    /**
+     * 
+     * @type {string}
+     * @memberof RelationshipEvidence
+     */
+    'added_on': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'p_value'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'ci_lower'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'ci_upper'?: number;
+}
+/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -2263,6 +2324,25 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
+ * Schema for relationship evidence.
+ * @export
+ * @interface SearchEvidence
+ */
+export interface SearchEvidence {
+    /**
+     * 
+     * @type {Array<RelationshipEvidence>}
+     * @memberof SearchEvidence
+     */
+    'evidences': Array<RelationshipEvidence>;
+    /**
+     * 
+     * @type {SemanticSearchRelationship}
+     * @memberof SearchEvidence
+     */
+    'relationship': SemanticSearchRelationship;
+}
+/**
  * Search type.
  * @export
  * @enum {string}
@@ -2273,6 +2353,25 @@ export enum SearchType {
     Keyword = 'keyword'
 }
 
+/**
+ * Schema for parsed semantic search relationship.
+ * @export
+ * @interface SemanticSearchRelationship
+ */
+export interface SemanticSearchRelationship {
+    /**
+     * 
+     * @type {SimpleBaseObject}
+     * @memberof SemanticSearchRelationship
+     */
+    'risk_factor': SimpleBaseObject;
+    /**
+     * 
+     * @type {SimpleBaseObject}
+     * @memberof SemanticSearchRelationship
+     */
+    'outcome': SimpleBaseObject;
+}
 /**
  * An enumeration.
  * @export
@@ -2300,6 +2399,25 @@ export enum SignificanceLevel {
     Invalid = 'invalid'
 }
 
+/**
+ * Simplified object schema.
+ * @export
+ * @interface SimpleBaseObject
+ */
+export interface SimpleBaseObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'name': string;
+}
 /**
  * Credentials for a Snowflake integration without password.
  * @export
@@ -7593,6 +7711,49 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get semantic search relationship map.
+         * @summary Get Relationship Map Endpoint
+         * @param {SystemSearchIn} systemSearchIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'systemSearchIn' is not null or undefined
+            assertParamExists('getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost', 'systemSearchIn', systemSearchIn)
+            const localVarPath = `/v1/semantic-search/relationship_map`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -7788,6 +7949,17 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get semantic search relationship map.
+         * @summary Get Relationship Map Endpoint
+         * @param {SystemSearchIn} systemSearchIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: SearchEvidence; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
          * @param {string} [dateFrom] 
@@ -7871,6 +8043,16 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          */
         fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut> {
             return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search relationship map.
+         * @summary Get Relationship Map Endpoint
+         * @param {SystemSearchIn} systemSearchIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<{ [key: string]: SearchEvidence; }> {
+            return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
@@ -7961,6 +8143,20 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
      * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGet
      */
     readonly cacheKey: string
+}
+
+/**
+ * Request parameters for getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest
+ */
+export interface SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest {
+    /**
+     * 
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPost
+     */
+    readonly systemSearchIn: SystemSearchIn
 }
 
 /**
@@ -8072,6 +8268,18 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get semantic search relationship map.
+     * @summary Get Relationship Map Endpoint
+     * @param {SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
