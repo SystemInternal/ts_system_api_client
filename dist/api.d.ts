@@ -3272,6 +3272,81 @@ export interface TopicOut {
     'wikidata_id': string;
 }
 /**
+ * Topic output.
+ * @export
+ * @interface TopicRDBOut
+ */
+export interface TopicRDBOut {
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'wikidata_label': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TopicRDBOut
+     */
+    'semantic_type_tree_numbers'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'wikidata_id': string;
+}
+/**
+ * Interface for input to /topic/variables.
+ * @export
+ * @interface TopicVariablesIn
+ */
+export interface TopicVariablesIn {
+    /**
+     *
+     * @type {string}
+     * @memberof TopicVariablesIn
+     */
+    'topic_id': string;
+    /**
+     *
+     * @type {number}
+     * @memberof TopicVariablesIn
+     */
+    'limit'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof TopicVariablesIn
+     */
+    'offset'?: number;
+}
+/**
+ * Interface for variables associated with a topic.
+ * @export
+ * @interface TopicVariablesOut
+ */
+export interface TopicVariablesOut {
+    /**
+     *
+     * @type {TopicRDBOut}
+     * @memberof TopicVariablesOut
+     */
+    'topic': TopicRDBOut;
+    /**
+     *
+     * @type {Array<VariableInfo>}
+     * @memberof TopicVariablesOut
+     */
+    'variables': Array<VariableInfo>;
+}
+/**
  * User profile data input.
  * @export
  * @interface UpdateProfileIn
@@ -3619,6 +3694,31 @@ export interface VariableGrounding {
      * @memberof VariableGrounding
      */
     'name': string;
+}
+/**
+ * Interface for a variable\'s info.
+ * @export
+ * @interface VariableInfo
+ */
+export interface VariableInfo {
+    /**
+     *
+     * @type {string}
+     * @memberof VariableInfo
+     */
+    'variable_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof VariableInfo
+     */
+    'variable_name': string;
+    /**
+     *
+     * @type {number}
+     * @memberof VariableInfo
+     */
+    'num_studies': number;
 }
 /**
  * AccessApi - axios parameter creator
@@ -7618,6 +7718,78 @@ export declare class SystemGraphApi extends BaseAPI {
      * @memberof SystemGraphApi
      */
     searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicOut[]>>;
+}
+/**
+ * TopicApi - axios parameter creator
+ * @export
+ */
+export declare const TopicApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get information for variables related to a topic.
+     * @summary Get Variables Related To A Topic.
+     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariablesRelatedToATopicV1TopicVariablesGet: (topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * TopicApi - functional programming interface
+ * @export
+ */
+export declare const TopicApiFp: (configuration?: Configuration) => {
+    /**
+     * Get information for variables related to a topic.
+     * @summary Get Variables Related To A Topic.
+     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>>;
+};
+/**
+ * TopicApi - factory interface
+ * @export
+ */
+export declare const TopicApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get information for variables related to a topic.
+     * @summary Get Variables Related To A Topic.
+     * @param {TopicVariablesIn} topicVariablesIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: any): AxiosPromise<TopicVariablesOut>;
+};
+/**
+ * Request parameters for getVariablesRelatedToATopicV1TopicVariablesGet operation in TopicApi.
+ * @export
+ * @interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest
+ */
+export interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest {
+    /**
+     *
+     * @type {TopicVariablesIn}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly topicVariablesIn: TopicVariablesIn;
+}
+/**
+ * TopicApi - object-oriented interface
+ * @export
+ * @class TopicApi
+ * @extends {BaseAPI}
+ */
+export declare class TopicApi extends BaseAPI {
+    /**
+     * Get information for variables related to a topic.
+     * @summary Get Variables Related To A Topic.
+     * @param {TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TopicApi
+     */
+    getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicVariablesOut>>;
 }
 /**
  * UsersApi - axios parameter creator
