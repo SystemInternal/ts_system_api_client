@@ -2048,6 +2048,67 @@ export interface RedshiftCredentialsIn {
     'db_password': string;
 }
 /**
+ * Evidence for summary.
+ * @export
+ * @interface RelationshipEvidence
+ */
+export interface RelationshipEvidence {
+    /**
+     *
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'value': number;
+    /**
+     *
+     * @type {FeatureContributionMethod}
+     * @memberof RelationshipEvidence
+     */
+    'method': FeatureContributionMethod;
+    /**
+     *
+     * @type {boolean}
+     * @memberof RelationshipEvidence
+     */
+    'bidirectional': boolean;
+    /**
+     *
+     * @type {boolean}
+     * @memberof RelationshipEvidence
+     */
+    'is_significant': boolean;
+    /**
+     *
+     * @type {FindingMeta}
+     * @memberof RelationshipEvidence
+     */
+    'finding_meta': FindingMeta;
+    /**
+     *
+     * @type {string}
+     * @memberof RelationshipEvidence
+     */
+    'added_on': string;
+    /**
+     *
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'p_value'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'ci_lower'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof RelationshipEvidence
+     */
+    'ci_upper'?: number;
+}
+/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -2224,6 +2285,25 @@ export interface ScoredCluster {
     'modification_type'?: string;
 }
 /**
+ * Schema for relationship evidence.
+ * @export
+ * @interface SearchEvidence
+ */
+export interface SearchEvidence {
+    /**
+     *
+     * @type {Array<RelationshipEvidence>}
+     * @memberof SearchEvidence
+     */
+    'evidences': Array<RelationshipEvidence>;
+    /**
+     *
+     * @type {SemanticSearchRelationship}
+     * @memberof SearchEvidence
+     */
+    'relationship': SemanticSearchRelationship;
+}
+/**
  * Search type.
  * @export
  * @enum {string}
@@ -2231,6 +2311,25 @@ export interface ScoredCluster {
 export declare enum SearchType {
     Semantic = "semantic",
     Keyword = "keyword"
+}
+/**
+ * Schema for parsed semantic search relationship.
+ * @export
+ * @interface SemanticSearchRelationship
+ */
+export interface SemanticSearchRelationship {
+    /**
+     *
+     * @type {SimpleBaseObject}
+     * @memberof SemanticSearchRelationship
+     */
+    'risk_factor': SimpleBaseObject;
+    /**
+     *
+     * @type {SimpleBaseObject}
+     * @memberof SemanticSearchRelationship
+     */
+    'outcome': SimpleBaseObject;
 }
 /**
  * An enumeration.
@@ -2254,6 +2353,25 @@ export declare enum SignificanceLevel {
     NinetyNine = "ninety_nine",
     NinetyNinePointNine = "ninety_nine_point_nine",
     Invalid = "invalid"
+}
+/**
+ * Simplified object schema.
+ * @export
+ * @interface SimpleBaseObject
+ */
+export interface SimpleBaseObject {
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'system_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SimpleBaseObject
+     */
+    'name': string;
 }
 /**
  * Credentials for a Snowflake integration without password.
@@ -5737,6 +5855,14 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      */
     fetchSynthesisV1SemanticSearchFetchGet: (cacheKey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get semantic search relationship map.
+     * @summary Get Relationship Map Endpoint
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {string} [dateFrom]
@@ -5801,6 +5927,16 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      */
     fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
     /**
+     * Get semantic search relationship map.
+     * @summary Get Relationship Map Endpoint
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{
+        [key: string]: SearchEvidence;
+    }>>;
+    /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
      * @param {string} [dateFrom]
@@ -5864,6 +6000,16 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
      * @throws {RequiredError}
      */
     fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut>;
+    /**
+     * Get semantic search relationship map.
+     * @summary Get Relationship Map Endpoint
+     * @param {SystemSearchIn} systemSearchIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<{
+        [key: string]: SearchEvidence;
+    }>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -5942,6 +6088,19 @@ export interface SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest 
      * @memberof SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGet
      */
     readonly cacheKey: string;
+}
+/**
+ * Request parameters for getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest
+ */
+export interface SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest {
+    /**
+     *
+     * @type {SystemSearchIn}
+     * @memberof SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPost
+     */
+    readonly systemSearchIn: SystemSearchIn;
 }
 /**
  * Request parameters for getSemanticSearchUsageV1SemanticSearchUsageGet operation in SemanticSearchApi.
@@ -6037,6 +6196,17 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut>>;
+    /**
+     * Get semantic search relationship map.
+     * @summary Get Relationship Map Endpoint
+     * @param {SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<{
+        [key: string]: SearchEvidence;
+    }>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
