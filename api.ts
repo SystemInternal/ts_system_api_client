@@ -3321,6 +3321,81 @@ export interface TopicOut {
     'wikidata_id': string;
 }
 /**
+ * Topic output.
+ * @export
+ * @interface TopicRDBOut
+ */
+export interface TopicRDBOut {
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'system_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'wikidata_label': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof TopicRDBOut
+     */
+    'semantic_type_tree_numbers'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
+    'wikidata_id': string;
+}
+/**
+ * Interface for input to /topic/variables.
+ * @export
+ * @interface TopicVariablesIn
+ */
+export interface TopicVariablesIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicVariablesIn
+     */
+    'topic_id': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof TopicVariablesIn
+     */
+    'limit'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof TopicVariablesIn
+     */
+    'offset'?: number;
+}
+/**
+ * Interface for variables associated with a topic.
+ * @export
+ * @interface TopicVariablesOut
+ */
+export interface TopicVariablesOut {
+    /**
+     * 
+     * @type {TopicRDBOut}
+     * @memberof TopicVariablesOut
+     */
+    'topic': TopicRDBOut;
+    /**
+     * 
+     * @type {Array<VariableInfo>}
+     * @memberof TopicVariablesOut
+     */
+    'variables': Array<VariableInfo>;
+}
+/**
  * User profile data input.
  * @export
  * @interface UpdateProfileIn
@@ -3668,6 +3743,31 @@ export interface VariableGrounding {
      * @memberof VariableGrounding
      */
     'name': string;
+}
+/**
+ * Interface for a variable\'s info.
+ * @export
+ * @interface VariableInfo
+ */
+export interface VariableInfo {
+    /**
+     * 
+     * @type {string}
+     * @memberof VariableInfo
+     */
+    'variable_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VariableInfo
+     */
+    'variable_name': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof VariableInfo
+     */
+    'num_studies': number;
 }
 
 /**
@@ -10947,6 +11047,134 @@ export class SystemGraphApi extends BaseAPI {
      */
     public searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * TopicApi - axios parameter creator
+ * @export
+ */
+export const TopicApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get information for variables related to a topic.
+         * @summary Get Variables Related To A Topic.
+         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariablesRelatedToATopicV1TopicVariablesGet: async (topicVariablesIn: TopicVariablesIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicVariablesIn' is not null or undefined
+            assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicVariablesIn', topicVariablesIn)
+            const localVarPath = `/v1/topic/variables`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(topicVariablesIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TopicApi - functional programming interface
+ * @export
+ */
+export const TopicApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TopicApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get information for variables related to a topic.
+         * @summary Get Variables Related To A Topic.
+         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * TopicApi - factory interface
+ * @export
+ */
+export const TopicApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TopicApiFp(configuration)
+    return {
+        /**
+         * Get information for variables related to a topic.
+         * @summary Get Variables Related To A Topic.
+         * @param {TopicVariablesIn} topicVariablesIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn: TopicVariablesIn, options?: any): AxiosPromise<TopicVariablesOut> {
+            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicVariablesIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getVariablesRelatedToATopicV1TopicVariablesGet operation in TopicApi.
+ * @export
+ * @interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest
+ */
+export interface TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest {
+    /**
+     * 
+     * @type {TopicVariablesIn}
+     * @memberof TopicApiGetVariablesRelatedToATopicV1TopicVariablesGet
+     */
+    readonly topicVariablesIn: TopicVariablesIn
+}
+
+/**
+ * TopicApi - object-oriented interface
+ * @export
+ * @class TopicApi
+ * @extends {BaseAPI}
+ */
+export class TopicApi extends BaseAPI {
+    /**
+     * Get information for variables related to a topic.
+     * @summary Get Variables Related To A Topic.
+     * @param {TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TopicApi
+     */
+    public getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: AxiosRequestConfig) {
+        return TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicVariablesIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
