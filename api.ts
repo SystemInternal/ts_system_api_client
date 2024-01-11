@@ -3337,6 +3337,12 @@ export interface TopicRDBOut {
      * @type {string}
      * @memberof TopicRDBOut
      */
+    'wikidata_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TopicRDBOut
+     */
     'wikidata_label': string;
     /**
      * 
@@ -3344,12 +3350,6 @@ export interface TopicRDBOut {
      * @memberof TopicRDBOut
      */
     'semantic_type_tree_numbers'?: Array<string>;
-    /**
-     * 
-     * @type {string}
-     * @memberof TopicRDBOut
-     */
-    'wikidata_id': string;
 }
 /**
  * Interface for variables associated with a topic.
