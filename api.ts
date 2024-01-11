@@ -2752,6 +2752,24 @@ export interface StudyMetadataRDBOut {
      * @memberof StudyMetadataRDBOut
      */
     'study_metadata': Array<StudyMetadataRDB>;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyMetadataRDBOut
+     */
+    'total_count': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyMetadataRDBOut
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StudyMetadataRDBOut
+     */
+    'limit': number;
 }
 /**
  * Study output.
