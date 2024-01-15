@@ -2442,6 +2442,12 @@ export interface StudyFindings {
     'findings': Array<Finding>;
     /**
      *
+     * @type {string}
+     * @memberof StudyFindings
+     */
+    'doi': string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof StudyFindings
      */
@@ -2457,7 +2463,49 @@ export interface StudyFindings {
      * @type {string}
      * @memberof StudyFindings
      */
-    'doi': string;
+    'system_id'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyFindings
+     */
+    'pmid'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindings
+     */
+    'name'?: string;
+    /**
+     *
+     * @type {Array<AuthorRDBOut>}
+     * @memberof StudyFindings
+     */
+    'authors'?: Array<AuthorRDBOut>;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindings
+     */
+    'study_summary'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindings
+     */
+    'journal'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof StudyFindings
+     */
+    'cited_by'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof StudyFindings
+     */
+    'publish_date'?: string;
 }
 /**
  * Interface for /findings input.
@@ -8228,4 +8276,94 @@ export declare class UsersApi extends BaseAPI {
      * @memberof UsersApi
      */
     updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
+}
+/**
+ * VariableApi - axios parameter creator
+ * @export
+ */
+export declare const VariableApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get information for variable findings.
+     * @summary Get Findings Of A Variable.
+     * @param {string} variableId
+     * @param {number} [limit]
+     * @param {number} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet: (variableId: string, limit?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * VariableApi - functional programming interface
+ * @export
+ */
+export declare const VariableApiFp: (configuration?: Configuration) => {
+    /**
+     * Get information for variable findings.
+     * @summary Get Findings Of A Variable.
+     * @param {string} variableId
+     * @param {number} [limit]
+     * @param {number} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
+};
+/**
+ * VariableApi - factory interface
+ * @export
+ */
+export declare const VariableApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get information for variable findings.
+     * @summary Get Findings Of A Variable.
+     * @param {string} variableId
+     * @param {number} [limit]
+     * @param {number} [offset]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: any): AxiosPromise<StudyFindingsOut>;
+};
+/**
+ * Request parameters for getFindingsOfAVariableV1VariableVariableIdFindingsGet operation in VariableApi.
+ * @export
+ * @interface VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest
+ */
+export interface VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGet
+     */
+    readonly variableId: string;
+    /**
+     *
+     * @type {number}
+     * @memberof VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGet
+     */
+    readonly limit?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGet
+     */
+    readonly offset?: number;
+}
+/**
+ * VariableApi - object-oriented interface
+ * @export
+ * @class VariableApi
+ * @extends {BaseAPI}
+ */
+export declare class VariableApi extends BaseAPI {
+    /**
+     * Get information for variable findings.
+     * @summary Get Findings Of A Variable.
+     * @param {VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VariableApi
+     */
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
 }
