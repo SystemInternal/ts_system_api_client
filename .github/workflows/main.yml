@@ -29,6 +29,6 @@ jobs:
           npm install @semantic-release/commit-analyzer
           npm install @semantic-release/git
           npm install @semantic-release/github
-          npx semantic-release
+          nvm install 'lts/*' && npx semantic-release
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
