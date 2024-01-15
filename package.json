@@ -21,9 +21,6 @@
     "axios": "^0.21.4"
   },
   "devDependencies": {
-    "@semantic-release/commit-analyzer": "^11.1.0",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^9.2.6",
     "@types/node": "^12.11.5",
     "typescript": "^3.6.4"
   }
