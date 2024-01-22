@@ -3423,6 +3423,12 @@ export interface TopicVariablesOut {
      * @memberof TopicVariablesOut
      */
     'variables': Array<VariableInfo>;
+    /**
+     * 
+     * @type {number}
+     * @memberof TopicVariablesOut
+     */
+    'total': number;
 }
 /**
  * User profile data input.
