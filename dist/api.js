@@ -3310,15 +3310,15 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Get semantic search findings.  Values from semantic search.
-         * @summary Get System Search Findings Data
-         * @param {SystemSearchIn} systemSearchIn
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('getSystemSearchFindingsDataV1SemanticSearchDataPost', 'systemSearchIn', systemSearchIn);
-            const localVarPath = `/v1/semantic-search/data`;
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: (systemSearchDataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'systemSearchDataIn' is not null or undefined
+            common_1.assertParamExists('getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost', 'systemSearchDataIn', systemSearchDataIn);
+            const localVarPath = `/v1/semantic-search/data/mechanistic`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -3337,7 +3337,42 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get semantic search findings.  Values from semantic search.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: (systemSearchDataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'systemSearchDataIn' is not null or undefined
+            common_1.assertParamExists('getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost', 'systemSearchDataIn', systemSearchDataIn);
+            const localVarPath = `/v1/semantic-search/data/statistical`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3473,14 +3508,27 @@ exports.SemanticSearchApiFp = function (configuration) {
         },
         /**
          * Get semantic search findings.  Values from semantic search.
-         * @summary Get System Search Findings Data
-         * @param {SystemSearchIn} systemSearchIn
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options) {
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get semantic search findings.  Values from semantic search.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3570,13 +3618,23 @@ exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Get semantic search findings.  Values from semantic search.
-         * @summary Get System Search Findings Data
-         * @param {SystemSearchIn} systemSearchIn
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options) {
-            return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options) {
+            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get semantic search findings.  Values from semantic search.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options) {
+            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -3666,14 +3724,25 @@ class SemanticSearchApi extends base_1.BaseAPI {
     }
     /**
      * Get semantic search findings.  Values from semantic search.
-     * @summary Get System Search Findings Data
-     * @param {SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest} requestParameters Request parameters.
+     * @summary Get System Search Mechanistic Data
+     * @param {SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters, options) {
+        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get semantic search findings.  Values from semantic search.
+     * @summary Get System Search Statistical Data
+     * @param {SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters, options) {
+        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
