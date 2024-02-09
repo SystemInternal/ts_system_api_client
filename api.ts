@@ -1721,6 +1721,62 @@ export interface MapRelationship {
     'evidence_ids'?: Array<string>;
 }
 /**
+ * Metadata for mechanistic finding.
+ * @export
+ * @interface MechanisticMetadata
+ */
+export interface MechanisticMetadata {
+    /**
+     * 
+     * @type {Array<GroundedVariable>}
+     * @memberof MechanisticMetadata
+     */
+    'variables': Array<GroundedVariable>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof MechanisticMetadata
+     */
+    'populations'?: Array<string>;
+    /**
+     * 
+     * @type {StudyMetadataRDB}
+     * @memberof MechanisticMetadata
+     */
+    'study_metadata'?: StudyMetadataRDB;
+    /**
+     * 
+     * @type {string}
+     * @memberof MechanisticMetadata
+     */
+    'mechanism_type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MechanisticMetadata
+     */
+    'source_statement'?: string;
+}
+/**
+ * Mechanistic relationship model.
+ * @export
+ * @interface MechanisticRelationship
+ */
+export interface MechanisticRelationship {
+    /**
+     * 
+     * @type {string}
+     * @memberof MechanisticRelationship
+     */
+    'id': string;
+    /**
+     * 
+     * @type {MechanisticMetadata}
+     * @memberof MechanisticRelationship
+     */
+    'metadata': MechanisticMetadata;
+}
+/**
  * A Message object.
  * @export
  * @interface MessageIn
@@ -2367,6 +2423,86 @@ export interface SnowflakeCredentialsIn {
      * @memberof SnowflakeCredentialsIn
      */
     'db_password': string;
+}
+/**
+ * Statistic relationship model.
+ * @export
+ * @interface StatisticRelationship
+ */
+export interface StatisticRelationship {
+    /**
+     * 
+     * @type {string}
+     * @memberof StatisticRelationship
+     */
+    'id': string;
+    /**
+     * 
+     * @type {StatisticalMetadata}
+     * @memberof StatisticRelationship
+     */
+    'metadata': StatisticalMetadata;
+}
+/**
+ * Metadata for statistical finding.
+ * @export
+ * @interface StatisticalMetadata
+ */
+export interface StatisticalMetadata {
+    /**
+     * 
+     * @type {Array<GroundedVariable>}
+     * @memberof StatisticalMetadata
+     */
+    'variables': Array<GroundedVariable>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof StatisticalMetadata
+     */
+    'populations'?: Array<string>;
+    /**
+     * 
+     * @type {StudyMetadataRDB}
+     * @memberof StatisticalMetadata
+     */
+    'study_metadata'?: StudyMetadataRDB;
+    /**
+     * 
+     * @type {string}
+     * @memberof StatisticalMetadata
+     */
+    'statistic_type'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof StatisticalMetadata
+     */
+    'statistic_value'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StatisticalMetadata
+     */
+    'p_value'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof StatisticalMetadata
+     */
+    'ci_percent'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof StatisticalMetadata
+     */
+    'ci_lower'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof StatisticalMetadata
+     */
+    'ci_upper'?: number;
 }
 /**
  * Stripe account status enum.
@@ -3124,6 +3260,49 @@ export interface SystemSearchData {
     'relationships': Array<ClusteredRelationship>;
 }
 /**
+ * Payload for system search data endpoints.
+ * @export
+ * @interface SystemSearchDataIn
+ */
+export interface SystemSearchDataIn {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SystemSearchDataIn
+     */
+    'pmids': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemSearchDataIn
+     */
+    'population'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemSearchDataIn
+     */
+    'variable_1_search'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemSearchDataIn
+     */
+    'variable_2_search'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchDataIn
+     */
+    'limit': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchDataIn
+     */
+    'offset': number;
+}
+/**
  * System Search Fields.
  * @export
  * @interface SystemSearchIn
@@ -3207,6 +3386,68 @@ export interface SystemSearchIn {
      * @memberof SystemSearchIn
      */
     'kickoff_highly_cited_synthesis'?: boolean;
+}
+/**
+ * System search underlying data.
+ * @export
+ * @interface SystemSearchMechanisticDataOut
+ */
+export interface SystemSearchMechanisticDataOut {
+    /**
+     * 
+     * @type {Array<MechanisticRelationship>}
+     * @memberof SystemSearchMechanisticDataOut
+     */
+    'relationships': Array<MechanisticRelationship>;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchMechanisticDataOut
+     */
+    'limit': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchMechanisticDataOut
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchMechanisticDataOut
+     */
+    'total': number;
+}
+/**
+ * System search underlying data.
+ * @export
+ * @interface SystemSearchStatisticalDataOut
+ */
+export interface SystemSearchStatisticalDataOut {
+    /**
+     * 
+     * @type {Array<StatisticRelationship>}
+     * @memberof SystemSearchStatisticalDataOut
+     */
+    'relationships': Array<StatisticRelationship>;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchStatisticalDataOut
+     */
+    'limit': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchStatisticalDataOut
+     */
+    'offset': number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SystemSearchStatisticalDataOut
+     */
+    'total': number;
 }
 /**
  * A table object.
@@ -7763,6 +8004,92 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get statistical findings.
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: async (systemSearchDataIn: SystemSearchDataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'systemSearchDataIn' is not null or undefined
+            assertParamExists('getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost', 'systemSearchDataIn', systemSearchDataIn)
+            const localVarPath = `/v1/semantic-search/data/mechanistic`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get mechanistic findings.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: async (systemSearchDataIn: SystemSearchDataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'systemSearchDataIn' is not null or undefined
+            assertParamExists('getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost', 'systemSearchDataIn', systemSearchDataIn)
+            const localVarPath = `/v1/semantic-search/data/statistical`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get semantic search.  Values from semantic search.
          * @summary Regenerate Synthesis
          * @param {string} cacheKey 
@@ -7900,6 +8227,28 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get statistical findings.
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchMechanisticDataOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get mechanistic findings.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchStatisticalDataOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get semantic search.  Values from semantic search.
          * @summary Regenerate Synthesis
          * @param {string} cacheKey 
@@ -7991,6 +8340,26 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
          */
         getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData> {
             return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get statistical findings.
+         * @summary Get System Search Mechanistic Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchMechanisticDataOut> {
+            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get mechanistic findings.
+         * @summary Get System Search Statistical Data
+         * @param {SystemSearchDataIn} systemSearchDataIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchStatisticalDataOut> {
+            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -8112,6 +8481,34 @@ export interface SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDat
 }
 
 /**
+ * Request parameters for getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest
+ */
+export interface SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest {
+    /**
+     * 
+     * @type {SystemSearchDataIn}
+     * @memberof SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost
+     */
+    readonly systemSearchDataIn: SystemSearchDataIn
+}
+
+/**
+ * Request parameters for getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost operation in SemanticSearchApi.
+ * @export
+ * @interface SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest
+ */
+export interface SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest {
+    /**
+     * 
+     * @type {SystemSearchDataIn}
+     * @memberof SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost
+     */
+    readonly systemSearchDataIn: SystemSearchDataIn
+}
+
+/**
  * Request parameters for regenerateSynthesisV1SemanticSearchRegeneratePost operation in SemanticSearchApi.
  * @export
  * @interface SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest
@@ -8221,6 +8618,30 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get statistical findings.
+     * @summary Get System Search Mechanistic Data
+     * @param {SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get mechanistic findings.
+     * @summary Get System Search Statistical Data
+     * @param {SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SemanticSearchApi
+     */
+    public getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: AxiosRequestConfig) {
+        return SemanticSearchApiFp(this.configuration).getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
