@@ -2380,6 +2380,165 @@ export interface SnowflakeCredentialsIn {
     'db_password': string;
 }
 /**
+ * Interface for soh metadata.
+ * @export
+ * @interface Soh
+ */
+export interface Soh {
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'finding_sentence'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_population'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'statistic_type'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Soh
+     */
+    'statistic_value'?: number;
+    /**
+     *
+     * @type {object}
+     * @memberof Soh
+     */
+    'significance_value'?: object;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_title'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_doi'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Soh
+     */
+    'study_cited_by'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_published_date'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'variable_1_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Soh
+     */
+    'variable_2_name'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof Soh
+     */
+    'p_value'?: number;
+}
+/**
+ * Interface for input to /soh.
+ * @export
+ * @interface SohIn
+ */
+export interface SohIn {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SohIn
+     */
+    'concept_1_group'?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof SohIn
+     */
+    'concept_2_group'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof SohIn
+     */
+    'sort'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohIn
+     */
+    'limit'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohIn
+     */
+    'offset'?: number;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SohIn
+     */
+    'calculate_count'?: boolean;
+}
+/**
+ * Interface for /soh response type.
+ * @export
+ * @interface SohOut
+ */
+export interface SohOut {
+    /**
+     *
+     * @type {Array<Soh>}
+     * @memberof SohOut
+     */
+    'data': Array<Soh>;
+    /**
+     *
+     * @type {string}
+     * @memberof SohOut
+     */
+    'sort'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohOut
+     */
+    'limit'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohOut
+     */
+    'offset'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohOut
+     */
+    'total'?: number;
+}
+/**
  * Statistic relationship model.
  * @export
  * @interface StatisticRelationship
@@ -6478,6 +6637,78 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @memberof SemanticSearchApi
      */
     regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
+ * SohApi - axios parameter creator
+ * @export
+ */
+export declare const SohApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohOfMetadataV1SohPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * SohApi - functional programming interface
+ * @export
+ */
+export declare const SohApiFp: (configuration?: Configuration) => {
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohOfMetadataV1SohPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
+};
+/**
+ * SohApi - factory interface
+ * @export
+ */
+export declare const SohApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohOfMetadataV1SohPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
+};
+/**
+ * Request parameters for getSohOfMetadataV1SohPost operation in SohApi.
+ * @export
+ * @interface SohApiGetSohOfMetadataV1SohPostRequest
+ */
+export interface SohApiGetSohOfMetadataV1SohPostRequest {
+    /**
+     *
+     * @type {SohIn}
+     * @memberof SohApiGetSohOfMetadataV1SohPost
+     */
+    readonly sohIn: SohIn;
+}
+/**
+ * SohApi - object-oriented interface
+ * @export
+ * @class SohApi
+ * @extends {BaseAPI}
+ */
+export declare class SohApi extends BaseAPI {
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohApiGetSohOfMetadataV1SohPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohOfMetadataV1SohPost(requestParameters: SohApiGetSohOfMetadataV1SohPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut>>;
 }
 /**
  * SsoApi - axios parameter creator
