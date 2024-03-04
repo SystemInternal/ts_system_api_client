@@ -2425,6 +2425,165 @@ export interface SnowflakeCredentialsIn {
     'db_password': string;
 }
 /**
+ * Interface for soh metadata.
+ * @export
+ * @interface Soh
+ */
+export interface Soh {
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'finding_sentence'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_population'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'statistic_type'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Soh
+     */
+    'statistic_value'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof Soh
+     */
+    'significance_value'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_title'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_doi'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Soh
+     */
+    'study_cited_by'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'study_published_date'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'variable_1_name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
+    'variable_2_name'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Soh
+     */
+    'p_value'?: number;
+}
+/**
+ * Interface for input to /soh.
+ * @export
+ * @interface SohIn
+ */
+export interface SohIn {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SohIn
+     */
+    'concept_1_group'?: Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof SohIn
+     */
+    'concept_2_group'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohIn
+     */
+    'sort'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohIn
+     */
+    'limit'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohIn
+     */
+    'offset'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SohIn
+     */
+    'calculate_count'?: boolean;
+}
+/**
+ * Interface for /soh response type.
+ * @export
+ * @interface SohOut
+ */
+export interface SohOut {
+    /**
+     * 
+     * @type {Array<Soh>}
+     * @memberof SohOut
+     */
+    'data': Array<Soh>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohOut
+     */
+    'sort'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohOut
+     */
+    'limit'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohOut
+     */
+    'offset'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohOut
+     */
+    'total'?: number;
+}
+/**
  * Statistic relationship model.
  * @export
  * @interface StatisticRelationship
@@ -8654,6 +8813,134 @@ export class SemanticSearchApi extends BaseAPI {
      */
     public regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SohApi - axios parameter creator
+ * @export
+ */
+export const SohApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohOfMetadataV1SohPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sohIn' is not null or undefined
+            assertParamExists('getSohOfMetadataV1SohPost', 'sohIn', sohIn)
+            const localVarPath = `/v1/soh`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SohApi - functional programming interface
+ * @export
+ */
+export const SohApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SohApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSohOfMetadataV1SohPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohOfMetadataV1SohPost(sohIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SohApi - factory interface
+ * @export
+ */
+export const SohApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SohApiFp(configuration)
+    return {
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohOfMetadataV1SohPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut> {
+            return localVarFp.getSohOfMetadataV1SohPost(sohIn, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getSohOfMetadataV1SohPost operation in SohApi.
+ * @export
+ * @interface SohApiGetSohOfMetadataV1SohPostRequest
+ */
+export interface SohApiGetSohOfMetadataV1SohPostRequest {
+    /**
+     * 
+     * @type {SohIn}
+     * @memberof SohApiGetSohOfMetadataV1SohPost
+     */
+    readonly sohIn: SohIn
+}
+
+/**
+ * SohApi - object-oriented interface
+ * @export
+ * @class SohApi
+ * @extends {BaseAPI}
+ */
+export class SohApi extends BaseAPI {
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohApiGetSohOfMetadataV1SohPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public getSohOfMetadataV1SohPost(requestParameters: SohApiGetSohOfMetadataV1SohPostRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getSohOfMetadataV1SohPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
