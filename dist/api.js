@@ -3839,10 +3839,10 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohPost: (sohIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSohOfMetadataV1SohFindingsPost: (sohIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'sohIn' is not null or undefined
-            common_1.assertParamExists('getSohOfMetadataV1SohPost', 'sohIn', sohIn);
-            const localVarPath = `/v1/soh`;
+            common_1.assertParamExists('getSohOfMetadataV1SohFindingsPost', 'sohIn', sohIn);
+            const localVarPath = `/v1/soh/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -3883,9 +3883,9 @@ exports.SohApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohPost(sohIn, options) {
+        getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohPost(sohIn, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -3905,8 +3905,8 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohPost(sohIn, options) {
-            return localVarFp.getSohOfMetadataV1SohPost(sohIn, options).then((request) => request(axios, basePath));
+        getSohOfMetadataV1SohFindingsPost(sohIn, options) {
+            return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3920,13 +3920,13 @@ class SohApi extends base_1.BaseAPI {
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
-     * @param {SohApiGetSohOfMetadataV1SohPostRequest} requestParameters Request parameters.
+     * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getSohOfMetadataV1SohPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SohApi = SohApi;

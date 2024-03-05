@@ -6650,7 +6650,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSohOfMetadataV1SohFindingsPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SohApi - functional programming interface
@@ -6664,7 +6664,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
+    getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
 };
 /**
  * SohApi - factory interface
@@ -6678,18 +6678,18 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
+    getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
 };
 /**
- * Request parameters for getSohOfMetadataV1SohPost operation in SohApi.
+ * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
- * @interface SohApiGetSohOfMetadataV1SohPostRequest
+ * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
  */
-export interface SohApiGetSohOfMetadataV1SohPostRequest {
+export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
     /**
      *
      * @type {SohIn}
-     * @memberof SohApiGetSohOfMetadataV1SohPost
+     * @memberof SohApiGetSohOfMetadataV1SohFindingsPost
      */
     readonly sohIn: SohIn;
 }
@@ -6703,12 +6703,12 @@ export declare class SohApi extends BaseAPI {
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
-     * @param {SohApiGetSohOfMetadataV1SohPostRequest} requestParameters Request parameters.
+     * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getSohOfMetadataV1SohPost(requestParameters: SohApiGetSohOfMetadataV1SohPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut>>;
+    getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut>>;
 }
 /**
  * SsoApi - axios parameter creator
