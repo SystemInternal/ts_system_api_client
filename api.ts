@@ -8830,10 +8830,10 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSohOfMetadataV1SohFindingsPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sohIn' is not null or undefined
-            assertParamExists('getSohOfMetadataV1SohPost', 'sohIn', sohIn)
-            const localVarPath = `/v1/soh`;
+            assertParamExists('getSohOfMetadataV1SohFindingsPost', 'sohIn', sohIn)
+            const localVarPath = `/v1/soh/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -8883,8 +8883,8 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSohOfMetadataV1SohPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohOfMetadataV1SohPost(sohIn, options);
+        async getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -8904,22 +8904,22 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut> {
-            return localVarFp.getSohOfMetadataV1SohPost(sohIn, options).then((request) => request(axios, basePath));
+        getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut> {
+            return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for getSohOfMetadataV1SohPost operation in SohApi.
+ * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
- * @interface SohApiGetSohOfMetadataV1SohPostRequest
+ * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
  */
-export interface SohApiGetSohOfMetadataV1SohPostRequest {
+export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
     /**
      * 
      * @type {SohIn}
-     * @memberof SohApiGetSohOfMetadataV1SohPost
+     * @memberof SohApiGetSohOfMetadataV1SohFindingsPost
      */
     readonly sohIn: SohIn
 }
@@ -8934,13 +8934,13 @@ export class SohApi extends BaseAPI {
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
-     * @param {SohApiGetSohOfMetadataV1SohPostRequest} requestParameters Request parameters.
+     * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getSohOfMetadataV1SohPost(requestParameters: SohApiGetSohOfMetadataV1SohPostRequest, options?: AxiosRequestConfig) {
-        return SohApiFp(this.configuration).getSohOfMetadataV1SohPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    public getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
