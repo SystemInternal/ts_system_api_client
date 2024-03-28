@@ -2729,7 +2729,7 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'rollup_id': string;
+    'topic_id': string;
     /**
      * 
      * @type {Array<string>}
