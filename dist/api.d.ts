@@ -2676,37 +2676,37 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'id': string;
+    'name': string;
     /**
      *
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'name': string;
+    'rollup_id': string;
     /**
      *
      * @type {Array<string>}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'umls_cui'?: Array<string>;
+    'umls_cuis': Array<string>;
     /**
      *
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'category_1': string;
+    'wikidata_id'?: string;
+    /**
+     *
+     * @type {Array<Role>}
+     * @memberof SohServiceClientModelsTopicNodeTopicNode
+     */
+    'roles': Array<Role>;
     /**
      *
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'category_2'?: string;
-    /**
-     *
-     * @type {Role}
-     * @memberof SohServiceClientModelsTopicNodeTopicNode
-     */
-    'role'?: Role;
+    'category': string;
 }
 /**
  * Statistic relationship model.
@@ -3981,15 +3981,6 @@ export interface TopicVariablesOut {
      * @memberof TopicVariablesOut
      */
     'total': number;
-}
-/**
- * Traversal.
- * @export
- * @enum {string}
- */
-export declare enum TraversalDirection {
-    Upstream = "upstream",
-    Downstream = "downstream"
 }
 /**
  * User profile data input.
@@ -6857,12 +6848,12 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * Fetch graph.
      * @summary Fetch Graph
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
@@ -6877,12 +6868,12 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6901,12 +6892,12 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * Fetch graph.
      * @summary Fetch Graph
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
@@ -6921,12 +6912,12 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6945,12 +6936,12 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * Fetch graph.
      * @summary Fetch Graph
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: any): AxiosPromise<GraphOut>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
@@ -6965,12 +6956,12 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
-     * @param {TraversalDirection} traversalDirection
+     * @param {string} traversalDirection
      * @param {PathsPayload} pathsPayload
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6994,10 +6985,10 @@ export interface SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPostRe
     readonly topicId: string;
     /**
      *
-     * @type {TraversalDirection}
+     * @type {string}
      * @memberof SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost
      */
-    readonly traversalDirection: TraversalDirection;
+    readonly traversalDirection: string;
     /**
      *
      * @type {PathsPayload}
@@ -7044,10 +7035,10 @@ export interface SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPostRe
     readonly topicId: string;
     /**
      *
-     * @type {TraversalDirection}
+     * @type {string}
      * @memberof SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost
      */
-    readonly traversalDirection: TraversalDirection;
+    readonly traversalDirection: string;
     /**
      *
      * @type {PathsPayload}
