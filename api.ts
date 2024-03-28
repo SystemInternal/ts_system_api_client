@@ -2723,37 +2723,37 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'id': string;
+    'name': string;
     /**
      * 
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'name': string;
+    'rollup_id': string;
     /**
      * 
      * @type {Array<string>}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'umls_cui'?: Array<string>;
+    'umls_cuis': Array<string>;
     /**
      * 
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'category_1': string;
+    'wikidata_id'?: string;
+    /**
+     * 
+     * @type {Array<Role>}
+     * @memberof SohServiceClientModelsTopicNodeTopicNode
+     */
+    'roles': Array<Role>;
     /**
      * 
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'category_2'?: string;
-    /**
-     * 
-     * @type {Role}
-     * @memberof SohServiceClientModelsTopicNodeTopicNode
-     */
-    'role'?: Role;
+    'category': string;
 }
 /**
  * Statistic relationship model.
@@ -4033,17 +4033,6 @@ export interface TopicVariablesOut {
      */
     'total': number;
 }
-/**
- * Traversal.
- * @export
- * @enum {string}
- */
-
-export enum TraversalDirection {
-    Upstream = 'upstream',
-    Downstream = 'downstream'
-}
-
 /**
  * User profile data input.
  * @export
@@ -9041,12 +9030,12 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * Fetch graph.
          * @summary Fetch Graph
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -9146,12 +9135,12 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * Fetch paths.
          * @summary Fetch Paths
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -9250,12 +9239,12 @@ export const SohApiFp = function(configuration?: Configuration) {
          * Fetch graph.
          * @summary Fetch Graph
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -9276,12 +9265,12 @@ export const SohApiFp = function(configuration?: Configuration) {
          * Fetch paths.
          * @summary Fetch Paths
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
+        async fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -9310,12 +9299,12 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * Fetch graph.
          * @summary Fetch Graph
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: any): AxiosPromise<GraphOut> {
+        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<GraphOut> {
             return localVarFp.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -9334,12 +9323,12 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * Fetch paths.
          * @summary Fetch Paths
          * @param {string} topicId 
-         * @param {TraversalDirection} traversalDirection 
+         * @param {string} traversalDirection 
          * @param {PathsPayload} pathsPayload 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: TraversalDirection, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut> {
+        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut> {
             return localVarFp.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options).then((request) => request(axios, basePath));
         },
         /**
@@ -9370,10 +9359,10 @@ export interface SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPostRe
 
     /**
      * 
-     * @type {TraversalDirection}
+     * @type {string}
      * @memberof SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost
      */
-    readonly traversalDirection: TraversalDirection
+    readonly traversalDirection: string
 
     /**
      * 
@@ -9426,10 +9415,10 @@ export interface SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPostRe
 
     /**
      * 
-     * @type {TraversalDirection}
+     * @type {string}
      * @memberof SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost
      */
-    readonly traversalDirection: TraversalDirection
+    readonly traversalDirection: string
 
     /**
      * 
