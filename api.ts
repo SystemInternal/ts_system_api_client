@@ -4012,7 +4012,7 @@ export interface TopicFilterParams {
      * @type {Array<string>}
      * @memberof TopicFilterParams
      */
-    'exclude_category'?: Array<string>;
+    'include_category'?: Array<string>;
 }
 /**
  * Topic output.  # noqa: E501
