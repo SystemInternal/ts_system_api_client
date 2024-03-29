@@ -1767,6 +1767,16 @@ export interface MechanisticRelationship {
     'metadata': MechanisticMetadata;
 }
 /**
+ * Median effect size.
+ * @export
+ * @enum {string}
+ */
+export declare enum MedianEffectSize {
+    Small = "small",
+    Medium = "medium",
+    Large = "large"
+}
+/**
  * A Message object.
  * @export
  * @interface MessageIn
@@ -2006,39 +2016,43 @@ export interface PathsOut {
     'paths': Array<Path>;
 }
 /**
- * Paths payload.  # noqa: E501
+ * Typed paths payload.
  * @export
- * @interface PathsPayload
+ * @interface PathsPayloadTyped
  */
-export interface PathsPayload {
+export interface PathsPayloadTyped {
     /**
      * Number of hops.
      * @type {number}
-     * @memberof PathsPayload
+     * @memberof PathsPayloadTyped
      */
     'n_hop': number;
     /**
      * Dictionary of topic filters with key corresponding to zero-indexed node in path.
-     * @type {any}
-     * @memberof PathsPayload
+     * @type {{ [key: string]: TopicFilterParams; }}
+     * @memberof PathsPayloadTyped
      */
-    'topic_filters'?: any;
+    'topic_filters'?: {
+        [key: string]: TopicFilterParams;
+    };
     /**
      * Dictionary of relationship filters with key corresponding to zero-indexed edge in path.
-     * @type {any}
-     * @memberof PathsPayload
+     * @type {{ [key: string]: RelationshipFilterParams; }}
+     * @memberof PathsPayloadTyped
      */
-    'relationship_filters'?: any;
+    'relationship_filters'?: {
+        [key: string]: RelationshipFilterParams;
+    };
     /**
      * Limit number of paths.
      * @type {number}
-     * @memberof PathsPayload
+     * @memberof PathsPayloadTyped
      */
     'limit'?: number;
     /**
      * Offset number of paths.
      * @type {number}
-     * @memberof PathsPayload
+     * @memberof PathsPayloadTyped
      */
     'offset'?: number;
 }
@@ -2220,6 +2234,43 @@ export interface RedshiftCredentialsIn {
      * @memberof RedshiftCredentialsIn
      */
     'db_password': string;
+}
+/**
+ * Filter parameters.  # noqa: E501
+ * @export
+ * @interface RelationshipFilterParams
+ */
+export interface RelationshipFilterParams {
+    /**
+     *
+     * @type {MedianEffectSize}
+     * @memberof RelationshipFilterParams
+     */
+    'median_es_min'?: MedianEffectSize;
+    /**
+     * Highly cited.
+     * @type {boolean}
+     * @memberof RelationshipFilterParams
+     */
+    'highly_cited'?: boolean;
+    /**
+     * Well established.
+     * @type {boolean}
+     * @memberof RelationshipFilterParams
+     */
+    'well_established'?: boolean;
+    /**
+     * Significant well established.
+     * @type {boolean}
+     * @memberof RelationshipFilterParams
+     */
+    'significant_well_estabished'?: boolean;
+    /**
+     * Recency limit years.
+     * @type {number}
+     * @memberof RelationshipFilterParams
+     */
+    'recency_limit_years'?: number;
 }
 /**
  * API resource action enum.
@@ -3894,6 +3945,25 @@ export interface TopicEdge {
      * @memberof TopicEdge
      */
     'num_findings'?: number;
+}
+/**
+ * Topic filter params.  # noqa: E501
+ * @export
+ * @interface TopicFilterParams
+ */
+export interface TopicFilterParams {
+    /**
+     *
+     * @type {Role}
+     * @memberof TopicFilterParams
+     */
+    'role'?: Role;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof TopicFilterParams
+     */
+    'exclude_category'?: Array<string>;
 }
 /**
  * Topic output.  # noqa: E501
@@ -6849,31 +6919,31 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @summary Fetch Graph
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
      * @param {string} topicId
      * @param {string} targetTopicId
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6893,31 +6963,31 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @summary Fetch Graph
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
      * @param {string} topicId
      * @param {string} targetTopicId
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6937,31 +7007,31 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @summary Fetch Graph
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<GraphOut>;
+    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch mediators.
      * @summary Fetch Mediators
      * @param {string} topicId
      * @param {string} targetTopicId
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut>;
+    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Fetch paths.
      * @summary Fetch Paths
      * @param {string} topicId
      * @param {string} traversalDirection
-     * @param {PathsPayload} pathsPayload
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayload: PathsPayload, options?: any): AxiosPromise<PathsOut>;
+    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -6991,10 +7061,10 @@ export interface SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPostRe
     readonly traversalDirection: string;
     /**
      *
-     * @type {PathsPayload}
+     * @type {PathsPayloadTyped}
      * @memberof SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost
      */
-    readonly pathsPayload: PathsPayload;
+    readonly pathsPayloadTyped: PathsPayloadTyped;
 }
 /**
  * Request parameters for fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost operation in SohApi.
@@ -7016,10 +7086,10 @@ export interface SohApiFetchMediatorsV1SohSystemTopicIdPathsMediatorsPostRequest
     readonly targetTopicId: string;
     /**
      *
-     * @type {PathsPayload}
+     * @type {PathsPayloadTyped}
      * @memberof SohApiFetchMediatorsV1SohSystemTopicIdPathsMediatorsPost
      */
-    readonly pathsPayload: PathsPayload;
+    readonly pathsPayloadTyped: PathsPayloadTyped;
 }
 /**
  * Request parameters for fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost operation in SohApi.
@@ -7041,10 +7111,10 @@ export interface SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPostRe
     readonly traversalDirection: string;
     /**
      *
-     * @type {PathsPayload}
+     * @type {PathsPayloadTyped}
      * @memberof SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost
      */
-    readonly pathsPayload: PathsPayload;
+    readonly pathsPayloadTyped: PathsPayloadTyped;
 }
 /**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.

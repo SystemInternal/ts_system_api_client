@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FeatureContributionMethod = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FeatureContributionMethod = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -185,6 +185,17 @@ var IntegrationType;
     IntegrationType["Looker"] = "LOOKER";
     IntegrationType["Mode"] = "MODE";
 })(IntegrationType = exports.IntegrationType || (exports.IntegrationType = {}));
+/**
+ * Median effect size.
+ * @export
+ * @enum {string}
+ */
+var MedianEffectSize;
+(function (MedianEffectSize) {
+    MedianEffectSize["Small"] = "small";
+    MedianEffectSize["Medium"] = "medium";
+    MedianEffectSize["Large"] = "large";
+})(MedianEffectSize = exports.MedianEffectSize || (exports.MedianEffectSize = {}));
 /**
  * Message type.
  * @export
@@ -3847,17 +3858,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @summary Fetch Graph
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
             common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
             common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
-            // verify required parameter 'pathsPayload' is not null or undefined
-            common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'pathsPayload', pathsPayload);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/system/{topic_id}/graph/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -3879,7 +3890,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayload, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3890,17 +3901,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @summary Fetch Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
             common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'topicId', topicId);
             // verify required parameter 'targetTopicId' is not null or undefined
             common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
-            // verify required parameter 'pathsPayload' is not null or undefined
-            common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'pathsPayload', pathsPayload);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/system/{topic_id}/paths/mediators`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3924,7 +3935,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayload, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -3935,17 +3946,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @summary Fetch Paths
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayload, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
             common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
             common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
-            // verify required parameter 'pathsPayload' is not null or undefined
-            common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'pathsPayload', pathsPayload);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/system/{topic_id}/paths/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -3967,7 +3978,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayload, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -4022,13 +4033,13 @@ exports.SohApiFp = function (configuration) {
          * @summary Fetch Graph
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options) {
+        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4037,13 +4048,13 @@ exports.SohApiFp = function (configuration) {
          * @summary Fetch Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayload, options) {
+        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayload, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4052,13 +4063,13 @@ exports.SohApiFp = function (configuration) {
          * @summary Fetch Paths
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options) {
+        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4089,36 +4100,36 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          * @summary Fetch Graph
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options) {
-            return localVarFp.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options).then((request) => request(axios, basePath));
+        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
          * @summary Fetch Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayload, options) {
-            return localVarFp.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayload, options).then((request) => request(axios, basePath));
+        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
+            return localVarFp.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
          * @summary Fetch Paths
          * @param {string} topicId
          * @param {string} traversalDirection
-         * @param {PathsPayload} pathsPayload
+         * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options) {
-            return localVarFp.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayload, options).then((request) => request(axios, basePath));
+        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -4148,7 +4159,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayload, options).then((request) => request(this.axios, this.basePath));
+        return exports.SohApiFp(this.configuration).fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch mediators.
@@ -4159,7 +4170,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayload, options).then((request) => request(this.axios, this.basePath));
+        return exports.SohApiFp(this.configuration).fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch paths.
@@ -4170,7 +4181,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayload, options).then((request) => request(this.axios, this.basePath));
+        return exports.SohApiFp(this.configuration).fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
