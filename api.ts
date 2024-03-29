@@ -2340,8 +2340,8 @@ export enum RetrievalStatus {
  */
 
 export enum Role {
-    Determinant = 'determinant',
-    Intervention = 'intervention'
+    Determinant = 'Determinant',
+    Intervention = 'Intervention'
 }
 
 /**
