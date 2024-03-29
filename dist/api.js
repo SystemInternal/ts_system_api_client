@@ -259,8 +259,8 @@ var RetrievalStatus;
  */
 var Role;
 (function (Role) {
-    Role["Determinant"] = "determinant";
-    Role["Intervention"] = "intervention";
+    Role["Determinant"] = "Determinant";
+    Role["Intervention"] = "Intervention";
 })(Role = exports.Role || (exports.Role = {}));
 /**
  * Search type.

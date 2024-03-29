@@ -2298,8 +2298,8 @@ export declare enum RetrievalStatus {
  * @enum {string}
  */
 export declare enum Role {
-    Determinant = "determinant",
-    Intervention = "intervention"
+    Determinant = "Determinant",
+    Intervention = "Intervention"
 }
 /**
  * Schema for scored cluster.
