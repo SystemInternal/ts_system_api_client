@@ -272,6 +272,8 @@ var Role;
 (function (Role) {
     Role["Determinant"] = "Determinant";
     Role["Intervention"] = "Intervention";
+    Role["Outcome"] = "Outcome";
+    Role["Agent"] = "Agent";
 })(Role = exports.Role || (exports.Role = {}));
 /**
  * Search type.
@@ -3855,21 +3857,21 @@ exports.SohApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Fetch graph.
-         * @summary Fetch Graph
+         * @summary Fetch Mech Graph
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
+            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
-            const localVarPath = `/v1/soh/system/{topic_id}/graph/{traversal_direction}`
+            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/mech_relationships/{topic_id}/graph/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3898,21 +3900,21 @@ exports.SohApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Fetch mediators.
-         * @summary Fetch Mediators
+         * @summary Fetch Mech Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'topicId', topicId);
+            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
             // verify required parameter 'targetTopicId' is not null or undefined
-            common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
+            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
-            const localVarPath = `/v1/soh/system/{topic_id}/paths/mediators`
+            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/mech_relationships/{topic_id}/paths/mediators`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3943,21 +3945,152 @@ exports.SohApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Fetch paths.
-         * @summary Fetch Paths
+         * @summary Fetch Mech Paths
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
+            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
-            const localVarPath = `/v1/soh/system/{topic_id}/paths/{traversal_direction}`
+            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/mech_relationships/{topic_id}/paths/{traversal_direction}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
+                .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch graph.
+         * @summary Fetch Stat Graph
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topicId' is not null or undefined
+            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
+            // verify required parameter 'traversalDirection' is not null or undefined
+            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/stat_relationships/{topic_id}/graph/{traversal_direction}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
+                .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch mediators.
+         * @summary Fetch Stat Mediators
+         * @param {string} topicId
+         * @param {string} targetTopicId
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topicId' is not null or undefined
+            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
+            // verify required parameter 'targetTopicId' is not null or undefined
+            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/stat_relationships/{topic_id}/paths/mediators`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (targetTopicId !== undefined) {
+                localVarQueryParameter['target_topic_id'] = targetTopicId;
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Fetch paths.
+         * @summary Fetch Stat Paths
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topicId' is not null or undefined
+            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
+            // verify required parameter 'traversalDirection' is not null or undefined
+            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            // verify required parameter 'pathsPayloadTyped' is not null or undefined
+            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            const localVarPath = `/v1/soh/stat_relationships/{topic_id}/paths/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4019,6 +4152,42 @@ exports.SohApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohOfMetadataV1SohTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            common_1.assertParamExists('getSohOfMetadataV1SohTopicsGet', 'query', query);
+            const localVarPath = `/v1/soh/topics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -4030,46 +4199,91 @@ exports.SohApiFp = function (configuration) {
     return {
         /**
          * Fetch graph.
-         * @summary Fetch Graph
+         * @summary Fetch Mech Graph
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
         /**
          * Fetch mediators.
-         * @summary Fetch Mediators
+         * @summary Fetch Mech Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
         /**
          * Fetch paths.
-         * @summary Fetch Paths
+         * @summary Fetch Mech Paths
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch graph.
+         * @summary Fetch Stat Graph
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch mediators.
+         * @summary Fetch Stat Mediators
+         * @param {string} topicId
+         * @param {string} targetTopicId
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Fetch paths.
+         * @summary Fetch Stat Paths
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4086,6 +4300,19 @@ exports.SohApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohOfMetadataV1SohTopicsGet(query, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohTopicsGet(query, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -4097,39 +4324,75 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
     return {
         /**
          * Fetch graph.
-         * @summary Fetch Graph
+         * @summary Fetch Mech Graph
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
-         * @summary Fetch Mediators
+         * @summary Fetch Mech Mediators
          * @param {string} topicId
          * @param {string} targetTopicId
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
-            return localVarFp.fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
+            return localVarFp.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
-         * @summary Fetch Paths
+         * @summary Fetch Mech Paths
          * @param {string} topicId
          * @param {string} traversalDirection
          * @param {PathsPayloadTyped} pathsPayloadTyped
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch graph.
+         * @summary Fetch Stat Graph
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch mediators.
+         * @summary Fetch Stat Mediators
+         * @param {string} topicId
+         * @param {string} targetTopicId
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
+            return localVarFp.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch paths.
+         * @summary Fetch Stat Paths
+         * @param {string} topicId
+         * @param {string} traversalDirection
+         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
+            return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -4140,6 +4403,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          */
         getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
+         * @summary Get Soh Of Metadata
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohOfMetadataV1SohTopicsGet(query, options) {
+            return localVarFp.getSohOfMetadataV1SohTopicsGet(query, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4152,36 +4425,69 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
 class SohApi extends base_1.BaseAPI {
     /**
      * Fetch graph.
-     * @summary Fetch Graph
-     * @param {SohApiFetchGraphV1SohSystemTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @summary Fetch Mech Graph
+     * @param {SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchGraphV1SohSystemTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch mediators.
-     * @summary Fetch Mediators
-     * @param {SohApiFetchMediatorsV1SohSystemTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+     * @summary Fetch Mech Mediators
+     * @param {SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchMediatorsV1SohSystemTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch paths.
-     * @summary Fetch Paths
-     * @param {SohApiFetchPathsV1SohSystemTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @summary Fetch Mech Paths
+     * @param {SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchPathsV1SohSystemTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch graph.
+     * @summary Fetch Stat Graph
+     * @param {SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch mediators.
+     * @summary Fetch Stat Mediators
+     * @param {SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Fetch paths.
+     * @summary Fetch Stat Paths
+     * @param {SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -4193,6 +4499,17 @@ class SohApi extends base_1.BaseAPI {
      */
     getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
         return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health data.
+     * @summary Get Soh Of Metadata
+     * @param {SohApiGetSohOfMetadataV1SohTopicsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohOfMetadataV1SohTopicsGet(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SohApi = SohApi;
