@@ -6835,10 +6835,6 @@ export const MetricsApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -6944,10 +6940,6 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -6981,10 +6973,6 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
@@ -9482,10 +9470,6 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
 
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -10048,10 +10032,6 @@ export const SsoApiAxiosParamCreator = function (configuration?: Configuration) 
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
 
     
