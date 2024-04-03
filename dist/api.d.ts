@@ -1206,6 +1206,12 @@ export interface GraphMetrics {
     'num_sources': number;
     /**
      *
+     * @type {number}
+     * @memberof GraphMetrics
+     */
+    'num_findings': number;
+    /**
+     *
      * @type {string}
      * @memberof GraphMetrics
      */
