@@ -2080,9 +2080,6 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -2180,9 +2177,6 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
@@ -2211,9 +2205,6 @@ exports.ModeldbApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (algorithmClass !== undefined) {
                 localVarQueryParameter['algorithm_class'] = algorithmClass;
             }
@@ -4174,9 +4165,6 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
@@ -4542,9 +4530,6 @@ exports.SsoApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
