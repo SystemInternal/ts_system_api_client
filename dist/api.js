@@ -4109,6 +4109,37 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get system of health findings and related study if doi provided.
+         * @summary Get List Of Soh Findings
+         * @param {string} [doi]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getListOfSohFindingsV1SohFindingsLogGet: (doi, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/soh/findings-log`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            if (doi !== undefined) {
+                localVarQueryParameter['doi'] = doi;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
@@ -4276,6 +4307,19 @@ exports.SohApiFp = function (configuration) {
             });
         },
         /**
+         * Get system of health findings and related study if doi provided.
+         * @summary Get List Of Soh Findings
+         * @param {string} [doi]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getListOfSohFindingsV1SohFindingsLogGet(doi, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getListOfSohFindingsV1SohFindingsLogGet(doi, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
@@ -4383,6 +4427,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
             return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get system of health findings and related study if doi provided.
+         * @summary Get List Of Soh Findings
+         * @param {string} [doi]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getListOfSohFindingsV1SohFindingsLogGet(doi, options) {
+            return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
@@ -4476,6 +4530,17 @@ class SohApi extends base_1.BaseAPI {
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
         return exports.SohApiFp(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health findings and related study if doi provided.
+     * @summary Get List Of Soh Findings
+     * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getListOfSohFindingsV1SohFindingsLogGet(requestParameters = {}, options) {
+        return exports.SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.

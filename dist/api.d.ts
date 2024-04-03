@@ -64,6 +64,43 @@ export interface AlgorithmOut {
     'description': string;
 }
 /**
+ * Interface for finding in study.
+ * @export
+ * @interface AppSchemaFindingsFinding
+ */
+export interface AppSchemaFindingsFinding {
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaFindingsFinding
+     */
+    'summary'?: string;
+    /**
+     *
+     * @type {RawFinding}
+     * @memberof AppSchemaFindingsFinding
+     */
+    'data'?: RawFinding;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof AppSchemaFindingsFinding
+     */
+    'labels'?: Array<string>;
+    /**
+     *
+     * @type {boolean}
+     * @memberof AppSchemaFindingsFinding
+     */
+    'mechanistic': boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof AppSchemaFindingsFinding
+     */
+    'mechanism_type'?: string;
+}
+/**
  * Interface for Groundings for a specific namespace.
  * @export
  * @interface AppSchemaGroundingsGrounding
@@ -872,43 +909,6 @@ export declare enum FeatureContributionMethod {
     Invalid = "invalid"
 }
 /**
- * Interface for finding in study.
- * @export
- * @interface Finding
- */
-export interface Finding {
-    /**
-     *
-     * @type {string}
-     * @memberof Finding
-     */
-    'summary'?: string;
-    /**
-     *
-     * @type {RawFinding}
-     * @memberof Finding
-     */
-    'data'?: RawFinding;
-    /**
-     *
-     * @type {Array<string>}
-     * @memberof Finding
-     */
-    'labels'?: Array<string>;
-    /**
-     *
-     * @type {boolean}
-     * @memberof Finding
-     */
-    'mechanistic': boolean;
-    /**
-     *
-     * @type {string}
-     * @memberof Finding
-     */
-    'mechanism_type'?: string;
-}
-/**
  * Schema for identifying finding.
  * @export
  * @interface FindingMeta
@@ -968,6 +968,25 @@ export interface FindingMeta {
      * @memberof FindingMeta
      */
     'journal'?: string;
+}
+/**
+ * Findings Log Out.  # noqa: E501
+ * @export
+ * @interface FindingsLogOut
+ */
+export interface FindingsLogOut {
+    /**
+     *
+     * @type {Study}
+     * @memberof FindingsLogOut
+     */
+    'study'?: Study;
+    /**
+     *
+     * @type {Array<SohServiceClientModelsFindingFinding>}
+     * @memberof FindingsLogOut
+     */
+    'findings': Array<SohServiceClientModelsFindingFinding>;
 }
 /**
  * Next/prev Pagination links with first and last urls.
@@ -2277,6 +2296,12 @@ export interface RelationshipFilterParams {
      * @memberof RelationshipFilterParams
      */
     'recency_limit_years'?: number;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof RelationshipFilterParams
+     */
+    'mechanism_types'?: Array<string>;
 }
 /**
  * API resource action enum.
@@ -2725,6 +2750,91 @@ export interface SohOut {
     'total'?: number;
 }
 /**
+ * Statistical or Mechanistic Finding/Relationship.  # noqa: E501
+ * @export
+ * @interface SohServiceClientModelsFindingFinding
+ */
+export interface SohServiceClientModelsFindingFinding {
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'study_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'association_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'added_on': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'variable_1_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'variable_2_name'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'mechanism_type'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'statistic_type'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'statistic_value'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'ci_upper'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'ci_lower'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'p_value'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'population'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'sample_size'?: number;
+}
+/**
  * Topic node.  # noqa: E501
  * @export
  * @interface SohServiceClientModelsTopicNodeTopicNode
@@ -2766,6 +2876,12 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
     'category': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohServiceClientModelsTopicNodeTopicNode
+     */
+    'mechanistic_category'?: string;
 }
 /**
  * Statistic relationship model.
@@ -2934,6 +3050,61 @@ export interface StripeSessionOut {
     'session_url'?: string;
 }
 /**
+ * Study.  # noqa: E501
+ * @export
+ * @interface Study
+ */
+export interface Study {
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'doi': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'system_id'?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'title': string;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof Study
+     */
+    'authors': Array<object>;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'journal': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'publish_date': string;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'abstract': string;
+    /**
+     *
+     * @type {number}
+     * @memberof Study
+     */
+    'cited_by': number;
+}
+/**
  * Interface for an author on a study.
  * @export
  * @interface StudyAuthor
@@ -2960,10 +3131,10 @@ export interface StudyAuthor {
 export interface StudyFindings {
     /**
      *
-     * @type {Array<Finding>}
+     * @type {Array<AppSchemaFindingsFinding>}
      * @memberof StudyFindings
      */
-    'findings': Array<Finding>;
+    'findings': Array<AppSchemaFindingsFinding>;
     /**
      *
      * @type {string}
@@ -6983,6 +7154,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get system of health findings and related study if doi provided.
+     * @summary Get List Of Soh Findings
+     * @param {string} [doi]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getListOfSohFindingsV1SohFindingsLogGet: (doi?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
@@ -7065,6 +7244,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
+     * Get system of health findings and related study if doi provided.
+     * @summary Get List Of Soh Findings
+     * @param {string} [doi]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>>;
+    /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
@@ -7146,6 +7333,14 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @throws {RequiredError}
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
+    /**
+     * Get system of health findings and related study if doi provided.
+     * @summary Get List Of Soh Findings
+     * @param {string} [doi]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7314,6 +7509,19 @@ export interface SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversal
     readonly pathsPayloadTyped: PathsPayloadTyped;
 }
 /**
+ * Request parameters for getListOfSohFindingsV1SohFindingsLogGet operation in SohApi.
+ * @export
+ * @interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest
+ */
+export interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SohApiGetListOfSohFindingsV1SohFindingsLogGet
+     */
+    readonly doi?: string;
+}
+/**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
  * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
@@ -7400,6 +7608,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut>>;
+    /**
+     * Get system of health findings and related study if doi provided.
+     * @summary Get List Of Soh Findings
+     * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FindingsLogOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
