@@ -2722,6 +2722,12 @@ export interface Soh {
 export interface SohEvidence {
     /**
      * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'id': string;
+    /**
+     * 
      * @type {Array<object>}
      * @memberof SohEvidence
      */
