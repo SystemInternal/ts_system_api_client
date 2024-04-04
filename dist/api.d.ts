@@ -2734,7 +2734,7 @@ export interface SohEvidence {
      * @type {string}
      * @memberof SohEvidence
      */
-    'source_statement': string;
+    'source_statement'?: string;
     /**
      *
      * @type {number}
