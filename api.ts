@@ -2731,7 +2731,7 @@ export interface SohEvidence {
      * @type {string}
      * @memberof SohEvidence
      */
-    'study_published_date': string;
+    'study_published_date'?: string;
     /**
      * 
      * @type {string}
