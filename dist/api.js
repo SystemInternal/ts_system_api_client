@@ -4109,6 +4109,39 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get system of health data.
+         * @summary Fetch Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchTopicsV1SohTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            common_1.assertParamExists('fetchTopicsV1SohTopicsGet', 'query', query);
+            const localVarPath = `/v1/soh/topics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get system of health findings and related study if doi provided.
          * @summary Get List Of Soh Findings
          * @param {string} [doi]
@@ -4169,39 +4202,6 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             localVarRequestOptions.data = common_1.serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration);
-            return {
-                url: common_1.toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        }),
-        /**
-         * Get system of health data.
-         * @summary Get Soh Of Metadata
-         * @param {string} query
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSohOfMetadataV1SohTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            // verify required parameter 'query' is not null or undefined
-            common_1.assertParamExists('getSohOfMetadataV1SohTopicsGet', 'query', query);
-            const localVarPath = `/v1/soh/topics`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
-            const localVarHeaderParameter = {};
-            const localVarQueryParameter = {};
-            // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            if (query !== undefined) {
-                localVarQueryParameter['query'] = query;
-            }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
                 url: common_1.toPathString(localVarUrlObj),
                 options: localVarRequestOptions,
@@ -4307,6 +4307,19 @@ exports.SohApiFp = function (configuration) {
             });
         },
         /**
+         * Get system of health data.
+         * @summary Fetch Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchTopicsV1SohTopicsGet(query, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchTopicsV1SohTopicsGet(query, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get system of health findings and related study if doi provided.
          * @summary Get List Of Soh Findings
          * @param {string} [doi]
@@ -4329,19 +4342,6 @@ exports.SohApiFp = function (configuration) {
         getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
-            });
-        },
-        /**
-         * Get system of health data.
-         * @summary Get Soh Of Metadata
-         * @param {string} query
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSohOfMetadataV1SohTopicsGet(query, options) {
-            return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohTopicsGet(query, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4427,6 +4427,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
             return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get system of health data.
+         * @summary Fetch Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchTopicsV1SohTopicsGet(query, options) {
+            return localVarFp.fetchTopicsV1SohTopicsGet(query, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get system of health findings and related study if doi provided.
          * @summary Get List Of Soh Findings
          * @param {string} [doi]
@@ -4445,16 +4455,6 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          */
         getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get system of health data.
-         * @summary Get Soh Of Metadata
-         * @param {string} query
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSohOfMetadataV1SohTopicsGet(query, options) {
-            return localVarFp.getSohOfMetadataV1SohTopicsGet(query, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -4532,6 +4532,17 @@ class SohApi extends base_1.BaseAPI {
         return exports.SohApiFp(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
+     * Get system of health data.
+     * @summary Fetch Topics
+     * @param {SohApiFetchTopicsV1SohTopicsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchTopicsV1SohTopicsGet(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
      * Get system of health findings and related study if doi provided.
      * @summary Get List Of Soh Findings
      * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
@@ -4552,17 +4563,6 @@ class SohApi extends base_1.BaseAPI {
      */
     getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
         return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
-    }
-    /**
-     * Get system of health data.
-     * @summary Get Soh Of Metadata
-     * @param {SohApiGetSohOfMetadataV1SohTopicsGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SohApi
-     */
-    getSohOfMetadataV1SohTopicsGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SohApi = SohApi;
