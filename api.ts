@@ -2715,6 +2715,116 @@ export interface Soh {
     'p_value'?: number;
 }
 /**
+ * Interface for soh metadata on evidences.
+ * @export
+ * @interface SohEvidence
+ */
+export interface SohEvidence {
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SohEvidence
+     */
+    'study_authors': Array<object>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_published_date': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_doi': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_1_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_2_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_1_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_2_id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'mechanism_type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'source_statement': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohEvidence
+     */
+    'study_cited_by'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_title'?: string;
+}
+/**
+ * Interface for /soh response type.
+ * @export
+ * @interface SohEvidenceOut
+ */
+export interface SohEvidenceOut {
+    /**
+     * 
+     * @type {Array<SohEvidence>}
+     * @memberof SohEvidenceOut
+     */
+    'data': Array<SohEvidence>;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohEvidenceOut
+     */
+    'sort'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'limit'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'offset'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'total'?: number;
+}
+/**
  * Interface for input to /soh.
  * @export
  * @interface SohIn
@@ -9653,6 +9763,49 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohEvidenceMetadataV1SohEvidencesPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sohIn' is not null or undefined
+            assertParamExists('getSohEvidenceMetadataV1SohEvidencesPost', 'sohIn', sohIn)
+            const localVarPath = `/v1/soh/evidences`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
@@ -9806,6 +9959,17 @@ export const SohApiFp = function(configuration?: Configuration) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
@@ -9916,6 +10080,16 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          */
         getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut> {
             return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut> {
+            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -10127,6 +10301,20 @@ export interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest {
 }
 
 /**
+ * Request parameters for getSohEvidenceMetadataV1SohEvidencesPost operation in SohApi.
+ * @export
+ * @interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest
+ */
+export interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest {
+    /**
+     * 
+     * @type {SohIn}
+     * @memberof SohApiGetSohEvidenceMetadataV1SohEvidencesPost
+     */
+    readonly sohIn: SohIn
+}
+
+/**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
  * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
@@ -10241,6 +10429,18 @@ export class SohApi extends BaseAPI {
      */
     public getListOfSohFindingsV1SohFindingsLogGet(requestParameters: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest = {}, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
