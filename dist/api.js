@@ -4174,6 +4174,41 @@ exports.SohApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohEvidenceMetadataV1SohEvidencesPost: (sohIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'sohIn' is not null or undefined
+            common_1.assertParamExists('getSohEvidenceMetadataV1SohEvidencesPost', 'sohIn', sohIn);
+            const localVarPath = `/v1/soh/evidences`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4334,6 +4369,19 @@ exports.SohApiFp = function (configuration) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4448,6 +4496,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Evidence Metadata
+         * @param {SohIn} sohIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options) {
+            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4552,6 +4610,17 @@ class SohApi extends base_1.BaseAPI {
      */
     getListOfSohFindingsV1SohFindingsLogGet(requestParameters = {}, options) {
         return exports.SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohEvidenceMetadataV1SohEvidencesPost(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.

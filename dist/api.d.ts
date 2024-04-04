@@ -2670,6 +2670,116 @@ export interface Soh {
     'p_value'?: number;
 }
 /**
+ * Interface for soh metadata on evidences.
+ * @export
+ * @interface SohEvidence
+ */
+export interface SohEvidence {
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof SohEvidence
+     */
+    'study_authors': Array<object>;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_published_date': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_doi': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_1_name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_2_name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_1_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'agent_2_id': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'mechanism_type': string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'source_statement': string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohEvidence
+     */
+    'study_cited_by'?: number;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidence
+     */
+    'study_title'?: string;
+}
+/**
+ * Interface for /soh response type.
+ * @export
+ * @interface SohEvidenceOut
+ */
+export interface SohEvidenceOut {
+    /**
+     *
+     * @type {Array<SohEvidence>}
+     * @memberof SohEvidenceOut
+     */
+    'data': Array<SohEvidence>;
+    /**
+     *
+     * @type {string}
+     * @memberof SohEvidenceOut
+     */
+    'sort'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'limit'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'offset'?: number;
+    /**
+     *
+     * @type {number}
+     * @memberof SohEvidenceOut
+     */
+    'total'?: number;
+}
+/**
  * Interface for input to /soh.
  * @export
  * @interface SohIn
@@ -7171,6 +7281,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
     getListOfSohFindingsV1SohFindingsLogGet: (doi?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohEvidenceMetadataV1SohEvidencesPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
@@ -7261,6 +7379,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
     getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>>;
     /**
      * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>>;
+    /**
+     * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
@@ -7349,6 +7475,14 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @throws {RequiredError}
      */
     getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut>;
+    /**
+     * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohIn} sohIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7535,6 +7669,19 @@ export interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest {
     readonly doi?: string;
 }
 /**
+ * Request parameters for getSohEvidenceMetadataV1SohEvidencesPost operation in SohApi.
+ * @export
+ * @interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest
+ */
+export interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest {
+    /**
+     *
+     * @type {SohIn}
+     * @memberof SohApiGetSohEvidenceMetadataV1SohEvidencesPost
+     */
+    readonly sohIn: SohIn;
+}
+/**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
  * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
@@ -7626,6 +7773,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FindingsLogOut>>;
+    /**
+     * Get system of health data.
+     * @summary Get Soh Evidence Metadata
+     * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohEvidenceOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
