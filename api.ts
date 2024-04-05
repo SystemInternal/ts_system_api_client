@@ -2126,7 +2126,8 @@ export enum PollingStatus {
     Running = 'running',
     Success = 'success',
     Failed = 'failed',
-    FailedNoCitations = 'failed_no_citations'
+    FailedNoCitations = 'failed_no_citations',
+    FailedValidation = 'failed_validation'
 }
 
 /**
@@ -9768,6 +9769,57 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id 
+         * @param {string} topic2Id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: async (topic1Id: string, topic2Id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topic1Id' is not null or undefined
+            assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id)
+            // verify required parameter 'topic2Id' is not null or undefined
+            assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic2Id', topic2Id)
+            const localVarPath = `/v1/soh/summary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (topic1Id !== undefined) {
+                localVarQueryParameter['topic_1_id'] = topic1Id;
+            }
+
+            if (topic2Id !== undefined) {
+                localVarQueryParameter['topic_2_id'] = topic2Id;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
          * @param {SohIn} sohIn 
@@ -9964,6 +10016,18 @@ export const SohApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id 
+         * @param {string} topic2Id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
          * @param {SohIn} sohIn 
@@ -10086,6 +10150,17 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          */
         getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut> {
             return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id 
+         * @param {string} topic2Id 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string> {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -10307,6 +10382,27 @@ export interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest {
 }
 
 /**
+ * Request parameters for getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet operation in SohApi.
+ * @export
+ * @interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest
+ */
+export interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly topic1Id: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly topic2Id: string
+}
+
+/**
  * Request parameters for getSohEvidenceMetadataV1SohEvidencesPost operation in SohApi.
  * @export
  * @interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest
@@ -10435,6 +10531,18 @@ export class SohApi extends BaseAPI {
      */
     public getListOfSohFindingsV1SohFindingsLogGet(requestParameters: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest = {}, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
