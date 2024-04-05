@@ -239,6 +239,7 @@ var PollingStatus;
     PollingStatus["Success"] = "success";
     PollingStatus["Failed"] = "failed";
     PollingStatus["FailedNoCitations"] = "failed_no_citations";
+    PollingStatus["FailedValidation"] = "failed_validation";
 })(PollingStatus = exports.PollingStatus || (exports.PollingStatus = {}));
 /**
  * API resource action enum.
@@ -4173,6 +4174,48 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id
+         * @param {string} topic2Id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id, topic2Id, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topic1Id' is not null or undefined
+            common_1.assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id);
+            // verify required parameter 'topic2Id' is not null or undefined
+            common_1.assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic2Id', topic2Id);
+            const localVarPath = `/v1/soh/summary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topic1Id !== undefined) {
+                localVarQueryParameter['topic_1_id'] = topic1Id;
+            }
+            if (topic2Id !== undefined) {
+                localVarQueryParameter['topic_2_id'] = topic2Id;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
          * @param {SohIn} sohIn
@@ -4368,6 +4411,20 @@ exports.SohApiFp = function (configuration) {
             });
         },
         /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id
+         * @param {string} topic2Id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
          * @param {SohIn} sohIn
@@ -4495,6 +4552,17 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
             return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get system of health summary.
+         * @summary Get Relationship Summary Between Two Topics.
+         * @param {string} topic1Id
+         * @param {string} topic2Id
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options) {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
          * @param {SohIn} sohIn
@@ -4610,6 +4678,17 @@ class SohApi extends base_1.BaseAPI {
      */
     getListOfSohFindingsV1SohFindingsLogGet(requestParameters = {}, options) {
         return exports.SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.

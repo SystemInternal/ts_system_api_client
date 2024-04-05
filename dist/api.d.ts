@@ -2092,7 +2092,8 @@ export declare enum PollingStatus {
     Running = "running",
     Success = "success",
     Failed = "failed",
-    FailedNoCitations = "failed_no_citations"
+    FailedNoCitations = "failed_no_citations",
+    FailedValidation = "failed_validation"
 }
 /**
  *
@@ -7286,6 +7287,15 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      */
     getListOfSohFindingsV1SohFindingsLogGet: (doi?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {string} topic1Id
+     * @param {string} topic2Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id: string, topic2Id: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
      * @param {SohIn} sohIn
@@ -7384,6 +7394,15 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      */
     getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>>;
     /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {string} topic1Id
+     * @param {string} topic2Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
      * @param {SohIn} sohIn
@@ -7481,6 +7500,15 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @throws {RequiredError}
      */
     getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut>;
+    /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {string} topic1Id
+     * @param {string} topic2Id
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -7675,6 +7703,25 @@ export interface SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest {
     readonly doi?: string;
 }
 /**
+ * Request parameters for getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet operation in SohApi.
+ * @export
+ * @interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest
+ */
+export interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly topic1Id: string;
+    /**
+     *
+     * @type {string}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly topic2Id: string;
+}
+/**
  * Request parameters for getSohEvidenceMetadataV1SohEvidencesPost operation in SohApi.
  * @export
  * @interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest
@@ -7779,6 +7826,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FindingsLogOut>>;
+    /**
+     * Get system of health summary.
+     * @summary Get Relationship Summary Between Two Topics.
+     * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
