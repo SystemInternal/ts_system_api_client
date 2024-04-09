@@ -2333,6 +2333,12 @@ export interface RelationshipFilterParams {
      */
     'recency_limit_years'?: number;
     /**
+     * Sample size minimum.
+     * @type {number}
+     * @memberof RelationshipFilterParams
+     */
+    'sample_size_min'?: number;
+    /**
      * 
      * @type {Array<string>}
      * @memberof RelationshipFilterParams
@@ -2928,6 +2934,12 @@ export interface SohServiceClientModelsFindingFinding {
      * @type {string}
      * @memberof SohServiceClientModelsFindingFinding
      */
+    'study_doi'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
     'association_id': string;
     /**
      * 
@@ -3260,7 +3272,7 @@ export interface Study {
      * @type {string}
      * @memberof Study
      */
-    'abstract': string;
+    'abstract'?: string;
     /**
      * 
      * @type {number}
