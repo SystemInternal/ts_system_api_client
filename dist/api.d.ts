@@ -2317,6 +2317,15 @@ export interface RelationshipFilterParams {
     'mechanism_types'?: Array<string>;
 }
 /**
+ * Relationship types.
+ * @export
+ * @enum {string}
+ */
+export declare enum RelationshipTypes {
+    Statistical = "statistical",
+    Mechanistic = "mechanistic"
+}
+/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -3017,6 +3026,12 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
     'mechanistic_category'?: string;
+    /**
+     *
+     * @type {Array<RelationshipTypes>}
+     * @memberof SohServiceClientModelsTopicNodeTopicNode
+     */
+    'relationship_types'?: Array<RelationshipTypes>;
 }
 /**
  * Statistic relationship model.
