@@ -280,6 +280,12 @@ export interface ClusteredEvidenceMetadata {
      * @memberof ClusteredEvidenceMetadata
      */
     'publish_date_latest'?: string;
+    /**
+     *
+     * @type {number}
+     * @memberof ClusteredEvidenceMetadata
+     */
+    'evidence_count'?: number;
 }
 /**
  * Schema for clustered relationship response.
