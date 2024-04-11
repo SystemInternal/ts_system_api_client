@@ -4264,10 +4264,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet: (limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSohGraphMetadataV1SohGraphGet: (limit, clearCache, options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/soh/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4282,6 +4283,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+            if (clearCache !== undefined) {
+                localVarQueryParameter['clear_cache'] = clearCache;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4482,12 +4486,13 @@ exports.SohApiFp = function (configuration) {
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet(limit, options) {
+        getSohGraphMetadataV1SohGraphGet(limit, clearCache, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4630,11 +4635,12 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet(limit, options) {
-            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, options).then((request) => request(axios, basePath));
+        getSohGraphMetadataV1SohGraphGet(limit, clearCache, options) {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -4774,7 +4780,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getSohGraphMetadataV1SohGraphGet(requestParameters = {}, options) {
-        return exports.SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return exports.SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.

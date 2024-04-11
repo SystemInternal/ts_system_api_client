@@ -7346,10 +7346,11 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * Get system of health data.
      * @summary Get Soh Graph Metadata
      * @param {number} [limit] Number of relationships to return.
+     * @param {boolean} [clearCache] Clear cache and fetch new graph.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet: (limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getSohGraphMetadataV1SohGraphGet: (limit?: number, clearCache?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7461,10 +7462,11 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * Get system of health data.
      * @summary Get Soh Graph Metadata
      * @param {number} [limit] Number of relationships to return.
+     * @param {boolean} [clearCache] Clear cache and fetch new graph.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet(limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7576,10 +7578,11 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * Get system of health data.
      * @summary Get Soh Graph Metadata
      * @param {number} [limit] Number of relationships to return.
+     * @param {boolean} [clearCache] Clear cache and fetch new graph.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet(limit?: number, options?: any): AxiosPromise<GraphOut>;
+    getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: any): AxiosPromise<GraphOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7809,6 +7812,12 @@ export interface SohApiGetSohGraphMetadataV1SohGraphGetRequest {
      * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
      */
     readonly limit?: number;
+    /**
+     * Clear cache and fetch new graph.
+     * @type {boolean}
+     * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
+     */
+    readonly clearCache?: boolean;
 }
 /**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
