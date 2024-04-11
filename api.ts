@@ -3020,10 +3020,10 @@ export interface SohServiceClientModelsFindingFinding {
     'population'?: string;
     /**
      * 
-     * @type {number}
+     * @type {string}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'sample_size'?: number;
+    'sample_size'?: string;
 }
 /**
  * Topic node.  # noqa: E501
@@ -4325,6 +4325,12 @@ export interface TopicEdge {
      * @memberof TopicEdge
      */
     'num_findings'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof TopicEdge
+     */
+    'meta'?: object;
 }
 /**
  * Topic filter params.  # noqa: E501
@@ -9899,6 +9905,44 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohGraphMetadataV1SohGraphGet: async (limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/soh/graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
@@ -10075,6 +10119,17 @@ export const SohApiFp = function(configuration?: Configuration) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSohGraphMetadataV1SohGraphGet(limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
@@ -10206,6 +10261,16 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          */
         getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut> {
             return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohGraphMetadataV1SohGraphGet(limit?: number, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -10452,6 +10517,20 @@ export interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest {
 }
 
 /**
+ * Request parameters for getSohGraphMetadataV1SohGraphGet operation in SohApi.
+ * @export
+ * @interface SohApiGetSohGraphMetadataV1SohGraphGetRequest
+ */
+export interface SohApiGetSohGraphMetadataV1SohGraphGetRequest {
+    /**
+     * Number of relationships to return.
+     * @type {number}
+     * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
+     */
+    readonly limit?: number
+}
+
+/**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
  * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
@@ -10590,6 +10669,18 @@ export class SohApi extends BaseAPI {
      */
     public getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public getSohGraphMetadataV1SohGraphGet(requestParameters: SohApiGetSohGraphMetadataV1SohGraphGetRequest = {}, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
