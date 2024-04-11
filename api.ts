@@ -9907,10 +9907,11 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet: async (limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSohGraphMetadataV1SohGraphGet: async (limit?: number, clearCache?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/soh/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9928,6 +9929,10 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
+            }
+
+            if (clearCache !== undefined) {
+                localVarQueryParameter['clear_cache'] = clearCache;
             }
 
 
@@ -10121,11 +10126,12 @@ export const SohApiFp = function(configuration?: Configuration) {
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSohGraphMetadataV1SohGraphGet(limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, options);
+        async getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10266,11 +10272,12 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * Get system of health data.
          * @summary Get Soh Graph Metadata
          * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet(limit?: number, options?: any): AxiosPromise<GraphOut> {
-            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, options).then((request) => request(axios, basePath));
+        getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -10528,6 +10535,13 @@ export interface SohApiGetSohGraphMetadataV1SohGraphGetRequest {
      * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
      */
     readonly limit?: number
+
+    /**
+     * Clear cache and fetch new graph.
+     * @type {boolean}
+     * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
+     */
+    readonly clearCache?: boolean
 }
 
 /**
@@ -10680,7 +10694,7 @@ export class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     public getSohGraphMetadataV1SohGraphGet(requestParameters: SohApiGetSohGraphMetadataV1SohGraphGetRequest = {}, options?: AxiosRequestConfig) {
-        return SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
