@@ -2973,10 +2973,10 @@ export interface SohServiceClientModelsFindingFinding {
     'population'?: string;
     /**
      *
-     * @type {number}
+     * @type {string}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'sample_size'?: number;
+    'sample_size'?: string;
 }
 /**
  * Topic node.  # noqa: E501
@@ -4274,6 +4274,12 @@ export interface TopicEdge {
      * @memberof TopicEdge
      */
     'num_findings'?: number;
+    /**
+     *
+     * @type {object}
+     * @memberof TopicEdge
+     */
+    'meta'?: object;
 }
 /**
  * Topic filter params.  # noqa: E501
@@ -7338,6 +7344,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
     getSohEvidenceMetadataV1SohEvidencesPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {number} [limit] Number of relationships to return.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohGraphMetadataV1SohGraphGet: (limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
@@ -7445,6 +7459,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
     getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>>;
     /**
      * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {number} [limit] Number of relationships to return.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohGraphMetadataV1SohGraphGet(limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    /**
+     * Get system of health data.
      * @summary Get Soh Of Metadata
      * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
@@ -7550,6 +7572,14 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @throws {RequiredError}
      */
     getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut>;
+    /**
+     * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {number} [limit] Number of relationships to return.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getSohGraphMetadataV1SohGraphGet(limit?: number, options?: any): AxiosPromise<GraphOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7768,6 +7798,19 @@ export interface SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest {
     readonly sohIn: SohIn;
 }
 /**
+ * Request parameters for getSohGraphMetadataV1SohGraphGet operation in SohApi.
+ * @export
+ * @interface SohApiGetSohGraphMetadataV1SohGraphGetRequest
+ */
+export interface SohApiGetSohGraphMetadataV1SohGraphGetRequest {
+    /**
+     * Number of relationships to return.
+     * @type {number}
+     * @memberof SohApiGetSohGraphMetadataV1SohGraphGet
+     */
+    readonly limit?: number;
+}
+/**
  * Request parameters for getSohOfMetadataV1SohFindingsPost operation in SohApi.
  * @export
  * @interface SohApiGetSohOfMetadataV1SohFindingsPostRequest
@@ -7877,6 +7920,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohEvidenceOut>>;
+    /**
+     * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohGraphMetadataV1SohGraphGet(requestParameters?: SohApiGetSohGraphMetadataV1SohGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata

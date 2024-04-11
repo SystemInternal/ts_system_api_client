@@ -4262,6 +4262,37 @@ exports.SohApiAxiosParamCreator = function (configuration) {
         }),
         /**
          * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohGraphMetadataV1SohGraphGet: (limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/soh/graph`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4449,6 +4480,19 @@ exports.SohApiFp = function (configuration) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohGraphMetadataV1SohGraphGet(limit, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4584,6 +4628,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
         },
         /**
          * Get system of health data.
+         * @summary Get Soh Graph Metadata
+         * @param {number} [limit] Number of relationships to return.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSohGraphMetadataV1SohGraphGet(limit, options) {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
          * @summary Get Soh Of Metadata
          * @param {SohIn} sohIn
          * @param {*} [options] Override http request option.
@@ -4710,6 +4764,17 @@ class SohApi extends base_1.BaseAPI {
      */
     getSohEvidenceMetadataV1SohEvidencesPost(requestParameters, options) {
         return exports.SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health data.
+     * @summary Get Soh Graph Metadata
+     * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getSohGraphMetadataV1SohGraphGet(requestParameters = {}, options) {
+        return exports.SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
