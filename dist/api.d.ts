@@ -3253,6 +3253,12 @@ export interface Study {
      * @memberof Study
      */
     'cited_by': number;
+    /**
+     *
+     * @type {string}
+     * @memberof Study
+     */
+    'pmid'?: string;
 }
 /**
  * Interface for an author on a study.
