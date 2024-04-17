@@ -3307,7 +3307,7 @@ export interface Study {
      * @type {string}
      * @memberof Study
      */
-    'pmid'?: string;
+    'retraction_reason'?: string;
 }
 /**
  * Interface for an author on a study.
