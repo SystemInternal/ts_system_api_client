@@ -213,8 +213,9 @@ var MessageType;
  */
 var Metrics;
 (function (Metrics) {
-    Metrics["SearchCreate"] = "semantic_search.create";
-    Metrics["SearchClusterRead"] = "semantic_search_cluster.read";
+    Metrics["SemanticSearchCreate"] = "semantic_search.create";
+    Metrics["SemanticSearchClusterRead"] = "semantic_search_cluster.read";
+    Metrics["FindingsLogDoiLookup"] = "findings_log.doi_lookup";
 })(Metrics = exports.Metrics || (exports.Metrics = {}));
 /**
  * Ordering direction enum.
@@ -4172,6 +4173,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
             yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (doi !== undefined) {
                 localVarQueryParameter['doi'] = doi;
             }

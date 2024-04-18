@@ -1896,8 +1896,9 @@ export declare enum MessageType {
  * @enum {string}
  */
 export declare enum Metrics {
-    SearchCreate = "semantic_search.create",
-    SearchClusterRead = "semantic_search_cluster.read"
+    SemanticSearchCreate = "semantic_search.create",
+    SemanticSearchClusterRead = "semantic_search_cluster.read",
+    FindingsLogDoiLookup = "findings_log.doi_lookup"
 }
 /**
  * Credentials for a Mode integration without the token and secret.
