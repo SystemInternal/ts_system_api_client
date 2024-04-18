@@ -1930,8 +1930,9 @@ export enum MessageType {
  */
 
 export enum Metrics {
-    SearchCreate = 'semantic_search.create',
-    SearchClusterRead = 'semantic_search_cluster.read'
+    SemanticSearchCreate = 'semantic_search.create',
+    SemanticSearchClusterRead = 'semantic_search_cluster.read',
+    FindingsLogDoiLookup = 'findings_log.doi_lookup'
 }
 
 /**
@@ -9799,6 +9800,10 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
 
             // authentication APIKeyHeader required
             await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
 
             if (doi !== undefined) {
                 localVarQueryParameter['doi'] = doi;
