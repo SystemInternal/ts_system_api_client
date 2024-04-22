@@ -3025,6 +3025,12 @@ export interface SohServiceClientModelsFindingFinding {
      * @memberof SohServiceClientModelsFindingFinding
      */
     'sample_size'?: string;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof SohServiceClientModelsFindingFinding
+     */
+    'authors'?: Array<object>;
 }
 /**
  * Topic node.  # noqa: E501
