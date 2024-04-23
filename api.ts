@@ -932,6 +932,25 @@ export enum FeatureContributionMethod {
 }
 
 /**
+ * Feedback on a finding.
+ * @export
+ * @interface FindingFeedbackIn
+ */
+export interface FindingFeedbackIn {
+    /**
+     * 
+     * @type {string}
+     * @memberof FindingFeedbackIn
+     */
+    'feedback_type': string;
+    /**
+     * 
+     * @type {object}
+     * @memberof FindingFeedbackIn
+     */
+    'user_comments'?: object;
+}
+/**
  * Schema for identifying finding.
  * @export
  * @interface FindingMeta
@@ -6900,6 +6919,53 @@ export class EnterpriseApi extends BaseAPI {
 export const FeedbackApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId 
+         * @param {FindingFeedbackIn} findingFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postFindingFeedbackV1FeedbackFindingIdPost: async (findingId: string, findingFeedbackIn: FindingFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'findingId' is not null or undefined
+            assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingId', findingId)
+            // verify required parameter 'findingFeedbackIn' is not null or undefined
+            assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingFeedbackIn', findingFeedbackIn)
+            const localVarPath = `/v1/feedback/{finding_id}`
+                .replace(`{${"finding_id"}}`, encodeURIComponent(String(findingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(findingFeedbackIn, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
@@ -6953,6 +7019,18 @@ export const FeedbackApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = FeedbackApiAxiosParamCreator(configuration)
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId 
+         * @param {FindingFeedbackIn} findingFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
@@ -6974,6 +7052,17 @@ export const FeedbackApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = FeedbackApiFp(configuration)
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId 
+         * @param {FindingFeedbackIn} findingFeedbackIn 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
@@ -6985,6 +7074,27 @@ export const FeedbackApiFactory = function (configuration?: Configuration, baseP
         },
     };
 };
+
+/**
+ * Request parameters for postFindingFeedbackV1FeedbackFindingIdPost operation in FeedbackApi.
+ * @export
+ * @interface FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest
+ */
+export interface FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPost
+     */
+    readonly findingId: string
+
+    /**
+     * 
+     * @type {FindingFeedbackIn}
+     * @memberof FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPost
+     */
+    readonly findingFeedbackIn: FindingFeedbackIn
+}
 
 /**
  * Request parameters for postSynthesisFeedbackV1FeedbackPost operation in FeedbackApi.
@@ -7007,6 +7117,18 @@ export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
  * @extends {BaseAPI}
  */
 export class FeedbackApi extends BaseAPI {
+    /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    public postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: AxiosRequestConfig) {
+        return FeedbackApiFp(this.configuration).postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
