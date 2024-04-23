@@ -1866,6 +1866,45 @@ exports.EnterpriseApi = EnterpriseApi;
 exports.FeedbackApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId
+         * @param {FindingFeedbackIn} findingFeedbackIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postFindingFeedbackV1FeedbackFindingIdPost: (findingId, findingFeedbackIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'findingId' is not null or undefined
+            common_1.assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingId', findingId);
+            // verify required parameter 'findingFeedbackIn' is not null or undefined
+            common_1.assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingFeedbackIn', findingFeedbackIn);
+            const localVarPath = `/v1/feedback/{finding_id}`
+                .replace(`{${"finding_id"}}`, encodeURIComponent(String(findingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = common_1.serializeDataIfNeeded(findingFeedbackIn, localVarRequestOptions, configuration);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn
@@ -1910,6 +1949,20 @@ exports.FeedbackApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.FeedbackApiAxiosParamCreator(configuration);
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId
+         * @param {FindingFeedbackIn} findingFeedbackIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn
@@ -1932,6 +1985,17 @@ exports.FeedbackApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.FeedbackApiFp(configuration);
     return {
         /**
+         * Save feedback on a finding.
+         * @summary Post Finding Feedback
+         * @param {string} findingId
+         * @param {FindingFeedbackIn} findingFeedbackIn
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options) {
+            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
          * @param {SynthesisFeedbackIn} synthesisFeedbackIn
@@ -1950,6 +2014,17 @@ exports.FeedbackApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class FeedbackApi extends base_1.BaseAPI {
+    /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    postFindingFeedbackV1FeedbackFindingIdPost(requestParameters, options) {
+        return exports.FeedbackApiFp(this.configuration).postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback

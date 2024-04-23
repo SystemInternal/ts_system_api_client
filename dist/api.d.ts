@@ -915,6 +915,25 @@ export declare enum FeatureContributionMethod {
     Invalid = "invalid"
 }
 /**
+ * Feedback on a finding.
+ * @export
+ * @interface FindingFeedbackIn
+ */
+export interface FindingFeedbackIn {
+    /**
+     *
+     * @type {string}
+     * @memberof FindingFeedbackIn
+     */
+    'feedback_type': string;
+    /**
+     *
+     * @type {object}
+     * @memberof FindingFeedbackIn
+     */
+    'user_comments'?: object;
+}
+/**
  * Schema for identifying finding.
  * @export
  * @interface FindingMeta
@@ -5904,6 +5923,15 @@ export declare class EnterpriseApi extends BaseAPI {
  */
 export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {string} findingId
+     * @param {FindingFeedbackIn} findingFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postFindingFeedbackV1FeedbackFindingIdPost: (findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
      * @param {SynthesisFeedbackIn} synthesisFeedbackIn
@@ -5917,6 +5945,15 @@ export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuratio
  * @export
  */
 export declare const FeedbackApiFp: (configuration?: Configuration) => {
+    /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {string} findingId
+     * @param {FindingFeedbackIn} findingFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
@@ -5932,6 +5969,15 @@ export declare const FeedbackApiFp: (configuration?: Configuration) => {
  */
 export declare const FeedbackApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
     /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {string} findingId
+     * @param {FindingFeedbackIn} findingFeedbackIn
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: any): AxiosPromise<any>;
+    /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
      * @param {SynthesisFeedbackIn} synthesisFeedbackIn
@@ -5940,6 +5986,25 @@ export declare const FeedbackApiFactory: (configuration?: Configuration, basePat
      */
     postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any>;
 };
+/**
+ * Request parameters for postFindingFeedbackV1FeedbackFindingIdPost operation in FeedbackApi.
+ * @export
+ * @interface FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest
+ */
+export interface FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPost
+     */
+    readonly findingId: string;
+    /**
+     *
+     * @type {FindingFeedbackIn}
+     * @memberof FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPost
+     */
+    readonly findingFeedbackIn: FindingFeedbackIn;
+}
 /**
  * Request parameters for postSynthesisFeedbackV1FeedbackPost operation in FeedbackApi.
  * @export
@@ -5960,6 +6025,15 @@ export interface FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest {
  * @extends {BaseAPI}
  */
 export declare class FeedbackApi extends BaseAPI {
+    /**
+     * Save feedback on a finding.
+     * @summary Post Finding Feedback
+     * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FeedbackApi
+     */
+    postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
