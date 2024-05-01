@@ -1313,6 +1313,18 @@ export interface GraphOut {
      * @memberof GraphOut
      */
     'links': Array<TopicEdge>;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphOut
+     */
+    'original_link_count'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GraphOut
+     */
+    'original_node_count'?: number;
 }
 /**
  * GraphQL query model.
