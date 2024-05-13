@@ -2140,6 +2140,12 @@ export interface PathsPayloadTyped {
      */
     'relationship_filters'?: { [key: string]: RelationshipFilterParams; };
     /**
+     * Sort field as sort_by:order. If not provided, paths are sorted by findings count.
+     * @type {string}
+     * @memberof PathsPayloadTyped
+     */
+    'sort'?: string;
+    /**
      * Limit number of paths.
      * @type {number}
      * @memberof PathsPayloadTyped
