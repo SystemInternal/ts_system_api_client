@@ -4371,6 +4371,12 @@ export interface TopicEdge {
     'num_findings'?: number;
     /**
      * 
+     * @type {number}
+     * @memberof TopicEdge
+     */
+    'median_effect_size'?: number;
+    /**
+     * 
      * @type {object}
      * @memberof TopicEdge
      */
