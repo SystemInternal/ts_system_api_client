@@ -1352,6 +1352,31 @@ export interface GraphQLQuery {
     'variables'?: any;
 }
 /**
+ * Graph time series out.  # noqa: E501
+ * @export
+ * @interface GraphTimeSeriesOut
+ */
+export interface GraphTimeSeriesOut {
+    /**
+     * 
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_findings_time_series': Array<TimeSeriesDataPoint>;
+    /**
+     * 
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_relationships_time_series': Array<TimeSeriesDataPoint>;
+    /**
+     * 
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_concepts_time_series': Array<TimeSeriesDataPoint>;
+}
+/**
  * 
  * @export
  * @interface GroundedEntity
@@ -4313,6 +4338,25 @@ export interface Table {
      * @memberof Table
      */
     'integration': string;
+}
+/**
+ * Time series data point.  # noqa: E501
+ * @export
+ * @interface TimeSeriesDataPoint
+ */
+export interface TimeSeriesDataPoint {
+    /**
+     * 
+     * @type {string}
+     * @memberof TimeSeriesDataPoint
+     */
+    'date': string;
+    /**
+     * 
+     * @type {number}
+     * @memberof TimeSeriesDataPoint
+     */
+    'value': number;
 }
 /**
  * Concept relationships model.  # noqa: E501
@@ -9592,6 +9636,39 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
     return {
         /**
          * Fetch graph.
+         * @summary Fetch Graph Time Series Data
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/soh/metrics/time-series`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId 
          * @param {string} traversalDirection 
@@ -10176,6 +10253,16 @@ export const SohApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Fetch graph.
+         * @summary Fetch Graph Time Series Data
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId 
          * @param {string} traversalDirection 
@@ -10330,6 +10417,15 @@ export const SohApiFp = function(configuration?: Configuration) {
 export const SohApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SohApiFp(configuration)
     return {
+        /**
+         * Fetch graph.
+         * @summary Fetch Graph Time Series Data
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: any): AxiosPromise<GraphTimeSeriesOut> {
+            return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options).then((request) => request(axios, basePath));
+        },
         /**
          * Fetch graph.
          * @summary Fetch Mech Graph
@@ -10740,6 +10836,17 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
  * @extends {BaseAPI}
  */
 export class SohApi extends BaseAPI {
+    /**
+     * Fetch graph.
+     * @summary Fetch Graph Time Series Data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
