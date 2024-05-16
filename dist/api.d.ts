@@ -1329,6 +1329,31 @@ export interface GraphQLQuery {
     'variables'?: any;
 }
 /**
+ * Graph time series out.  # noqa: E501
+ * @export
+ * @interface GraphTimeSeriesOut
+ */
+export interface GraphTimeSeriesOut {
+    /**
+     *
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_findings_time_series': Array<TimeSeriesDataPoint>;
+    /**
+     *
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_relationships_time_series': Array<TimeSeriesDataPoint>;
+    /**
+     *
+     * @type {Array<TimeSeriesDataPoint>}
+     * @memberof GraphTimeSeriesOut
+     */
+    'num_concepts_time_series': Array<TimeSeriesDataPoint>;
+}
+/**
  *
  * @export
  * @interface GroundedEntity
@@ -4262,6 +4287,25 @@ export interface Table {
      * @memberof Table
      */
     'integration': string;
+}
+/**
+ * Time series data point.  # noqa: E501
+ * @export
+ * @interface TimeSeriesDataPoint
+ */
+export interface TimeSeriesDataPoint {
+    /**
+     *
+     * @type {string}
+     * @memberof TimeSeriesDataPoint
+     */
+    'date': string;
+    /**
+     *
+     * @type {number}
+     * @memberof TimeSeriesDataPoint
+     */
+    'value': number;
 }
 /**
  * Concept relationships model.  # noqa: E501
@@ -7374,6 +7418,13 @@ export declare class SemanticSearchApi extends BaseAPI {
 export declare const SohApiAxiosParamCreator: (configuration?: Configuration) => {
     /**
      * Fetch graph.
+     * @summary Fetch Graph Time Series Data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Fetch graph.
      * @summary Fetch Mech Graph
      * @param {string} topicId
      * @param {string} traversalDirection
@@ -7490,6 +7541,13 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
 export declare const SohApiFp: (configuration?: Configuration) => {
     /**
      * Fetch graph.
+     * @summary Fetch Graph Time Series Data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
+    /**
+     * Fetch graph.
      * @summary Fetch Mech Graph
      * @param {string} topicId
      * @param {string} traversalDirection
@@ -7604,6 +7662,13 @@ export declare const SohApiFp: (configuration?: Configuration) => {
  * @export
  */
 export declare const SohApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Fetch graph.
+     * @summary Fetch Graph Time Series Data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: any): AxiosPromise<GraphTimeSeriesOut>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7962,6 +8027,14 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
  * @extends {BaseAPI}
  */
 export declare class SohApi extends BaseAPI {
+    /**
+     * Fetch graph.
+     * @summary Fetch Graph Time Series Data
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
