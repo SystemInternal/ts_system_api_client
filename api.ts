@@ -2768,6 +2768,12 @@ export interface Soh {
      * @type {string}
      * @memberof Soh
      */
+    'study_type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Soh
+     */
     'variable_1_name'?: string;
     /**
      * 
