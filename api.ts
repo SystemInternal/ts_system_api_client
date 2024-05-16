@@ -2371,6 +2371,12 @@ export interface RelationshipFilterParams {
      */
     'significant_well_estabished'?: boolean;
     /**
+     * Supported by experimental trials.
+     * @type {boolean}
+     * @memberof RelationshipFilterParams
+     */
+    'supported_by_experimental'?: boolean;
+    /**
      * Recency limit years.
      * @type {number}
      * @memberof RelationshipFilterParams
