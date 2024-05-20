@@ -3939,7 +3939,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
             const localVarPath = `/v1/soh/metrics/time-series`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3947,7 +3947,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             if (configuration) {
                 baseOptions = configuration.baseOptions;
             }
-            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
@@ -4451,9 +4451,9 @@ exports.SohApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options) {
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4642,8 +4642,8 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options) {
-            return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options).then((request) => request(axios, basePath));
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
+            return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
@@ -4795,8 +4795,8 @@ class SohApi extends base_1.BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options) {
-        return exports.SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options).then((request) => request(this.axios, this.basePath));
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
+        return exports.SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch graph.

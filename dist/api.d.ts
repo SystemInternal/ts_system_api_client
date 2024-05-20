@@ -7422,7 +7422,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7545,7 +7545,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7668,7 +7668,7 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: any): AxiosPromise<GraphTimeSeriesOut>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: any): AxiosPromise<GraphTimeSeriesOut>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -8034,7 +8034,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut>>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
