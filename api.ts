@@ -2812,6 +2812,12 @@ export interface Soh {
      * @memberof Soh
      */
     'p_value'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof Soh
+     */
+    'effect_size'?: number;
 }
 /**
  * Interface for soh metadata on evidences.
