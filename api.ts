@@ -9635,7 +9635,7 @@ export class SemanticSearchApi extends BaseAPI {
 export const SohApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Fetch graph.
+         * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -10252,7 +10252,7 @@ export const SohApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SohApiAxiosParamCreator(configuration)
     return {
         /**
-         * Fetch graph.
+         * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -10418,7 +10418,7 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = SohApiFp(configuration)
     return {
         /**
-         * Fetch graph.
+         * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -10837,7 +10837,7 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
  */
 export class SohApi extends BaseAPI {
     /**
-     * Fetch graph.
+     * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
