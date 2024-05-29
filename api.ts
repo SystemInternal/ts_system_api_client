@@ -1452,6 +1452,73 @@ export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
 }
 /**
+ * Hierarchical topic node.  # noqa: E501
+ * @export
+ * @interface HierarchicalTopicNode
+ */
+export interface HierarchicalTopicNode {
+    /**
+     * 
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'topic_id': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof HierarchicalTopicNode
+     */
+    'umls_cuis': Array<string>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof HierarchicalTopicNode
+     */
+    'umls_children'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'wikidata_id'?: string;
+    /**
+     * 
+     * @type {Array<Role>}
+     * @memberof HierarchicalTopicNode
+     */
+    'roles': Array<Role>;
+    /**
+     * 
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'category': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'mechanistic_category'?: string;
+    /**
+     * 
+     * @type {Array<RelationshipTypes>}
+     * @memberof HierarchicalTopicNode
+     */
+    'relationship_types'?: Array<RelationshipTypes>;
+    /**
+     * 
+     * @type {Array<SohServiceClientModelsTopicNodeTopicNode>}
+     * @memberof HierarchicalTopicNode
+     */
+    'children'?: Array<SohServiceClientModelsTopicNodeTopicNode>;
+}
+/**
  * SSO Identity Providers preconfigured in AWS Cognito user pool.
  * @export
  * @enum {string}
@@ -9680,6 +9747,46 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
             };
         },
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: async (query: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'query' is not null or undefined
+            assertParamExists('fetchHierarchicalTopicsV1SohHierarchicalTopicsGet', 'query', query)
+            const localVarPath = `/v1/soh/hierarchical-topics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId 
@@ -10274,6 +10381,17 @@ export const SohApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId 
@@ -10439,6 +10557,16 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
             return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: any): AxiosPromise<Array<HierarchicalTopicNode>> {
+            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId 
@@ -10574,6 +10702,20 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
         },
     };
 };
+
+/**
+ * Request parameters for fetchHierarchicalTopicsV1SohHierarchicalTopicsGet operation in SohApi.
+ * @export
+ * @interface SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest
+ */
+export interface SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGet
+     */
+    readonly query: string
+}
 
 /**
  * Request parameters for fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost operation in SohApi.
@@ -10857,6 +10999,18 @@ export class SohApi extends BaseAPI {
      */
     public fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
