@@ -3091,6 +3091,12 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
     'umls_cuis': Array<string>;
     /**
      *
+     * @type {Array<string>}
+     * @memberof SohServiceClientModelsTopicNodeTopicNode
+     */
+    'umls_children'?: Array<string>;
+    /**
+     *
      * @type {string}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
