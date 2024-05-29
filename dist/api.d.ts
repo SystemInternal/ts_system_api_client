@@ -1429,6 +1429,73 @@ export interface HTTPValidationError {
     'detail'?: Array<ValidationError>;
 }
 /**
+ * Hierarchical topic node.  # noqa: E501
+ * @export
+ * @interface HierarchicalTopicNode
+ */
+export interface HierarchicalTopicNode {
+    /**
+     *
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'name': string;
+    /**
+     *
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'topic_id': string;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof HierarchicalTopicNode
+     */
+    'umls_cuis': Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof HierarchicalTopicNode
+     */
+    'umls_children'?: Array<string>;
+    /**
+     *
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'wikidata_id'?: string;
+    /**
+     *
+     * @type {Array<Role>}
+     * @memberof HierarchicalTopicNode
+     */
+    'roles': Array<Role>;
+    /**
+     *
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'category': string;
+    /**
+     *
+     * @type {string}
+     * @memberof HierarchicalTopicNode
+     */
+    'mechanistic_category'?: string;
+    /**
+     *
+     * @type {Array<RelationshipTypes>}
+     * @memberof HierarchicalTopicNode
+     */
+    'relationship_types'?: Array<RelationshipTypes>;
+    /**
+     *
+     * @type {Array<SohServiceClientModelsTopicNodeTopicNode>}
+     * @memberof HierarchicalTopicNode
+     */
+    'children'?: Array<SohServiceClientModelsTopicNodeTopicNode>;
+}
+/**
  * SSO Identity Providers preconfigured in AWS Cognito user pool.
  * @export
  * @enum {string}
@@ -7436,6 +7503,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {string} query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
      * Fetch graph.
      * @summary Fetch Mech Graph
      * @param {string} topicId
@@ -7558,6 +7633,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
+    /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {string} query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7682,6 +7765,14 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: any): AxiosPromise<GraphTimeSeriesOut>;
     /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {string} query
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: any): AxiosPromise<Array<HierarchicalTopicNode>>;
+    /**
      * Fetch graph.
      * @summary Fetch Mech Graph
      * @param {string} topicId
@@ -7792,6 +7883,19 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      */
     getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
 };
+/**
+ * Request parameters for fetchHierarchicalTopicsV1SohHierarchicalTopicsGet operation in SohApi.
+ * @export
+ * @interface SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest
+ */
+export interface SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGet
+     */
+    readonly query: string;
+}
 /**
  * Request parameters for fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost operation in SohApi.
  * @export
@@ -8047,6 +8151,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut>>;
+    /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<HierarchicalTopicNode[]>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph

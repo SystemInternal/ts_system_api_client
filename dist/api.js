@@ -3961,6 +3961,39 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             };
         }),
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'query' is not null or undefined
+            common_1.assertParamExists('fetchHierarchicalTopicsV1SohHierarchicalTopicsGet', 'query', query);
+            const localVarPath = `/v1/soh/hierarchical-topics`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId
@@ -4458,6 +4491,19 @@ exports.SohApiFp = function (configuration) {
             });
         },
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId
@@ -4646,6 +4692,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
             return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(axios, basePath));
         },
         /**
+         * Get hierarchical topics.
+         * @summary Fetch Hierarchical Topics
+         * @param {string} query
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options) {
+            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch graph.
          * @summary Fetch Mech Graph
          * @param {string} topicId
@@ -4797,6 +4853,17 @@ class SohApi extends base_1.BaseAPI {
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
         return exports.SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get hierarchical topics.
+     * @summary Fetch Hierarchical Topics
+     * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch graph.
