@@ -6956,6 +6956,40 @@ exports.SystemGraphApi = SystemGraphApi;
 exports.TopicApiAxiosParamCreator = function (configuration) {
     return {
         /**
+         * Get topic data.
+         * @summary Get Information For A Topic.
+         * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getInformationForATopicV1TopicGet: (topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/topic/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (topicIds) {
+                localVarQueryParameter['topic_ids'] = topicIds;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+        /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
          * @param {string} topicId
@@ -7009,6 +7043,19 @@ exports.TopicApiFp = function (configuration) {
     const localVarAxiosParamCreator = exports.TopicApiAxiosParamCreator(configuration);
     return {
         /**
+         * Get topic data.
+         * @summary Get Information For A Topic.
+         * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getInformationForATopicV1TopicGet(topicIds, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getInformationForATopicV1TopicGet(topicIds, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+        /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
          * @param {string} topicId
@@ -7033,6 +7080,16 @@ exports.TopicApiFactory = function (configuration, basePath, axios) {
     const localVarFp = exports.TopicApiFp(configuration);
     return {
         /**
+         * Get topic data.
+         * @summary Get Information For A Topic.
+         * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getInformationForATopicV1TopicGet(topicIds, options) {
+            return localVarFp.getInformationForATopicV1TopicGet(topicIds, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
          * @param {string} topicId
@@ -7053,6 +7110,17 @@ exports.TopicApiFactory = function (configuration, basePath, axios) {
  * @extends {BaseAPI}
  */
 class TopicApi extends base_1.BaseAPI {
+    /**
+     * Get topic data.
+     * @summary Get Information For A Topic.
+     * @param {TopicApiGetInformationForATopicV1TopicGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TopicApi
+     */
+    getInformationForATopicV1TopicGet(requestParameters = {}, options) {
+        return exports.TopicApiFp(this.configuration).getInformationForATopicV1TopicGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+    }
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
