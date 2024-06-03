@@ -6962,8 +6962,8 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicGet: (topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
-            const localVarPath = `/v1/topic/`;
+        getInformationForATopicV1TopicInfoGet: (topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/topic/info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
             let baseOptions;
@@ -7049,9 +7049,9 @@ exports.TopicApiFp = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicGet(topicIds, options) {
+        getInformationForATopicV1TopicInfoGet(topicIds, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getInformationForATopicV1TopicGet(topicIds, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getInformationForATopicV1TopicInfoGet(topicIds, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -7086,8 +7086,8 @@ exports.TopicApiFactory = function (configuration, basePath, axios) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicGet(topicIds, options) {
-            return localVarFp.getInformationForATopicV1TopicGet(topicIds, options).then((request) => request(axios, basePath));
+        getInformationForATopicV1TopicInfoGet(topicIds, options) {
+            return localVarFp.getInformationForATopicV1TopicInfoGet(topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get information for variables related to a topic.
@@ -7113,13 +7113,13 @@ class TopicApi extends base_1.BaseAPI {
     /**
      * Get topic data.
      * @summary Get Information For A Topic.
-     * @param {TopicApiGetInformationForATopicV1TopicGetRequest} requestParameters Request parameters.
+     * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    getInformationForATopicV1TopicGet(requestParameters = {}, options) {
-        return exports.TopicApiFp(this.configuration).getInformationForATopicV1TopicGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+    getInformationForATopicV1TopicInfoGet(requestParameters = {}, options) {
+        return exports.TopicApiFp(this.configuration).getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get information for variables related to a topic.

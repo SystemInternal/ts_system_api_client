@@ -9935,7 +9935,7 @@ export declare const TopicApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicGet: (topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getInformationForATopicV1TopicInfoGet: (topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -9959,7 +9959,7 @@ export declare const TopicApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>>;
+    getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -9983,7 +9983,7 @@ export declare const TopicApiFactory: (configuration?: Configuration, basePath?:
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>>;
+    getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -9996,15 +9996,15 @@ export declare const TopicApiFactory: (configuration?: Configuration, basePath?:
     getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: any): AxiosPromise<TopicVariablesOut>;
 };
 /**
- * Request parameters for getInformationForATopicV1TopicGet operation in TopicApi.
+ * Request parameters for getInformationForATopicV1TopicInfoGet operation in TopicApi.
  * @export
- * @interface TopicApiGetInformationForATopicV1TopicGetRequest
+ * @interface TopicApiGetInformationForATopicV1TopicInfoGetRequest
  */
-export interface TopicApiGetInformationForATopicV1TopicGetRequest {
+export interface TopicApiGetInformationForATopicV1TopicInfoGetRequest {
     /**
      * List of topic IDs to fetch information from.
      * @type {Array<string>}
-     * @memberof TopicApiGetInformationForATopicV1TopicGet
+     * @memberof TopicApiGetInformationForATopicV1TopicInfoGet
      */
     readonly topicIds?: Array<string>;
 }
@@ -10043,12 +10043,12 @@ export declare class TopicApi extends BaseAPI {
     /**
      * Get topic data.
      * @summary Get Information For A Topic.
-     * @param {TopicApiGetInformationForATopicV1TopicGetRequest} requestParameters Request parameters.
+     * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    getInformationForATopicV1TopicGet(requestParameters?: TopicApiGetInformationForATopicV1TopicGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRDBOut[]>>;
+    getInformationForATopicV1TopicInfoGet(requestParameters?: TopicApiGetInformationForATopicV1TopicInfoGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRDBOut[]>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
