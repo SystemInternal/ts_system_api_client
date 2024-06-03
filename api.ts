@@ -14107,8 +14107,8 @@ export const TopicApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicGet: async (topicIds?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/v1/topic/`;
+        getInformationForATopicV1TopicInfoGet: async (topicIds?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/topic/info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -14213,8 +14213,8 @@ export const TopicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getInformationForATopicV1TopicGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getInformationForATopicV1TopicGet(topicIds, options);
+        async getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getInformationForATopicV1TopicInfoGet(topicIds, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14247,8 +14247,8 @@ export const TopicApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>> {
-            return localVarFp.getInformationForATopicV1TopicGet(topicIds, options).then((request) => request(axios, basePath));
+        getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>> {
+            return localVarFp.getInformationForATopicV1TopicInfoGet(topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get information for variables related to a topic.
@@ -14266,15 +14266,15 @@ export const TopicApiFactory = function (configuration?: Configuration, basePath
 };
 
 /**
- * Request parameters for getInformationForATopicV1TopicGet operation in TopicApi.
+ * Request parameters for getInformationForATopicV1TopicInfoGet operation in TopicApi.
  * @export
- * @interface TopicApiGetInformationForATopicV1TopicGetRequest
+ * @interface TopicApiGetInformationForATopicV1TopicInfoGetRequest
  */
-export interface TopicApiGetInformationForATopicV1TopicGetRequest {
+export interface TopicApiGetInformationForATopicV1TopicInfoGetRequest {
     /**
      * List of topic IDs to fetch information from.
      * @type {Array<string>}
-     * @memberof TopicApiGetInformationForATopicV1TopicGet
+     * @memberof TopicApiGetInformationForATopicV1TopicInfoGet
      */
     readonly topicIds?: Array<string>
 }
@@ -14317,13 +14317,13 @@ export class TopicApi extends BaseAPI {
     /**
      * Get topic data.
      * @summary Get Information For A Topic.
-     * @param {TopicApiGetInformationForATopicV1TopicGetRequest} requestParameters Request parameters.
+     * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    public getInformationForATopicV1TopicGet(requestParameters: TopicApiGetInformationForATopicV1TopicGetRequest = {}, options?: AxiosRequestConfig) {
-        return TopicApiFp(this.configuration).getInformationForATopicV1TopicGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+    public getInformationForATopicV1TopicInfoGet(requestParameters: TopicApiGetInformationForATopicV1TopicInfoGetRequest = {}, options?: AxiosRequestConfig) {
+        return TopicApiFp(this.configuration).getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
