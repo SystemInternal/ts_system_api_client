@@ -1327,6 +1327,31 @@ export interface GraphOut {
     'original_node_count'?: number;
 }
 /**
+ * Typed graph payload.
+ * @export
+ * @interface GraphPayloadTyped
+ */
+export interface GraphPayloadTyped {
+    /**
+     * Dictionary of topic filters with key corresponding to zero-indexed node in path.
+     * @type {{ [key: string]: TopicFilterParams; }}
+     * @memberof GraphPayloadTyped
+     */
+    'topic_filters'?: { [key: string]: TopicFilterParams; };
+    /**
+     * Dictionary of relationship filters with key corresponding to zero-indexed edge in path.
+     * @type {{ [key: string]: RelationshipFilterParams; }}
+     * @memberof GraphPayloadTyped
+     */
+    'relationship_filters'?: { [key: string]: RelationshipFilterParams; };
+    /**
+     * Limit number of paths.
+     * @type {number}
+     * @memberof GraphPayloadTyped
+     */
+    'limit'?: number;
+}
+/**
  * GraphQL query model.
  * @export
  * @interface GraphQLQuery
@@ -9714,6 +9739,100 @@ export class SemanticSearchApi extends BaseAPI {
 export const SohApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Fetch graph.
+         * @summary Fetch Full Mech Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'topicId', topicId)
+            // verify required parameter 'graphPayloadTyped' is not null or undefined
+            assertParamExists('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped)
+            const localVarPath = `/v1/soh/mech_relationships/{topic_id}/graph`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(graphPayloadTyped, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetch graph.
+         * @summary Fetch Full Stat Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'topicId', topicId)
+            // verify required parameter 'graphPayloadTyped' is not null or undefined
+            assertParamExists('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped)
+            const localVarPath = `/v1/soh/stat_relationships/{topic_id}/graph`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(graphPayloadTyped, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
@@ -10371,6 +10490,30 @@ export const SohApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SohApiAxiosParamCreator(configuration)
     return {
         /**
+         * Fetch graph.
+         * @summary Fetch Full Mech Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetch graph.
+         * @summary Fetch Full Stat Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
@@ -10548,6 +10691,28 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
     const localVarFp = SohApiFp(configuration)
     return {
         /**
+         * Fetch graph.
+         * @summary Fetch Full Mech Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetch graph.
+         * @summary Fetch Full Stat Graph
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Fetch time series data for relationships, findings, and topics.
          * @summary Fetch Graph Time Series Data
          * @param {*} [options] Override http request option.
@@ -10702,6 +10867,48 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
         },
     };
 };
+
+/**
+ * Request parameters for fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost operation in SohApi.
+ * @export
+ * @interface SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest
+ */
+export interface SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost
+     */
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {GraphPayloadTyped}
+     * @memberof SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost
+     */
+    readonly graphPayloadTyped: GraphPayloadTyped
+}
+
+/**
+ * Request parameters for fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost operation in SohApi.
+ * @export
+ * @interface SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest
+ */
+export interface SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost
+     */
+    readonly topicId: string
+
+    /**
+     * 
+     * @type {GraphPayloadTyped}
+     * @memberof SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost
+     */
+    readonly graphPayloadTyped: GraphPayloadTyped
+}
 
 /**
  * Request parameters for fetchHierarchicalTopicsV1SohHierarchicalTopicsGet operation in SohApi.
@@ -10990,6 +11197,30 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
  * @extends {BaseAPI}
  */
 export class SohApi extends BaseAPI {
+    /**
+     * Fetch graph.
+     * @summary Fetch Full Mech Graph
+     * @param {SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetch graph.
+     * @summary Fetch Full Stat Graph
+     * @param {SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
