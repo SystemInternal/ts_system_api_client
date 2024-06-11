@@ -879,59 +879,6 @@ export interface ExtendedNodeObject {
     'tags'?: Array<string>;
 }
 /**
- * An enumeration.
- * @export
- * @enum {string}
- */
-
-export enum FeatureContributionMethod {
-    Gini = 'gini',
-    Gain = 'gain',
-    Shap = 'shap',
-    Coefficient = 'coefficient',
-    Lime = 'lime',
-    Permutation = 'permutation',
-    PearsonR = 'pearson_r',
-    KendallTau = 'kendall_tau',
-    CramerV = 'cramer_v',
-    KruskalWallisHTest = 'kruskal_wallis_h_test',
-    ControlVariable = 'control_variable',
-    ProductMomentR = 'product_moment_r',
-    FrequencyScore = 'frequency_score',
-    OddsRatio = 'odds_ratio',
-    RelativeRiskRatio = 'relative_risk_ratio',
-    HazardRatio = 'hazard_ratio',
-    MeanGainUnstandardized = 'mean_gain_unstandardized',
-    MeanGainStandardized = 'mean_gain_standardized',
-    MeanDifferenceUnstandardized = 'mean_difference_unstandardized',
-    MeanDifferenceStandardized = 'mean_difference_standardized',
-    ProportionDifference = 'proportion_difference',
-    LogOddsRatio = 'log_odds_ratio',
-    PearsonChiSquaredTest = 'pearson_chi_squared_test',
-    Forecast = 'forecast',
-    PercentChangeDifference = 'percent_change_difference',
-    AdjustedOddsRatio = 'adjusted_odds_ratio',
-    AdjustedHazardRatio = 'adjusted_hazard_ratio',
-    IncidentRateRatio = 'incident_rate_ratio',
-    RiskDifference = 'risk_difference',
-    InformationFlow = 'information_flow',
-    StandardizedCoefficient = 'standardized_coefficient',
-    CohensD = 'cohens_d',
-    HedgesG = 'hedges_g',
-    GlassSDelta = 'glass_s_delta',
-    RootMeanSquareDifferencePsi = 'root_mean_square_difference_psi',
-    MahalanobisDistance = 'mahalanobis_distance',
-    CohensW = 'cohens_w',
-    CohensH = 'cohens_h',
-    CliffsDelta = 'cliffs_delta',
-    RankBiserialCorrelation = 'rank_biserial_correlation',
-    SpearmanCorrelation = 'spearman_correlation',
-    Elasticity = 'elasticity',
-    PrevalenceRatio = 'prevalence_ratio',
-    Invalid = 'invalid'
-}
-
-/**
  * Feedback on a finding.
  * @export
  * @interface FindingFeedbackIn
@@ -2354,10 +2301,10 @@ export interface RawFinding {
     'bidirectional': boolean;
     /**
      * 
-     * @type {FeatureContributionMethod}
+     * @type {string}
      * @memberof RawFinding
      */
-    'feature_contribution_method': FeatureContributionMethod;
+    'feature_contribution_method': string;
     /**
      * 
      * @type {boolean}
