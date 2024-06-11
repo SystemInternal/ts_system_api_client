@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.RelationshipTypes = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.FeatureContributionMethod = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.RelationshipTypes = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -61,58 +61,6 @@ var EvidenceCategory;
     EvidenceCategory["Statistical"] = "statistical";
     EvidenceCategory["Mechanistic"] = "mechanistic";
 })(EvidenceCategory = exports.EvidenceCategory || (exports.EvidenceCategory = {}));
-/**
- * An enumeration.
- * @export
- * @enum {string}
- */
-var FeatureContributionMethod;
-(function (FeatureContributionMethod) {
-    FeatureContributionMethod["Gini"] = "gini";
-    FeatureContributionMethod["Gain"] = "gain";
-    FeatureContributionMethod["Shap"] = "shap";
-    FeatureContributionMethod["Coefficient"] = "coefficient";
-    FeatureContributionMethod["Lime"] = "lime";
-    FeatureContributionMethod["Permutation"] = "permutation";
-    FeatureContributionMethod["PearsonR"] = "pearson_r";
-    FeatureContributionMethod["KendallTau"] = "kendall_tau";
-    FeatureContributionMethod["CramerV"] = "cramer_v";
-    FeatureContributionMethod["KruskalWallisHTest"] = "kruskal_wallis_h_test";
-    FeatureContributionMethod["ControlVariable"] = "control_variable";
-    FeatureContributionMethod["ProductMomentR"] = "product_moment_r";
-    FeatureContributionMethod["FrequencyScore"] = "frequency_score";
-    FeatureContributionMethod["OddsRatio"] = "odds_ratio";
-    FeatureContributionMethod["RelativeRiskRatio"] = "relative_risk_ratio";
-    FeatureContributionMethod["HazardRatio"] = "hazard_ratio";
-    FeatureContributionMethod["MeanGainUnstandardized"] = "mean_gain_unstandardized";
-    FeatureContributionMethod["MeanGainStandardized"] = "mean_gain_standardized";
-    FeatureContributionMethod["MeanDifferenceUnstandardized"] = "mean_difference_unstandardized";
-    FeatureContributionMethod["MeanDifferenceStandardized"] = "mean_difference_standardized";
-    FeatureContributionMethod["ProportionDifference"] = "proportion_difference";
-    FeatureContributionMethod["LogOddsRatio"] = "log_odds_ratio";
-    FeatureContributionMethod["PearsonChiSquaredTest"] = "pearson_chi_squared_test";
-    FeatureContributionMethod["Forecast"] = "forecast";
-    FeatureContributionMethod["PercentChangeDifference"] = "percent_change_difference";
-    FeatureContributionMethod["AdjustedOddsRatio"] = "adjusted_odds_ratio";
-    FeatureContributionMethod["AdjustedHazardRatio"] = "adjusted_hazard_ratio";
-    FeatureContributionMethod["IncidentRateRatio"] = "incident_rate_ratio";
-    FeatureContributionMethod["RiskDifference"] = "risk_difference";
-    FeatureContributionMethod["InformationFlow"] = "information_flow";
-    FeatureContributionMethod["StandardizedCoefficient"] = "standardized_coefficient";
-    FeatureContributionMethod["CohensD"] = "cohens_d";
-    FeatureContributionMethod["HedgesG"] = "hedges_g";
-    FeatureContributionMethod["GlassSDelta"] = "glass_s_delta";
-    FeatureContributionMethod["RootMeanSquareDifferencePsi"] = "root_mean_square_difference_psi";
-    FeatureContributionMethod["MahalanobisDistance"] = "mahalanobis_distance";
-    FeatureContributionMethod["CohensW"] = "cohens_w";
-    FeatureContributionMethod["CohensH"] = "cohens_h";
-    FeatureContributionMethod["CliffsDelta"] = "cliffs_delta";
-    FeatureContributionMethod["RankBiserialCorrelation"] = "rank_biserial_correlation";
-    FeatureContributionMethod["SpearmanCorrelation"] = "spearman_correlation";
-    FeatureContributionMethod["Elasticity"] = "elasticity";
-    FeatureContributionMethod["PrevalenceRatio"] = "prevalence_ratio";
-    FeatureContributionMethod["Invalid"] = "invalid";
-})(FeatureContributionMethod = exports.FeatureContributionMethod || (exports.FeatureContributionMethod = {}));
 /**
  * Status for polling functions.
  * @export
