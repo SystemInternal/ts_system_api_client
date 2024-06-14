@@ -5676,70 +5676,6 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
                 options: localVarRequestOptions,
             };
         },
-        /**
-         * List Concepts.
-         * @summary Semantic Search Concepts
-         * @param {string} query Query for the search.
-         * @param {number} [alpha] Alpha for the search.
-         * @param {number} [autocut] Autocut for the search.
-         * @param {number} [customCutoffScore] Custom cutoff score.
-         * @param {number} [limit] Limit for the search.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        semanticSearchConceptsV1ConceptsSemanticGet: async (query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'query' is not null or undefined
-            assertParamExists('semanticSearchConceptsV1ConceptsSemanticGet', 'query', query)
-            const localVarPath = `/v1/concepts/semantic`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication APIKeyHeader required
-            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
-
-            // authentication OAuth2AuthorizationCodeBearer required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
-
-            if (query !== undefined) {
-                localVarQueryParameter['query'] = query;
-            }
-
-            if (alpha !== undefined) {
-                localVarQueryParameter['alpha'] = alpha;
-            }
-
-            if (autocut !== undefined) {
-                localVarQueryParameter['autocut'] = autocut;
-            }
-
-            if (customCutoffScore !== undefined) {
-                localVarQueryParameter['custom_cutoff_score'] = customCutoffScore;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -5796,21 +5732,6 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * List Concepts.
-         * @summary Semantic Search Concepts
-         * @param {string} query Query for the search.
-         * @param {number} [alpha] Alpha for the search.
-         * @param {number} [autocut] Autocut for the search.
-         * @param {number} [customCutoffScore] Custom cutoff score.
-         * @param {number} [limit] Limit for the search.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConceptOut>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, customCutoffScore, limit, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -5863,20 +5784,6 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
          */
         listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
             return localVarFp.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * List Concepts.
-         * @summary Semantic Search Concepts
-         * @param {string} query Query for the search.
-         * @param {number} [alpha] Alpha for the search.
-         * @param {number} [autocut] Autocut for the search.
-         * @param {number} [customCutoffScore] Custom cutoff score.
-         * @param {number} [limit] Limit for the search.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        semanticSearchConceptsV1ConceptsSemanticGet(query: string, alpha?: number, autocut?: number, customCutoffScore?: number, limit?: number, options?: any): AxiosPromise<Array<ConceptOut>> {
-            return localVarFp.semanticSearchConceptsV1ConceptsSemanticGet(query, alpha, autocut, customCutoffScore, limit, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6015,48 +5922,6 @@ export interface ConceptsApiListConceptsV1ConceptsGetRequest {
 }
 
 /**
- * Request parameters for semanticSearchConceptsV1ConceptsSemanticGet operation in ConceptsApi.
- * @export
- * @interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest
- */
-export interface ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest {
-    /**
-     * Query for the search.
-     * @type {string}
-     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
-     */
-    readonly query: string
-
-    /**
-     * Alpha for the search.
-     * @type {number}
-     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
-     */
-    readonly alpha?: number
-
-    /**
-     * Autocut for the search.
-     * @type {number}
-     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
-     */
-    readonly autocut?: number
-
-    /**
-     * Custom cutoff score.
-     * @type {number}
-     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
-     */
-    readonly customCutoffScore?: number
-
-    /**
-     * Limit for the search.
-     * @type {number}
-     * @memberof ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGet
-     */
-    readonly limit?: number
-}
-
-/**
  * ConceptsApi - object-oriented interface
  * @export
  * @class ConceptsApi
@@ -6097,18 +5962,6 @@ export class ConceptsApi extends BaseAPI {
      */
     public listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * List Concepts.
-     * @summary Semantic Search Concepts
-     * @param {ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConceptsApi
-     */
-    public semanticSearchConceptsV1ConceptsSemanticGet(requestParameters: ConceptsApiSemanticSearchConceptsV1ConceptsSemanticGetRequest, options?: AxiosRequestConfig) {
-        return ConceptsApiFp(this.configuration).semanticSearchConceptsV1ConceptsSemanticGet(requestParameters.query, requestParameters.alpha, requestParameters.autocut, requestParameters.customCutoffScore, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
