@@ -10279,6 +10279,43 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicByIDV1SohTopicsTopicIdGet: async (topicId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'topicId' is not null or undefined
+            assertParamExists('getTopicByIDV1SohTopicsTopicIdGet', 'topicId', topicId)
+            const localVarPath = `/v1/soh/topics/{topic_id}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -10480,6 +10517,17 @@ export const SohApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicByIDV1SohTopicsTopicIdGet(topicId, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -10664,6 +10712,16 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          */
         getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut> {
             return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: any): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode> {
+            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(topicId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -10991,6 +11049,20 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
 }
 
 /**
+ * Request parameters for getTopicByIDV1SohTopicsTopicIdGet operation in SohApi.
+ * @export
+ * @interface SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest
+ */
+export interface SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SohApiGetTopicByIDV1SohTopicsTopicIdGet
+     */
+    readonly topicId: string
+}
+
+/**
  * SohApi - object-oriented interface
  * @export
  * @class SohApi
@@ -11186,6 +11258,18 @@ export class SohApi extends BaseAPI {
      */
     public getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    public getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: AxiosRequestConfig) {
+        return SohApiFp(this.configuration).getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
