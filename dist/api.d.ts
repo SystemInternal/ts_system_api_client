@@ -7534,6 +7534,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @throws {RequiredError}
      */
     getSohOfMetadataV1SohFindingsPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {string} topicId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicByIDV1SohTopicsTopicIdGet: (topicId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SohApi - functional programming interface
@@ -7683,6 +7691,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @throws {RequiredError}
      */
     getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {string} topicId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>>;
 };
 /**
  * SohApi - factory interface
@@ -7832,6 +7848,14 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @throws {RequiredError}
      */
     getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {string} topicId
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: any): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>;
 };
 /**
  * Request parameters for fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost operation in SohApi.
@@ -8125,6 +8149,19 @@ export interface SohApiGetSohOfMetadataV1SohFindingsPostRequest {
     readonly sohIn: SohIn;
 }
 /**
+ * Request parameters for getTopicByIDV1SohTopicsTopicIdGet operation in SohApi.
+ * @export
+ * @interface SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest
+ */
+export interface SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof SohApiGetTopicByIDV1SohTopicsTopicIdGet
+     */
+    readonly topicId: string;
+}
+/**
  * SohApi - object-oriented interface
  * @export
  * @class SohApi
@@ -8274,6 +8311,15 @@ export declare class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut>>;
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohServiceClientModelsTopicNodeTopicNode>>;
 }
 /**
  * SsoApi - axios parameter creator

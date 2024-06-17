@@ -4401,6 +4401,37 @@ exports.SohApiAxiosParamCreator = function (configuration) {
                 options: localVarRequestOptions,
             };
         }),
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicByIDV1SohTopicsTopicIdGet: (topicId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'topicId' is not null or undefined
+            common_1.assertParamExists('getTopicByIDV1SohTopicsTopicIdGet', 'topicId', topicId);
+            const localVarPath = `/v1/soh/topics/{topic_id}`
+                .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
     };
 };
 /**
@@ -4633,6 +4664,19 @@ exports.SohApiFp = function (configuration) {
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicByIDV1SohTopicsTopicIdGet(topicId, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopicByIDV1SohTopicsTopicIdGet(topicId, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
     };
 };
 /**
@@ -4817,6 +4861,16 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
         getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
         },
+        /**
+         * Get system of health data.
+         * @summary Get Topic By Id
+         * @param {string} topicId
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTopicByIDV1SohTopicsTopicIdGet(topicId, options) {
+            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(topicId, options).then((request) => request(axios, basePath));
+        },
     };
 };
 /**
@@ -5000,6 +5054,17 @@ class SohApi extends base_1.BaseAPI {
      */
     getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
         return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+    }
+    /**
+     * Get system of health data.
+     * @summary Get Topic By Id
+     * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SohApi
+     */
+    getTopicByIDV1SohTopicsTopicIdGet(requestParameters, options) {
+        return exports.SohApiFp(this.configuration).getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SohApi = SohApi;
