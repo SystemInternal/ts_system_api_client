@@ -1280,6 +1280,12 @@ export interface GraphPayloadTyped {
      * @memberof GraphPayloadTyped
      */
     'limit'?: number;
+    /**
+     *
+     * @type {object}
+     * @memberof GraphPayloadTyped
+     */
+    'prototype'?: object;
 }
 /**
  * GraphQL query model.
