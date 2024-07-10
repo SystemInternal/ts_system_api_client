@@ -2835,6 +2835,12 @@ export interface Soh {
     'study_published_date'?: string;
     /**
      * 
+     * @type {Array<object>}
+     * @memberof Soh
+     */
+    'study_authors'?: Array<object>;
+    /**
+     * 
      * @type {string}
      * @memberof Soh
      */
