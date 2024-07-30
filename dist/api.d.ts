@@ -1280,12 +1280,6 @@ export interface GraphPayloadTyped {
      * @memberof GraphPayloadTyped
      */
     'limit'?: number;
-    /**
-     *
-     * @type {object}
-     * @memberof GraphPayloadTyped
-     */
-    'prototype'?: object;
 }
 /**
  * GraphQL query model.
@@ -2405,6 +2399,12 @@ export interface RelationshipFilterParams {
      * @memberof RelationshipFilterParams
      */
     'well_established'?: boolean;
+    /**
+     * Not well established.
+     * @type {boolean}
+     * @memberof RelationshipFilterParams
+     */
+    'not_well_established'?: boolean;
     /**
      * Significant well established.
      * @type {boolean}
