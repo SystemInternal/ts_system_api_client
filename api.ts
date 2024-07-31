@@ -13,15 +13,13 @@
  */
 
 
-import type { Configuration } from './configuration';
-import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import globalAxios from 'axios';
+import { Configuration } from './configuration';
+import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
-import type { RequestArgs } from './base';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
  * Add subscription seat input.
@@ -218,20 +216,6 @@ export interface BigQueryCredentialsIn {
     'raw_credentials': string;
 }
 /**
- * 
- * @export
- * @interface CiLower
- */
-export interface CiLower {
-}
-/**
- * 
- * @export
- * @interface CiUpper
- */
-export interface CiUpper {
-}
-/**
  * Cluster out model.
  * @export
  * @interface ClusterOut
@@ -275,8 +259,6 @@ export interface ClusterOutStatus {
      */
     'cluster_out'?: SynthesisResponse;
 }
-
-
 /**
  * Clustered evidence metadata.  # noqa: E501
  * @export
@@ -351,14 +333,11 @@ export interface ClusteredRelationship {
  * @enum {string}
  */
 
-export const ClusteringMethods = {
-    Agglomerative: 'agglomerative',
-    Dbscan: 'dbscan',
-    Paraphrase: 'paraphrase'
-} as const;
-
-export type ClusteringMethods = typeof ClusteringMethods[keyof typeof ClusteringMethods];
-
+export enum ClusteringMethods {
+    Agglomerative = 'agglomerative',
+    Dbscan = 'dbscan',
+    Paraphrase = 'paraphrase'
+}
 
 /**
  * Concept resource links.
@@ -594,14 +573,11 @@ export interface ConceptRelationshipsOut {
  * @enum {string}
  */
 
-export const ConceptSortEnum = {
-    CreatedAt: 'created_at',
-    LastUpdatedAt: 'last_updated_at',
-    Name: 'name'
-} as const;
-
-export type ConceptSortEnum = typeof ConceptSortEnum[keyof typeof ConceptSortEnum];
-
+export enum ConceptSortEnum {
+    CreatedAt = 'created_at',
+    LastUpdatedAt = 'last_updated_at',
+    Name = 'name'
+}
 
 /**
  * Confidence interval output model.
@@ -627,190 +603,6 @@ export interface ConfidenceIntervalOut {
      * @memberof ConfidenceIntervalOut
      */
     'ci_upper'?: number;
-}
-
-
-/**
- * Integration credentials.
- * @export
- * @interface Credentials
- */
-export interface Credentials {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_name': string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_user': string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_host': string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof Credentials
-     */
-    'db_port': number;
-    /**
-     * Integration account name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_account': string;
-    /**
-     * Integration warehouse name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_warehouse': string;
-    /**
-     * Integration location.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'location': string;
-    /**
-     * Integration project.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'project': string;
-    /**
-     * Integration verify ssl
-     * @type {boolean}
-     * @memberof Credentials
-     */
-    'verify_ssl'?: boolean;
-    /**
-     * Integration base url
-     * @type {string}
-     * @memberof Credentials
-     */
-    'base_url': string;
-    /**
-     * Integration dashboard
-     * @type {string}
-     * @memberof Credentials
-     */
-    'dashboard': string;
-}
-/**
- * Integration credentials.
- * @export
- * @interface Credentials1
- */
-export interface Credentials1 {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_name': string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_user': string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_host': string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof Credentials1
-     */
-    'db_port': number;
-    /**
-     * Integration password.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_password': string;
-    /**
-     * Integration account name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_account': string;
-    /**
-     * Integration warehouse name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_warehouse': string;
-    /**
-     * Integration location.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'location': string;
-    /**
-     * Integration project.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'project': string;
-    /**
-     * Integration credentials.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'raw_credentials': string;
-    /**
-     * Integration verify ssl
-     * @type {boolean}
-     * @memberof Credentials1
-     */
-    'verify_ssl'?: boolean;
-    /**
-     * Integration base url
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'base_url': string;
-    /**
-     * Integration client id.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'client_id': string;
-    /**
-     * Integration client secret key.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'client_secret': string;
-    /**
-     * Integration dashboard
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'dashboard': string;
-    /**
-     * Integration api token.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'api_token': string;
-    /**
-     * Integration api secret.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'api_secret': string;
 }
 /**
  * An Enterprise Resource.
@@ -916,13 +708,10 @@ export interface EnterpriseIn {
  * @enum {string}
  */
 
-export const EvidenceCategory = {
-    Statistical: 'statistical',
-    Mechanistic: 'mechanistic'
-} as const;
-
-export type EvidenceCategory = typeof EvidenceCategory[keyof typeof EvidenceCategory];
-
+export enum EvidenceCategory {
+    Statistical = 'statistical',
+    Mechanistic = 'mechanistic'
+}
 
 /**
  * Evidence output.
@@ -1052,8 +841,6 @@ export interface ExtendedLinkObject {
      */
     'association_ids'?: Array<string>;
 }
-
-
 /**
  * Object Typed Node model.  # noqa: E501
  * @export
@@ -1091,8 +878,6 @@ export interface ExtendedNodeObject {
      */
     'tags'?: Array<string>;
 }
-
-
 /**
  * Feedback on a finding.
  * @export
@@ -1235,15 +1020,12 @@ export interface FirstLastPaginationLinks {
  * @enum {string}
  */
 
-export const FunctionStatus = {
-    Pending: 'pending',
-    Running: 'running',
-    Finished: 'finished',
-    Error: 'error'
-} as const;
-
-export type FunctionStatus = typeof FunctionStatus[keyof typeof FunctionStatus];
-
+export enum FunctionStatus {
+    Pending = 'pending',
+    Running = 'running',
+    Finished = 'finished',
+    Error = 'error'
+}
 
 /**
  * Document model.
@@ -1401,17 +1183,14 @@ export interface GraphData {
  * @enum {string}
  */
 
-export const GraphLinkType = {
-    DatasetRelationship: 'dataset_relationship',
-    ConceptRelationship: 'concept_relationship',
-    VariableRelationship: 'variable_relationship',
-    FeatureRelationship: 'feature_relationship',
-    FeatureVariable: 'feature_variable',
-    Measures: 'measures'
-} as const;
-
-export type GraphLinkType = typeof GraphLinkType[keyof typeof GraphLinkType];
-
+export enum GraphLinkType {
+    DatasetRelationship = 'dataset_relationship',
+    ConceptRelationship = 'concept_relationship',
+    VariableRelationship = 'variable_relationship',
+    FeatureRelationship = 'feature_relationship',
+    FeatureVariable = 'feature_variable',
+    Measures = 'measures'
+}
 
 /**
  * Graph metrics schema.
@@ -1456,15 +1235,12 @@ export interface GraphMetrics {
  * @enum {string}
  */
 
-export const GraphNodeType = {
-    Dataset: 'dataset',
-    Concept: 'concept',
-    Variable: 'variable',
-    Feature: 'feature'
-} as const;
-
-export type GraphNodeType = typeof GraphNodeType[keyof typeof GraphNodeType];
-
+export enum GraphNodeType {
+    Dataset = 'dataset',
+    Concept = 'concept',
+    Variable = 'variable',
+    Feature = 'feature'
+}
 
 /**
  * Graph out.  # noqa: E501
@@ -1720,13 +1496,10 @@ export interface HierarchicalTopicNode {
  * @enum {string}
  */
 
-export const IdentityProvider = {
-    Google: 'Google',
-    KeycloakGoogleDev: 'keycloak-google-dev'
-} as const;
-
-export type IdentityProvider = typeof IdentityProvider[keyof typeof IdentityProvider];
-
+export enum IdentityProvider {
+    Google = 'Google',
+    KeycloakGoogleDev = 'keycloak-google-dev'
+}
 
 /**
  * Get Identity Provider Name.
@@ -1741,8 +1514,6 @@ export interface IdentityProviderNameOut {
      */
     'idp'?: IdentityProvider;
 }
-
-
 /**
  * An Integration Resource.
  * @export
@@ -1816,11 +1587,11 @@ export interface Integration {
      */
     'id': number;
     /**
-     * 
-     * @type {Credentials}
+     * Integration credentials.
+     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials}
      * @memberof Integration
      */
-    'credentials': Credentials;
+    'credentials': RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials;
     /**
      * Enterprise link.
      * @type {string}
@@ -1840,8 +1611,6 @@ export interface Integration {
      */
     '_permissions'?: Array<ResourceAction>;
 }
-
-
 /**
  * Integration model for create/update.
  * @export
@@ -1909,11 +1678,11 @@ export interface IntegrationIn {
      */
     'messages'?: Array<MessageOut>;
     /**
-     * 
-     * @type {Credentials1}
+     * Integration credentials.
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn}
      * @memberof IntegrationIn
      */
-    'credentials'?: Credentials1;
+    'credentials'?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn;
     /**
      * Team or Enterprise link
      * @type {string}
@@ -1921,22 +1690,17 @@ export interface IntegrationIn {
      */
     'owner'?: string;
 }
-
-
 /**
  * Integration service state.
  * @export
  * @enum {string}
  */
 
-export const IntegrationState = {
-    Initial: 'INITIAL',
-    Active: 'ACTIVE',
-    Inactive: 'INACTIVE'
-} as const;
-
-export type IntegrationState = typeof IntegrationState[keyof typeof IntegrationState];
-
+export enum IntegrationState {
+    Initial = 'INITIAL',
+    Active = 'ACTIVE',
+    Inactive = 'INACTIVE'
+}
 
 /**
  * Integration retrieval types.
@@ -1944,16 +1708,13 @@ export type IntegrationState = typeof IntegrationState[keyof typeof IntegrationS
  * @enum {string}
  */
 
-export const IntegrationType = {
-    Redshift: 'REDSHIFT',
-    Snowflake: 'SNOWFLAKE',
-    Bigquery: 'BIGQUERY',
-    Looker: 'LOOKER',
-    Mode: 'MODE'
-} as const;
-
-export type IntegrationType = typeof IntegrationType[keyof typeof IntegrationType];
-
+export enum IntegrationType {
+    Redshift = 'REDSHIFT',
+    Snowflake = 'SNOWFLAKE',
+    Bigquery = 'BIGQUERY',
+    Looker = 'LOOKER',
+    Mode = 'MODE'
+}
 
 /**
  * Credentials for a Looker integration without password.
@@ -2161,12 +1922,17 @@ export interface MechanisticRelationship {
     'metadata': MechanisticMetadata;
 }
 /**
- * 
+ * Median effect size.
  * @export
- * @interface MedianEffectSize
+ * @enum {string}
  */
-export interface MedianEffectSize {
+
+export enum MedianEffectSize {
+    Small = 'small',
+    Medium = 'medium',
+    Large = 'large'
 }
+
 /**
  * A Message object.
  * @export
@@ -2198,8 +1964,6 @@ export interface MessageIn {
      */
     'integration': string;
 }
-
-
 /**
  * A Message object.
  * @export
@@ -2243,21 +2007,16 @@ export interface MessageOut {
      */
     'created'?: string;
 }
-
-
 /**
  * Message type.
  * @export
  * @enum {string}
  */
 
-export const MessageType = {
-    Error: 'ERROR',
-    DatasetCreated: 'DATASET_CREATED'
-} as const;
-
-export type MessageType = typeof MessageType[keyof typeof MessageType];
-
+export enum MessageType {
+    Error = 'ERROR',
+    DatasetCreated = 'DATASET_CREATED'
+}
 
 /**
  * Metrics name enum.
@@ -2265,14 +2024,11 @@ export type MessageType = typeof MessageType[keyof typeof MessageType];
  * @enum {string}
  */
 
-export const Metrics = {
-    SemanticSearchCreate: 'semantic_search.create',
-    SemanticSearchClusterRead: 'semantic_search_cluster.read',
-    FindingsLogDoiLookup: 'findings_log.doi_lookup'
-} as const;
-
-export type Metrics = typeof Metrics[keyof typeof Metrics];
-
+export enum Metrics {
+    SemanticSearchCreate = 'semantic_search.create',
+    SemanticSearchClusterRead = 'semantic_search_cluster.read',
+    FindingsLogDoiLookup = 'findings_log.doi_lookup'
+}
 
 /**
  * Credentials for a Mode integration without the token and secret.
@@ -2356,21 +2112,11 @@ export interface NodeGroupItem {
  * @enum {string}
  */
 
-export const Ordering = {
-    Asc: 'asc',
-    Desc: 'desc'
-} as const;
-
-export type Ordering = typeof Ordering[keyof typeof Ordering];
-
-
-/**
- * 
- * @export
- * @interface PValue
- */
-export interface PValue {
+export enum Ordering {
+    Asc = 'asc',
+    Desc = 'desc'
 }
+
 /**
  * Path.  # noqa: E501
  * @export
@@ -2482,18 +2228,15 @@ export interface PathsPayloadTyped {
  * @enum {string}
  */
 
-export const PollingStatus = {
-    NotExists: 'not_exists',
-    Submitted: 'submitted',
-    Running: 'running',
-    Success: 'success',
-    Failed: 'failed',
-    FailedNoCitations: 'failed_no_citations',
-    FailedValidation: 'failed_validation'
-} as const;
-
-export type PollingStatus = typeof PollingStatus[keyof typeof PollingStatus];
-
+export enum PollingStatus {
+    NotExists = 'not_exists',
+    Submitted = 'submitted',
+    Running = 'running',
+    Success = 'success',
+    Failed = 'failed',
+    FailedNoCitations = 'failed_no_citations',
+    FailedValidation = 'failed_validation'
+}
 
 /**
  * 
@@ -2722,21 +2465,16 @@ export interface RelationshipFilterParams {
      */
     'mechanism_types'?: Array<string>;
 }
-
-
 /**
  * Relationship types.
  * @export
  * @enum {string}
  */
 
-export const RelationshipTypes = {
-    Statistical: 'statistical',
-    Mechanistic: 'mechanistic'
-} as const;
-
-export type RelationshipTypes = typeof RelationshipTypes[keyof typeof RelationshipTypes];
-
+export enum RelationshipTypes {
+    Statistical = 'statistical',
+    Mechanistic = 'mechanistic'
+}
 
 /**
  * API resource action enum.
@@ -2744,15 +2482,12 @@ export type RelationshipTypes = typeof RelationshipTypes[keyof typeof Relationsh
  * @enum {string}
  */
 
-export const ResourceAction = {
-    Create: 'create',
-    View: 'view',
-    Edit: 'edit',
-    Delete: 'delete'
-} as const;
-
-export type ResourceAction = typeof ResourceAction[keyof typeof ResourceAction];
-
+export enum ResourceAction {
+    Create = 'create',
+    View = 'view',
+    Edit = 'edit',
+    Delete = 'delete'
+}
 
 /**
  * A System Resource Flag Output Object.
@@ -2810,14 +2545,11 @@ export interface ResourceFlagIn {
  * @enum {string}
  */
 
-export const RetrievalStatus = {
-    Pending: 'pending',
-    Success: 'success',
-    Failure: 'failure'
-} as const;
-
-export type RetrievalStatus = typeof RetrievalStatus[keyof typeof RetrievalStatus];
-
+export enum RetrievalStatus {
+    Pending = 'pending',
+    Success = 'success',
+    Failure = 'failure'
+}
 
 /**
  * Role.
@@ -2825,15 +2557,12 @@ export type RetrievalStatus = typeof RetrievalStatus[keyof typeof RetrievalStatu
  * @enum {string}
  */
 
-export const Role = {
-    Determinant: 'Determinant',
-    Intervention: 'Intervention',
-    Outcome: 'Outcome',
-    Agent: 'Agent'
-} as const;
-
-export type Role = typeof Role[keyof typeof Role];
-
+export enum Role {
+    Determinant = 'Determinant',
+    Intervention = 'Intervention',
+    Outcome = 'Outcome',
+    Agent = 'Agent'
+}
 
 /**
  * Schema for scored cluster.
@@ -2938,21 +2667,16 @@ export interface ScoredCluster {
      */
     'modification_type'?: string;
 }
-
-
 /**
  * Search type.
  * @export
  * @enum {string}
  */
 
-export const SearchType = {
-    Semantic: 'semantic',
-    Keyword: 'keyword'
-} as const;
-
-export type SearchType = typeof SearchType[keyof typeof SearchType];
-
+export enum SearchType {
+    Semantic = 'semantic',
+    Keyword = 'keyword'
+}
 
 /**
  * An enumeration.
@@ -2960,16 +2684,13 @@ export type SearchType = typeof SearchType[keyof typeof SearchType];
  * @enum {string}
  */
 
-export const SemanticSearchType = {
-    RiskFactorOf: 'risk_factor_of',
-    Outcome: 'outcome',
-    Relationship: 'relationship',
-    Relationship2d: 'relationship_2d',
-    SingleVariable2d: 'single_variable_2d'
-} as const;
-
-export type SemanticSearchType = typeof SemanticSearchType[keyof typeof SemanticSearchType];
-
+export enum SemanticSearchType {
+    RiskFactorOf = 'risk_factor_of',
+    Outcome = 'outcome',
+    Relationship = 'relationship',
+    Relationship2d = 'relationship_2d',
+    SingleVariable2d = 'single_variable_2d'
+}
 
 /**
  * An enumeration.
@@ -2977,15 +2698,12 @@ export type SemanticSearchType = typeof SemanticSearchType[keyof typeof Semantic
  * @enum {string}
  */
 
-export const SignificanceLevel = {
-    NinetyFive: 'ninety_five',
-    NinetyNine: 'ninety_nine',
-    NinetyNinePointNine: 'ninety_nine_point_nine',
-    Invalid: 'invalid'
-} as const;
-
-export type SignificanceLevel = typeof SignificanceLevel[keyof typeof SignificanceLevel];
-
+export enum SignificanceLevel {
+    NinetyFive = 'ninety_five',
+    NinetyNine = 'ninety_nine',
+    NinetyNinePointNine = 'ninety_nine_point_nine',
+    Invalid = 'invalid'
+}
 
 /**
  * Credentials for a Snowflake integration without password.
@@ -3404,28 +3122,28 @@ export interface SohServiceClientModelsFindingFinding {
     'statistic_type'?: string;
     /**
      * 
-     * @type {StatisticValue}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'statistic_value'?: StatisticValue;
+    'statistic_value'?: number;
     /**
      * 
-     * @type {CiUpper}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'ci_upper'?: CiUpper;
+    'ci_upper'?: number;
     /**
      * 
-     * @type {CiLower}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'ci_lower'?: CiLower;
+    'ci_lower'?: number;
     /**
      * 
-     * @type {PValue}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'p_value'?: PValue;
+    'p_value'?: number;
     /**
      * 
      * @type {string}
@@ -3526,13 +3244,6 @@ export interface StatisticRelationship {
     'metadata': StatisticalMetadata;
 }
 /**
- * 
- * @export
- * @interface StatisticValue
- */
-export interface StatisticValue {
-}
-/**
  * Metadata for statistical finding.
  * @export
  * @interface StatisticalMetadata
@@ -3599,16 +3310,13 @@ export interface StatisticalMetadata {
  * @enum {string}
  */
 
-export const StripeAccountStatus = {
-    Trial: 'trial',
-    Subscribed: 'subscribed',
-    Expired: 'expired',
-    GroupSubscribed: 'group_subscribed',
-    Unsubscribed: 'unsubscribed'
-} as const;
-
-export type StripeAccountStatus = typeof StripeAccountStatus[keyof typeof StripeAccountStatus];
-
+export enum StripeAccountStatus {
+    Trial = 'trial',
+    Subscribed = 'subscribed',
+    Expired = 'expired',
+    GroupSubscribed = 'group_subscribed',
+    Unsubscribed = 'unsubscribed'
+}
 
 /**
  * Stripe object.
@@ -3671,8 +3379,6 @@ export interface StripeOut {
      */
     'coupon_id'?: string;
 }
-
-
 /**
  * Stripe session object.
  * @export
@@ -4233,8 +3939,6 @@ export interface SuggestedQueriesIn {
      */
     'suggestion_type'?: SuggestedQueryType;
 }
-
-
 /**
  * Schema for query suggestions.  # noqa: E501
  * @export
@@ -4273,21 +3977,16 @@ export interface SuggestedQuery {
      */
     'suggestion_type': SuggestedQueryType;
 }
-
-
 /**
  * Enum for query suggestion types.
  * @export
  * @enum {string}
  */
 
-export const SuggestedQueryType = {
-    Expanded: 'expanded',
-    Autocorrect: 'autocorrect'
-} as const;
-
-export type SuggestedQueryType = typeof SuggestedQueryType[keyof typeof SuggestedQueryType];
-
+export enum SuggestedQueryType {
+    Expanded = 'expanded',
+    Autocorrect = 'autocorrect'
+}
 
 /**
  * Synthesis output schema.  # noqa: E501
@@ -4383,8 +4082,6 @@ export interface SynthesisOut {
      */
     'synthesis': Synthesis;
 }
-
-
 /**
  * Synthesis response model.
  * @export
@@ -4582,8 +4279,6 @@ export interface SystemSearchIn {
      */
     'kickoff_highly_cited_synthesis'?: boolean;
 }
-
-
 /**
  * System search underlying data.
  * @export
@@ -4707,8 +4402,6 @@ export interface Table {
      */
     'integration': string;
 }
-
-
 /**
  * Time series data point.  # noqa: E501
  * @export
@@ -4723,10 +4416,10 @@ export interface TimeSeriesDataPoint {
     'date': string;
     /**
      * 
-     * @type {Value}
+     * @type {number}
      * @memberof TimeSeriesDataPoint
      */
-    'value': Value;
+    'value': number;
 }
 /**
  * Concept relationships model.  # noqa: E501
@@ -4803,10 +4496,10 @@ export interface TopicEdge {
     'num_findings'?: number;
     /**
      * 
-     * @type {MedianEffectSize}
+     * @type {number}
      * @memberof TopicEdge
      */
-    'median_effect_size'?: MedianEffectSize;
+    'median_effect_size'?: number;
     /**
      * 
      * @type {object}
@@ -4833,8 +4526,6 @@ export interface TopicFilterParams {
      */
     'include_category'?: Array<string>;
 }
-
-
 /**
  * Topic output.  # noqa: E501
  * @export
@@ -5008,8 +4699,6 @@ export interface UserMetricUsageOut {
      */
     'date_from': string;
 }
-
-
 /**
  * Private user profile out.
  * @export
@@ -5249,13 +4938,6 @@ export interface ValidationError {
     'type': string;
 }
 /**
- * 
- * @export
- * @interface Value
- */
-export interface Value {
-}
-/**
  * Variable grounding model.
  * @export
  * @interface VariableGrounding
@@ -5318,7 +5000,7 @@ export const AccessApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestDataAccessV1AccessDataPost: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestDataAccessV1AccessDataPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/access/data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5355,7 +5037,7 @@ export const AccessApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestMapsAccessV1AccessMapsPost: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        requestMapsAccessV1AccessMapsPost: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/access/maps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5402,11 +5084,9 @@ export const AccessApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.requestDataAccessV1AccessDataPost(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccessApi.requestDataAccessV1AccessDataPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Register user\'s interest in access to Maps Beta.
@@ -5414,11 +5094,9 @@ export const AccessApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.requestMapsAccessV1AccessMapsPost(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AccessApi.requestMapsAccessV1AccessMapsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -5436,7 +5114,7 @@ export const AccessApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        requestDataAccessV1AccessDataPost(options?: any): AxiosPromise<any> {
             return localVarFp.requestDataAccessV1AccessDataPost(options).then((request) => request(axios, basePath));
         },
         /**
@@ -5445,7 +5123,7 @@ export const AccessApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig): AxiosPromise<any> {
+        requestMapsAccessV1AccessMapsPost(options?: any): AxiosPromise<any> {
             return localVarFp.requestMapsAccessV1AccessMapsPost(options).then((request) => request(axios, basePath));
         },
     };
@@ -5465,7 +5143,7 @@ export class AccessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessApi
      */
-    public requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig) {
+    public requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig) {
         return AccessApiFp(this.configuration).requestDataAccessV1AccessDataPost(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5476,11 +5154,10 @@ export class AccessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessApi
      */
-    public requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig) {
+    public requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig) {
         return AccessApiFp(this.configuration).requestMapsAccessV1AccessMapsPost(options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -5497,7 +5174,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        flagAssociationV1AssociationsAssociationIdFlagsPost: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        flagAssociationV1AssociationsAssociationIdFlagsPost: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'associationId' is not null or undefined
             assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost', 'associationId', associationId)
             // verify required parameter 'resourceFlagIn' is not null or undefined
@@ -5544,7 +5221,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        flagAssociationV1AssociationsAssociationIdFlagsPost_1: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1: async (associationId: string, resourceFlagIn: ResourceFlagIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'associationId' is not null or undefined
             assertParamExists('flagAssociationV1AssociationsAssociationIdFlagsPost_1', 'associationId', associationId)
             // verify required parameter 'resourceFlagIn' is not null or undefined
@@ -5590,7 +5267,7 @@ export const AssociationsApiAxiosParamCreator = function (configuration?: Config
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFreeMetadataV1AssociationsFreeMetadataGet: async (ids?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listFreeMetadataV1AssociationsFreeMetadataGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/associations/free_metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -5643,11 +5320,9 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AssociationsApi.flagAssociationV1AssociationsAssociationIdFlagsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get strength of this association.
@@ -5657,11 +5332,9 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AssociationsApi.flagAssociationV1AssociationsAssociationIdFlagsPost_1']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List Associations.
@@ -5670,11 +5343,9 @@ export const AssociationsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>> {
+        async listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['AssociationsApi.listFreeMetadataV1AssociationsFreeMetadataGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -5689,32 +5360,34 @@ export const AssociationsApiFactory = function (configuration?: Configuration, b
         /**
          * Get strength of this association.
          * @summary Flag Association
-         * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(axios, basePath));
+        flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get strength of this association.
          * @summary Flag Association
-         * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+         * @param {string} associationId 
+         * @param {ResourceFlagIn} resourceFlagIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(axios, basePath));
+        flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any> {
+            return localVarFp.flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId, resourceFlagIn, options).then((request) => request(axios, basePath));
         },
         /**
          * List Associations.
          * @summary List Free Metadata
-         * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+         * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<any>> {
-            return localVarFp.listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters.ids, options).then((request) => request(axios, basePath));
+        listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>> {
+            return localVarFp.listFreeMetadataV1AssociationsFreeMetadataGet(ids, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -5790,7 +5463,7 @@ export class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    public flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: RawAxiosRequestConfig) {
+    public flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig) {
         return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5802,7 +5475,7 @@ export class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    public flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: RawAxiosRequestConfig) {
+    public flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig) {
         return AssociationsApiFp(this.configuration).flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters.associationId, requestParameters.resourceFlagIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -5814,11 +5487,10 @@ export class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    public listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest = {}, options?: AxiosRequestConfig) {
         return AssociationsApiFp(this.configuration).listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -5835,7 +5507,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet: async (conceptId: string, topPercentileLimit?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet: async (conceptId: string, topPercentileLimit?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'conceptId' is not null or undefined
             assertParamExists('getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet', 'conceptId', conceptId)
             const localVarPath = `/v1/concepts/{concept_id}/relationships`
@@ -5880,7 +5552,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptV1ConceptsConceptIdGet: async (conceptId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConceptV1ConceptsConceptIdGet: async (conceptId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'conceptId' is not null or undefined
             assertParamExists('getConceptV1ConceptsConceptIdGet', 'conceptId', conceptId)
             const localVarPath = `/v1/concepts/{concept_id}`
@@ -5933,7 +5605,7 @@ export const ConceptsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet: async (teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listConceptsV1ConceptsGet: async (teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/concepts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6034,11 +5706,9 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>> {
+        async getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConceptsApi.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get Concept.
@@ -6047,11 +5717,9 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConceptV1ConceptsConceptIdGet(conceptId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
+        async getConceptV1ConceptsConceptIdGet(conceptId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConceptV1ConceptsConceptIdGet(conceptId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConceptsApi.getConceptV1ConceptsConceptIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List Concepts.
@@ -6072,11 +5740,9 @@ export const ConceptsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
+        async listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ConceptsApi.listConceptsV1ConceptsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -6091,32 +5757,45 @@ export const ConceptsApiFactory = function (configuration?: Configuration, baseP
         /**
          * Fetch concept relationships.
          * @summary Get Concept Relationships
-         * @param {ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest} requestParameters Request parameters.
+         * @param {string} conceptId 
+         * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptRelationshipsOut> {
-            return localVarFp.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters.conceptId, requestParameters.topPercentileLimit, options).then((request) => request(axios, basePath));
+        getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<ConceptRelationshipsOut> {
+            return localVarFp.getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId, topPercentileLimit, options).then((request) => request(axios, basePath));
         },
         /**
          * Get Concept.
          * @summary Get Concept
-         * @param {ConceptsApiGetConceptV1ConceptsConceptIdGetRequest} requestParameters Request parameters.
+         * @param {string} conceptId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptOut> {
-            return localVarFp.getConceptV1ConceptsConceptIdGet(requestParameters.conceptId, options).then((request) => request(axios, basePath));
+        getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): AxiosPromise<ConceptOut> {
+            return localVarFp.getConceptV1ConceptsConceptIdGet(conceptId, options).then((request) => request(axios, basePath));
         },
         /**
          * List Concepts.
          * @summary List Concepts
-         * @param {ConceptsApiListConceptsV1ConceptsGetRequest} requestParameters Request parameters.
+         * @param {string} [teamId] 
+         * @param {number} [minRelationshipStrength] Min strength
+         * @param {string} [query] Search query.
+         * @param {boolean} [includeHidden] Include hidden objects in results.
+         * @param {Array<string>} [id] Filter results by id.
+         * @param {number} [page] 
+         * @param {number} [pageSize] 
+         * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+         * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+         * @param {ConceptSortEnum} [orderBy] Order by this field.
+         * @param {Ordering} [ordering] Order ascending or descending.
+         * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+         * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<ConceptPaginationOut> {
-            return localVarFp.listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(axios, basePath));
+        listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut> {
+            return localVarFp.listConceptsV1ConceptsGet(teamId, minRelationshipStrength, query, includeHidden, id, page, pageSize, total, idsOnly, orderBy, ordering, sortBy, inConceptGraph, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -6269,7 +5948,7 @@ export class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    public getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: RawAxiosRequestConfig) {
+    public getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters.conceptId, requestParameters.topPercentileLimit, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6281,7 +5960,7 @@ export class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    public getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).getConceptV1ConceptsConceptIdGet(requestParameters.conceptId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -6293,11 +5972,10 @@ export class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    public listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public listConceptsV1ConceptsGet(requestParameters: ConceptsApiListConceptsV1ConceptsGetRequest = {}, options?: AxiosRequestConfig) {
         return ConceptsApiFp(this.configuration).listConceptsV1ConceptsGet(requestParameters.teamId, requestParameters.minRelationshipStrength, requestParameters.query, requestParameters.includeHidden, requestParameters.id, requestParameters.page, requestParameters.pageSize, requestParameters.total, requestParameters.idsOnly, requestParameters.orderBy, requestParameters.ordering, requestParameters.sortBy, requestParameters.inConceptGraph, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -6314,7 +5992,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost: async (integrationIn: IntegrationIn, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createIntegrationV1EnterpriseIntegrationsPost: async (integrationIn: IntegrationIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'integrationIn' is not null or undefined
             assertParamExists('createIntegrationV1EnterpriseIntegrationsPost', 'integrationIn', integrationIn)
             const localVarPath = `/v1/enterprise/integrations`;
@@ -6362,7 +6040,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMessageV1EnterpriseMessagesPost: async (messageIn: MessageIn, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createMessageV1EnterpriseMessagesPost: async (messageIn: MessageIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'messageIn' is not null or undefined
             assertParamExists('createMessageV1EnterpriseMessagesPost', 'messageIn', messageIn)
             const localVarPath = `/v1/enterprise/messages`;
@@ -6408,7 +6086,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEnterpriseV1EnterpriseGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getEnterpriseV1EnterpriseGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/enterprise`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6447,7 +6125,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: async (integrationId: string, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: async (integrationId: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'integrationId' is not null or undefined
             assertParamExists('getIntegrationV1EnterpriseIntegrationsIntegrationIdGet', 'integrationId', integrationId)
             const localVarPath = `/v1/enterprise/integrations/{integration_id}`
@@ -6492,7 +6170,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIntegrationsV1EnterpriseIntegrationsGet: async (teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIntegrationsV1EnterpriseIntegrationsGet: async (teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/enterprise/integrations`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6535,7 +6213,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMessageV1EnterpriseMessagesMessageIdGet: async (messageId: string, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMessageV1EnterpriseMessagesMessageIdGet: async (messageId: string, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'messageId' is not null or undefined
             assertParamExists('getMessageV1EnterpriseMessagesMessageIdGet', 'messageId', messageId)
             const localVarPath = `/v1/enterprise/messages/{message_id}`
@@ -6580,7 +6258,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEnterpriseV1EnterprisePatch: async (enterpriseIn: EnterpriseIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateEnterpriseV1EnterprisePatch: async (enterpriseIn: EnterpriseIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'enterpriseIn' is not null or undefined
             assertParamExists('updateEnterpriseV1EnterprisePatch', 'enterpriseIn', enterpriseIn)
             const localVarPath = `/v1/enterprise`;
@@ -6625,7 +6303,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: async (integrationId: string, integrationIn: IntegrationIn, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: async (integrationId: string, integrationIn: IntegrationIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'integrationId' is not null or undefined
             assertParamExists('updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch', 'integrationId', integrationId)
             // verify required parameter 'integrationIn' is not null or undefined
@@ -6677,7 +6355,7 @@ export const EnterpriseApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMessageV1EnterpriseMessagesMessageIdPatch: async (messageId: string, messageIn: MessageIn, teamId?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMessageV1EnterpriseMessagesMessageIdPatch: async (messageId: string, messageIn: MessageIn, teamId?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'messageId' is not null or undefined
             assertParamExists('updateMessageV1EnterpriseMessagesMessageIdPatch', 'messageId', messageId)
             // verify required parameter 'messageIn' is not null or undefined
@@ -6738,11 +6416,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
+        async createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.createIntegrationV1EnterpriseIntegrationsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Create a new message.
@@ -6752,11 +6428,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
+        async createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createMessageV1EnterpriseMessagesPost(messageIn, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.createMessageV1EnterpriseMessagesPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get the Enterprise.
@@ -6764,11 +6438,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>> {
+        async getEnterpriseV1EnterpriseGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEnterpriseV1EnterpriseGet(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.getEnterpriseV1EnterpriseGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get an Integration.
@@ -6778,11 +6450,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
+        async getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.getIntegrationV1EnterpriseIntegrationsIntegrationIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get team integrations.
@@ -6791,11 +6461,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>> {
+        async getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIntegrationsV1EnterpriseIntegrationsGet(teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.getIntegrationsV1EnterpriseIntegrationsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get a Message.
@@ -6805,11 +6473,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
+        async getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageV1EnterpriseMessagesMessageIdGet(messageId, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.getMessageV1EnterpriseMessagesMessageIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update Enterprise.
@@ -6818,11 +6484,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>> {
+        async updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateEnterpriseV1EnterprisePatch(enterpriseIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.updateEnterpriseV1EnterprisePatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update Integration.
@@ -6833,11 +6497,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
+        async updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update a Message.
@@ -6848,11 +6510,9 @@ export const EnterpriseApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
+        async updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, teamId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['EnterpriseApi.updateMessageV1EnterpriseMessagesMessageIdPatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -6867,22 +6527,24 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
         /**
          * Create a new integration.
          * @summary Create Integration
-         * @param {EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest} requestParameters Request parameters.
+         * @param {IntegrationIn} integrationIn 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration> {
-            return localVarFp.createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration> {
+            return localVarFp.createIntegrationV1EnterpriseIntegrationsPost(integrationIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new message.
          * @summary Create Message
-         * @param {EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest} requestParameters Request parameters.
+         * @param {MessageIn} messageIn 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut> {
-            return localVarFp.createMessageV1EnterpriseMessagesPost(requestParameters.messageIn, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut> {
+            return localVarFp.createMessageV1EnterpriseMessagesPost(messageIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get the Enterprise.
@@ -6890,68 +6552,74 @@ export const EnterpriseApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig): AxiosPromise<Enterprise> {
+        getEnterpriseV1EnterpriseGet(options?: any): AxiosPromise<Enterprise> {
             return localVarFp.getEnterpriseV1EnterpriseGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Get an Integration.
          * @summary Get Integration
-         * @param {EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest} requestParameters Request parameters.
+         * @param {string} integrationId 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration> {
-            return localVarFp.getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters.integrationId, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: any): AxiosPromise<Integration> {
+            return localVarFp.getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get team integrations.
          * @summary Get Integrations
-         * @param {EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest} requestParameters Request parameters.
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIntegrationsV1EnterpriseIntegrationsGet(requestParameters: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<Integration>> {
-            return localVarFp.getIntegrationsV1EnterpriseIntegrationsGet(requestParameters.teamId, options).then((request) => request(axios, basePath));
+        getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: any): AxiosPromise<Array<Integration>> {
+            return localVarFp.getIntegrationsV1EnterpriseIntegrationsGet(teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get a Message.
          * @summary Get Message
-         * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
+         * @param {string} messageId 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut> {
-            return localVarFp.getMessageV1EnterpriseMessagesMessageIdGet(requestParameters.messageId, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): AxiosPromise<MessageOut> {
+            return localVarFp.getMessageV1EnterpriseMessagesMessageIdGet(messageId, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Update Enterprise.
          * @summary Update Enterprise
-         * @param {EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest} requestParameters Request parameters.
+         * @param {EnterpriseIn} enterpriseIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Enterprise> {
-            return localVarFp.updateEnterpriseV1EnterprisePatch(requestParameters.enterpriseIn, options).then((request) => request(axios, basePath));
+        updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: any): AxiosPromise<Enterprise> {
+            return localVarFp.updateEnterpriseV1EnterprisePatch(enterpriseIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Update Integration.
          * @summary Update Integration
-         * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
+         * @param {string} integrationId 
+         * @param {IntegrationIn} integrationIn 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration> {
-            return localVarFp.updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration> {
+            return localVarFp.updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId, integrationIn, teamId, options).then((request) => request(axios, basePath));
         },
         /**
          * Update a Message.
          * @summary Update Message
-         * @param {EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest} requestParameters Request parameters.
+         * @param {string} messageId 
+         * @param {MessageIn} messageIn 
+         * @param {string} [teamId] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut> {
-            return localVarFp.updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.messageIn, requestParameters.teamId, options).then((request) => request(axios, basePath));
+        updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut> {
+            return localVarFp.updateMessageV1EnterpriseMessagesMessageIdPatch(messageId, messageIn, teamId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7139,7 +6807,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: RawAxiosRequestConfig) {
+    public createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).createIntegrationV1EnterpriseIntegrationsPost(requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7151,7 +6819,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: RawAxiosRequestConfig) {
+    public createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).createMessageV1EnterpriseMessagesPost(requestParameters.messageIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7162,7 +6830,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig) {
+    public getEnterpriseV1EnterpriseGet(options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).getEnterpriseV1EnterpriseGet(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7174,7 +6842,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters.integrationId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7186,7 +6854,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public getIntegrationsV1EnterpriseIntegrationsGet(requestParameters: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getIntegrationsV1EnterpriseIntegrationsGet(requestParameters: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest = {}, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).getIntegrationsV1EnterpriseIntegrationsGet(requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7198,7 +6866,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).getMessageV1EnterpriseMessagesMessageIdGet(requestParameters.messageId, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7210,7 +6878,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: RawAxiosRequestConfig) {
+    public updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).updateEnterpriseV1EnterprisePatch(requestParameters.enterpriseIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7222,7 +6890,7 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: RawAxiosRequestConfig) {
+    public updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters.integrationId, requestParameters.integrationIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7234,11 +6902,10 @@ export class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    public updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: RawAxiosRequestConfig) {
+    public updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: AxiosRequestConfig) {
         return EnterpriseApiFp(this.configuration).updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters.messageId, requestParameters.messageIn, requestParameters.teamId, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -7255,7 +6922,7 @@ export const FeedbackApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postFindingFeedbackV1FeedbackFindingIdPost: async (findingId: string, findingFeedbackIn: FindingFeedbackIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        postFindingFeedbackV1FeedbackFindingIdPost: async (findingId: string, findingFeedbackIn: FindingFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'findingId' is not null or undefined
             assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingId', findingId)
             // verify required parameter 'findingFeedbackIn' is not null or undefined
@@ -7301,7 +6968,7 @@ export const FeedbackApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        postSynthesisFeedbackV1FeedbackPost: async (synthesisFeedbackIn: SynthesisFeedbackIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'synthesisFeedbackIn' is not null or undefined
             assertParamExists('postSynthesisFeedbackV1FeedbackPost', 'synthesisFeedbackIn', synthesisFeedbackIn)
             const localVarPath = `/v1/feedback`;
@@ -7355,11 +7022,9 @@ export const FeedbackApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['FeedbackApi.postFindingFeedbackV1FeedbackFindingIdPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Post user feedback on AI-generated relationship synthesis to s3.
@@ -7368,11 +7033,9 @@ export const FeedbackApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['FeedbackApi.postSynthesisFeedbackV1FeedbackPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -7387,22 +7050,23 @@ export const FeedbackApiFactory = function (configuration?: Configuration, baseP
         /**
          * Save feedback on a finding.
          * @summary Post Finding Feedback
-         * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
+         * @param {string} findingId 
+         * @param {FindingFeedbackIn} findingFeedbackIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(axios, basePath));
+        postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
-         * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
+         * @param {SynthesisFeedbackIn} synthesisFeedbackIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(axios, basePath));
+        postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any> {
+            return localVarFp.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7457,7 +7121,7 @@ export class FeedbackApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    public postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: RawAxiosRequestConfig) {
+    public postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: AxiosRequestConfig) {
         return FeedbackApiFp(this.configuration).postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7469,11 +7133,10 @@ export class FeedbackApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    public postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: RawAxiosRequestConfig) {
+    public postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: AxiosRequestConfig) {
         return FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -7489,7 +7152,7 @@ export const FindingsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: async (studyFindingsIn: StudyFindingsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyFindingsIn' is not null or undefined
             assertParamExists('getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost', 'studyFindingsIn', studyFindingsIn)
             const localVarPath = `/v1/findings`;
@@ -7542,11 +7205,9 @@ export const FindingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
+        async getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['FindingsApi.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -7561,12 +7222,12 @@ export const FindingsApiFactory = function (configuration?: Configuration, baseP
         /**
          * Get study findings via association ids or dois.
          * @summary Get Study Findings From Association Ids Or Dois
-         * @param {FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest} requestParameters Request parameters.
+         * @param {StudyFindingsIn} studyFindingsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyFindingsOut> {
-            return localVarFp.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut> {
+            return localVarFp.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7600,11 +7261,10 @@ export class FindingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    public getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: RawAxiosRequestConfig) {
+    public getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: AxiosRequestConfig) {
         return FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -7619,7 +7279,7 @@ export const MetricsApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGraphMetricsV1MetricsGraphGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getGraphMetricsV1MetricsGraphGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/metrics/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7662,11 +7322,9 @@ export const MetricsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>> {
+        async getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getGraphMetricsV1MetricsGraphGet(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['MetricsApi.getGraphMetricsV1MetricsGraphGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -7684,7 +7342,7 @@ export const MetricsApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig): AxiosPromise<GraphMetrics> {
+        getGraphMetricsV1MetricsGraphGet(options?: any): AxiosPromise<GraphMetrics> {
             return localVarFp.getGraphMetricsV1MetricsGraphGet(options).then((request) => request(axios, basePath));
         },
     };
@@ -7704,11 +7362,10 @@ export class MetricsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MetricsApi
      */
-    public getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig) {
+    public getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig) {
         return MetricsApiFp(this.configuration).getGraphMetricsV1MetricsGraphGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -7724,7 +7381,7 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: async (algorithmId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: async (algorithmId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'algorithmId' is not null or undefined
             assertParamExists('getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet', 'algorithmId', algorithmId)
             const localVarPath = `/v1/modeldb/algorithms/{algorithm_id}`
@@ -7761,7 +7418,7 @@ export const ModeldbApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet: async (algorithmClass?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAlgorithmsV1ModeldbAlgorithmsGet: async (algorithmClass?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/modeldb/algorithms`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -7809,11 +7466,9 @@ export const ModeldbApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmOut>> {
+        async getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ModeldbApi.getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List available algorithms in ModelDB. Search with algorithm class if passed.
@@ -7822,11 +7477,9 @@ export const ModeldbApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>> {
+        async listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['ModeldbApi.listAlgorithmsV1ModeldbAlgorithmsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -7841,22 +7494,22 @@ export const ModeldbApiFactory = function (configuration?: Configuration, basePa
         /**
          * Get algorithms by id.
          * @summary Get Algorithm
-         * @param {ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest} requestParameters Request parameters.
+         * @param {string} algorithmId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AlgorithmOut> {
-            return localVarFp.getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters.algorithmId, options).then((request) => request(axios, basePath));
+        getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: any): AxiosPromise<AlgorithmOut> {
+            return localVarFp.getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId, options).then((request) => request(axios, basePath));
         },
         /**
          * List available algorithms in ModelDB. Search with algorithm class if passed.
          * @summary List Algorithms
-         * @param {ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest} requestParameters Request parameters.
+         * @param {string} [algorithmClass] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<AlgorithmListResult> {
-            return localVarFp.listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters.algorithmClass, options).then((request) => request(axios, basePath));
+        listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: any): AxiosPromise<AlgorithmListResult> {
+            return localVarFp.listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -7904,7 +7557,7 @@ export class ModeldbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    public getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: AxiosRequestConfig) {
         return ModeldbApiFp(this.configuration).getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters.algorithmId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -7916,11 +7569,10 @@ export class ModeldbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    public listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest = {}, options?: AxiosRequestConfig) {
         return ModeldbApiFp(this.configuration).listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters.algorithmClass, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -7936,7 +7588,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCrossrefV1CrossrefRestOfPathGet: async (restOfPath: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCrossrefV1CrossrefRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'restOfPath' is not null or undefined
             assertParamExists('getCrossrefV1CrossrefRestOfPathGet', 'restOfPath', restOfPath)
             const localVarPath = `/v1/crossref/{rest_of_path}`
@@ -7977,7 +7629,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFtrEntitlementsV1GetftrEntitlementsPost: async (getFTREntitlementsIn: GetFTREntitlementsIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFtrEntitlementsV1GetftrEntitlementsPost: async (getFTREntitlementsIn: GetFTREntitlementsIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'getFTREntitlementsIn' is not null or undefined
             assertParamExists('getFtrEntitlementsV1GetftrEntitlementsPost', 'getFTREntitlementsIn', getFTREntitlementsIn)
             const localVarPath = `/v1/getftr/entitlements`;
@@ -8020,7 +7672,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrcidV1OrcidRestOfPathGet: async (restOfPath: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getOrcidV1OrcidRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'restOfPath' is not null or undefined
             assertParamExists('getOrcidV1OrcidRestOfPathGet', 'restOfPath', restOfPath)
             const localVarPath = `/v1/orcid/{rest_of_path}`
@@ -8061,7 +7713,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1SemanticGraphRestOfPathGet: async (restOfPath: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticGraphV1SemanticGraphRestOfPathGet: async (restOfPath: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'restOfPath' is not null or undefined
             assertParamExists('getSemanticGraphV1SemanticGraphRestOfPathGet', 'restOfPath', restOfPath)
             const localVarPath = `/v1/semantic_graph/{rest_of_path}`
@@ -8102,7 +7754,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUmlsConceptsV1UmlsRestOfPathGet: async (restOfPath: any, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUmlsConceptsV1UmlsRestOfPathGet: async (restOfPath: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'restOfPath' is not null or undefined
             assertParamExists('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath)
             const localVarPath = `/v1/umls/{rest_of_path}`
@@ -8143,7 +7795,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableConceptsV1VariableConceptsRestOfPathGet: async (restOfPath: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getVariableConceptsV1VariableConceptsRestOfPathGet: async (restOfPath: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'restOfPath' is not null or undefined
             assertParamExists('getVariableConceptsV1VariableConceptsRestOfPathGet', 'restOfPath', restOfPath)
             const localVarPath = `/v1/variable_concepts/{rest_of_path}`
@@ -8184,7 +7836,7 @@ export const PassthroughApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postGraphqlV1GraphqlPost: async (graphQLQuery: GraphQLQuery, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        postGraphqlV1GraphqlPost: async (graphQLQuery: GraphQLQuery, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'graphQLQuery' is not null or undefined
             assertParamExists('postGraphqlV1GraphqlPost', 'graphQLQuery', graphQLQuery)
             const localVarPath = `/v1/graphql`;
@@ -8237,11 +7889,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getCrossrefV1CrossrefRestOfPathGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Post GetFTR entitlements endpoint.
@@ -8250,11 +7900,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetFTREntitlementsOut>> {
+        async getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetFTREntitlementsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getFtrEntitlementsV1GetftrEntitlementsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Forward request to ORCID.
@@ -8263,11 +7911,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrcidV1OrcidRestOfPathGet(restOfPath, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getOrcidV1OrcidRestOfPathGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Forward request to SearchGraph.
@@ -8276,11 +7922,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getSemanticGraphV1SemanticGraphRestOfPathGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Forward request to UMLS.
@@ -8289,11 +7933,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getUmlsConceptsV1UmlsRestOfPathGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Forward request to SearchGraph.
@@ -8302,11 +7944,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.getVariableConceptsV1VariableConceptsRestOfPathGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Forward GraphQL request to SystemDB.
@@ -8315,11 +7955,9 @@ export const PassthroughApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postGraphqlV1GraphqlPost(graphQLQuery, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PassthroughApi.postGraphqlV1GraphqlPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -8334,72 +7972,72 @@ export const PassthroughApiFactory = function (configuration?: Configuration, ba
         /**
          * Forward request to crossref.
          * @summary Get Crossref
-         * @param {PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest} requestParameters Request parameters.
+         * @param {any} restOfPath 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
+        getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Post GetFTR entitlements endpoint.
          * @summary Get Ftr Entitlements
-         * @param {PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest} requestParameters Request parameters.
+         * @param {GetFTREntitlementsIn} getFTREntitlementsIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetFTREntitlementsOut> {
-            return localVarFp.getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(axios, basePath));
+        getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: any): AxiosPromise<GetFTREntitlementsOut> {
+            return localVarFp.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to ORCID.
          * @summary Get Orcid
-         * @param {PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest} requestParameters Request parameters.
+         * @param {any} restOfPath 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
+        getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to SearchGraph.
          * @summary Get Semantic Graph
-         * @param {PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest} requestParameters Request parameters.
+         * @param {string} restOfPath 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any> {
+            return localVarFp.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to UMLS.
          * @summary Get Umls Concepts
-         * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
+         * @param {any} restOfPath 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
+        getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to SearchGraph.
          * @summary Get Variable Concepts
-         * @param {PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest} requestParameters Request parameters.
+         * @param {string} restOfPath 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
+        getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any> {
+            return localVarFp.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward GraphQL request to SystemDB.
          * @summary Post Graphql
-         * @param {PassthroughApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+         * @param {GraphQLQuery} graphQLQuery 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(axios, basePath));
+        postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any> {
+            return localVarFp.postGraphqlV1GraphqlPost(graphQLQuery, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8517,7 +8155,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: RawAxiosRequestConfig) {
+    public getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8529,7 +8167,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: RawAxiosRequestConfig) {
+    public getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8541,7 +8179,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: RawAxiosRequestConfig) {
+    public getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8553,7 +8191,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: RawAxiosRequestConfig) {
+    public getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8565,7 +8203,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: RawAxiosRequestConfig) {
+    public getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8577,7 +8215,7 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: RawAxiosRequestConfig) {
+    public getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8589,11 +8227,10 @@ export class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    public postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: RawAxiosRequestConfig) {
+    public postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig) {
         return PassthroughApiFp(this.configuration).postGraphqlV1GraphqlPost(requestParameters.graphQLQuery, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -8609,7 +8246,7 @@ export const QuerySuggestionsApiAxiosParamCreator = function (configuration?: Co
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getQuerySuggestionsV1QuerySuggestionsPost: async (suggestedQueriesIn: SuggestedQueriesIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getQuerySuggestionsV1QuerySuggestionsPost: async (suggestedQueriesIn: SuggestedQueriesIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'suggestedQueriesIn' is not null or undefined
             assertParamExists('getQuerySuggestionsV1QuerySuggestionsPost', 'suggestedQueriesIn', suggestedQueriesIn)
             const localVarPath = `/v1/query_suggestions`;
@@ -8662,11 +8299,9 @@ export const QuerySuggestionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuggestedQueriesOut>> {
+        async getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuggestedQueriesOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['QuerySuggestionsApi.getQuerySuggestionsV1QuerySuggestionsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -8681,12 +8316,12 @@ export const QuerySuggestionsApiFactory = function (configuration?: Configuratio
         /**
          * Get query suggestions.
          * @summary Get Query Suggestions.
-         * @param {QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest} requestParameters Request parameters.
+         * @param {SuggestedQueriesIn} suggestedQueriesIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SuggestedQueriesOut> {
-            return localVarFp.getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(axios, basePath));
+        getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: any): AxiosPromise<SuggestedQueriesOut> {
+            return localVarFp.getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8720,11 +8355,10 @@ export class QuerySuggestionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof QuerySuggestionsApi
      */
-    public getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: RawAxiosRequestConfig) {
+    public getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: AxiosRequestConfig) {
         return QuerySuggestionsApiFp(this.configuration).getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -8740,7 +8374,7 @@ export const RdbApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readEvidencesV1RdbEvidencesGet: async (ids?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        readEvidencesV1RdbEvidencesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/rdb/evidences`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8782,7 +8416,7 @@ export const RdbApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readStudiesV1RdbStudiesGet: async (ids?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        readStudiesV1RdbStudiesGet: async (ids?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/rdb/studies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -8834,11 +8468,9 @@ export const RdbApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>> {
+        async readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.readEvidencesV1RdbEvidencesGet(ids, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RdbApi.readEvidencesV1RdbEvidencesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Read studies.
@@ -8847,11 +8479,9 @@ export const RdbApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>> {
+        async readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.readStudiesV1RdbStudiesGet(ids, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['RdbApi.readStudiesV1RdbStudiesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -8866,22 +8496,22 @@ export const RdbApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * Read evidences.
          * @summary Read Evidences
-         * @param {RdbApiReadEvidencesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+         * @param {Array<string>} [ids] Evidence ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readEvidencesV1RdbEvidencesGet(requestParameters: RdbApiReadEvidencesV1RdbEvidencesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<EvidenceRDBOut>> {
-            return localVarFp.readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(axios, basePath));
+        readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>> {
+            return localVarFp.readEvidencesV1RdbEvidencesGet(ids, options).then((request) => request(axios, basePath));
         },
         /**
          * Read studies.
          * @summary Read Studies
-         * @param {RdbApiReadStudiesV1RdbStudiesGetRequest} requestParameters Request parameters.
+         * @param {Array<string>} [ids] Study ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readStudiesV1RdbStudiesGet(requestParameters: RdbApiReadStudiesV1RdbStudiesGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<StudyRDBOut>> {
-            return localVarFp.readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(axios, basePath));
+        readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<StudyRDBOut>> {
+            return localVarFp.readStudiesV1RdbStudiesGet(ids, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -8929,7 +8559,7 @@ export class RdbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    public readEvidencesV1RdbEvidencesGet(requestParameters: RdbApiReadEvidencesV1RdbEvidencesGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public readEvidencesV1RdbEvidencesGet(requestParameters: RdbApiReadEvidencesV1RdbEvidencesGetRequest = {}, options?: AxiosRequestConfig) {
         return RdbApiFp(this.configuration).readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -8941,11 +8571,10 @@ export class RdbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    public readStudiesV1RdbStudiesGet(requestParameters: RdbApiReadStudiesV1RdbStudiesGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public readStudiesV1RdbStudiesGet(requestParameters: RdbApiReadStudiesV1RdbStudiesGetRequest = {}, options?: AxiosRequestConfig) {
         return RdbApiFp(this.configuration).readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -8961,7 +8590,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: async (systemSearchIn: SystemSearchIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchIn' is not null or undefined
             assertParamExists('asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost', 'systemSearchIn', systemSearchIn)
             const localVarPath = `/v1/semantic-search/cluster_async`;
@@ -9004,7 +8633,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchClusterPost: async (systemSearchIn: SystemSearchIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        asyncSemanticSearchV1SemanticSearchClusterPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchIn' is not null or undefined
             assertParamExists('asyncSemanticSearchV1SemanticSearchClusterPost', 'systemSearchIn', systemSearchIn)
             const localVarPath = `/v1/semantic-search/cluster`;
@@ -9047,7 +8676,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: async (runId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: async (runId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'runId' is not null or undefined
             assertParamExists('fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet', 'runId', runId)
             const localVarPath = `/v1/semantic-search/cluster_async/{run_id}`
@@ -9088,7 +8717,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchFetchGet: async (cacheKey: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchSynthesisV1SemanticSearchFetchGet: async (cacheKey: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'cacheKey' is not null or undefined
             assertParamExists('fetchSynthesisV1SemanticSearchFetchGet', 'cacheKey', cacheKey)
             const localVarPath = `/v1/semantic-search/fetch`;
@@ -9132,7 +8761,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: async (systemSearchIn: SystemSearchIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchIn' is not null or undefined
             assertParamExists('getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost', 'systemSearchIn', systemSearchIn)
             const localVarPath = `/v1/semantic-search/relationship_map`;
@@ -9176,7 +8805,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet: async (dateFrom?: string, metric?: Metrics, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticSearchUsageV1SemanticSearchUsageGet: async (dateFrom?: string, metric?: Metrics, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/semantic-search/usage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -9198,7 +8827,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
 
             if (dateFrom !== undefined) {
                 localVarQueryParameter['date_from'] = (dateFrom as any instanceof Date) ?
-                    (dateFrom as any).toISOString().substring(0,10) :
+                    (dateFrom as any).toISOString().substr(0,10) :
                     dateFrom;
             }
 
@@ -9224,7 +8853,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost: async (systemSearchIn: SystemSearchIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSystemSearchFindingsDataV1SemanticSearchDataPost: async (systemSearchIn: SystemSearchIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchIn' is not null or undefined
             assertParamExists('getSystemSearchFindingsDataV1SemanticSearchDataPost', 'systemSearchIn', systemSearchIn)
             const localVarPath = `/v1/semantic-search/data`;
@@ -9267,7 +8896,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: async (systemSearchDataIn: SystemSearchDataIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: async (systemSearchDataIn: SystemSearchDataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchDataIn' is not null or undefined
             assertParamExists('getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost', 'systemSearchDataIn', systemSearchDataIn)
             const localVarPath = `/v1/semantic-search/data/mechanistic`;
@@ -9310,7 +8939,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: async (systemSearchDataIn: SystemSearchDataIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: async (systemSearchDataIn: SystemSearchDataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'systemSearchDataIn' is not null or undefined
             assertParamExists('getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost', 'systemSearchDataIn', systemSearchDataIn)
             const localVarPath = `/v1/semantic-search/data/statistical`;
@@ -9354,7 +8983,7 @@ export const SemanticSearchApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regenerateSynthesisV1SemanticSearchRegeneratePost: async (cacheKey: string, forceRerun?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        regenerateSynthesisV1SemanticSearchRegeneratePost: async (cacheKey: string, forceRerun?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'cacheKey' is not null or undefined
             assertParamExists('regenerateSynthesisV1SemanticSearchRegeneratePost', 'cacheKey', cacheKey)
             const localVarPath = `/v1/semantic-search/regenerate`;
@@ -9412,11 +9041,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -9425,11 +9052,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>> {
+        async asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.asyncSemanticSearchV1SemanticSearchClusterPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -9438,11 +9063,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>> {
+        async fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search.  Values from semantic search. Logs freemium usage on success
@@ -9451,11 +9074,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
+        async fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.fetchSynthesisV1SemanticSearchFetchGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search relationship map.
@@ -9464,11 +9085,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
@@ -9478,11 +9097,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>> {
+        async getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.getSemanticSearchUsageV1SemanticSearchUsageGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search findings.  Values from semantic search.
@@ -9491,11 +9108,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>> {
+        async getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.getSystemSearchFindingsDataV1SemanticSearchDataPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get statistical findings.
@@ -9504,11 +9119,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchMechanisticDataOut>> {
+        async getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchMechanisticDataOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get mechanistic findings.
@@ -9517,11 +9130,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchStatisticalDataOut>> {
+        async getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchStatisticalDataOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get semantic search.  Values from semantic search.
@@ -9531,11 +9142,9 @@ export const SemanticSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+        async regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SemanticSearchApi.regenerateSynthesisV1SemanticSearchRegeneratePost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -9550,102 +9159,104 @@ export const SemanticSearchApiFactory = function (configuration?: Configuration,
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Async Cluster Relationships
-         * @param {SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchIn} systemSearchIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
+        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any> {
+            return localVarFp.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Async Semantic Search
-         * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchIn} systemSearchIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SynthesisResponse> {
-            return localVarFp.asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
+        asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SynthesisResponse> {
+            return localVarFp.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Fetch Cluster Response
-         * @param {SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest} requestParameters Request parameters.
+         * @param {string} runId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ClusterOutStatus> {
-            return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(axios, basePath));
+        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: any): AxiosPromise<ClusterOutStatus> {
+            return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
-         * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
+         * @param {string} cacheKey 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SynthesisOut> {
-            return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(axios, basePath));
+        fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut> {
+            return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search relationship map.
          * @summary Get Relationship Map Endpoint
-         * @param {SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchIn} systemSearchIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any> {
+            return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
+         * @param {string} [dateFrom] 
+         * @param {Metrics} [metric] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<UserMetricUsageOut> {
-            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(axios, basePath));
+        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: any): AxiosPromise<UserMetricUsageOut> {
+            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search findings.  Values from semantic search.
          * @summary Get System Search Findings Data
-         * @param {SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchIn} systemSearchIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchData> {
-            return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
+        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData> {
+            return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get statistical findings.
          * @summary Get System Search Mechanistic Data
-         * @param {SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchDataIn} systemSearchDataIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchMechanisticDataOut> {
-            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(axios, basePath));
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchMechanisticDataOut> {
+            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get mechanistic findings.
          * @summary Get System Search Statistical Data
-         * @param {SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest} requestParameters Request parameters.
+         * @param {SystemSearchDataIn} systemSearchDataIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchStatisticalDataOut> {
-            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(axios, basePath));
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchStatisticalDataOut> {
+            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Regenerate Synthesis
-         * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
+         * @param {string} cacheKey 
+         * @param {boolean} [forceRerun] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any> {
-            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(axios, basePath));
+        regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: any): AxiosPromise<any> {
+            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -9819,7 +9430,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: RawAxiosRequestConfig) {
+    public asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9831,7 +9442,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: RawAxiosRequestConfig) {
+    public asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9843,7 +9454,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: RawAxiosRequestConfig) {
+    public fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9855,7 +9466,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: RawAxiosRequestConfig) {
+    public fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9867,7 +9478,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: RawAxiosRequestConfig) {
+    public getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9879,7 +9490,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest = {}, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9891,7 +9502,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: RawAxiosRequestConfig) {
+    public getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9903,7 +9514,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: RawAxiosRequestConfig) {
+    public getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9915,7 +9526,7 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: RawAxiosRequestConfig) {
+    public getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -9927,11 +9538,10 @@ export class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    public regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: RawAxiosRequestConfig) {
+    public regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig) {
         return SemanticSearchApiFp(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -9948,7 +9558,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'topicId', topicId)
             // verify required parameter 'graphPayloadTyped' is not null or undefined
@@ -9995,7 +9605,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: async (topicId: string, graphPayloadTyped: GraphPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'topicId', topicId)
             // verify required parameter 'graphPayloadTyped' is not null or undefined
@@ -10040,7 +9650,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: async (options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/soh/metrics/time-series`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10074,7 +9684,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: async (query: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: async (query: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'query' is not null or undefined
             assertParamExists('fetchHierarchicalTopicsV1SohHierarchicalTopicsGet', 'query', query)
             const localVarPath = `/v1/soh/hierarchical-topics`;
@@ -10116,7 +9726,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -10167,7 +9777,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: async (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: async (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId)
             // verify required parameter 'targetTopicId' is not null or undefined
@@ -10221,7 +9831,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -10272,7 +9882,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -10323,7 +9933,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: async (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: async (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId)
             // verify required parameter 'targetTopicId' is not null or undefined
@@ -10377,7 +9987,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: async (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId)
             // verify required parameter 'traversalDirection' is not null or undefined
@@ -10426,7 +10036,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchTopicsV1SohTopicsGet: async (query: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        fetchTopicsV1SohTopicsGet: async (query: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'query' is not null or undefined
             assertParamExists('fetchTopicsV1SohTopicsGet', 'query', query)
             const localVarPath = `/v1/soh/topics`;
@@ -10466,7 +10076,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getListOfSohFindingsV1SohFindingsLogGet: async (doi?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getListOfSohFindingsV1SohFindingsLogGet: async (doi?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/soh/findings-log`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10509,7 +10119,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: async (topic1Id: string, topic2Id: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: async (topic1Id: string, topic2Id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topic1Id' is not null or undefined
             assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id)
             // verify required parameter 'topic2Id' is not null or undefined
@@ -10559,7 +10169,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohEvidenceMetadataV1SohEvidencesPost: async (sohIn: SohIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSohEvidenceMetadataV1SohEvidencesPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sohIn' is not null or undefined
             assertParamExists('getSohEvidenceMetadataV1SohEvidencesPost', 'sohIn', sohIn)
             const localVarPath = `/v1/soh/evidences`;
@@ -10603,7 +10213,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet: async (limit?: number, clearCache?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSohGraphMetadataV1SohGraphGet: async (limit?: number, clearCache?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/soh/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -10645,7 +10255,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohFindingsPost: async (sohIn: SohIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSohOfMetadataV1SohFindingsPost: async (sohIn: SohIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sohIn' is not null or undefined
             assertParamExists('getSohOfMetadataV1SohFindingsPost', 'sohIn', sohIn)
             const localVarPath = `/v1/soh/findings`;
@@ -10688,7 +10298,7 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicByIDV1SohTopicsTopicIdGet: async (topicId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTopicByIDV1SohTopicsTopicIdGet: async (topicId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('getTopicByIDV1SohTopicsTopicIdGet', 'topicId', topicId)
             const localVarPath = `/v1/soh/topics/{topic_id}`
@@ -10736,11 +10346,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch graph.
@@ -10750,11 +10358,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch time series data for relationships, findings, and topics.
@@ -10762,11 +10368,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>> {
+        async fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get hierarchical topics.
@@ -10775,11 +10379,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>> {
+        async fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch graph.
@@ -10790,11 +10392,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch mediators.
@@ -10805,11 +10405,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
+        async fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch paths.
@@ -10820,11 +10418,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
+        async fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch graph.
@@ -10835,11 +10431,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch mediators.
@@ -10850,11 +10444,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
+        async fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch paths.
@@ -10865,11 +10457,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
+        async fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health data.
@@ -10878,11 +10468,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async fetchTopicsV1SohTopicsGet(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>> {
+        async fetchTopicsV1SohTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.fetchTopicsV1SohTopicsGet(query, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.fetchTopicsV1SohTopicsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health findings and related study if doi provided.
@@ -10891,11 +10479,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>> {
+        async getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getListOfSohFindingsV1SohFindingsLogGet(doi, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getListOfSohFindingsV1SohFindingsLogGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health summary.
@@ -10905,11 +10491,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health data.
@@ -10918,11 +10502,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>> {
+        async getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getSohEvidenceMetadataV1SohEvidencesPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health data.
@@ -10932,11 +10514,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
+        async getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getSohGraphMetadataV1SohGraphGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health data.
@@ -10945,11 +10525,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>> {
+        async getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getSohOfMetadataV1SohFindingsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system of health data.
@@ -10958,11 +10536,9 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>> {
+        async getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopicByIDV1SohTopicsTopicIdGet(topicId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SohApi.getTopicByIDV1SohTopicsTopicIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -10977,22 +10553,24 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * Fetch graph.
          * @summary Fetch Full Mech Graph
-         * @param {SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut> {
-            return localVarFp.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Full Stat Graph
-         * @param {SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {GraphPayloadTyped} graphPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut> {
-            return localVarFp.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch time series data for relationships, findings, and topics.
@@ -11000,148 +10578,162 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig): AxiosPromise<GraphTimeSeriesOut> {
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: any): AxiosPromise<GraphTimeSeriesOut> {
             return localVarFp.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(axios, basePath));
         },
         /**
          * Get hierarchical topics.
          * @summary Fetch Hierarchical Topics
-         * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
+         * @param {string} query 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HierarchicalTopicNode>> {
-            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(axios, basePath));
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: any): AxiosPromise<Array<HierarchicalTopicNode>> {
+            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Mech Graph
-         * @param {SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} traversalDirection 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut> {
-            return localVarFp.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
          * @summary Fetch Mech Mediators
-         * @param {SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} targetTopicId 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut> {
-            return localVarFp.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut> {
+            return localVarFp.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
          * @summary Fetch Mech Paths
-         * @param {SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} traversalDirection 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut> {
-            return localVarFp.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut> {
+            return localVarFp.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Stat Graph
-         * @param {SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} traversalDirection 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut> {
-            return localVarFp.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
          * @summary Fetch Stat Mediators
-         * @param {SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} targetTopicId 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut> {
-            return localVarFp.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut> {
+            return localVarFp.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
          * @summary Fetch Stat Paths
-         * @param {SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {string} traversalDirection 
+         * @param {PathsPayloadTyped} pathsPayloadTyped 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut> {
-            return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut> {
+            return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Fetch Topics
-         * @param {SohApiFetchTopicsV1SohTopicsGetRequest} requestParameters Request parameters.
+         * @param {string} query 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>> {
-            return localVarFp.fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(axios, basePath));
+        fetchTopicsV1SohTopicsGet(query: string, options?: any): AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>> {
+            return localVarFp.fetchTopicsV1SohTopicsGet(query, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health findings and related study if doi provided.
          * @summary Get List Of Soh Findings
-         * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
+         * @param {string} [doi] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getListOfSohFindingsV1SohFindingsLogGet(requestParameters: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<FindingsLogOut> {
-            return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(axios, basePath));
+        getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut> {
+            return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health summary.
          * @summary Get Relationship Summary Between Two Topics.
-         * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
+         * @param {string} topic1Id 
+         * @param {string} topic2Id 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<string> {
-            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(axios, basePath));
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string> {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
-         * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
+         * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohEvidenceOut> {
-            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(axios, basePath));
+        getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut> {
+            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Graph Metadata
-         * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
+         * @param {number} [limit] Number of relationships to return.
+         * @param {boolean} [clearCache] Clear cache and fetch new graph.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet(requestParameters: SohApiGetSohGraphMetadataV1SohGraphGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut> {
-            return localVarFp.getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(axios, basePath));
+        getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: any): AxiosPromise<GraphOut> {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Of Metadata
-         * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
+         * @param {SohIn} sohIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohOut> {
-            return localVarFp.getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(axios, basePath));
+        getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut> {
+            return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Topic By Id
-         * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
+         * @param {string} topicId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode> {
-            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(axios, basePath));
+        getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: any): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode> {
+            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(topicId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -11497,7 +11089,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11509,7 +11101,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11520,7 +11112,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig) {
+    public fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11532,7 +11124,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: RawAxiosRequestConfig) {
+    public fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11544,7 +11136,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11556,7 +11148,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11568,7 +11160,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11580,7 +11172,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11592,7 +11184,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11604,7 +11196,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig) {
+    public fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11616,7 +11208,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: RawAxiosRequestConfig) {
+    public fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11628,7 +11220,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getListOfSohFindingsV1SohFindingsLogGet(requestParameters: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getListOfSohFindingsV1SohFindingsLogGet(requestParameters: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest = {}, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11640,7 +11232,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: RawAxiosRequestConfig) {
+    public getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11652,7 +11244,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: RawAxiosRequestConfig) {
+    public getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11664,7 +11256,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getSohGraphMetadataV1SohGraphGet(requestParameters: SohApiGetSohGraphMetadataV1SohGraphGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getSohGraphMetadataV1SohGraphGet(requestParameters: SohApiGetSohGraphMetadataV1SohGraphGetRequest = {}, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11676,7 +11268,7 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: RawAxiosRequestConfig) {
+    public getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -11688,11 +11280,10 @@ export class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    public getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: AxiosRequestConfig) {
         return SohApiFp(this.configuration).getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -11708,7 +11299,7 @@ export const SsoApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProviderNameV1IdpNameEmailGet: async (email: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentityProviderNameV1IdpNameEmailGet: async (email: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('getIdentityProviderNameV1IdpNameEmailGet', 'email', email)
             const localVarPath = `/v1/idp_name/{email}`
@@ -11755,11 +11346,9 @@ export const SsoApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>> {
+        async getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProviderNameV1IdpNameEmailGet(email, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SsoApi.getIdentityProviderNameV1IdpNameEmailGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -11774,12 +11363,12 @@ export const SsoApiFactory = function (configuration?: Configuration, basePath?:
         /**
          * Get Identity Provider name for given email domain.
          * @summary Get Identity Provider Name
-         * @param {SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest} requestParameters Request parameters.
+         * @param {string} email 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityProviderNameOut> {
-            return localVarFp.getIdentityProviderNameV1IdpNameEmailGet(requestParameters.email, options).then((request) => request(axios, basePath));
+        getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: any): AxiosPromise<IdentityProviderNameOut> {
+            return localVarFp.getIdentityProviderNameV1IdpNameEmailGet(email, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -11813,11 +11402,10 @@ export class SsoApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SsoApi
      */
-    public getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: RawAxiosRequestConfig) {
+    public getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: AxiosRequestConfig) {
         return SsoApiFp(this.configuration).getIdentityProviderNameV1IdpNameEmailGet(requestParameters.email, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -11834,7 +11422,7 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: async (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: async (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'subscriptionId' is not null or undefined
             assertParamExists('addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost', 'subscriptionId', subscriptionId)
             // verify required parameter 'addSubscriptionSeatIn' is not null or undefined
@@ -11880,7 +11468,7 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: async (subscriptionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: async (subscriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'subscriptionId' is not null or undefined
             assertParamExists('getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId)
             const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
@@ -11921,7 +11509,7 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost: async (domainCallback?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        manageSubscriptionV1StripeSubscriptionManagePost: async (domainCallback?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/stripe/subscription-manage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -11964,7 +11552,7 @@ export const StripeApiAxiosParamCreator = function (configuration?: Configuratio
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: async (email: string, subscriptionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: async (email: string, subscriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'email' is not null or undefined
             assertParamExists('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'email', email)
             // verify required parameter 'subscriptionId' is not null or undefined
@@ -12019,11 +11607,9 @@ export const StripeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
+        async addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StripeApi.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get subscription seats.
@@ -12032,11 +11618,9 @@ export const StripeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionSeats>> {
+        async getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionSeats>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StripeApi.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Start stripe checkout session.
@@ -12045,11 +11629,9 @@ export const StripeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
+        async manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StripeApi.manageSubscriptionV1StripeSubscriptionManagePost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Remove subscription seat.
@@ -12059,11 +11641,9 @@ export const StripeApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
+        async removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StripeApi.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -12078,42 +11658,44 @@ export const StripeApiFactory = function (configuration?: Configuration, basePat
         /**
          * Add subscription seats.
          * @summary Add Subscription Seats
-         * @param {StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
+         * @param {string} subscriptionId 
+         * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<boolean> {
-            return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
+        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean> {
+            return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get subscription seats.
          * @summary Get Subscription Seats
-         * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
+         * @param {string} subscriptionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SubscriptionSeats> {
-            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(axios, basePath));
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<SubscriptionSeats> {
+            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options).then((request) => request(axios, basePath));
         },
         /**
          * Start stripe checkout session.
          * @summary Manage Subscription
-         * @param {StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest} requestParameters Request parameters.
+         * @param {string} [domainCallback] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost(requestParameters: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<StripeSessionOut> {
-            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(axios, basePath));
+        manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: any): AxiosPromise<StripeSessionOut> {
+            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove subscription seat.
          * @summary Remove Subscription Seat
-         * @param {StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest} requestParameters Request parameters.
+         * @param {string} email 
+         * @param {string} subscriptionId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<boolean> {
-            return localVarFp.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(axios, basePath));
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: any): AxiosPromise<boolean> {
+            return localVarFp.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12203,7 +11785,7 @@ export class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: RawAxiosRequestConfig) {
+    public addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig) {
         return StripeApiFp(this.configuration).addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -12215,7 +11797,7 @@ export class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: RawAxiosRequestConfig) {
+    public getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig) {
         return StripeApiFp(this.configuration).getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -12227,7 +11809,7 @@ export class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public manageSubscriptionV1StripeSubscriptionManagePost(requestParameters: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest = {}, options?: RawAxiosRequestConfig) {
+    public manageSubscriptionV1StripeSubscriptionManagePost(requestParameters: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest = {}, options?: AxiosRequestConfig) {
         return StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -12239,11 +11821,10 @@ export class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    public removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: RawAxiosRequestConfig) {
+    public removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: AxiosRequestConfig) {
         return StripeApiFp(this.configuration).removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -12259,7 +11840,7 @@ export const StudyMetadataApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: async (studyMetadataIn: StudyMetadataIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: async (studyMetadataIn: StudyMetadataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyMetadataIn' is not null or undefined
             assertParamExists('getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn)
             const localVarPath = `/v1/study-metadata`;
@@ -12302,7 +11883,7 @@ export const StudyMetadataApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: async (studyMetadataIn: StudyMetadataIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: async (studyMetadataIn: StudyMetadataIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'studyMetadataIn' is not null or undefined
             assertParamExists('getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost', 'studyMetadataIn', studyMetadataIn)
             const localVarPath = `/v1/study-metadata/new`;
@@ -12355,11 +11936,9 @@ export const StudyMetadataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>> {
+        async getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StudyMetadataApi.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get study metadata from SystemRDB via pmids.
@@ -12368,11 +11947,9 @@ export const StudyMetadataApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataRDBOut>> {
+        async getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataRDBOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['StudyMetadataApi.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -12387,22 +11964,22 @@ export const StudyMetadataApiFactory = function (configuration?: Configuration, 
         /**
          * Get study metadata from OpenAlex and DynamoDB via pmids.
          * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
-         * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest} requestParameters Request parameters.
+         * @param {StudyMetadataIn} studyMetadataIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyMetadataOut> {
-            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(axios, basePath));
+        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut> {
+            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get study metadata from SystemRDB via pmids.
          * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
-         * @param {StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest} requestParameters Request parameters.
+         * @param {StudyMetadataIn} studyMetadataIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyMetadataRDBOut> {
-            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(axios, basePath));
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataRDBOut> {
+            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -12450,7 +12027,7 @@ export class StudyMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    public getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: RawAxiosRequestConfig) {
+    public getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: AxiosRequestConfig) {
         return StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -12462,11 +12039,10 @@ export class StudyMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    public getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: RawAxiosRequestConfig) {
+    public getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: AxiosRequestConfig) {
         return StudyMetadataApiFp(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -12489,7 +12065,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'node' is not null or undefined
             assertParamExists('getDownstreamEndpointV1SystemGraphPathsDownstreamGet', 'node', node)
             const localVarPath = `/v1/system_graph/paths/downstream`;
@@ -12569,7 +12145,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -12647,7 +12223,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: async (topicId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: async (topicId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet', 'topicId', topicId)
             const localVarPath = `/v1/system_graph/topic/{topic_id}/one_degree`
@@ -12696,7 +12272,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -12777,7 +12353,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: async (topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: async (topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/system_graph/semantic_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12832,7 +12408,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: async (topicName?: string, topicIds?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: async (topicName?: string, topicIds?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/system_graph/semantic_topic_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -12886,7 +12462,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -12972,7 +12548,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -13050,7 +12626,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphEndpointV1SystemGraphSystemGraphGet: async (numRelationships?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet: async (numRelationships?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/system_graph/system_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -13097,7 +12673,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: async (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: async (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topic1' is not null or undefined
             assertParamExists('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'topic1', topic1)
             // verify required parameter 'ids1' is not null or undefined
@@ -13171,7 +12747,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: async (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'source' is not null or undefined
             assertParamExists('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'source', source)
             // verify required parameter 'target' is not null or undefined
@@ -13256,7 +12832,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: async (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'node' is not null or undefined
             assertParamExists('getUpstreamEndpointV1SystemGraphPathsUpstreamGet', 'node', node)
             const localVarPath = `/v1/system_graph/paths/upstream`;
@@ -13333,7 +12909,7 @@ export const SystemGraphApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchTopicsEndpointV1SystemGraphSearchGet: async (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchTopicsEndpointV1SystemGraphSearchGet: async (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'q' is not null or undefined
             assertParamExists('searchTopicsEndpointV1SystemGraphSearchGet', 'q', q)
             const localVarPath = `/v1/system_graph/search/`;
@@ -13414,11 +12990,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getDownstreamEndpointV1SystemGraphPathsDownstreamGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get relationship path.
@@ -13435,11 +13009,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getMediatorsEndpointV1SystemGraphPathsMediatorsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system graph from the database.
@@ -13448,11 +13020,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>> {
+        async getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get relationship path.
@@ -13469,11 +13039,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getRelationshipEndpointV1SystemGraphPathsRelationshipGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch semantic graph.
@@ -13485,11 +13053,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch single topic semantic graph.
@@ -13499,11 +13065,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get relationship path.
@@ -13520,11 +13084,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get relationship path.
@@ -13541,11 +13103,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get system graph from the database.
@@ -13554,11 +13114,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
+        async getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getSystemGraphEndpointV1SystemGraphSystemGraphGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch semantic graph.
@@ -13572,11 +13130,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>> {
+        async getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get relationship path.
@@ -13593,11 +13149,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get upstream paths.
@@ -13613,11 +13167,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
+        async getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.getUpstreamEndpointV1SystemGraphPathsUpstreamGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Search topics.
@@ -13631,11 +13183,9 @@ export const SystemGraphApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>> {
+        async searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['SystemGraphApi.searchTopicsEndpointV1SystemGraphSearchGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -13650,132 +13200,200 @@ export const SystemGraphApiFactory = function (configuration?: Configuration, ba
         /**
          * Get downstream paths.
          * @summary Get Downstream Endpoint
-         * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest} requestParameters Request parameters.
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {Array<string>} [additionalNodes] Additional nodes
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Mediators Endpoint
-         * @param {SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest} requestParameters Request parameters.
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
          * @summary Get One Degree From Topic
-         * @param {SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest} requestParameters Request parameters.
+         * @param {string} topicId 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptRelationshipsOut> {
-            return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(axios, basePath));
+        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<ConceptRelationshipsOut> {
+            return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Relationship Endpoint
-         * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest} requestParameters Request parameters.
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
          * @summary Get Semantic Graph Endpoint
-         * @param {SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest} requestParameters Request parameters.
+         * @param {string} [topic1] Topic 1
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids1] Topic 1 ids
+         * @param {Array<string>} [ids2] Topic 2 ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GraphData> {
-            return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(axios, basePath));
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch single topic semantic graph.
          * @summary Get Semantic Topic Graph Endpoint
-         * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
+         * @param {string} [topicName] Topic name
+         * @param {Array<string>} [topicIds] Topic ids
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GraphData> {
-            return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(axios, basePath));
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Shared Sources Endpoint
-         * @param {SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest} requestParameters Request parameters.
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Shared Targets Endpoint
-         * @param {SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest} requestParameters Request parameters.
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
-         * @param {SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+         * @param {number} [numRelationships] Number of relationships to return.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<GraphData> {
-            return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(axios, basePath));
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<GraphData> {
+            return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
          * @summary Get Topological Categories Endpoint
-         * @param {SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest} requestParameters Request parameters.
+         * @param {string} topic1 Topic 1
+         * @param {Array<string>} ids1 Topic 1 ids
+         * @param {string} [topic2] Topic 2
+         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {number} [pageSize] Page size
+         * @param {number} [offset] Offset
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TopicCategories> {
-            return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(axios, basePath));
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories> {
+            return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Two Hop Mediators Endpoint
-         * @param {SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest} requestParameters Request parameters.
+         * @param {string} source System ID of source
+         * @param {string} target System ID of target
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {Array<string>} [additionalSources] Additional sources
+         * @param {Array<string>} [additionalTargets] Additional targets
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get upstream paths.
          * @summary Get Upstream Endpoint
-         * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest} requestParameters Request parameters.
+         * @param {string} node System ID of topic node
+         * @param {number} [page] Page number
+         * @param {number} [pageSize] Page size
+         * @param {number} [nHops] Number of hops
+         * @param {Array<string>} [additionalNodes] Additional nodes
+         * @param {string} [relationshipTypes] Comma separated list of relationship types
+         * @param {boolean} [includeNonSignificant] Significant relationships only
+         * @param {string} [semanticTypes] Comma separated list of semantic_types
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut> {
-            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut> {
+            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Search topics.
          * @summary Search Topics Endpoint
-         * @param {SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest} requestParameters Request parameters.
+         * @param {string} q Search query
+         * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+         * @param {number} [subgraphDepth] Depth of subgraph
+         * @param {SearchType} [searchType] Search type (semantic or keyword)
+         * @param {number} [autocut] Autocut for semantic search
+         * @param {number} [limit] Limit for semantic search
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TopicOut>> {
-            return localVarFp.searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(axios, basePath));
+        searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<TopicOut>> {
+            return localVarFp.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -14453,7 +14071,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: RawAxiosRequestConfig) {
+    public getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14465,7 +14083,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: RawAxiosRequestConfig) {
+    public getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14477,7 +14095,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: RawAxiosRequestConfig) {
+    public getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14489,7 +14107,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: RawAxiosRequestConfig) {
+    public getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14501,7 +14119,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest = {}, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14513,7 +14131,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest = {}, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14525,7 +14143,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: RawAxiosRequestConfig) {
+    public getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14537,7 +14155,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: RawAxiosRequestConfig) {
+    public getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14549,7 +14167,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest = {}, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14561,7 +14179,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: RawAxiosRequestConfig) {
+    public getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14573,7 +14191,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: RawAxiosRequestConfig) {
+    public getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14585,7 +14203,7 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: RawAxiosRequestConfig) {
+    public getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14597,11 +14215,10 @@ export class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    public searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: RawAxiosRequestConfig) {
+    public searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig) {
         return SystemGraphApiFp(this.configuration).searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -14617,7 +14234,7 @@ export const TopicApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicInfoGet: async (topicIds?: Array<string>, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getInformationForATopicV1TopicInfoGet: async (topicIds?: Array<string>, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/topic/info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -14661,7 +14278,7 @@ export const TopicApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet: async (topicId: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getVariablesRelatedToATopicV1TopicVariablesGet: async (topicId: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topicId' is not null or undefined
             assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicId', topicId)
             const localVarPath = `/v1/topic/variables`;
@@ -14723,11 +14340,9 @@ export const TopicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>> {
+        async getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getInformationForATopicV1TopicInfoGet(topicIds, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TopicApi.getInformationForATopicV1TopicInfoGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Get information for variables related to a topic.
@@ -14738,11 +14353,9 @@ export const TopicApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>> {
+        async getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['TopicApi.getVariablesRelatedToATopicV1TopicVariablesGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -14757,22 +14370,24 @@ export const TopicApiFactory = function (configuration?: Configuration, basePath
         /**
          * Get topic data.
          * @summary Get Information For A Topic.
-         * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
+         * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicInfoGet(requestParameters: TopicApiGetInformationForATopicV1TopicInfoGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<TopicRDBOut>> {
-            return localVarFp.getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(axios, basePath));
+        getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>> {
+            return localVarFp.getInformationForATopicV1TopicInfoGet(topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest} requestParameters Request parameters.
+         * @param {string} topicId 
+         * @param {number} [limit] 
+         * @param {number} [offset] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TopicVariablesOut> {
-            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
+        getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: any): AxiosPromise<TopicVariablesOut> {
+            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -14834,7 +14449,7 @@ export class TopicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    public getInformationForATopicV1TopicInfoGet(requestParameters: TopicApiGetInformationForATopicV1TopicInfoGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getInformationForATopicV1TopicInfoGet(requestParameters: TopicApiGetInformationForATopicV1TopicInfoGetRequest = {}, options?: AxiosRequestConfig) {
         return TopicApiFp(this.configuration).getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -14846,11 +14461,10 @@ export class TopicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    public getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: RawAxiosRequestConfig) {
+    public getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: AxiosRequestConfig) {
         return TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -14867,7 +14481,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserByCognitoIdV1UsersPost: async (userId: string, updateProfileIn: UpdateProfileIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAUserByCognitoIdV1UsersPost: async (userId: string, updateProfileIn: UpdateProfileIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('createAUserByCognitoIdV1UsersPost', 'userId', userId)
             // verify required parameter 'updateProfileIn' is not null or undefined
@@ -14916,7 +14530,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserFromCredentialsV1UserPost: async (userProfileIn: UserProfileIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAUserFromCredentialsV1UserPost: async (userProfileIn: UserProfileIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userProfileIn' is not null or undefined
             assertParamExists('createAUserFromCredentialsV1UserPost', 'userProfileIn', userProfileIn)
             const localVarPath = `/v1/user`;
@@ -14959,7 +14573,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: async (includeAvatar?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAuthenticatedUserV1UserGet: async (includeAvatar?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -15002,7 +14616,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserV1UsersUserIdGet: async (userId: string, includeAvatar?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUserV1UsersUserIdGet: async (userId: string, includeAvatar?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('getUserV1UsersUserIdGet', 'userId', userId)
             const localVarPath = `/v1/users/{user_id}`
@@ -15049,7 +14663,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersV1UsersGet: async (teamId?: string, email?: string, includeAvatar?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUsersV1UsersGet: async (teamId?: string, email?: string, includeAvatar?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/v1/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -15100,7 +14714,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAUserByIdV1UsersUserIdPatch: async (userId: string, updateProfileIn: UpdateProfileIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAUserByIdV1UsersUserIdPatch: async (userId: string, updateProfileIn: UpdateProfileIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
             assertParamExists('updateAUserByIdV1UsersUserIdPatch', 'userId', userId)
             // verify required parameter 'updateProfileIn' is not null or undefined
@@ -15146,7 +14760,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAuthenticatedUserProfileV1UserPut: async (userProfileIn: UserProfileIn, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateAuthenticatedUserProfileV1UserPut: async (userProfileIn: UserProfileIn, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userProfileIn' is not null or undefined
             assertParamExists('updateAuthenticatedUserProfileV1UserPut', 'userProfileIn', userProfileIn)
             const localVarPath = `/v1/user`;
@@ -15200,11 +14814,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+        async createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.createAUserByCognitoIdV1UsersPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Create a new user.
@@ -15213,11 +14825,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+        async createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAUserFromCredentialsV1UserPost(userProfileIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.createAUserFromCredentialsV1UserPost']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch the authenticated user\'s profile.
@@ -15226,11 +14836,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+        async getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.getAuthenticatedUserV1UserGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Fetch a single user\'s public profile.
@@ -15240,11 +14848,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
+        async getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUserV1UsersUserIdGet(userId, includeAvatar, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.getUserV1UsersUserIdGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * List public profiles.
@@ -15255,11 +14861,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>> {
+        async getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsersV1UsersGet(teamId, email, includeAvatar, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.getUsersV1UsersGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Create a new user.
@@ -15269,11 +14873,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+        async updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.updateAUserByIdV1UsersUserIdPatch']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update the authenticated user\'s profile.
@@ -15282,11 +14884,9 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
+        async updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAuthenticatedUserProfileV1UserPut(userProfileIn, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['UsersApi.updateAuthenticatedUserProfileV1UserPut']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -15301,72 +14901,77 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
         /**
          * Create a new user.
          * @summary Create A User By Cognito Id.
-         * @param {UsersApiCreateAUserByCognitoIdV1UsersPostRequest} requestParameters Request parameters.
+         * @param {string} userId 
+         * @param {UpdateProfileIn} updateProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut> {
-            return localVarFp.createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(axios, basePath));
+        createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
          * @summary Create A User From Credentials.
-         * @param {UsersApiCreateAUserFromCredentialsV1UserPostRequest} requestParameters Request parameters.
+         * @param {UserProfileIn} userProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut> {
-            return localVarFp.createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(axios, basePath));
+        createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.createAUserFromCredentialsV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
-         * @param {UsersApiGetAuthenticatedUserV1UserGetRequest} requestParameters Request parameters.
+         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(requestParameters: UsersApiGetAuthenticatedUserV1UserGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut> {
-            return localVarFp.getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
          * @summary Get User
-         * @param {UsersApiGetUserV1UsersUserIdGetRequest} requestParameters Request parameters.
+         * @param {string} userId 
+         * @param {boolean} [includeAvatar] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPublicProfileOut> {
-            return localVarFp.getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
+        getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut> {
+            return localVarFp.getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * List public profiles.
          * @summary Get Users
-         * @param {UsersApiGetUsersV1UsersGetRequest} requestParameters Request parameters.
+         * @param {string} [teamId] 
+         * @param {string} [email] Email address
+         * @param {boolean} [includeAvatar] Include avatar
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersV1UsersGet(requestParameters: UsersApiGetUsersV1UsersGetRequest = {}, options?: RawAxiosRequestConfig): AxiosPromise<Array<UserPublicProfileOut>> {
-            return localVarFp.getUsersV1UsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
+        getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>> {
+            return localVarFp.getUsersV1UsersGet(teamId, email, includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
          * @summary Update A User By Id.
-         * @param {UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest} requestParameters Request parameters.
+         * @param {string} userId 
+         * @param {UpdateProfileIn} updateProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut> {
-            return localVarFp.updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(axios, basePath));
+        updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
-         * @param {UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest} requestParameters Request parameters.
+         * @param {UserProfileIn} userProfileIn 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut> {
-            return localVarFp.updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(axios, basePath));
+        updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut> {
+            return localVarFp.updateAuthenticatedUserProfileV1UserPut(userProfileIn, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15519,7 +15124,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: RawAxiosRequestConfig) {
+    public createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15531,7 +15136,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: RawAxiosRequestConfig) {
+    public createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15543,7 +15148,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getAuthenticatedUserV1UserGet(requestParameters: UsersApiGetAuthenticatedUserV1UserGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getAuthenticatedUserV1UserGet(requestParameters: UsersApiGetAuthenticatedUserV1UserGetRequest = {}, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15555,7 +15160,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: RawAxiosRequestConfig) {
+    public getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15567,7 +15172,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public getUsersV1UsersGet(requestParameters: UsersApiGetUsersV1UsersGetRequest = {}, options?: RawAxiosRequestConfig) {
+    public getUsersV1UsersGet(requestParameters: UsersApiGetUsersV1UsersGetRequest = {}, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).getUsersV1UsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15579,7 +15184,7 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: RawAxiosRequestConfig) {
+    public updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -15591,11 +15196,10 @@ export class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: RawAxiosRequestConfig) {
+    public updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: AxiosRequestConfig) {
         return UsersApiFp(this.configuration).updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
 /**
@@ -15613,7 +15217,7 @@ export const VariableApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFindingsOfAVariableV1VariableVariableIdFindingsGet: async (variableId: string, limit?: number, offset?: number, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getFindingsOfAVariableV1VariableVariableIdFindingsGet: async (variableId: string, limit?: number, offset?: number, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'variableId' is not null or undefined
             assertParamExists('getFindingsOfAVariableV1VariableVariableIdFindingsGet', 'variableId', variableId)
             const localVarPath = `/v1/variable/{variable_id}/findings`
@@ -15674,11 +15278,9 @@ export const VariableApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
+        async getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options);
-            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['VariableApi.getFindingsOfAVariableV1VariableVariableIdFindingsGet']?.[localVarOperationServerIndex]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
 };
@@ -15693,12 +15295,14 @@ export const VariableApiFactory = function (configuration?: Configuration, baseP
         /**
          * Get information for variable findings.
          * @summary Get Findings Of A Variable.
-         * @param {VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest} requestParameters Request parameters.
+         * @param {string} variableId 
+         * @param {number} [limit] 
+         * @param {number} [offset] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyFindingsOut> {
-            return localVarFp.getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters.variableId, requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
+        getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: any): AxiosPromise<StudyFindingsOut> {
+            return localVarFp.getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -15746,10 +15350,9 @@ export class VariableApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VariableApi
      */
-    public getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: RawAxiosRequestConfig) {
+    public getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: AxiosRequestConfig) {
         return VariableApiFp(this.configuration).getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters.variableId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
-
 
 
