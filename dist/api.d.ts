@@ -9,10 +9,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import type { Configuration } from './configuration';
-import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
-import type { RequestArgs } from './base';
-import { BaseAPI } from './base';
+import { Configuration } from './configuration';
+import { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import { RequestArgs, BaseAPI } from './base';
 /**
  * Add subscription seat input.
  * @export
@@ -208,20 +207,6 @@ export interface BigQueryCredentialsIn {
     'raw_credentials': string;
 }
 /**
- *
- * @export
- * @interface CiLower
- */
-export interface CiLower {
-}
-/**
- *
- * @export
- * @interface CiUpper
- */
-export interface CiUpper {
-}
-/**
  * Cluster out model.
  * @export
  * @interface ClusterOut
@@ -338,12 +323,11 @@ export interface ClusteredRelationship {
  * @export
  * @enum {string}
  */
-export declare const ClusteringMethods: {
-    readonly Agglomerative: "agglomerative";
-    readonly Dbscan: "dbscan";
-    readonly Paraphrase: "paraphrase";
-};
-export type ClusteringMethods = typeof ClusteringMethods[keyof typeof ClusteringMethods];
+export declare enum ClusteringMethods {
+    Agglomerative = "agglomerative",
+    Dbscan = "dbscan",
+    Paraphrase = "paraphrase"
+}
 /**
  * Concept resource links.
  * @export
@@ -577,12 +561,11 @@ export interface ConceptRelationshipsOut {
  * @export
  * @enum {string}
  */
-export declare const ConceptSortEnum: {
-    readonly CreatedAt: "created_at";
-    readonly LastUpdatedAt: "last_updated_at";
-    readonly Name: "name";
-};
-export type ConceptSortEnum = typeof ConceptSortEnum[keyof typeof ConceptSortEnum];
+export declare enum ConceptSortEnum {
+    CreatedAt = "created_at",
+    LastUpdatedAt = "last_updated_at",
+    Name = "name"
+}
 /**
  * Confidence interval output model.
  * @export
@@ -607,188 +590,6 @@ export interface ConfidenceIntervalOut {
      * @memberof ConfidenceIntervalOut
      */
     'ci_upper'?: number;
-}
-/**
- * Integration credentials.
- * @export
- * @interface Credentials
- */
-export interface Credentials {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_name': string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_user': string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_host': string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof Credentials
-     */
-    'db_port': number;
-    /**
-     * Integration account name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_account': string;
-    /**
-     * Integration warehouse name.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'db_warehouse': string;
-    /**
-     * Integration location.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'location': string;
-    /**
-     * Integration project.
-     * @type {string}
-     * @memberof Credentials
-     */
-    'project': string;
-    /**
-     * Integration verify ssl
-     * @type {boolean}
-     * @memberof Credentials
-     */
-    'verify_ssl'?: boolean;
-    /**
-     * Integration base url
-     * @type {string}
-     * @memberof Credentials
-     */
-    'base_url': string;
-    /**
-     * Integration dashboard
-     * @type {string}
-     * @memberof Credentials
-     */
-    'dashboard': string;
-}
-/**
- * Integration credentials.
- * @export
- * @interface Credentials1
- */
-export interface Credentials1 {
-    /**
-     * Integration database name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_name': string;
-    /**
-     * Integration user name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_user': string;
-    /**
-     * Integration host (Required for Redshift).
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_host': string;
-    /**
-     * Integration port (Required for Redshift).
-     * @type {number}
-     * @memberof Credentials1
-     */
-    'db_port': number;
-    /**
-     * Integration password.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_password': string;
-    /**
-     * Integration account name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_account': string;
-    /**
-     * Integration warehouse name.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'db_warehouse': string;
-    /**
-     * Integration location.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'location': string;
-    /**
-     * Integration project.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'project': string;
-    /**
-     * Integration credentials.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'raw_credentials': string;
-    /**
-     * Integration verify ssl
-     * @type {boolean}
-     * @memberof Credentials1
-     */
-    'verify_ssl'?: boolean;
-    /**
-     * Integration base url
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'base_url': string;
-    /**
-     * Integration client id.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'client_id': string;
-    /**
-     * Integration client secret key.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'client_secret': string;
-    /**
-     * Integration dashboard
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'dashboard': string;
-    /**
-     * Integration api token.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'api_token': string;
-    /**
-     * Integration api secret.
-     * @type {string}
-     * @memberof Credentials1
-     */
-    'api_secret': string;
 }
 /**
  * An Enterprise Resource.
@@ -893,11 +694,10 @@ export interface EnterpriseIn {
  * @export
  * @enum {string}
  */
-export declare const EvidenceCategory: {
-    readonly Statistical: "statistical";
-    readonly Mechanistic: "mechanistic";
-};
-export type EvidenceCategory = typeof EvidenceCategory[keyof typeof EvidenceCategory];
+export declare enum EvidenceCategory {
+    Statistical = "statistical",
+    Mechanistic = "mechanistic"
+}
 /**
  * Evidence output.
  * @export
@@ -1204,13 +1004,12 @@ export interface FirstLastPaginationLinks {
  * @export
  * @enum {string}
  */
-export declare const FunctionStatus: {
-    readonly Pending: "pending";
-    readonly Running: "running";
-    readonly Finished: "finished";
-    readonly Error: "error";
-};
-export type FunctionStatus = typeof FunctionStatus[keyof typeof FunctionStatus];
+export declare enum FunctionStatus {
+    Pending = "pending",
+    Running = "running",
+    Finished = "finished",
+    Error = "error"
+}
 /**
  * Document model.
  * @export
@@ -1366,15 +1165,14 @@ export interface GraphData {
  * @export
  * @enum {string}
  */
-export declare const GraphLinkType: {
-    readonly DatasetRelationship: "dataset_relationship";
-    readonly ConceptRelationship: "concept_relationship";
-    readonly VariableRelationship: "variable_relationship";
-    readonly FeatureRelationship: "feature_relationship";
-    readonly FeatureVariable: "feature_variable";
-    readonly Measures: "measures";
-};
-export type GraphLinkType = typeof GraphLinkType[keyof typeof GraphLinkType];
+export declare enum GraphLinkType {
+    DatasetRelationship = "dataset_relationship",
+    ConceptRelationship = "concept_relationship",
+    VariableRelationship = "variable_relationship",
+    FeatureRelationship = "feature_relationship",
+    FeatureVariable = "feature_variable",
+    Measures = "measures"
+}
 /**
  * Graph metrics schema.
  * @export
@@ -1417,13 +1215,12 @@ export interface GraphMetrics {
  * @export
  * @enum {string}
  */
-export declare const GraphNodeType: {
-    readonly Dataset: "dataset";
-    readonly Concept: "concept";
-    readonly Variable: "variable";
-    readonly Feature: "feature";
-};
-export type GraphNodeType = typeof GraphNodeType[keyof typeof GraphNodeType];
+export declare enum GraphNodeType {
+    Dataset = "dataset",
+    Concept = "concept",
+    Variable = "variable",
+    Feature = "feature"
+}
 /**
  * Graph out.  # noqa: E501
  * @export
@@ -1681,11 +1478,10 @@ export interface HierarchicalTopicNode {
  * @export
  * @enum {string}
  */
-export declare const IdentityProvider: {
-    readonly Google: "Google";
-    readonly KeycloakGoogleDev: "keycloak-google-dev";
-};
-export type IdentityProvider = typeof IdentityProvider[keyof typeof IdentityProvider];
+export declare enum IdentityProvider {
+    Google = "Google",
+    KeycloakGoogleDev = "keycloak-google-dev"
+}
 /**
  * Get Identity Provider Name.
  * @export
@@ -1772,11 +1568,11 @@ export interface Integration {
      */
     'id': number;
     /**
-     *
-     * @type {Credentials}
+     * Integration credentials.
+     * @type {RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials}
      * @memberof Integration
      */
-    'credentials': Credentials;
+    'credentials': RedshiftCredentials | SnowflakeCredentials | BigQueryCredentials | LookerCredentials | ModeCredentials;
     /**
      * Enterprise link.
      * @type {string}
@@ -1863,11 +1659,11 @@ export interface IntegrationIn {
      */
     'messages'?: Array<MessageOut>;
     /**
-     *
-     * @type {Credentials1}
+     * Integration credentials.
+     * @type {RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn}
      * @memberof IntegrationIn
      */
-    'credentials'?: Credentials1;
+    'credentials'?: RedshiftCredentialsIn | SnowflakeCredentialsIn | BigQueryCredentialsIn | LookerCredentialsIn | ModeCredentialsIn;
     /**
      * Team or Enterprise link
      * @type {string}
@@ -1880,25 +1676,23 @@ export interface IntegrationIn {
  * @export
  * @enum {string}
  */
-export declare const IntegrationState: {
-    readonly Initial: "INITIAL";
-    readonly Active: "ACTIVE";
-    readonly Inactive: "INACTIVE";
-};
-export type IntegrationState = typeof IntegrationState[keyof typeof IntegrationState];
+export declare enum IntegrationState {
+    Initial = "INITIAL",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE"
+}
 /**
  * Integration retrieval types.
  * @export
  * @enum {string}
  */
-export declare const IntegrationType: {
-    readonly Redshift: "REDSHIFT";
-    readonly Snowflake: "SNOWFLAKE";
-    readonly Bigquery: "BIGQUERY";
-    readonly Looker: "LOOKER";
-    readonly Mode: "MODE";
-};
-export type IntegrationType = typeof IntegrationType[keyof typeof IntegrationType];
+export declare enum IntegrationType {
+    Redshift = "REDSHIFT",
+    Snowflake = "SNOWFLAKE",
+    Bigquery = "BIGQUERY",
+    Looker = "LOOKER",
+    Mode = "MODE"
+}
 /**
  * Credentials for a Looker integration without password.
  * @export
@@ -2105,11 +1899,14 @@ export interface MechanisticRelationship {
     'metadata': MechanisticMetadata;
 }
 /**
- *
+ * Median effect size.
  * @export
- * @interface MedianEffectSize
+ * @enum {string}
  */
-export interface MedianEffectSize {
+export declare enum MedianEffectSize {
+    Small = "small",
+    Medium = "medium",
+    Large = "large"
 }
 /**
  * A Message object.
@@ -2190,22 +1987,20 @@ export interface MessageOut {
  * @export
  * @enum {string}
  */
-export declare const MessageType: {
-    readonly Error: "ERROR";
-    readonly DatasetCreated: "DATASET_CREATED";
-};
-export type MessageType = typeof MessageType[keyof typeof MessageType];
+export declare enum MessageType {
+    Error = "ERROR",
+    DatasetCreated = "DATASET_CREATED"
+}
 /**
  * Metrics name enum.
  * @export
  * @enum {string}
  */
-export declare const Metrics: {
-    readonly SemanticSearchCreate: "semantic_search.create";
-    readonly SemanticSearchClusterRead: "semantic_search_cluster.read";
-    readonly FindingsLogDoiLookup: "findings_log.doi_lookup";
-};
-export type Metrics = typeof Metrics[keyof typeof Metrics];
+export declare enum Metrics {
+    SemanticSearchCreate = "semantic_search.create",
+    SemanticSearchClusterRead = "semantic_search_cluster.read",
+    FindingsLogDoiLookup = "findings_log.doi_lookup"
+}
 /**
  * Credentials for a Mode integration without the token and secret.
  * @export
@@ -2287,17 +2082,9 @@ export interface NodeGroupItem {
  * @export
  * @enum {string}
  */
-export declare const Ordering: {
-    readonly Asc: "asc";
-    readonly Desc: "desc";
-};
-export type Ordering = typeof Ordering[keyof typeof Ordering];
-/**
- *
- * @export
- * @interface PValue
- */
-export interface PValue {
+export declare enum Ordering {
+    Asc = "asc",
+    Desc = "desc"
 }
 /**
  * Path.  # noqa: E501
@@ -2413,16 +2200,15 @@ export interface PathsPayloadTyped {
  * @export
  * @enum {string}
  */
-export declare const PollingStatus: {
-    readonly NotExists: "not_exists";
-    readonly Submitted: "submitted";
-    readonly Running: "running";
-    readonly Success: "success";
-    readonly Failed: "failed";
-    readonly FailedNoCitations: "failed_no_citations";
-    readonly FailedValidation: "failed_validation";
-};
-export type PollingStatus = typeof PollingStatus[keyof typeof PollingStatus];
+export declare enum PollingStatus {
+    NotExists = "not_exists",
+    Submitted = "submitted",
+    Running = "running",
+    Success = "success",
+    Failed = "failed",
+    FailedNoCitations = "failed_no_citations",
+    FailedValidation = "failed_validation"
+}
 /**
  *
  * @export
@@ -2655,23 +2441,21 @@ export interface RelationshipFilterParams {
  * @export
  * @enum {string}
  */
-export declare const RelationshipTypes: {
-    readonly Statistical: "statistical";
-    readonly Mechanistic: "mechanistic";
-};
-export type RelationshipTypes = typeof RelationshipTypes[keyof typeof RelationshipTypes];
+export declare enum RelationshipTypes {
+    Statistical = "statistical",
+    Mechanistic = "mechanistic"
+}
 /**
  * API resource action enum.
  * @export
  * @enum {string}
  */
-export declare const ResourceAction: {
-    readonly Create: "create";
-    readonly View: "view";
-    readonly Edit: "edit";
-    readonly Delete: "delete";
-};
-export type ResourceAction = typeof ResourceAction[keyof typeof ResourceAction];
+export declare enum ResourceAction {
+    Create = "create",
+    View = "view",
+    Edit = "edit",
+    Delete = "delete"
+}
 /**
  * A System Resource Flag Output Object.
  * @export
@@ -2727,24 +2511,22 @@ export interface ResourceFlagIn {
  * @export
  * @enum {string}
  */
-export declare const RetrievalStatus: {
-    readonly Pending: "pending";
-    readonly Success: "success";
-    readonly Failure: "failure";
-};
-export type RetrievalStatus = typeof RetrievalStatus[keyof typeof RetrievalStatus];
+export declare enum RetrievalStatus {
+    Pending = "pending",
+    Success = "success",
+    Failure = "failure"
+}
 /**
  * Role.
  * @export
  * @enum {string}
  */
-export declare const Role: {
-    readonly Determinant: "Determinant";
-    readonly Intervention: "Intervention";
-    readonly Outcome: "Outcome";
-    readonly Agent: "Agent";
-};
-export type Role = typeof Role[keyof typeof Role];
+export declare enum Role {
+    Determinant = "Determinant",
+    Intervention = "Intervention",
+    Outcome = "Outcome",
+    Agent = "Agent"
+}
 /**
  * Schema for scored cluster.
  * @export
@@ -2855,36 +2637,33 @@ export interface ScoredCluster {
  * @export
  * @enum {string}
  */
-export declare const SearchType: {
-    readonly Semantic: "semantic";
-    readonly Keyword: "keyword";
-};
-export type SearchType = typeof SearchType[keyof typeof SearchType];
+export declare enum SearchType {
+    Semantic = "semantic",
+    Keyword = "keyword"
+}
 /**
  * An enumeration.
  * @export
  * @enum {string}
  */
-export declare const SemanticSearchType: {
-    readonly RiskFactorOf: "risk_factor_of";
-    readonly Outcome: "outcome";
-    readonly Relationship: "relationship";
-    readonly Relationship2d: "relationship_2d";
-    readonly SingleVariable2d: "single_variable_2d";
-};
-export type SemanticSearchType = typeof SemanticSearchType[keyof typeof SemanticSearchType];
+export declare enum SemanticSearchType {
+    RiskFactorOf = "risk_factor_of",
+    Outcome = "outcome",
+    Relationship = "relationship",
+    Relationship2d = "relationship_2d",
+    SingleVariable2d = "single_variable_2d"
+}
 /**
  * An enumeration.
  * @export
  * @enum {string}
  */
-export declare const SignificanceLevel: {
-    readonly NinetyFive: "ninety_five";
-    readonly NinetyNine: "ninety_nine";
-    readonly NinetyNinePointNine: "ninety_nine_point_nine";
-    readonly Invalid: "invalid";
-};
-export type SignificanceLevel = typeof SignificanceLevel[keyof typeof SignificanceLevel];
+export declare enum SignificanceLevel {
+    NinetyFive = "ninety_five",
+    NinetyNine = "ninety_nine",
+    NinetyNinePointNine = "ninety_nine_point_nine",
+    Invalid = "invalid"
+}
 /**
  * Credentials for a Snowflake integration without password.
  * @export
@@ -3302,28 +3081,28 @@ export interface SohServiceClientModelsFindingFinding {
     'statistic_type'?: string;
     /**
      *
-     * @type {StatisticValue}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'statistic_value'?: StatisticValue;
+    'statistic_value'?: number;
     /**
      *
-     * @type {CiUpper}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'ci_upper'?: CiUpper;
+    'ci_upper'?: number;
     /**
      *
-     * @type {CiLower}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'ci_lower'?: CiLower;
+    'ci_lower'?: number;
     /**
      *
-     * @type {PValue}
+     * @type {number}
      * @memberof SohServiceClientModelsFindingFinding
      */
-    'p_value'?: PValue;
+    'p_value'?: number;
     /**
      *
      * @type {string}
@@ -3424,13 +3203,6 @@ export interface StatisticRelationship {
     'metadata': StatisticalMetadata;
 }
 /**
- *
- * @export
- * @interface StatisticValue
- */
-export interface StatisticValue {
-}
-/**
  * Metadata for statistical finding.
  * @export
  * @interface StatisticalMetadata
@@ -3496,14 +3268,13 @@ export interface StatisticalMetadata {
  * @export
  * @enum {string}
  */
-export declare const StripeAccountStatus: {
-    readonly Trial: "trial";
-    readonly Subscribed: "subscribed";
-    readonly Expired: "expired";
-    readonly GroupSubscribed: "group_subscribed";
-    readonly Unsubscribed: "unsubscribed";
-};
-export type StripeAccountStatus = typeof StripeAccountStatus[keyof typeof StripeAccountStatus];
+export declare enum StripeAccountStatus {
+    Trial = "trial",
+    Subscribed = "subscribed",
+    Expired = "expired",
+    GroupSubscribed = "group_subscribed",
+    Unsubscribed = "unsubscribed"
+}
 /**
  * Stripe object.
  * @export
@@ -4168,11 +3939,10 @@ export interface SuggestedQuery {
  * @export
  * @enum {string}
  */
-export declare const SuggestedQueryType: {
-    readonly Expanded: "expanded";
-    readonly Autocorrect: "autocorrect";
-};
-export type SuggestedQueryType = typeof SuggestedQueryType[keyof typeof SuggestedQueryType];
+export declare enum SuggestedQueryType {
+    Expanded = "expanded",
+    Autocorrect = "autocorrect"
+}
 /**
  * Synthesis output schema.  # noqa: E501
  * @export
@@ -4601,10 +4371,10 @@ export interface TimeSeriesDataPoint {
     'date': string;
     /**
      *
-     * @type {Value}
+     * @type {number}
      * @memberof TimeSeriesDataPoint
      */
-    'value': Value;
+    'value': number;
 }
 /**
  * Concept relationships model.  # noqa: E501
@@ -4681,10 +4451,10 @@ export interface TopicEdge {
     'num_findings'?: number;
     /**
      *
-     * @type {MedianEffectSize}
+     * @type {number}
      * @memberof TopicEdge
      */
-    'median_effect_size'?: MedianEffectSize;
+    'median_effect_size'?: number;
     /**
      *
      * @type {object}
@@ -5123,13 +4893,6 @@ export interface ValidationError {
     'type': string;
 }
 /**
- *
- * @export
- * @interface Value
- */
-export interface Value {
-}
-/**
  * Variable grounding model.
  * @export
  * @interface VariableGrounding
@@ -5190,14 +4953,14 @@ export declare const AccessApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestDataAccessV1AccessDataPost: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    requestDataAccessV1AccessDataPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestMapsAccessV1AccessMapsPost: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    requestMapsAccessV1AccessMapsPost: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AccessApi - functional programming interface
@@ -5210,14 +4973,14 @@ export declare const AccessApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * AccessApi - factory interface
@@ -5230,14 +4993,14 @@ export declare const AccessApiFactory: (configuration?: Configuration, basePath?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    requestDataAccessV1AccessDataPost(options?: any): AxiosPromise<any>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    requestMapsAccessV1AccessMapsPost(options?: any): AxiosPromise<any>;
 };
 /**
  * AccessApi - object-oriented interface
@@ -5253,7 +5016,7 @@ export declare class AccessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessApi
      */
-    requestDataAccessV1AccessDataPost(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    requestDataAccessV1AccessDataPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Register user\'s interest in access to Maps Beta.
      * @summary Request Maps Access
@@ -5261,7 +5024,7 @@ export declare class AccessApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessApi
      */
-    requestMapsAccessV1AccessMapsPost(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    requestMapsAccessV1AccessMapsPost(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * AssociationsApi - axios parameter creator
@@ -5276,7 +5039,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -5285,7 +5048,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1: (associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List Associations.
      * @summary List Free Metadata
@@ -5293,7 +5056,7 @@ export declare const AssociationsApiAxiosParamCreator: (configuration?: Configur
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFreeMetadataV1AssociationsFreeMetadataGet: (ids?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    listFreeMetadataV1AssociationsFreeMetadataGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * AssociationsApi - functional programming interface
@@ -5308,7 +5071,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -5317,7 +5080,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * List Associations.
      * @summary List Free Metadata
@@ -5325,7 +5088,7 @@ export declare const AssociationsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>>;
 };
 /**
  * AssociationsApi - factory interface
@@ -5335,27 +5098,29 @@ export declare const AssociationsApiFactory: (configuration?: Configuration, bas
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest} requestParameters Request parameters.
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * Get strength of this association.
      * @summary Flag Association
-     * @param {AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request} requestParameters Request parameters.
+     * @param {string} associationId
+     * @param {ResourceFlagIn} resourceFlagIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(associationId: string, resourceFlagIn: ResourceFlagIn, options?: any): AxiosPromise<any>;
     /**
      * List Associations.
      * @summary List Free Metadata
-     * @param {AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest} requestParameters Request parameters.
+     * @param {Array<string>} [ids] List of association IDs to fetch free metadata for.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<any>>;
+    listFreeMetadataV1AssociationsFreeMetadataGet(ids?: Array<string>, options?: any): AxiosPromise<Array<any>>;
 };
 /**
  * Request parameters for flagAssociationV1AssociationsAssociationIdFlagsPost operation in AssociationsApi.
@@ -5423,7 +5188,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get strength of this association.
      * @summary Flag Association
@@ -5432,7 +5197,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    flagAssociationV1AssociationsAssociationIdFlagsPost_1(requestParameters: AssociationsApiFlagAssociationV1AssociationsAssociationIdFlagsPost0Request, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * List Associations.
      * @summary List Free Metadata
@@ -5441,7 +5206,7 @@ export declare class AssociationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AssociationsApi
      */
-    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any[], any>>;
+    listFreeMetadataV1AssociationsFreeMetadataGet(requestParameters?: AssociationsApiListFreeMetadataV1AssociationsFreeMetadataGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any[]>>;
 }
 /**
  * ConceptsApi - axios parameter creator
@@ -5456,7 +5221,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet: (conceptId: string, topPercentileLimit?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet: (conceptId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -5464,7 +5229,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptV1ConceptsConceptIdGet: (conceptId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getConceptV1ConceptsConceptIdGet: (conceptId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -5484,7 +5249,7 @@ export declare const ConceptsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet: (teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    listConceptsV1ConceptsGet: (teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ConceptsApi - functional programming interface
@@ -5499,7 +5264,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -5507,7 +5272,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptV1ConceptsConceptIdGet(conceptId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
+    getConceptV1ConceptsConceptIdGet(conceptId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -5527,7 +5292,7 @@ export declare const ConceptsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
+    listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptPaginationOut>>;
 };
 /**
  * ConceptsApi - factory interface
@@ -5537,27 +5302,40 @@ export declare const ConceptsApiFactory: (configuration?: Configuration, basePat
     /**
      * Fetch concept relationships.
      * @summary Get Concept Relationships
-     * @param {ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest} requestParameters Request parameters.
+     * @param {string} conceptId
+     * @param {boolean} [topPercentileLimit] Flag for limiting to top percentile.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptRelationshipsOut>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(conceptId: string, topPercentileLimit?: boolean, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Get Concept.
      * @summary Get Concept
-     * @param {ConceptsApiGetConceptV1ConceptsConceptIdGetRequest} requestParameters Request parameters.
+     * @param {string} conceptId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptOut>;
+    getConceptV1ConceptsConceptIdGet(conceptId: string, options?: any): AxiosPromise<ConceptOut>;
     /**
      * List Concepts.
      * @summary List Concepts
-     * @param {ConceptsApiListConceptsV1ConceptsGetRequest} requestParameters Request parameters.
+     * @param {string} [teamId]
+     * @param {number} [minRelationshipStrength] Min strength
+     * @param {string} [query] Search query.
+     * @param {boolean} [includeHidden] Include hidden objects in results.
+     * @param {Array<string>} [id] Filter results by id.
+     * @param {number} [page]
+     * @param {number} [pageSize]
+     * @param {boolean} [total] Include total count in response. Only use if you need it as a separate database call is required.
+     * @param {boolean} [idsOnly] Only return ids. Will return an empty list for &#x60;items&#x60;.Will speed up the call to this endpoint if possible.
+     * @param {ConceptSortEnum} [orderBy] Order by this field.
+     * @param {Ordering} [ordering] Order ascending or descending.
+     * @param {string} [sortBy] Multi sorting parameter consisting of csv list of form \&#39;field1|asc,field2|desc,field3\&#39;. If sorting direction is not specified by &#x60;|asc&#x60; or &#x60;|desc&#x60; then descending is assumed.
+     * @param {boolean} [inConceptGraph] Is Concept in the Concept Graph?
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listConceptsV1ConceptsGet(requestParameters?: ConceptsApiListConceptsV1ConceptsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptPaginationOut>;
+    listConceptsV1ConceptsGet(teamId?: string, minRelationshipStrength?: number, query?: string, includeHidden?: boolean, id?: Array<string>, page?: number, pageSize?: number, total?: boolean, idsOnly?: boolean, orderBy?: ConceptSortEnum, ordering?: Ordering, sortBy?: string, inConceptGraph?: boolean, options?: any): AxiosPromise<ConceptPaginationOut>;
 };
 /**
  * Request parameters for getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet operation in ConceptsApi.
@@ -5691,7 +5469,7 @@ export declare class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut, any>>;
+    getConceptRelationshipsV1ConceptsConceptIdRelationshipsGet(requestParameters: ConceptsApiGetConceptRelationshipsV1ConceptsConceptIdRelationshipsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Get Concept.
      * @summary Get Concept
@@ -5700,7 +5478,7 @@ export declare class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptOut, any>>;
+    getConceptV1ConceptsConceptIdGet(requestParameters: ConceptsApiGetConceptV1ConceptsConceptIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptOut>>;
     /**
      * List Concepts.
      * @summary List Concepts
@@ -5709,7 +5487,7 @@ export declare class ConceptsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConceptsApi
      */
-    listConceptsV1ConceptsGet(requestParameters?: ConceptsApiListConceptsV1ConceptsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptPaginationOut, any>>;
+    listConceptsV1ConceptsGet(requestParameters?: ConceptsApiListConceptsV1ConceptsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptPaginationOut>>;
 }
 /**
  * EnterpriseApi - axios parameter creator
@@ -5724,7 +5502,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost: (integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    createIntegrationV1EnterpriseIntegrationsPost: (integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -5733,14 +5511,14 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost: (messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    createMessageV1EnterpriseMessagesPost: (messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEnterpriseV1EnterpriseGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getEnterpriseV1EnterpriseGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get an Integration.
      * @summary Get Integration
@@ -5749,7 +5527,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: (integrationId: string, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet: (integrationId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get team integrations.
      * @summary Get Integrations
@@ -5757,7 +5535,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationsV1EnterpriseIntegrationsGet: (teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getIntegrationsV1EnterpriseIntegrationsGet: (teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get a Message.
      * @summary Get Message
@@ -5766,7 +5544,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getMessageV1EnterpriseMessagesMessageIdGet: (messageId: string, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update Enterprise.
      * @summary Update Enterprise
@@ -5774,7 +5552,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEnterpriseV1EnterprisePatch: (enterpriseIn: EnterpriseIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    updateEnterpriseV1EnterprisePatch: (enterpriseIn: EnterpriseIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update Integration.
      * @summary Update Integration
@@ -5784,7 +5562,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch: (integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -5794,7 +5572,7 @@ export declare const EnterpriseApiAxiosParamCreator: (configuration?: Configurat
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId: string, messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch: (messageId: string, messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * EnterpriseApi - functional programming interface
@@ -5809,7 +5587,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -5818,14 +5596,14 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>>;
+    getEnterpriseV1EnterpriseGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>>;
     /**
      * Get an Integration.
      * @summary Get Integration
@@ -5834,7 +5612,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Get team integrations.
      * @summary Get Integrations
@@ -5842,7 +5620,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>>;
+    getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Integration>>>;
     /**
      * Get a Message.
      * @summary Get Message
@@ -5851,7 +5629,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
     /**
      * Update Enterprise.
      * @summary Update Enterprise
@@ -5859,7 +5637,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>>;
+    updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Enterprise>>;
     /**
      * Update Integration.
      * @summary Update Integration
@@ -5869,7 +5647,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Integration>>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -5879,7 +5657,7 @@ export declare const EnterpriseApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOut>>;
 };
 /**
  * EnterpriseApi - factory interface
@@ -5889,74 +5667,82 @@ export declare const EnterpriseApiFactory: (configuration?: Configuration, baseP
     /**
      * Create a new integration.
      * @summary Create Integration
-     * @param {EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest} requestParameters Request parameters.
+     * @param {IntegrationIn} integrationIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration>;
+    createIntegrationV1EnterpriseIntegrationsPost(integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Create a new message.
      * @summary Create Message
-     * @param {EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest} requestParameters Request parameters.
+     * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut>;
+    createMessageV1EnterpriseMessagesPost(messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig): AxiosPromise<Enterprise>;
+    getEnterpriseV1EnterpriseGet(options?: any): AxiosPromise<Enterprise>;
     /**
      * Get an Integration.
      * @summary Get Integration
-     * @param {EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest} requestParameters Request parameters.
+     * @param {string} integrationId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(integrationId: string, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Get team integrations.
      * @summary Get Integrations
-     * @param {EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest} requestParameters Request parameters.
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIntegrationsV1EnterpriseIntegrationsGet(requestParameters?: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<Integration>>;
+    getIntegrationsV1EnterpriseIntegrationsGet(teamId?: string, options?: any): AxiosPromise<Array<Integration>>;
     /**
      * Get a Message.
      * @summary Get Message
-     * @param {EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest} requestParameters Request parameters.
+     * @param {string} messageId
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut>;
+    getMessageV1EnterpriseMessagesMessageIdGet(messageId: string, teamId?: string, options?: any): AxiosPromise<MessageOut>;
     /**
      * Update Enterprise.
      * @summary Update Enterprise
-     * @param {EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest} requestParameters Request parameters.
+     * @param {EnterpriseIn} enterpriseIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Enterprise>;
+    updateEnterpriseV1EnterprisePatch(enterpriseIn: EnterpriseIn, options?: any): AxiosPromise<Enterprise>;
     /**
      * Update Integration.
      * @summary Update Integration
-     * @param {EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest} requestParameters Request parameters.
+     * @param {string} integrationId
+     * @param {IntegrationIn} integrationIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<Integration>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(integrationId: string, integrationIn: IntegrationIn, teamId?: string, options?: any): AxiosPromise<Integration>;
     /**
      * Update a Message.
      * @summary Update Message
-     * @param {EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest} requestParameters Request parameters.
+     * @param {string} messageId
+     * @param {MessageIn} messageIn
+     * @param {string} [teamId]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessageOut>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch(messageId: string, messageIn: MessageIn, teamId?: string, options?: any): AxiosPromise<MessageOut>;
 };
 /**
  * Request parameters for createIntegrationV1EnterpriseIntegrationsPost operation in EnterpriseApi.
@@ -6125,7 +5911,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration, any>>;
+    createIntegrationV1EnterpriseIntegrationsPost(requestParameters: EnterpriseApiCreateIntegrationV1EnterpriseIntegrationsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration>>;
     /**
      * Create a new message.
      * @summary Create Message
@@ -6134,7 +5920,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut, any>>;
+    createMessageV1EnterpriseMessagesPost(requestParameters: EnterpriseApiCreateMessageV1EnterpriseMessagesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
      * Get the Enterprise.
      * @summary Get Enterprise
@@ -6142,7 +5928,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    getEnterpriseV1EnterpriseGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Enterprise, any>>;
+    getEnterpriseV1EnterpriseGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Enterprise>>;
     /**
      * Get an Integration.
      * @summary Get Integration
@@ -6151,7 +5937,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration, any>>;
+    getIntegrationV1EnterpriseIntegrationsIntegrationIdGet(requestParameters: EnterpriseApiGetIntegrationV1EnterpriseIntegrationsIntegrationIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration>>;
     /**
      * Get team integrations.
      * @summary Get Integrations
@@ -6160,7 +5946,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    getIntegrationsV1EnterpriseIntegrationsGet(requestParameters?: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration[], any>>;
+    getIntegrationsV1EnterpriseIntegrationsGet(requestParameters?: EnterpriseApiGetIntegrationsV1EnterpriseIntegrationsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration[]>>;
     /**
      * Get a Message.
      * @summary Get Message
@@ -6169,7 +5955,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut, any>>;
+    getMessageV1EnterpriseMessagesMessageIdGet(requestParameters: EnterpriseApiGetMessageV1EnterpriseMessagesMessageIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut>>;
     /**
      * Update Enterprise.
      * @summary Update Enterprise
@@ -6178,7 +5964,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Enterprise, any>>;
+    updateEnterpriseV1EnterprisePatch(requestParameters: EnterpriseApiUpdateEnterpriseV1EnterprisePatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Enterprise>>;
     /**
      * Update Integration.
      * @summary Update Integration
@@ -6187,7 +5973,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration, any>>;
+    updateIntegrationV1EnterpriseIntegrationsIntegrationIdPatch(requestParameters: EnterpriseApiUpdateIntegrationV1EnterpriseIntegrationsIntegrationIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<Integration>>;
     /**
      * Update a Message.
      * @summary Update Message
@@ -6196,7 +5982,7 @@ export declare class EnterpriseApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EnterpriseApi
      */
-    updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut, any>>;
+    updateMessageV1EnterpriseMessagesMessageIdPatch(requestParameters: EnterpriseApiUpdateMessageV1EnterpriseMessagesMessageIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MessageOut>>;
 }
 /**
  * FeedbackApi - axios parameter creator
@@ -6211,7 +5997,7 @@ export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postFindingFeedbackV1FeedbackFindingIdPost: (findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    postFindingFeedbackV1FeedbackFindingIdPost: (findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
@@ -6219,7 +6005,7 @@ export declare const FeedbackApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackPost: (synthesisFeedbackIn: SynthesisFeedbackIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    postSynthesisFeedbackV1FeedbackPost: (synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FeedbackApi - functional programming interface
@@ -6234,7 +6020,7 @@ export declare const FeedbackApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
@@ -6242,7 +6028,7 @@ export declare const FeedbackApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * FeedbackApi - factory interface
@@ -6252,19 +6038,20 @@ export declare const FeedbackApiFactory: (configuration?: Configuration, basePat
     /**
      * Save feedback on a finding.
      * @summary Post Finding Feedback
-     * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
+     * @param {string} findingId
+     * @param {FindingFeedbackIn} findingFeedbackIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    postFindingFeedbackV1FeedbackFindingIdPost(findingId: string, findingFeedbackIn: FindingFeedbackIn, options?: any): AxiosPromise<any>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
-     * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
+     * @param {SynthesisFeedbackIn} synthesisFeedbackIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn: SynthesisFeedbackIn, options?: any): AxiosPromise<any>;
 };
 /**
  * Request parameters for postFindingFeedbackV1FeedbackFindingIdPost operation in FeedbackApi.
@@ -6313,7 +6100,7 @@ export declare class FeedbackApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    postFindingFeedbackV1FeedbackFindingIdPost(requestParameters: FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
      * @summary Post Synthesis Feedback
@@ -6322,7 +6109,7 @@ export declare class FeedbackApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FeedbackApi
      */
-    postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    postSynthesisFeedbackV1FeedbackPost(requestParameters: FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * FindingsApi - axios parameter creator
@@ -6336,7 +6123,7 @@ export declare const FindingsApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn: StudyFindingsIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * FindingsApi - functional programming interface
@@ -6350,7 +6137,7 @@ export declare const FindingsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
 };
 /**
  * FindingsApi - factory interface
@@ -6360,11 +6147,11 @@ export declare const FindingsApiFactory: (configuration?: Configuration, basePat
     /**
      * Get study findings via association ids or dois.
      * @summary Get Study Findings From Association Ids Or Dois
-     * @param {FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest} requestParameters Request parameters.
+     * @param {StudyFindingsIn} studyFindingsIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyFindingsOut>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn: StudyFindingsIn, options?: any): AxiosPromise<StudyFindingsOut>;
 };
 /**
  * Request parameters for getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost operation in FindingsApi.
@@ -6394,7 +6181,7 @@ export declare class FindingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof FindingsApi
      */
-    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut, any>>;
+    getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
 }
 /**
  * MetricsApi - axios parameter creator
@@ -6407,7 +6194,7 @@ export declare const MetricsApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGraphMetricsV1MetricsGraphGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getGraphMetricsV1MetricsGraphGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * MetricsApi - functional programming interface
@@ -6420,7 +6207,7 @@ export declare const MetricsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>>;
+    getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphMetrics>>;
 };
 /**
  * MetricsApi - factory interface
@@ -6433,7 +6220,7 @@ export declare const MetricsApiFactory: (configuration?: Configuration, basePath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig): AxiosPromise<GraphMetrics>;
+    getGraphMetricsV1MetricsGraphGet(options?: any): AxiosPromise<GraphMetrics>;
 };
 /**
  * MetricsApi - object-oriented interface
@@ -6449,7 +6236,7 @@ export declare class MetricsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MetricsApi
      */
-    getGraphMetricsV1MetricsGraphGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphMetrics, any>>;
+    getGraphMetricsV1MetricsGraphGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphMetrics>>;
 }
 /**
  * ModeldbApi - axios parameter creator
@@ -6463,7 +6250,7 @@ export declare const ModeldbApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: (algorithmId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet: (algorithmId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
@@ -6471,7 +6258,7 @@ export declare const ModeldbApiAxiosParamCreator: (configuration?: Configuration
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAlgorithmsV1ModeldbAlgorithmsGet: (algorithmClass?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    listAlgorithmsV1ModeldbAlgorithmsGet: (algorithmClass?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * ModeldbApi - functional programming interface
@@ -6485,7 +6272,7 @@ export declare const ModeldbApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmOut>>;
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmOut>>;
     /**
      * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
@@ -6493,7 +6280,7 @@ export declare const ModeldbApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>>;
+    listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AlgorithmListResult>>;
 };
 /**
  * ModeldbApi - factory interface
@@ -6503,19 +6290,19 @@ export declare const ModeldbApiFactory: (configuration?: Configuration, basePath
     /**
      * Get algorithms by id.
      * @summary Get Algorithm
-     * @param {ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest} requestParameters Request parameters.
+     * @param {string} algorithmId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AlgorithmOut>;
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(algorithmId: string, options?: any): AxiosPromise<AlgorithmOut>;
     /**
      * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
-     * @param {ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest} requestParameters Request parameters.
+     * @param {string} [algorithmClass]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters?: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<AlgorithmListResult>;
+    listAlgorithmsV1ModeldbAlgorithmsGet(algorithmClass?: string, options?: any): AxiosPromise<AlgorithmListResult>;
 };
 /**
  * Request parameters for getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet operation in ModeldbApi.
@@ -6558,7 +6345,7 @@ export declare class ModeldbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AlgorithmOut, any>>;
+    getAlgorithmV1ModeldbAlgorithmsAlgorithmIdGet(requestParameters: ModeldbApiGetAlgorithmV1ModeldbAlgorithmsAlgorithmIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AlgorithmOut>>;
     /**
      * List available algorithms in ModelDB. Search with algorithm class if passed.
      * @summary List Algorithms
@@ -6567,7 +6354,7 @@ export declare class ModeldbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ModeldbApi
      */
-    listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters?: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<AlgorithmListResult, any>>;
+    listAlgorithmsV1ModeldbAlgorithmsGet(requestParameters?: ModeldbApiListAlgorithmsV1ModeldbAlgorithmsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<AlgorithmListResult>>;
 }
 /**
  * PassthroughApi - axios parameter creator
@@ -6581,7 +6368,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCrossrefV1CrossrefRestOfPathGet: (restOfPath: any, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getCrossrefV1CrossrefRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Post GetFTR entitlements endpoint.
      * @summary Get Ftr Entitlements
@@ -6589,7 +6376,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn: GetFTREntitlementsIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn: GetFTREntitlementsIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
@@ -6597,7 +6384,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrcidV1OrcidRestOfPathGet: (restOfPath: any, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getOrcidV1OrcidRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Semantic Graph
@@ -6605,7 +6392,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
@@ -6613,7 +6400,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath: any, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath: any, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Variable Concepts
@@ -6621,7 +6408,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -6629,7 +6416,7 @@ export declare const PassthroughApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postGraphqlV1GraphqlPost: (graphQLQuery: GraphQLQuery, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    postGraphqlV1GraphqlPost: (graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * PassthroughApi - functional programming interface
@@ -6643,7 +6430,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Post GetFTR entitlements endpoint.
      * @summary Get Ftr Entitlements
@@ -6651,7 +6438,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetFTREntitlementsOut>>;
+    getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetFTREntitlementsOut>>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
@@ -6659,7 +6446,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Semantic Graph
@@ -6667,7 +6454,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
@@ -6675,7 +6462,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Variable Concepts
@@ -6683,7 +6470,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -6691,7 +6478,7 @@ export declare const PassthroughApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * PassthroughApi - factory interface
@@ -6701,59 +6488,59 @@ export declare const PassthroughApiFactory: (configuration?: Configuration, base
     /**
      * Forward request to crossref.
      * @summary Get Crossref
-     * @param {PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {any} restOfPath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getCrossrefV1CrossrefRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
      * Post GetFTR entitlements endpoint.
      * @summary Get Ftr Entitlements
-     * @param {PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest} requestParameters Request parameters.
+     * @param {GetFTREntitlementsIn} getFTREntitlementsIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GetFTREntitlementsOut>;
+    getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn: GetFTREntitlementsIn, options?: any): AxiosPromise<GetFTREntitlementsOut>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
-     * @param {PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {any} restOfPath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getOrcidV1OrcidRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Semantic Graph
-     * @param {PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {string} restOfPath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any>;
     /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
-     * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {any} restOfPath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getUmlsConceptsV1UmlsRestOfPathGet(restOfPath: any, options?: any): AxiosPromise<any>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Variable Concepts
-     * @param {PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest} requestParameters Request parameters.
+     * @param {string} restOfPath
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath: string, options?: any): AxiosPromise<any>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
-     * @param {PassthroughApiPostGraphqlV1GraphqlPostRequest} requestParameters Request parameters.
+     * @param {GraphQLQuery} graphQLQuery
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    postGraphqlV1GraphqlPost(graphQLQuery: GraphQLQuery, options?: any): AxiosPromise<any>;
 };
 /**
  * Request parameters for getCrossrefV1CrossrefRestOfPathGet operation in PassthroughApi.
@@ -6861,7 +6648,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getCrossrefV1CrossrefRestOfPathGet(requestParameters: PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Post GetFTR entitlements endpoint.
      * @summary Get Ftr Entitlements
@@ -6870,7 +6657,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GetFTREntitlementsOut, any>>;
+    getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters: PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GetFTREntitlementsOut>>;
     /**
      * Forward request to ORCID.
      * @summary Get Orcid
@@ -6879,7 +6666,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getOrcidV1OrcidRestOfPathGet(requestParameters: PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Semantic Graph
@@ -6888,7 +6675,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters: PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward request to UMLS.
      * @summary Get Umls Concepts
@@ -6897,7 +6684,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getUmlsConceptsV1UmlsRestOfPathGet(requestParameters: PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward request to SearchGraph.
      * @summary Get Variable Concepts
@@ -6906,7 +6693,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters: PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Forward GraphQL request to SystemDB.
      * @summary Post Graphql
@@ -6915,7 +6702,7 @@ export declare class PassthroughApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PassthroughApi
      */
-    postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    postGraphqlV1GraphqlPost(requestParameters: PassthroughApiPostGraphqlV1GraphqlPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * QuerySuggestionsApi - axios parameter creator
@@ -6929,7 +6716,7 @@ export declare const QuerySuggestionsApiAxiosParamCreator: (configuration?: Conf
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getQuerySuggestionsV1QuerySuggestionsPost: (suggestedQueriesIn: SuggestedQueriesIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getQuerySuggestionsV1QuerySuggestionsPost: (suggestedQueriesIn: SuggestedQueriesIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * QuerySuggestionsApi - functional programming interface
@@ -6943,7 +6730,7 @@ export declare const QuerySuggestionsApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuggestedQueriesOut>>;
+    getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SuggestedQueriesOut>>;
 };
 /**
  * QuerySuggestionsApi - factory interface
@@ -6953,11 +6740,11 @@ export declare const QuerySuggestionsApiFactory: (configuration?: Configuration,
     /**
      * Get query suggestions.
      * @summary Get Query Suggestions.
-     * @param {QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest} requestParameters Request parameters.
+     * @param {SuggestedQueriesIn} suggestedQueriesIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SuggestedQueriesOut>;
+    getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn: SuggestedQueriesIn, options?: any): AxiosPromise<SuggestedQueriesOut>;
 };
 /**
  * Request parameters for getQuerySuggestionsV1QuerySuggestionsPost operation in QuerySuggestionsApi.
@@ -6987,7 +6774,7 @@ export declare class QuerySuggestionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof QuerySuggestionsApi
      */
-    getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SuggestedQueriesOut, any>>;
+    getQuerySuggestionsV1QuerySuggestionsPost(requestParameters: QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SuggestedQueriesOut>>;
 }
 /**
  * RdbApi - axios parameter creator
@@ -7001,7 +6788,7 @@ export declare const RdbApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readEvidencesV1RdbEvidencesGet: (ids?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    readEvidencesV1RdbEvidencesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Read studies.
      * @summary Read Studies
@@ -7009,7 +6796,7 @@ export declare const RdbApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readStudiesV1RdbStudiesGet: (ids?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    readStudiesV1RdbStudiesGet: (ids?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * RdbApi - functional programming interface
@@ -7023,7 +6810,7 @@ export declare const RdbApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>>;
+    readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvidenceRDBOut>>>;
     /**
      * Read studies.
      * @summary Read Studies
@@ -7031,7 +6818,7 @@ export declare const RdbApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>>;
+    readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<StudyRDBOut>>>;
 };
 /**
  * RdbApi - factory interface
@@ -7041,19 +6828,19 @@ export declare const RdbApiFactory: (configuration?: Configuration, basePath?: s
     /**
      * Read evidences.
      * @summary Read Evidences
-     * @param {RdbApiReadEvidencesV1RdbEvidencesGetRequest} requestParameters Request parameters.
+     * @param {Array<string>} [ids] Evidence ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readEvidencesV1RdbEvidencesGet(requestParameters?: RdbApiReadEvidencesV1RdbEvidencesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<EvidenceRDBOut>>;
+    readEvidencesV1RdbEvidencesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<EvidenceRDBOut>>;
     /**
      * Read studies.
      * @summary Read Studies
-     * @param {RdbApiReadStudiesV1RdbStudiesGetRequest} requestParameters Request parameters.
+     * @param {Array<string>} [ids] Study ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    readStudiesV1RdbStudiesGet(requestParameters?: RdbApiReadStudiesV1RdbStudiesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<StudyRDBOut>>;
+    readStudiesV1RdbStudiesGet(ids?: Array<string>, options?: any): AxiosPromise<Array<StudyRDBOut>>;
 };
 /**
  * Request parameters for readEvidencesV1RdbEvidencesGet operation in RdbApi.
@@ -7096,7 +6883,7 @@ export declare class RdbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    readEvidencesV1RdbEvidencesGet(requestParameters?: RdbApiReadEvidencesV1RdbEvidencesGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<EvidenceRDBOut[], any>>;
+    readEvidencesV1RdbEvidencesGet(requestParameters?: RdbApiReadEvidencesV1RdbEvidencesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<EvidenceRDBOut[]>>;
     /**
      * Read studies.
      * @summary Read Studies
@@ -7105,7 +6892,7 @@ export declare class RdbApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RdbApi
      */
-    readStudiesV1RdbStudiesGet(requestParameters?: RdbApiReadStudiesV1RdbStudiesGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyRDBOut[], any>>;
+    readStudiesV1RdbStudiesGet(requestParameters?: RdbApiReadStudiesV1RdbStudiesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyRDBOut[]>>;
 }
 /**
  * SemanticSearchApi - axios parameter creator
@@ -7119,7 +6906,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: (systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
@@ -7127,7 +6914,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
@@ -7135,7 +6922,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
@@ -7143,7 +6930,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet: (cacheKey: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchSynthesisV1SemanticSearchFetchGet: (cacheKey: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search relationship map.
      * @summary Get Relationship Map Endpoint
@@ -7151,7 +6938,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: (systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -7160,7 +6947,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom?: string, metric?: Metrics, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search findings.  Values from semantic search.
      * @summary Get System Search Findings Data
@@ -7168,7 +6955,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get statistical findings.
      * @summary Get System Search Mechanistic Data
@@ -7176,7 +6963,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: (systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: (systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get mechanistic findings.
      * @summary Get System Search Statistical Data
@@ -7184,7 +6971,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: (systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: (systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -7193,7 +6980,7 @@ export declare const SemanticSearchApiAxiosParamCreator: (configuration?: Config
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey: string, forceRerun?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SemanticSearchApi - functional programming interface
@@ -7207,7 +6994,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
@@ -7215,7 +7002,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisResponse>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
@@ -7223,7 +7010,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>>;
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClusterOutStatus>>;
     /**
      * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
@@ -7231,7 +7018,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SynthesisOut>>;
     /**
      * Get semantic search relationship map.
      * @summary Get Relationship Map Endpoint
@@ -7239,7 +7026,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -7248,7 +7035,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserMetricUsageOut>>;
     /**
      * Get semantic search findings.  Values from semantic search.
      * @summary Get System Search Findings Data
@@ -7256,7 +7043,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchData>>;
     /**
      * Get statistical findings.
      * @summary Get System Search Mechanistic Data
@@ -7264,7 +7051,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchMechanisticDataOut>>;
+    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchMechanisticDataOut>>;
     /**
      * Get mechanistic findings.
      * @summary Get System Search Statistical Data
@@ -7272,7 +7059,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchStatisticalDataOut>>;
+    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SystemSearchStatisticalDataOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -7281,7 +7068,7 @@ export declare const SemanticSearchApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+    regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
 };
 /**
  * SemanticSearchApi - factory interface
@@ -7291,83 +7078,85 @@ export declare const SemanticSearchApiFactory: (configuration?: Configuration, b
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Cluster Relationships
-     * @param {SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
-     * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SynthesisResponse>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SynthesisResponse>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
-     * @param {SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest} requestParameters Request parameters.
+     * @param {string} runId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ClusterOutStatus>;
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId: string, options?: any): AxiosPromise<ClusterOutStatus>;
     /**
      * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
-     * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
+     * @param {string} cacheKey
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SynthesisOut>;
+    fetchSynthesisV1SemanticSearchFetchGet(cacheKey: string, options?: any): AxiosPromise<SynthesisOut>;
     /**
      * Get semantic search relationship map.
      * @summary Get Relationship Map Endpoint
-     * @param {SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<any>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
-     * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
+     * @param {string} [dateFrom]
+     * @param {Metrics} [metric]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters?: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserMetricUsageOut>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom?: string, metric?: Metrics, options?: any): AxiosPromise<UserMetricUsageOut>;
     /**
      * Get semantic search findings.  Values from semantic search.
      * @summary Get System Search Findings Data
-     * @param {SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchIn} systemSearchIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchData>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn: SystemSearchIn, options?: any): AxiosPromise<SystemSearchData>;
     /**
      * Get statistical findings.
      * @summary Get System Search Mechanistic Data
-     * @param {SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchDataIn} systemSearchDataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchMechanisticDataOut>;
+    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchMechanisticDataOut>;
     /**
      * Get mechanistic findings.
      * @summary Get System Search Statistical Data
-     * @param {SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest} requestParameters Request parameters.
+     * @param {SystemSearchDataIn} systemSearchDataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SystemSearchStatisticalDataOut>;
+    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn: SystemSearchDataIn, options?: any): AxiosPromise<SystemSearchStatisticalDataOut>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
-     * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
+     * @param {string} cacheKey
+     * @param {boolean} [forceRerun]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<any>;
+    regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey: string, forceRerun?: boolean, options?: any): AxiosPromise<any>;
 };
 /**
  * Request parameters for asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost operation in SemanticSearchApi.
@@ -7526,7 +7315,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters: SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Async Semantic Search
@@ -7535,7 +7324,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisResponse, any>>;
+    asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters: SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisResponse>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Fetch Cluster Response
@@ -7544,7 +7333,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOutStatus, any>>;
+    fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters: SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ClusterOutStatus>>;
     /**
      * Get semantic search.  Values from semantic search. Logs freemium usage on success
      * @summary Fetch Synthesis
@@ -7553,7 +7342,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut, any>>;
+    fetchSynthesisV1SemanticSearchFetchGet(requestParameters: SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SynthesisOut>>;
     /**
      * Get semantic search relationship map.
      * @summary Get Relationship Map Endpoint
@@ -7562,7 +7351,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters: SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
      * @summary Get Semantic Search Usage
@@ -7571,7 +7360,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters?: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut, any>>;
+    getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters?: SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserMetricUsageOut>>;
     /**
      * Get semantic search findings.  Values from semantic search.
      * @summary Get System Search Findings Data
@@ -7580,7 +7369,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchData, any>>;
+    getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters: SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchData>>;
     /**
      * Get statistical findings.
      * @summary Get System Search Mechanistic Data
@@ -7589,7 +7378,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchMechanisticDataOut, any>>;
+    getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters: SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchMechanisticDataOut>>;
     /**
      * Get mechanistic findings.
      * @summary Get System Search Statistical Data
@@ -7598,7 +7387,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchStatisticalDataOut, any>>;
+    getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters: SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SystemSearchStatisticalDataOut>>;
     /**
      * Get semantic search.  Values from semantic search.
      * @summary Regenerate Synthesis
@@ -7607,7 +7396,7 @@ export declare class SemanticSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SemanticSearchApi
      */
-    regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<any, any>>;
+    regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters: SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
 }
 /**
  * SohApi - axios parameter creator
@@ -7622,7 +7411,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: (topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: (topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch graph.
      * @summary Fetch Full Stat Graph
@@ -7631,14 +7420,14 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: (topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: (topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get hierarchical topics.
      * @summary Fetch Hierarchical Topics
@@ -7646,7 +7435,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7656,7 +7445,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch mediators.
      * @summary Fetch Mech Mediators
@@ -7666,7 +7455,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch paths.
      * @summary Fetch Mech Paths
@@ -7676,7 +7465,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch graph.
      * @summary Fetch Stat Graph
@@ -7686,7 +7475,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch mediators.
      * @summary Fetch Stat Mediators
@@ -7696,7 +7485,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: (topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch paths.
      * @summary Fetch Stat Paths
@@ -7706,7 +7495,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Fetch Topics
@@ -7714,7 +7503,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchTopicsV1SohTopicsGet: (query: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    fetchTopicsV1SohTopicsGet: (query: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health findings and related study if doi provided.
      * @summary Get List Of Soh Findings
@@ -7722,7 +7511,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getListOfSohFindingsV1SohFindingsLogGet: (doi?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getListOfSohFindingsV1SohFindingsLogGet: (doi?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health summary.
      * @summary Get Relationship Summary Between Two Topics.
@@ -7731,7 +7520,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id: string, topic2Id: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id: string, topic2Id: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -7739,7 +7528,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohEvidenceMetadataV1SohEvidencesPost: (sohIn: SohIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSohEvidenceMetadataV1SohEvidencesPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Graph Metadata
@@ -7748,7 +7537,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet: (limit?: number, clearCache?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSohGraphMetadataV1SohGraphGet: (limit?: number, clearCache?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7756,7 +7545,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohFindingsPost: (sohIn: SohIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSohOfMetadataV1SohFindingsPost: (sohIn: SohIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Topic By Id
@@ -7764,7 +7553,7 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopicByIDV1SohTopicsTopicIdGet: (topicId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getTopicByIDV1SohTopicsTopicIdGet: (topicId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SohApi - functional programming interface
@@ -7779,7 +7568,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Full Stat Graph
@@ -7788,14 +7577,14 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphTimeSeriesOut>>;
     /**
      * Get hierarchical topics.
      * @summary Fetch Hierarchical Topics
@@ -7803,7 +7592,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>>;
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<HierarchicalTopicNode>>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -7813,7 +7602,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Mech Mediators
@@ -7823,7 +7612,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Fetch paths.
      * @summary Fetch Mech Paths
@@ -7833,7 +7622,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Stat Graph
@@ -7843,7 +7632,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Stat Mediators
@@ -7853,7 +7642,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Fetch paths.
      * @summary Fetch Stat Paths
@@ -7863,7 +7652,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
+    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PathsOut>>;
     /**
      * Get system of health data.
      * @summary Fetch Topics
@@ -7871,7 +7660,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchTopicsV1SohTopicsGet(query: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>>;
+    fetchTopicsV1SohTopicsGet(query: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>>;
     /**
      * Get system of health findings and related study if doi provided.
      * @summary Get List Of Soh Findings
@@ -7879,7 +7668,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>>;
+    getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FindingsLogOut>>;
     /**
      * Get system of health summary.
      * @summary Get Relationship Summary Between Two Topics.
@@ -7888,7 +7677,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -7896,7 +7685,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>>;
+    getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohEvidenceOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Graph Metadata
@@ -7905,7 +7694,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
+    getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -7913,7 +7702,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
+    getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohOut>>;
     /**
      * Get system of health data.
      * @summary Get Topic By Id
@@ -7921,7 +7710,7 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>>;
+    getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>>;
 };
 /**
  * SohApi - factory interface
@@ -7931,138 +7720,154 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
     /**
      * Fetch graph.
      * @summary Fetch Full Mech Graph
-     * @param {SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {GraphPayloadTyped} graphPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut>;
+    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch graph.
      * @summary Fetch Full Stat Graph
-     * @param {SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {GraphPayloadTyped} graphPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut>;
+    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId: string, graphPayloadTyped: GraphPayloadTyped, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig): AxiosPromise<GraphTimeSeriesOut>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: any): AxiosPromise<GraphTimeSeriesOut>;
     /**
      * Get hierarchical topics.
      * @summary Fetch Hierarchical Topics
-     * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
+     * @param {string} query
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<HierarchicalTopicNode>>;
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query: string, options?: any): AxiosPromise<Array<HierarchicalTopicNode>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
-     * @param {SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} traversalDirection
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut>;
+    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch mediators.
      * @summary Fetch Mech Mediators
-     * @param {SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} targetTopicId
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut>;
+    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Fetch paths.
      * @summary Fetch Mech Paths
-     * @param {SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} traversalDirection
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut>;
+    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Fetch graph.
      * @summary Fetch Stat Graph
-     * @param {SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} traversalDirection
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut>;
+    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<GraphOut>;
     /**
      * Fetch mediators.
      * @summary Fetch Stat Mediators
-     * @param {SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} targetTopicId
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut>;
+    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId: string, targetTopicId: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Fetch paths.
      * @summary Fetch Stat Paths
-     * @param {SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {string} traversalDirection
+     * @param {PathsPayloadTyped} pathsPayloadTyped
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<PathsOut>;
+    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId: string, traversalDirection: string, pathsPayloadTyped: PathsPayloadTyped, options?: any): AxiosPromise<PathsOut>;
     /**
      * Get system of health data.
      * @summary Fetch Topics
-     * @param {SohApiFetchTopicsV1SohTopicsGetRequest} requestParameters Request parameters.
+     * @param {string} query
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>;
+    fetchTopicsV1SohTopicsGet(query: string, options?: any): AxiosPromise<Array<SohServiceClientModelsTopicNodeTopicNode>>;
     /**
      * Get system of health findings and related study if doi provided.
      * @summary Get List Of Soh Findings
-     * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
+     * @param {string} [doi]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<FindingsLogOut>;
+    getListOfSohFindingsV1SohFindingsLogGet(doi?: string, options?: any): AxiosPromise<FindingsLogOut>;
     /**
      * Get system of health summary.
      * @summary Get Relationship Summary Between Two Topics.
-     * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
+     * @param {string} topic1Id
+     * @param {string} topic2Id
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<string>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
-     * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
+     * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohEvidenceOut>;
+    getSohEvidenceMetadataV1SohEvidencesPost(sohIn: SohIn, options?: any): AxiosPromise<SohEvidenceOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Graph Metadata
-     * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
+     * @param {number} [limit] Number of relationships to return.
+     * @param {boolean} [clearCache] Clear cache and fetch new graph.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohGraphMetadataV1SohGraphGet(requestParameters?: SohApiGetSohGraphMetadataV1SohGraphGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphOut>;
+    getSohGraphMetadataV1SohGraphGet(limit?: number, clearCache?: boolean, options?: any): AxiosPromise<GraphOut>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
-     * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
+     * @param {SohIn} sohIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohOut>;
+    getSohOfMetadataV1SohFindingsPost(sohIn: SohIn, options?: any): AxiosPromise<SohOut>;
     /**
      * Get system of health data.
      * @summary Get Topic By Id
-     * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
+     * @param {string} topicId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>;
+    getTopicByIDV1SohTopicsTopicIdGet(topicId: string, options?: any): AxiosPromise<SohServiceClientModelsTopicNodeTopicNode>;
 };
 /**
  * Request parameters for fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost operation in SohApi.
@@ -8383,7 +8188,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut, any>>;
+    fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Full Stat Graph
@@ -8392,7 +8197,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut, any>>;
+    fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters: SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Fetch time series data for relationships, findings, and topics.
      * @summary Fetch Graph Time Series Data
@@ -8400,7 +8205,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut, any>>;
+    fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphTimeSeriesOut>>;
     /**
      * Get hierarchical topics.
      * @summary Fetch Hierarchical Topics
@@ -8409,7 +8214,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<HierarchicalTopicNode[], any>>;
+    fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters: SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<HierarchicalTopicNode[]>>;
     /**
      * Fetch graph.
      * @summary Fetch Mech Graph
@@ -8418,7 +8223,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut, any>>;
+    fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Mech Mediators
@@ -8427,7 +8232,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut, any>>;
+    fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut>>;
     /**
      * Fetch paths.
      * @summary Fetch Mech Paths
@@ -8436,7 +8241,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut, any>>;
+    fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut>>;
     /**
      * Fetch graph.
      * @summary Fetch Stat Graph
@@ -8445,7 +8250,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut, any>>;
+    fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters: SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Fetch mediators.
      * @summary Fetch Stat Mediators
@@ -8454,7 +8259,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut, any>>;
+    fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters: SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut>>;
     /**
      * Fetch paths.
      * @summary Fetch Stat Paths
@@ -8463,7 +8268,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut, any>>;
+    fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters: SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<PathsOut>>;
     /**
      * Get system of health data.
      * @summary Fetch Topics
@@ -8472,7 +8277,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SohServiceClientModelsTopicNodeTopicNode[], any>>;
+    fetchTopicsV1SohTopicsGet(requestParameters: SohApiFetchTopicsV1SohTopicsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohServiceClientModelsTopicNodeTopicNode[]>>;
     /**
      * Get system of health findings and related study if doi provided.
      * @summary Get List Of Soh Findings
@@ -8481,7 +8286,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<FindingsLogOut, any>>;
+    getListOfSohFindingsV1SohFindingsLogGet(requestParameters?: SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<FindingsLogOut>>;
     /**
      * Get system of health summary.
      * @summary Get Relationship Summary Between Two Topics.
@@ -8490,7 +8295,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<string, any>>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<string>>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -8499,7 +8304,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SohEvidenceOut, any>>;
+    getSohEvidenceMetadataV1SohEvidencesPost(requestParameters: SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohEvidenceOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Graph Metadata
@@ -8508,7 +8313,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getSohGraphMetadataV1SohGraphGet(requestParameters?: SohApiGetSohGraphMetadataV1SohGraphGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut, any>>;
+    getSohGraphMetadataV1SohGraphGet(requestParameters?: SohApiGetSohGraphMetadataV1SohGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphOut>>;
     /**
      * Get system of health data.
      * @summary Get Soh Of Metadata
@@ -8517,7 +8322,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut, any>>;
+    getSohOfMetadataV1SohFindingsPost(requestParameters: SohApiGetSohOfMetadataV1SohFindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohOut>>;
     /**
      * Get system of health data.
      * @summary Get Topic By Id
@@ -8526,7 +8331,7 @@ export declare class SohApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SohApi
      */
-    getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SohServiceClientModelsTopicNodeTopicNode, any>>;
+    getTopicByIDV1SohTopicsTopicIdGet(requestParameters: SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SohServiceClientModelsTopicNodeTopicNode>>;
 }
 /**
  * SsoApi - axios parameter creator
@@ -8540,7 +8345,7 @@ export declare const SsoApiAxiosParamCreator: (configuration?: Configuration) =>
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIdentityProviderNameV1IdpNameEmailGet: (email: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getIdentityProviderNameV1IdpNameEmailGet: (email: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SsoApi - functional programming interface
@@ -8554,7 +8359,7 @@ export declare const SsoApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>>;
+    getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>>;
 };
 /**
  * SsoApi - factory interface
@@ -8564,11 +8369,11 @@ export declare const SsoApiFactory: (configuration?: Configuration, basePath?: s
     /**
      * Get Identity Provider name for given email domain.
      * @summary Get Identity Provider Name
-     * @param {SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest} requestParameters Request parameters.
+     * @param {string} email
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<IdentityProviderNameOut>;
+    getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: any): AxiosPromise<IdentityProviderNameOut>;
 };
 /**
  * Request parameters for getIdentityProviderNameV1IdpNameEmailGet operation in SsoApi.
@@ -8598,7 +8403,7 @@ export declare class SsoApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SsoApi
      */
-    getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<IdentityProviderNameOut, any>>;
+    getIdentityProviderNameV1IdpNameEmailGet(requestParameters: SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<IdentityProviderNameOut>>;
 }
 /**
  * StripeApi - axios parameter creator
@@ -8613,7 +8418,7 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get subscription seats.
      * @summary Get Subscription Seats
@@ -8621,7 +8426,7 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -8629,7 +8434,7 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -8638,7 +8443,7 @@ export declare const StripeApiAxiosParamCreator: (configuration?: Configuration)
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: (email: string, subscriptionId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: (email: string, subscriptionId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StripeApi - functional programming interface
@@ -8653,7 +8458,7 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
     /**
      * Get subscription seats.
      * @summary Get Subscription Seats
@@ -8661,7 +8466,7 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionSeats>>;
+    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionSeats>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -8669,7 +8474,7 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StripeSessionOut>>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -8678,7 +8483,7 @@ export declare const StripeApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
+    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<boolean>>;
 };
 /**
  * StripeApi - factory interface
@@ -8688,35 +8493,37 @@ export declare const StripeApiFactory: (configuration?: Configuration, basePath?
     /**
      * Add subscription seats.
      * @summary Add Subscription Seats
-     * @param {StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
+     * @param {string} subscriptionId
+     * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<boolean>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId: string, addSubscriptionSeatIn: AddSubscriptionSeatIn, options?: any): AxiosPromise<boolean>;
     /**
      * Get subscription seats.
      * @summary Get Subscription Seats
-     * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
+     * @param {string} subscriptionId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<SubscriptionSeats>;
+    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId: string, options?: any): AxiosPromise<SubscriptionSeats>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
-     * @param {StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest} requestParameters Request parameters.
+     * @param {string} [domainCallback]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(requestParameters?: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StripeSessionOut>;
+    manageSubscriptionV1StripeSubscriptionManagePost(domainCallback?: string, options?: any): AxiosPromise<StripeSessionOut>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
-     * @param {StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest} requestParameters Request parameters.
+     * @param {string} email
+     * @param {string} subscriptionId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: RawAxiosRequestConfig): AxiosPromise<boolean>;
+    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email: string, subscriptionId: string, options?: any): AxiosPromise<boolean>;
 };
 /**
  * Request parameters for addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost operation in StripeApi.
@@ -8797,7 +8604,7 @@ export declare class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean, any>>;
+    addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters: StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
     /**
      * Get subscription seats.
      * @summary Get Subscription Seats
@@ -8806,7 +8613,7 @@ export declare class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionSeats, any>>;
+    getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters: StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<SubscriptionSeats>>;
     /**
      * Start stripe checkout session.
      * @summary Manage Subscription
@@ -8815,7 +8622,7 @@ export declare class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    manageSubscriptionV1StripeSubscriptionManagePost(requestParameters?: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut, any>>;
+    manageSubscriptionV1StripeSubscriptionManagePost(requestParameters?: StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StripeSessionOut>>;
     /**
      * Remove subscription seat.
      * @summary Remove Subscription Seat
@@ -8824,7 +8631,7 @@ export declare class StripeApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StripeApi
      */
-    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean, any>>;
+    removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters: StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<boolean>>;
 }
 /**
  * StudyMetadataApi - axios parameter creator
@@ -8838,7 +8645,7 @@ export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get study metadata from SystemRDB via pmids.
      * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
@@ -8846,7 +8653,7 @@ export declare const StudyMetadataApiAxiosParamCreator: (configuration?: Configu
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: (studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: (studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * StudyMetadataApi - functional programming interface
@@ -8860,7 +8667,7 @@ export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>>;
+    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataOut>>;
     /**
      * Get study metadata from SystemRDB via pmids.
      * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
@@ -8868,7 +8675,7 @@ export declare const StudyMetadataApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataRDBOut>>;
+    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyMetadataRDBOut>>;
 };
 /**
  * StudyMetadataApi - factory interface
@@ -8878,19 +8685,19 @@ export declare const StudyMetadataApiFactory: (configuration?: Configuration, ba
     /**
      * Get study metadata from OpenAlex and DynamoDB via pmids.
      * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
-     * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest} requestParameters Request parameters.
+     * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyMetadataOut>;
+    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataOut>;
     /**
      * Get study metadata from SystemRDB via pmids.
      * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
-     * @param {StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest} requestParameters Request parameters.
+     * @param {StudyMetadataIn} studyMetadataIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyMetadataRDBOut>;
+    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn: StudyMetadataIn, options?: any): AxiosPromise<StudyMetadataRDBOut>;
 };
 /**
  * Request parameters for getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost operation in StudyMetadataApi.
@@ -8933,7 +8740,7 @@ export declare class StudyMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataOut, any>>;
+    getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters: StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataOut>>;
     /**
      * Get study metadata from SystemRDB via pmids.
      * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
@@ -8942,7 +8749,7 @@ export declare class StudyMetadataApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StudyMetadataApi
      */
-    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataRDBOut, any>>;
+    getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyMetadataRDBOut>>;
 }
 /**
  * SystemGraphApi - axios parameter creator
@@ -8963,7 +8770,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -8979,7 +8786,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -8987,7 +8794,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: (topicId: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: (topicId: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
@@ -9003,7 +8810,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -9014,7 +8821,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: (topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: (topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch single topic semantic graph.
      * @summary Get Semantic Topic Graph Endpoint
@@ -9023,7 +8830,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName?: string, topicIds?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Shared Sources Endpoint
@@ -9039,7 +8846,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -9055,7 +8862,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -9063,7 +8870,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch semantic graph.
      * @summary Get Topological Categories Endpoint
@@ -9076,7 +8883,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get relationship path.
      * @summary Get Two Hop Mediators Endpoint
@@ -9092,7 +8899,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
@@ -9107,7 +8914,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -9120,7 +8927,7 @@ export declare const SystemGraphApiAxiosParamCreator: (configuration?: Configura
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTopicsEndpointV1SystemGraphSearchGet: (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    searchTopicsEndpointV1SystemGraphSearchGet: (q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * SystemGraphApi - functional programming interface
@@ -9141,7 +8948,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -9157,7 +8964,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -9165,7 +8972,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConceptRelationshipsOut>>;
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
@@ -9181,7 +8988,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -9192,7 +8999,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch single topic semantic graph.
      * @summary Get Semantic Topic Graph Endpoint
@@ -9201,7 +9008,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Get relationship path.
      * @summary Get Shared Sources Endpoint
@@ -9217,7 +9024,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -9233,7 +9040,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -9241,7 +9048,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GraphData>>;
     /**
      * Fetch semantic graph.
      * @summary Get Topological Categories Endpoint
@@ -9254,7 +9061,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>>;
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicCategories>>;
     /**
      * Get relationship path.
      * @summary Get Two Hop Mediators Endpoint
@@ -9270,7 +9077,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
@@ -9285,7 +9092,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MapPathsOut>>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -9298,7 +9105,7 @@ export declare const SystemGraphApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>>;
+    searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicOut>>>;
 };
 /**
  * SystemGraphApi - factory interface
@@ -9308,107 +9115,175 @@ export declare const SystemGraphApiFactory: (configuration?: Configuration, base
     /**
      * Get downstream paths.
      * @summary Get Downstream Endpoint
-     * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest} requestParameters Request parameters.
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {Array<string>} [additionalNodes] Additional nodes
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
-     * @param {SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest} requestParameters Request parameters.
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
-     * @param {SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest} requestParameters Request parameters.
+     * @param {string} topicId
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<ConceptRelationshipsOut>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId: string, options?: any): AxiosPromise<ConceptRelationshipsOut>;
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
-     * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest} requestParameters Request parameters.
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
-     * @param {SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest} requestParameters Request parameters.
+     * @param {string} [topic1] Topic 1
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids1] Topic 1 ids
+     * @param {Array<string>} [ids2] Topic 2 ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters?: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphData>;
+    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1?: string, topic2?: string, ids1?: Array<string>, ids2?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch single topic semantic graph.
      * @summary Get Semantic Topic Graph Endpoint
-     * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
+     * @param {string} [topicName] Topic name
+     * @param {Array<string>} [topicIds] Topic ids
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphData>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName?: string, topicIds?: Array<string>, options?: any): AxiosPromise<GraphData>;
     /**
      * Get relationship path.
      * @summary Get Shared Sources Endpoint
-     * @param {SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest} requestParameters Request parameters.
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
-     * @param {SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest} requestParameters Request parameters.
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
-     * @param {SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
+     * @param {number} [numRelationships] Number of relationships to return.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<GraphData>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships?: number, options?: any): AxiosPromise<GraphData>;
     /**
      * Fetch semantic graph.
      * @summary Get Topological Categories Endpoint
-     * @param {SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest} requestParameters Request parameters.
+     * @param {string} topic1 Topic 1
+     * @param {Array<string>} ids1 Topic 1 ids
+     * @param {string} [topic2] Topic 2
+     * @param {Array<string>} [ids2] Topic 2 ids
+     * @param {number} [pageSize] Page size
+     * @param {number} [offset] Offset
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TopicCategories>;
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1: string, ids1: Array<string>, topic2?: string, ids2?: Array<string>, pageSize?: number, offset?: number, options?: any): AxiosPromise<TopicCategories>;
     /**
      * Get relationship path.
      * @summary Get Two Hop Mediators Endpoint
-     * @param {SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest} requestParameters Request parameters.
+     * @param {string} source System ID of source
+     * @param {string} target System ID of target
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {Array<string>} [additionalSources] Additional sources
+     * @param {Array<string>} [additionalTargets] Additional targets
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source: string, target: string, page?: number, pageSize?: number, additionalSources?: Array<string>, additionalTargets?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
-     * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest} requestParameters Request parameters.
+     * @param {string} node System ID of topic node
+     * @param {number} [page] Page number
+     * @param {number} [pageSize] Page size
+     * @param {number} [nHops] Number of hops
+     * @param {Array<string>} [additionalNodes] Additional nodes
+     * @param {string} [relationshipTypes] Comma separated list of relationship types
+     * @param {boolean} [includeNonSignificant] Significant relationships only
+     * @param {string} [semanticTypes] Comma separated list of semantic_types
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<MapPathsOut>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node: string, page?: number, pageSize?: number, nHops?: number, additionalNodes?: Array<string>, relationshipTypes?: string, includeNonSignificant?: boolean, semanticTypes?: string, options?: any): AxiosPromise<MapPathsOut>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
-     * @param {SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest} requestParameters Request parameters.
+     * @param {string} q Search query
+     * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
+     * @param {number} [subgraphDepth] Depth of subgraph
+     * @param {SearchType} [searchType] Search type (semantic or keyword)
+     * @param {number} [autocut] Autocut for semantic search
+     * @param {number} [limit] Limit for semantic search
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TopicOut>>;
+    searchTopicsEndpointV1SystemGraphSearchGet(q: string, subgraphTopics?: Array<string>, subgraphDepth?: number, searchType?: SearchType, autocut?: number, limit?: number, options?: any): AxiosPromise<Array<TopicOut>>;
 };
 /**
  * Request parameters for getDownstreamEndpointV1SystemGraphPathsDownstreamGet operation in SystemGraphApi.
@@ -10002,7 +9877,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters: SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Mediators Endpoint
@@ -10011,7 +9886,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters: SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get One Degree From Topic
@@ -10020,7 +9895,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut, any>>;
+    getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters: SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ConceptRelationshipsOut>>;
     /**
      * Get relationship path.
      * @summary Get Relationship Endpoint
@@ -10029,7 +9904,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters: SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Fetch semantic graph.
      * @summary Get Semantic Graph Endpoint
@@ -10038,7 +9913,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters?: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData, any>>;
+    getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters?: SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch single topic semantic graph.
      * @summary Get Semantic Topic Graph Endpoint
@@ -10047,7 +9922,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData, any>>;
+    getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters?: SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Get relationship path.
      * @summary Get Shared Sources Endpoint
@@ -10056,7 +9931,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters: SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get relationship path.
      * @summary Get Shared Targets Endpoint
@@ -10065,7 +9940,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters: SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get system graph from the database.
      * @summary Get System Graph Endpoint
@@ -10074,7 +9949,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData, any>>;
+    getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters?: SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<GraphData>>;
     /**
      * Fetch semantic graph.
      * @summary Get Topological Categories Endpoint
@@ -10083,7 +9958,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicCategories, any>>;
+    getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters: SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicCategories>>;
     /**
      * Get relationship path.
      * @summary Get Two Hop Mediators Endpoint
@@ -10092,7 +9967,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters: SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Get upstream paths.
      * @summary Get Upstream Endpoint
@@ -10101,7 +9976,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut, any>>;
+    getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters: SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<MapPathsOut>>;
     /**
      * Search topics.
      * @summary Search Topics Endpoint
@@ -10110,7 +9985,7 @@ export declare class SystemGraphApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemGraphApi
      */
-    searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicOut[], any>>;
+    searchTopicsEndpointV1SystemGraphSearchGet(requestParameters: SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicOut[]>>;
 }
 /**
  * TopicApi - axios parameter creator
@@ -10124,7 +9999,7 @@ export declare const TopicApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicInfoGet: (topicIds?: Array<string>, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getInformationForATopicV1TopicInfoGet: (topicIds?: Array<string>, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -10134,7 +10009,7 @@ export declare const TopicApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet: (topicId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getVariablesRelatedToATopicV1TopicVariablesGet: (topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * TopicApi - functional programming interface
@@ -10148,7 +10023,7 @@ export declare const TopicApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>>;
+    getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TopicRDBOut>>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -10158,7 +10033,7 @@ export declare const TopicApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>>;
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TopicVariablesOut>>;
 };
 /**
  * TopicApi - factory interface
@@ -10168,19 +10043,21 @@ export declare const TopicApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Get topic data.
      * @summary Get Information For A Topic.
-     * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
+     * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getInformationForATopicV1TopicInfoGet(requestParameters?: TopicApiGetInformationForATopicV1TopicInfoGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<TopicRDBOut>>;
+    getInformationForATopicV1TopicInfoGet(topicIds?: Array<string>, options?: any): AxiosPromise<Array<TopicRDBOut>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
-     * @param {TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest} requestParameters Request parameters.
+     * @param {string} topicId
+     * @param {number} [limit]
+     * @param {number} [offset]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<TopicVariablesOut>;
+    getVariablesRelatedToATopicV1TopicVariablesGet(topicId: string, limit?: number, offset?: number, options?: any): AxiosPromise<TopicVariablesOut>;
 };
 /**
  * Request parameters for getInformationForATopicV1TopicInfoGet operation in TopicApi.
@@ -10235,7 +10112,7 @@ export declare class TopicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    getInformationForATopicV1TopicInfoGet(requestParameters?: TopicApiGetInformationForATopicV1TopicInfoGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRDBOut[], any>>;
+    getInformationForATopicV1TopicInfoGet(requestParameters?: TopicApiGetInformationForATopicV1TopicInfoGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicRDBOut[]>>;
     /**
      * Get information for variables related to a topic.
      * @summary Get Variables Related To A Topic.
@@ -10244,7 +10121,7 @@ export declare class TopicApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TopicApi
      */
-    getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicVariablesOut, any>>;
+    getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters: TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<TopicVariablesOut>>;
 }
 /**
  * UsersApi - axios parameter creator
@@ -10259,7 +10136,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserByCognitoIdV1UsersPost: (userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    createAUserByCognitoIdV1UsersPost: (userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new user.
      * @summary Create A User From Credentials.
@@ -10267,7 +10144,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserFromCredentialsV1UserPost: (userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    createAUserFromCredentialsV1UserPost: (userProfileIn: UserProfileIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
@@ -10275,7 +10152,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getAuthenticatedUserV1UserGet: (includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -10284,7 +10161,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserV1UsersUserIdGet: (userId: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getUserV1UsersUserIdGet: (userId: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -10294,7 +10171,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet: (teamId?: string, email?: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getUsersV1UsersGet: (teamId?: string, email?: string, includeAvatar?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -10303,7 +10180,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAUserByIdV1UsersUserIdPatch: (userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    updateAUserByIdV1UsersUserIdPatch: (userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -10311,7 +10188,7 @@ export declare const UsersApiAxiosParamCreator: (configuration?: Configuration) 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAuthenticatedUserProfileV1UserPut: (userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    updateAuthenticatedUserProfileV1UserPut: (userProfileIn: UserProfileIn, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * UsersApi - functional programming interface
@@ -10326,7 +10203,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Create a new user.
      * @summary Create A User From Credentials.
@@ -10334,7 +10211,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
@@ -10342,7 +10219,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -10351,7 +10228,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>>;
+    getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPublicProfileOut>>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -10361,7 +10238,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
+    getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UserPublicProfileOut>>>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -10370,7 +10247,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -10378,7 +10255,7 @@ export declare const UsersApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
+    updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserPrivateProfileOut>>;
 };
 /**
  * UsersApi - factory interface
@@ -10388,59 +10265,64 @@ export declare const UsersApiFactory: (configuration?: Configuration, basePath?:
     /**
      * Create a new user.
      * @summary Create A User By Cognito Id.
-     * @param {UsersApiCreateAUserByCognitoIdV1UsersPostRequest} requestParameters Request parameters.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut>;
+    createAUserByCognitoIdV1UsersPost(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Create a new user.
      * @summary Create A User From Credentials.
-     * @param {UsersApiCreateAUserFromCredentialsV1UserPostRequest} requestParameters Request parameters.
+     * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut>;
+    createAUserFromCredentialsV1UserPost(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
-     * @param {UsersApiGetAuthenticatedUserV1UserGetRequest} requestParameters Request parameters.
+     * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getAuthenticatedUserV1UserGet(requestParameters?: UsersApiGetAuthenticatedUserV1UserGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut>;
+    getAuthenticatedUserV1UserGet(includeAvatar?: boolean, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
-     * @param {UsersApiGetUserV1UsersUserIdGetRequest} requestParameters Request parameters.
+     * @param {string} userId
+     * @param {boolean} [includeAvatar]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPublicProfileOut>;
+    getUserV1UsersUserIdGet(userId: string, includeAvatar?: boolean, options?: any): AxiosPromise<UserPublicProfileOut>;
     /**
      * List public profiles.
      * @summary Get Users
-     * @param {UsersApiGetUsersV1UsersGetRequest} requestParameters Request parameters.
+     * @param {string} [teamId]
+     * @param {string} [email] Email address
+     * @param {boolean} [includeAvatar] Include avatar
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getUsersV1UsersGet(requestParameters?: UsersApiGetUsersV1UsersGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<Array<UserPublicProfileOut>>;
+    getUsersV1UsersGet(teamId?: string, email?: string, includeAvatar?: boolean, options?: any): AxiosPromise<Array<UserPublicProfileOut>>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
-     * @param {UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest} requestParameters Request parameters.
+     * @param {string} userId
+     * @param {UpdateProfileIn} updateProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut>;
+    updateAUserByIdV1UsersUserIdPatch(userId: string, updateProfileIn: UpdateProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
-     * @param {UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest} requestParameters Request parameters.
+     * @param {UserProfileIn} userProfileIn
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: RawAxiosRequestConfig): AxiosPromise<UserPrivateProfileOut>;
+    updateAuthenticatedUserProfileV1UserPut(userProfileIn: UserProfileIn, options?: any): AxiosPromise<UserPrivateProfileOut>;
 };
 /**
  * Request parameters for createAUserByCognitoIdV1UsersPost operation in UsersApi.
@@ -10578,7 +10460,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut, any>>;
+    createAUserByCognitoIdV1UsersPost(requestParameters: UsersApiCreateAUserByCognitoIdV1UsersPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Create a new user.
      * @summary Create A User From Credentials.
@@ -10587,7 +10469,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut, any>>;
+    createAUserFromCredentialsV1UserPost(requestParameters: UsersApiCreateAUserFromCredentialsV1UserPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Fetch the authenticated user\'s profile.
      * @summary Get Authenticated User
@@ -10596,7 +10478,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    getAuthenticatedUserV1UserGet(requestParameters?: UsersApiGetAuthenticatedUserV1UserGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut, any>>;
+    getAuthenticatedUserV1UserGet(requestParameters?: UsersApiGetAuthenticatedUserV1UserGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Fetch a single user\'s public profile.
      * @summary Get User
@@ -10605,7 +10487,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPublicProfileOut, any>>;
+    getUserV1UsersUserIdGet(requestParameters: UsersApiGetUserV1UsersUserIdGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPublicProfileOut>>;
     /**
      * List public profiles.
      * @summary Get Users
@@ -10614,7 +10496,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    getUsersV1UsersGet(requestParameters?: UsersApiGetUsersV1UsersGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPublicProfileOut[], any>>;
+    getUsersV1UsersGet(requestParameters?: UsersApiGetUsersV1UsersGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPublicProfileOut[]>>;
     /**
      * Create a new user.
      * @summary Update A User By Id.
@@ -10623,7 +10505,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut, any>>;
+    updateAUserByIdV1UsersUserIdPatch(requestParameters: UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
     /**
      * Update the authenticated user\'s profile.
      * @summary Update Authenticated User Profile
@@ -10632,7 +10514,7 @@ export declare class UsersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut, any>>;
+    updateAuthenticatedUserProfileV1UserPut(requestParameters: UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<UserPrivateProfileOut>>;
 }
 /**
  * VariableApi - axios parameter creator
@@ -10648,7 +10530,7 @@ export declare const VariableApiAxiosParamCreator: (configuration?: Configuratio
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFindingsOfAVariableV1VariableVariableIdFindingsGet: (variableId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig) => Promise<RequestArgs>;
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet: (variableId: string, limit?: number, offset?: number, options?: AxiosRequestConfig) => Promise<RequestArgs>;
 };
 /**
  * VariableApi - functional programming interface
@@ -10664,7 +10546,7 @@ export declare const VariableApiFp: (configuration?: Configuration) => {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyFindingsOut>>;
 };
 /**
  * VariableApi - factory interface
@@ -10674,11 +10556,13 @@ export declare const VariableApiFactory: (configuration?: Configuration, basePat
     /**
      * Get information for variable findings.
      * @summary Get Findings Of A Variable.
-     * @param {VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest} requestParameters Request parameters.
+     * @param {string} variableId
+     * @param {number} [limit]
+     * @param {number} [offset]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: RawAxiosRequestConfig): AxiosPromise<StudyFindingsOut>;
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId: string, limit?: number, offset?: number, options?: any): AxiosPromise<StudyFindingsOut>;
 };
 /**
  * Request parameters for getFindingsOfAVariableV1VariableVariableIdFindingsGet operation in VariableApi.
@@ -10720,5 +10604,5 @@ export declare class VariableApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof VariableApi
      */
-    getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: RawAxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut, any>>;
+    getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters: VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
 }

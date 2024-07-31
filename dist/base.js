@@ -13,7 +13,9 @@
  * Do not edit the class manually.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.operationServerMap = exports.RequiredError = exports.BaseAPI = exports.COLLECTION_FORMATS = exports.BASE_PATH = void 0;
+exports.RequiredError = exports.BaseAPI = exports.COLLECTION_FORMATS = exports.BASE_PATH = void 0;
+// Some imports not used depending on template conditions
+// @ts-ignore
 const axios_1 = require("axios");
 exports.BASE_PATH = "http://localhost".replace(/\/+$/, "");
 /**
@@ -33,12 +35,11 @@ exports.COLLECTION_FORMATS = {
  */
 class BaseAPI {
     constructor(configuration, basePath = exports.BASE_PATH, axios = axios_1.default) {
-        var _a;
         this.basePath = basePath;
         this.axios = axios;
         if (configuration) {
             this.configuration = configuration;
-            this.basePath = (_a = configuration.basePath) !== null && _a !== void 0 ? _a : basePath;
+            this.basePath = configuration.basePath || this.basePath;
         }
     }
 }
@@ -58,8 +59,3 @@ class RequiredError extends Error {
     }
 }
 exports.RequiredError = RequiredError;
-/**
- *
- * @export
- */
-exports.operationServerMap = {};
