@@ -22,13 +22,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.RelationshipTypes = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
 const common_1 = require("./common");
 // @ts-ignore
 const base_1 = require("./base");
+/**
+ * Relationship types.
+ * @export
+ * @enum {string}
+ */
+var AppSchemaConceptsRelationshipTypes;
+(function (AppSchemaConceptsRelationshipTypes) {
+    AppSchemaConceptsRelationshipTypes["Statistical"] = "statistical";
+    AppSchemaConceptsRelationshipTypes["Mechanistic"] = "mechanistic";
+})(AppSchemaConceptsRelationshipTypes = exports.AppSchemaConceptsRelationshipTypes || (exports.AppSchemaConceptsRelationshipTypes = {}));
 /**
  * An enumeration.
  * @export
@@ -191,16 +201,6 @@ var PollingStatus;
     PollingStatus["FailedValidation"] = "failed_validation";
 })(PollingStatus = exports.PollingStatus || (exports.PollingStatus = {}));
 /**
- * Relationship types.
- * @export
- * @enum {string}
- */
-var RelationshipTypes;
-(function (RelationshipTypes) {
-    RelationshipTypes["Statistical"] = "statistical";
-    RelationshipTypes["Mechanistic"] = "mechanistic";
-})(RelationshipTypes = exports.RelationshipTypes || (exports.RelationshipTypes = {}));
-/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -270,6 +270,16 @@ var SignificanceLevel;
     SignificanceLevel["NinetyNinePointNine"] = "ninety_nine_point_nine";
     SignificanceLevel["Invalid"] = "invalid";
 })(SignificanceLevel = exports.SignificanceLevel || (exports.SignificanceLevel = {}));
+/**
+ * Relationship types.
+ * @export
+ * @enum {string}
+ */
+var SohServiceClientModelsRelationshipTypesRelationshipTypes;
+(function (SohServiceClientModelsRelationshipTypesRelationshipTypes) {
+    SohServiceClientModelsRelationshipTypesRelationshipTypes["Statistical"] = "statistical";
+    SohServiceClientModelsRelationshipTypesRelationshipTypes["Mechanistic"] = "mechanistic";
+})(SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes || (exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = {}));
 /**
  * Stripe account status enum.
  * @export
@@ -5661,6 +5671,115 @@ class StudyMetadataApi extends base_1.BaseAPI {
     }
 }
 exports.StudyMetadataApi = StudyMetadataApi;
+/**
+ * StudyStatsApi - axios parameter creator
+ * @export
+ */
+exports.StudyStatsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyStats: (relationshipId, relationshipType, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            const localVarPath = `/v1/study_stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            if (relationshipId !== undefined) {
+                localVarQueryParameter['relationship_id'] = relationshipId;
+            }
+            if (relationshipType !== undefined) {
+                localVarQueryParameter['relationship_type'] = relationshipType;
+            }
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * StudyStatsApi - functional programming interface
+ * @export
+ */
+exports.StudyStatsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.StudyStatsApiAxiosParamCreator(configuration);
+    return {
+        /**
+         *
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyStats(relationshipId, relationshipType, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyStats(relationshipId, relationshipType, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * StudyStatsApi - factory interface
+ * @export
+ */
+exports.StudyStatsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.StudyStatsApiFp(configuration);
+    return {
+        /**
+         *
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyStats(relationshipId, relationshipType, options) {
+            return localVarFp.getStudyStats(relationshipId, relationshipType, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * StudyStatsApi - object-oriented interface
+ * @export
+ * @class StudyStatsApi
+ * @extends {BaseAPI}
+ */
+class StudyStatsApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Get Study Stats
+     * @param {StudyStatsApiGetStudyStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyStatsApi
+     */
+    getStudyStats(requestParameters = {}, options) {
+        return exports.StudyStatsApiFp(this.configuration).getStudyStats(requestParameters.relationshipId, requestParameters.relationshipType, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.StudyStatsApi = StudyStatsApi;
 /**
  * SystemGraphApi - axios parameter creator
  * @export
