@@ -73,6 +73,17 @@ export interface AlgorithmOut {
     'description': string;
 }
 /**
+ * Relationship types.
+ * @export
+ * @enum {string}
+ */
+
+export enum AppSchemaConceptsRelationshipTypes {
+    Statistical = 'statistical',
+    Mechanistic = 'mechanistic'
+}
+
+/**
  * Interface for finding in study.
  * @export
  * @interface AppSchemaFindingsFinding
@@ -145,6 +156,37 @@ export interface AppSchemaGroundingsGrounding {
      * @memberof AppSchemaGroundingsGrounding
      */
     'definition'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AuthorCount
+ */
+export interface AuthorCount {
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthorCount
+     */
+    'full_name': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthorCount
+     */
+    'orcid'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AuthorCount
+     */
+    'openalex_id'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof AuthorCount
+     */
+    'num_studies': number;
 }
 /**
  * Author output.
@@ -1479,10 +1521,10 @@ export interface HierarchicalTopicNode {
     'mechanistic_category'?: string;
     /**
      * 
-     * @type {Array<RelationshipTypes>}
+     * @type {Array<SohServiceClientModelsRelationshipTypesRelationshipTypes>}
      * @memberof HierarchicalTopicNode
      */
-    'relationship_types'?: Array<RelationshipTypes>;
+    'relationship_types'?: Array<SohServiceClientModelsRelationshipTypesRelationshipTypes>;
     /**
      * 
      * @type {Array<SohServiceClientModelsTopicNodeTopicNode>}
@@ -2466,17 +2508,6 @@ export interface RelationshipFilterParams {
     'mechanism_types'?: Array<string>;
 }
 /**
- * Relationship types.
- * @export
- * @enum {string}
- */
-
-export enum RelationshipTypes {
-    Statistical = 'statistical',
-    Mechanistic = 'mechanistic'
-}
-
-/**
  * API resource action enum.
  * @export
  * @enum {string}
@@ -3164,6 +3195,17 @@ export interface SohServiceClientModelsFindingFinding {
     'authors'?: Array<object>;
 }
 /**
+ * Relationship types.
+ * @export
+ * @enum {string}
+ */
+
+export enum SohServiceClientModelsRelationshipTypesRelationshipTypes {
+    Statistical = 'statistical',
+    Mechanistic = 'mechanistic'
+}
+
+/**
  * Topic node.  # noqa: E501
  * @export
  * @interface SohServiceClientModelsTopicNodeTopicNode
@@ -3219,10 +3261,10 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
     'mechanistic_category'?: string;
     /**
      * 
-     * @type {Array<RelationshipTypes>}
+     * @type {Array<SohServiceClientModelsRelationshipTypesRelationshipTypes>}
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
-    'relationship_types'?: Array<RelationshipTypes>;
+    'relationship_types'?: Array<SohServiceClientModelsRelationshipTypesRelationshipTypes>;
 }
 /**
  * Statistic relationship model.
@@ -3888,6 +3930,25 @@ export interface StudyRDBOut {
      * @memberof StudyRDBOut
      */
     'publish_date'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface StudyStats
+ */
+export interface StudyStats {
+    /**
+     * 
+     * @type {Array<AuthorCount>}
+     * @memberof StudyStats
+     */
+    'top_authors': Array<AuthorCount>;
+    /**
+     * 
+     * @type {{ [key: string]: number; }}
+     * @memberof StudyStats
+     */
+    'yearly_pub_rate': { [key: string]: number; };
 }
 /**
  * Subscription seats.
@@ -12041,6 +12102,147 @@ export class StudyMetadataApi extends BaseAPI {
      */
     public getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters: StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest, options?: AxiosRequestConfig) {
         return StudyMetadataApiFp(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * StudyStatsApi - axios parameter creator
+ * @export
+ */
+export const StudyStatsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyStats: async (relationshipId?: string, relationshipType?: AppSchemaConceptsRelationshipTypes, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/study_stats`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration)
+
+            if (relationshipId !== undefined) {
+                localVarQueryParameter['relationship_id'] = relationshipId;
+            }
+
+            if (relationshipType !== undefined) {
+                localVarQueryParameter['relationship_type'] = relationshipType;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * StudyStatsApi - functional programming interface
+ * @export
+ */
+export const StudyStatsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = StudyStatsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStudyStats(relationshipId?: string, relationshipType?: AppSchemaConceptsRelationshipTypes, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StudyStats>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStudyStats(relationshipId, relationshipType, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * StudyStatsApi - factory interface
+ * @export
+ */
+export const StudyStatsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = StudyStatsApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Get Study Stats
+         * @param {string} [relationshipId] Relationship ID
+         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStudyStats(relationshipId?: string, relationshipType?: AppSchemaConceptsRelationshipTypes, options?: any): AxiosPromise<StudyStats> {
+            return localVarFp.getStudyStats(relationshipId, relationshipType, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getStudyStats operation in StudyStatsApi.
+ * @export
+ * @interface StudyStatsApiGetStudyStatsRequest
+ */
+export interface StudyStatsApiGetStudyStatsRequest {
+    /**
+     * Relationship ID
+     * @type {string}
+     * @memberof StudyStatsApiGetStudyStats
+     */
+    readonly relationshipId?: string
+
+    /**
+     * Relationship type
+     * @type {AppSchemaConceptsRelationshipTypes}
+     * @memberof StudyStatsApiGetStudyStats
+     */
+    readonly relationshipType?: AppSchemaConceptsRelationshipTypes
+}
+
+/**
+ * StudyStatsApi - object-oriented interface
+ * @export
+ * @class StudyStatsApi
+ * @extends {BaseAPI}
+ */
+export class StudyStatsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Study Stats
+     * @param {StudyStatsApiGetStudyStatsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StudyStatsApi
+     */
+    public getStudyStats(requestParameters: StudyStatsApiGetStudyStatsRequest = {}, options?: AxiosRequestConfig) {
+        return StudyStatsApiFp(this.configuration).getStudyStats(requestParameters.relationshipId, requestParameters.relationshipType, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
