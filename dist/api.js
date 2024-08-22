@@ -4269,10 +4269,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id
          * @param {string} topic2Id
+         * @param {boolean} [recent]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id, topic2Id, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id, topic2Id, recent, options = {}) => __awaiter(this, void 0, void 0, function* () {
             // verify required parameter 'topic1Id' is not null or undefined
             common_1.assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id);
             // verify required parameter 'topic2Id' is not null or undefined
@@ -4297,6 +4298,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             }
             if (topic2Id !== undefined) {
                 localVarQueryParameter['topic_2_id'] = topic2Id;
+            }
+            if (recent !== undefined) {
+                localVarQueryParameter['recent'] = recent;
             }
             common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -4625,12 +4629,13 @@ exports.SohApiFp = function (configuration) {
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id
          * @param {string} topic2Id
+         * @param {boolean} [recent]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options) {
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options) {
             return __awaiter(this, void 0, void 0, function* () {
-                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options);
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options);
                 return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
             });
         },
@@ -4834,11 +4839,12 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id
          * @param {string} topic2Id
+         * @param {boolean} [recent]
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options) {
-            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options).then((request) => request(axios, basePath));
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options) {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -5030,7 +5036,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(this.axios, this.basePath));
+        return exports.SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, requestParameters.recent, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.

@@ -7578,10 +7578,11 @@ export declare const SohApiAxiosParamCreator: (configuration?: Configuration) =>
      * @summary Get Relationship Summary Between Two Topics.
      * @param {string} topic1Id
      * @param {string} topic2Id
+     * @param {boolean} [recent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id: string, topic2Id: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id: string, topic2Id: string, recent?: boolean, options?: AxiosRequestConfig) => Promise<RequestArgs>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -7735,10 +7736,11 @@ export declare const SohApiFp: (configuration?: Configuration) => {
      * @summary Get Relationship Summary Between Two Topics.
      * @param {string} topic1Id
      * @param {string} topic2Id
+     * @param {boolean} [recent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, recent?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -7892,10 +7894,11 @@ export declare const SohApiFactory: (configuration?: Configuration, basePath?: s
      * @summary Get Relationship Summary Between Two Topics.
      * @param {string} topic1Id
      * @param {string} topic2Id
+     * @param {boolean} [recent]
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
-    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string>;
+    getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, recent?: boolean, options?: any): AxiosPromise<string>;
     /**
      * Get system of health data.
      * @summary Get Soh Evidence Metadata
@@ -8175,6 +8178,12 @@ export interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequ
      * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
      */
     readonly topic2Id: string;
+    /**
+     *
+     * @type {boolean}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly recent?: boolean;
 }
 /**
  * Request parameters for getSohEvidenceMetadataV1SohEvidencesPost operation in SohApi.
