@@ -10177,10 +10177,11 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id 
          * @param {string} topic2Id 
+         * @param {boolean} [recent] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: async (topic1Id: string, topic2Id: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: async (topic1Id: string, topic2Id: string, recent?: boolean, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'topic1Id' is not null or undefined
             assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id)
             // verify required parameter 'topic2Id' is not null or undefined
@@ -10210,6 +10211,10 @@ export const SohApiAxiosParamCreator = function (configuration?: Configuration) 
 
             if (topic2Id !== undefined) {
                 localVarQueryParameter['topic_2_id'] = topic2Id;
+            }
+
+            if (recent !== undefined) {
+                localVarQueryParameter['recent'] = recent;
             }
 
 
@@ -10549,11 +10554,12 @@ export const SohApiFp = function(configuration?: Configuration) {
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id 
          * @param {string} topic2Id 
+         * @param {boolean} [recent] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options);
+        async getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, recent?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -10749,11 +10755,12 @@ export const SohApiFactory = function (configuration?: Configuration, basePath?:
          * @summary Get Relationship Summary Between Two Topics.
          * @param {string} topic1Id 
          * @param {string} topic2Id 
+         * @param {boolean} [recent] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, options?: any): AxiosPromise<string> {
-            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, options).then((request) => request(axios, basePath));
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id: string, topic2Id: string, recent?: boolean, options?: any): AxiosPromise<string> {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
@@ -11070,6 +11077,13 @@ export interface SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequ
      * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
      */
     readonly topic2Id: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet
+     */
+    readonly recent?: boolean
 }
 
 /**
@@ -11294,7 +11308,7 @@ export class SohApi extends BaseAPI {
      * @memberof SohApi
      */
     public getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters: SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest, options?: AxiosRequestConfig) {
-        return SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, options).then((request) => request(this.axios, this.basePath));
+        return SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, requestParameters.recent, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
