@@ -7329,6 +7329,227 @@ export class FindingsApi extends BaseAPI {
 
 
 /**
+ * FormsApi - axios parameter creator
+ * @export
+ */
+export const FormsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Request Demo
+         * @param {string} appName 
+         * @param {string} firstName 
+         * @param {string} lastName 
+         * @param {string} emailAddress 
+         * @param {string} company 
+         * @param {string} [title] 
+         * @param {string} [howDidYouHear] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDemoV1FormsRequestDemoPost: async (appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'appName' is not null or undefined
+            assertParamExists('requestDemoV1FormsRequestDemoPost', 'appName', appName)
+            // verify required parameter 'firstName' is not null or undefined
+            assertParamExists('requestDemoV1FormsRequestDemoPost', 'firstName', firstName)
+            // verify required parameter 'lastName' is not null or undefined
+            assertParamExists('requestDemoV1FormsRequestDemoPost', 'lastName', lastName)
+            // verify required parameter 'emailAddress' is not null or undefined
+            assertParamExists('requestDemoV1FormsRequestDemoPost', 'emailAddress', emailAddress)
+            // verify required parameter 'company' is not null or undefined
+            assertParamExists('requestDemoV1FormsRequestDemoPost', 'company', company)
+            const localVarPath = `/v1/forms/request-demo`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new URLSearchParams();
+
+            // authentication APIKeyHeader required
+            await setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration)
+
+
+            if (appName !== undefined) { 
+                localVarFormParams.set('app_name', appName as any);
+            }
+    
+            if (firstName !== undefined) { 
+                localVarFormParams.set('first_name', firstName as any);
+            }
+    
+            if (lastName !== undefined) { 
+                localVarFormParams.set('last_name', lastName as any);
+            }
+    
+            if (emailAddress !== undefined) { 
+                localVarFormParams.set('email_address', emailAddress as any);
+            }
+    
+            if (company !== undefined) { 
+                localVarFormParams.set('company', company as any);
+            }
+    
+            if (title !== undefined) { 
+                localVarFormParams.set('title', title as any);
+            }
+    
+            if (howDidYouHear !== undefined) { 
+                localVarFormParams.set('how_did_you_hear', howDidYouHear as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = localVarFormParams.toString();
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * FormsApi - functional programming interface
+ * @export
+ */
+export const FormsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = FormsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Request Demo
+         * @param {string} appName 
+         * @param {string} firstName 
+         * @param {string} lastName 
+         * @param {string} emailAddress 
+         * @param {string} company 
+         * @param {string} [title] 
+         * @param {string} [howDidYouHear] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async requestDemoV1FormsRequestDemoPost(appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * FormsApi - factory interface
+ * @export
+ */
+export const FormsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = FormsApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Request Demo
+         * @param {string} appName 
+         * @param {string} firstName 
+         * @param {string} lastName 
+         * @param {string} emailAddress 
+         * @param {string} company 
+         * @param {string} [title] 
+         * @param {string} [howDidYouHear] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDemoV1FormsRequestDemoPost(appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options?: any): AxiosPromise<any> {
+            return localVarFp.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for requestDemoV1FormsRequestDemoPost operation in FormsApi.
+ * @export
+ * @interface FormsApiRequestDemoV1FormsRequestDemoPostRequest
+ */
+export interface FormsApiRequestDemoV1FormsRequestDemoPostRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly appName: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly firstName: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly lastName: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly emailAddress: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly company: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly title?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly howDidYouHear?: string
+}
+
+/**
+ * FormsApi - object-oriented interface
+ * @export
+ * @class FormsApi
+ * @extends {BaseAPI}
+ */
+export class FormsApi extends BaseAPI {
+    /**
+     * 
+     * @summary Request Demo
+     * @param {FormsApiRequestDemoV1FormsRequestDemoPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FormsApi
+     */
+    public requestDemoV1FormsRequestDemoPost(requestParameters: FormsApiRequestDemoV1FormsRequestDemoPostRequest, options?: AxiosRequestConfig) {
+        return FormsApiFp(this.configuration).requestDemoV1FormsRequestDemoPost(requestParameters.appName, requestParameters.firstName, requestParameters.lastName, requestParameters.emailAddress, requestParameters.company, requestParameters.title, requestParameters.howDidYouHear, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * MetricsApi - axios parameter creator
  * @export
  */
