@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FormsApi = exports.FormsApiFactory = exports.FormsApiFp = exports.FormsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -2006,6 +2006,155 @@ class FindingsApi extends base_1.BaseAPI {
     }
 }
 exports.FindingsApi = FindingsApi;
+/**
+ * FormsApi - axios parameter creator
+ * @export
+ */
+exports.FormsApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         *
+         * @summary Request Demo
+         * @param {string} appName
+         * @param {string} firstName
+         * @param {string} lastName
+         * @param {string} emailAddress
+         * @param {string} company
+         * @param {string} [title]
+         * @param {string} [howDidYouHear]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDemoV1FormsRequestDemoPost: (appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'appName' is not null or undefined
+            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'appName', appName);
+            // verify required parameter 'firstName' is not null or undefined
+            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'firstName', firstName);
+            // verify required parameter 'lastName' is not null or undefined
+            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'lastName', lastName);
+            // verify required parameter 'emailAddress' is not null or undefined
+            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'emailAddress', emailAddress);
+            // verify required parameter 'company' is not null or undefined
+            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'company', company);
+            const localVarPath = `/v1/forms/request-demo`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'POST' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            const localVarFormParams = new URLSearchParams();
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            if (appName !== undefined) {
+                localVarFormParams.set('app_name', appName);
+            }
+            if (firstName !== undefined) {
+                localVarFormParams.set('first_name', firstName);
+            }
+            if (lastName !== undefined) {
+                localVarFormParams.set('last_name', lastName);
+            }
+            if (emailAddress !== undefined) {
+                localVarFormParams.set('email_address', emailAddress);
+            }
+            if (company !== undefined) {
+                localVarFormParams.set('company', company);
+            }
+            if (title !== undefined) {
+                localVarFormParams.set('title', title);
+            }
+            if (howDidYouHear !== undefined) {
+                localVarFormParams.set('how_did_you_hear', howDidYouHear);
+            }
+            localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            localVarRequestOptions.data = localVarFormParams.toString();
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * FormsApi - functional programming interface
+ * @export
+ */
+exports.FormsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.FormsApiAxiosParamCreator(configuration);
+    return {
+        /**
+         *
+         * @summary Request Demo
+         * @param {string} appName
+         * @param {string} firstName
+         * @param {string} lastName
+         * @param {string} emailAddress
+         * @param {string} company
+         * @param {string} [title]
+         * @param {string} [howDidYouHear]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * FormsApi - factory interface
+ * @export
+ */
+exports.FormsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.FormsApiFp(configuration);
+    return {
+        /**
+         *
+         * @summary Request Demo
+         * @param {string} appName
+         * @param {string} firstName
+         * @param {string} lastName
+         * @param {string} emailAddress
+         * @param {string} company
+         * @param {string} [title]
+         * @param {string} [howDidYouHear]
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options) {
+            return localVarFp.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * FormsApi - object-oriented interface
+ * @export
+ * @class FormsApi
+ * @extends {BaseAPI}
+ */
+class FormsApi extends base_1.BaseAPI {
+    /**
+     *
+     * @summary Request Demo
+     * @param {FormsApiRequestDemoV1FormsRequestDemoPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FormsApi
+     */
+    requestDemoV1FormsRequestDemoPost(requestParameters, options) {
+        return exports.FormsApiFp(this.configuration).requestDemoV1FormsRequestDemoPost(requestParameters.appName, requestParameters.firstName, requestParameters.lastName, requestParameters.emailAddress, requestParameters.company, requestParameters.title, requestParameters.howDidYouHear, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.FormsApi = FormsApi;
 /**
  * MetricsApi - axios parameter creator
  * @export

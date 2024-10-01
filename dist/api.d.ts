@@ -6245,6 +6245,132 @@ export declare class FindingsApi extends BaseAPI {
     getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters: FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<StudyFindingsOut>>;
 }
 /**
+ * FormsApi - axios parameter creator
+ * @export
+ */
+export declare const FormsApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Request Demo
+     * @param {string} appName
+     * @param {string} firstName
+     * @param {string} lastName
+     * @param {string} emailAddress
+     * @param {string} company
+     * @param {string} [title]
+     * @param {string} [howDidYouHear]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDemoV1FormsRequestDemoPost: (appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * FormsApi - functional programming interface
+ * @export
+ */
+export declare const FormsApiFp: (configuration?: Configuration) => {
+    /**
+     *
+     * @summary Request Demo
+     * @param {string} appName
+     * @param {string} firstName
+     * @param {string} lastName
+     * @param {string} emailAddress
+     * @param {string} company
+     * @param {string} [title]
+     * @param {string} [howDidYouHear]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDemoV1FormsRequestDemoPost(appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>>;
+};
+/**
+ * FormsApi - factory interface
+ * @export
+ */
+export declare const FormsApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     *
+     * @summary Request Demo
+     * @param {string} appName
+     * @param {string} firstName
+     * @param {string} lastName
+     * @param {string} emailAddress
+     * @param {string} company
+     * @param {string} [title]
+     * @param {string} [howDidYouHear]
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    requestDemoV1FormsRequestDemoPost(appName: string, firstName: string, lastName: string, emailAddress: string, company: string, title?: string, howDidYouHear?: string, options?: any): AxiosPromise<any>;
+};
+/**
+ * Request parameters for requestDemoV1FormsRequestDemoPost operation in FormsApi.
+ * @export
+ * @interface FormsApiRequestDemoV1FormsRequestDemoPostRequest
+ */
+export interface FormsApiRequestDemoV1FormsRequestDemoPostRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly appName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly firstName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly lastName: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly emailAddress: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly company: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly title?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof FormsApiRequestDemoV1FormsRequestDemoPost
+     */
+    readonly howDidYouHear?: string;
+}
+/**
+ * FormsApi - object-oriented interface
+ * @export
+ * @class FormsApi
+ * @extends {BaseAPI}
+ */
+export declare class FormsApi extends BaseAPI {
+    /**
+     *
+     * @summary Request Demo
+     * @param {FormsApiRequestDemoV1FormsRequestDemoPostRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof FormsApi
+     */
+    requestDemoV1FormsRequestDemoPost(requestParameters: FormsApiRequestDemoV1FormsRequestDemoPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
  * MetricsApi - axios parameter creator
  * @export
  */
