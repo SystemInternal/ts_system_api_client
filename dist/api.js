@@ -22,7 +22,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.FormsApi = exports.FormsApiFactory = exports.FormsApiFp = exports.FormsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.ModeldbApi = exports.ModeldbApiFactory = exports.ModeldbApiFp = exports.ModeldbApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KeyManagementApi = exports.KeyManagementApiFactory = exports.KeyManagementApiFp = exports.KeyManagementApiAxiosParamCreator = exports.FormsApi = exports.FormsApiFactory = exports.FormsApiFp = exports.FormsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.EnterpriseApi = exports.EnterpriseApiFactory = exports.EnterpriseApiFp = exports.EnterpriseApiAxiosParamCreator = exports.ConceptsApi = exports.ConceptsApiFactory = exports.ConceptsApiFp = exports.ConceptsApiAxiosParamCreator = exports.AssociationsApi = exports.AssociationsApiFactory = exports.AssociationsApiFp = exports.AssociationsApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.RetrievalStatus = exports.ResourceAction = exports.PollingStatus = exports.Ordering = exports.Metrics = exports.MessageType = exports.MedianEffectSize = exports.IntegrationType = exports.IntegrationState = exports.IdentityProvider = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ConceptSortEnum = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -118,6 +118,7 @@ var IdentityProvider;
 (function (IdentityProvider) {
     IdentityProvider["Google"] = "Google";
     IdentityProvider["KeycloakGoogleDev"] = "keycloak-google-dev";
+    IdentityProvider["Atropos"] = "atropos";
 })(IdentityProvider = exports.IdentityProvider || (exports.IdentityProvider = {}));
 /**
  * Integration service state.
@@ -2155,6 +2156,109 @@ class FormsApi extends base_1.BaseAPI {
     }
 }
 exports.FormsApi = FormsApi;
+/**
+ * KeyManagementApi - axios parameter creator
+ * @export
+ */
+exports.KeyManagementApiAxiosParamCreator = function (configuration) {
+    return {
+        /**
+         * Get client\'s API keys.
+         * @summary Get Client Keys
+         * @param {string} clientName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientKeysV1KeysClientNameGet: (clientName, options = {}) => __awaiter(this, void 0, void 0, function* () {
+            // verify required parameter 'clientName' is not null or undefined
+            common_1.assertParamExists('getClientKeysV1KeysClientNameGet', 'clientName', clientName);
+            const localVarPath = `/v1/keys/{client_name}`
+                .replace(`{${"client_name"}}`, encodeURIComponent(String(clientName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+            const localVarRequestOptions = Object.assign(Object.assign({ method: 'GET' }, baseOptions), options);
+            const localVarHeaderParameter = {};
+            const localVarQueryParameter = {};
+            // authentication APIKeyHeader required
+            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            // authentication OAuth2AuthorizationCodeBearer required
+            // oauth required
+            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
+            return {
+                url: common_1.toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        }),
+    };
+};
+/**
+ * KeyManagementApi - functional programming interface
+ * @export
+ */
+exports.KeyManagementApiFp = function (configuration) {
+    const localVarAxiosParamCreator = exports.KeyManagementApiAxiosParamCreator(configuration);
+    return {
+        /**
+         * Get client\'s API keys.
+         * @summary Get Client Keys
+         * @param {string} clientName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientKeysV1KeysClientNameGet(clientName, options) {
+            return __awaiter(this, void 0, void 0, function* () {
+                const localVarAxiosArgs = yield localVarAxiosParamCreator.getClientKeysV1KeysClientNameGet(clientName, options);
+                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+            });
+        },
+    };
+};
+/**
+ * KeyManagementApi - factory interface
+ * @export
+ */
+exports.KeyManagementApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = exports.KeyManagementApiFp(configuration);
+    return {
+        /**
+         * Get client\'s API keys.
+         * @summary Get Client Keys
+         * @param {string} clientName
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientKeysV1KeysClientNameGet(clientName, options) {
+            return localVarFp.getClientKeysV1KeysClientNameGet(clientName, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+/**
+ * KeyManagementApi - object-oriented interface
+ * @export
+ * @class KeyManagementApi
+ * @extends {BaseAPI}
+ */
+class KeyManagementApi extends base_1.BaseAPI {
+    /**
+     * Get client\'s API keys.
+     * @summary Get Client Keys
+     * @param {KeyManagementApiGetClientKeysV1KeysClientNameGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KeyManagementApi
+     */
+    getClientKeysV1KeysClientNameGet(requestParameters, options) {
+        return exports.KeyManagementApiFp(this.configuration).getClientKeysV1KeysClientNameGet(requestParameters.clientName, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+exports.KeyManagementApi = KeyManagementApi;
 /**
  * MetricsApi - axios parameter creator
  * @export

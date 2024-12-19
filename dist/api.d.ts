@@ -64,6 +64,19 @@ export interface AlgorithmOut {
     'description': string;
 }
 /**
+ *
+ * @export
+ * @interface ApiKeys
+ */
+export interface ApiKeys {
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof ApiKeys
+     */
+    'keys': Array<string>;
+}
+/**
  * Relationship types.
  * @export
  * @enum {string}
@@ -1520,7 +1533,8 @@ export interface HierarchicalTopicNode {
  */
 export declare enum IdentityProvider {
     Google = "Google",
-    KeycloakGoogleDev = "keycloak-google-dev"
+    KeycloakGoogleDev = "keycloak-google-dev",
+    Atropos = "atropos"
 }
 /**
  * Get Identity Provider Name.
@@ -6369,6 +6383,78 @@ export declare class FormsApi extends BaseAPI {
      * @memberof FormsApi
      */
     requestDemoV1FormsRequestDemoPost(requestParameters: FormsApiRequestDemoV1FormsRequestDemoPostRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<any>>;
+}
+/**
+ * KeyManagementApi - axios parameter creator
+ * @export
+ */
+export declare const KeyManagementApiAxiosParamCreator: (configuration?: Configuration) => {
+    /**
+     * Get client\'s API keys.
+     * @summary Get Client Keys
+     * @param {string} clientName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClientKeysV1KeysClientNameGet: (clientName: string, options?: AxiosRequestConfig) => Promise<RequestArgs>;
+};
+/**
+ * KeyManagementApi - functional programming interface
+ * @export
+ */
+export declare const KeyManagementApiFp: (configuration?: Configuration) => {
+    /**
+     * Get client\'s API keys.
+     * @summary Get Client Keys
+     * @param {string} clientName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClientKeysV1KeysClientNameGet(clientName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiKeys>>;
+};
+/**
+ * KeyManagementApi - factory interface
+ * @export
+ */
+export declare const KeyManagementApiFactory: (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) => {
+    /**
+     * Get client\'s API keys.
+     * @summary Get Client Keys
+     * @param {string} clientName
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    getClientKeysV1KeysClientNameGet(clientName: string, options?: any): AxiosPromise<ApiKeys>;
+};
+/**
+ * Request parameters for getClientKeysV1KeysClientNameGet operation in KeyManagementApi.
+ * @export
+ * @interface KeyManagementApiGetClientKeysV1KeysClientNameGetRequest
+ */
+export interface KeyManagementApiGetClientKeysV1KeysClientNameGetRequest {
+    /**
+     *
+     * @type {string}
+     * @memberof KeyManagementApiGetClientKeysV1KeysClientNameGet
+     */
+    readonly clientName: string;
+}
+/**
+ * KeyManagementApi - object-oriented interface
+ * @export
+ * @class KeyManagementApi
+ * @extends {BaseAPI}
+ */
+export declare class KeyManagementApi extends BaseAPI {
+    /**
+     * Get client\'s API keys.
+     * @summary Get Client Keys
+     * @param {KeyManagementApiGetClientKeysV1KeysClientNameGetRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof KeyManagementApi
+     */
+    getClientKeysV1KeysClientNameGet(requestParameters: KeyManagementApiGetClientKeysV1KeysClientNameGetRequest, options?: AxiosRequestConfig): Promise<import("axios").AxiosResponse<ApiKeys>>;
 }
 /**
  * MetricsApi - axios parameter creator
