@@ -3231,12 +3231,6 @@ export interface SsoConfig {
      * @type {string}
      * @memberof SsoConfig
      */
-    'client_name_hash': string;
-    /**
-     *
-     * @type {string}
-     * @memberof SsoConfig
-     */
     'domain_hash': string;
     /**
      *
