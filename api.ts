@@ -1546,31 +1546,6 @@ export interface HierarchicalTopicNode {
     'children'?: Array<SohServiceClientModelsTopicNodeTopicNode>;
 }
 /**
- * SSO Identity Providers preconfigured in AWS Cognito user pool.
- * @export
- * @enum {string}
- */
-
-export enum IdentityProvider {
-    Google = 'Google',
-    KeycloakGoogleDev = 'keycloak-google-dev',
-    Atropos = 'atropos'
-}
-
-/**
- * Get Identity Provider Name.
- * @export
- * @interface IdentityProviderNameOut
- */
-export interface IdentityProviderNameOut {
-    /**
-     * Name of the identity provider for given email as configured in System
-     * @type {IdentityProvider}
-     * @memberof IdentityProviderNameOut
-     */
-    'idp'?: IdentityProvider;
-}
-/**
  * An Integration Resource.
  * @export
  * @interface Integration
@@ -3279,6 +3254,37 @@ export interface SohServiceClientModelsTopicNodeTopicNode {
      * @memberof SohServiceClientModelsTopicNodeTopicNode
      */
     'relationship_types'?: Array<SohServiceClientModelsRelationshipTypesRelationshipTypes>;
+}
+/**
+ * 
+ * @export
+ * @interface SsoConfig
+ */
+export interface SsoConfig {
+    /**
+     * 
+     * @type {number}
+     * @memberof SsoConfig
+     */
+    'id': number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SsoConfig
+     */
+    'client_name_hash': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SsoConfig
+     */
+    'domain_hash': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof SsoConfig
+     */
+    'idp': string;
 }
 /**
  * Statistic relationship model.
@@ -7570,17 +7576,13 @@ export class FormsApi extends BaseAPI {
 export const KeyManagementApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get client\'s API keys.
+         * Get user\'s API keys.
          * @summary Get Client Keys
-         * @param {string} clientName 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getClientKeysV1KeysClientNameGet: async (clientName: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'clientName' is not null or undefined
-            assertParamExists('getClientKeysV1KeysClientNameGet', 'clientName', clientName)
-            const localVarPath = `/v1/keys/{client_name}`
-                .replace(`{${"client_name"}}`, encodeURIComponent(String(clientName)));
+        getClientKeysV1KeysMeGet: async (options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/v1/keys/me`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -7621,14 +7623,13 @@ export const KeyManagementApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = KeyManagementApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get client\'s API keys.
+         * Get user\'s API keys.
          * @summary Get Client Keys
-         * @param {string} clientName 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getClientKeysV1KeysClientNameGet(clientName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiKeys>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientKeysV1KeysClientNameGet(clientName, options);
+        async getClientKeysV1KeysMeGet(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApiKeys>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientKeysV1KeysMeGet(options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -7642,31 +7643,16 @@ export const KeyManagementApiFactory = function (configuration?: Configuration, 
     const localVarFp = KeyManagementApiFp(configuration)
     return {
         /**
-         * Get client\'s API keys.
+         * Get user\'s API keys.
          * @summary Get Client Keys
-         * @param {string} clientName 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getClientKeysV1KeysClientNameGet(clientName: string, options?: any): AxiosPromise<ApiKeys> {
-            return localVarFp.getClientKeysV1KeysClientNameGet(clientName, options).then((request) => request(axios, basePath));
+        getClientKeysV1KeysMeGet(options?: any): AxiosPromise<ApiKeys> {
+            return localVarFp.getClientKeysV1KeysMeGet(options).then((request) => request(axios, basePath));
         },
     };
 };
-
-/**
- * Request parameters for getClientKeysV1KeysClientNameGet operation in KeyManagementApi.
- * @export
- * @interface KeyManagementApiGetClientKeysV1KeysClientNameGetRequest
- */
-export interface KeyManagementApiGetClientKeysV1KeysClientNameGetRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof KeyManagementApiGetClientKeysV1KeysClientNameGet
-     */
-    readonly clientName: string
-}
 
 /**
  * KeyManagementApi - object-oriented interface
@@ -7676,15 +7662,14 @@ export interface KeyManagementApiGetClientKeysV1KeysClientNameGetRequest {
  */
 export class KeyManagementApi extends BaseAPI {
     /**
-     * Get client\'s API keys.
+     * Get user\'s API keys.
      * @summary Get Client Keys
-     * @param {KeyManagementApiGetClientKeysV1KeysClientNameGetRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof KeyManagementApi
      */
-    public getClientKeysV1KeysClientNameGet(requestParameters: KeyManagementApiGetClientKeysV1KeysClientNameGetRequest, options?: AxiosRequestConfig) {
-        return KeyManagementApiFp(this.configuration).getClientKeysV1KeysClientNameGet(requestParameters.clientName, options).then((request) => request(this.axios, this.basePath));
+    public getClientKeysV1KeysMeGet(options?: AxiosRequestConfig) {
+        return KeyManagementApiFp(this.configuration).getClientKeysV1KeysMeGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -11782,7 +11767,7 @@ export const SsoApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProviderNameOut>> {
+        async getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SsoConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProviderNameV1IdpNameEmailGet(email, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -11803,7 +11788,7 @@ export const SsoApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: any): AxiosPromise<IdentityProviderNameOut> {
+        getIdentityProviderNameV1IdpNameEmailGet(email: string, options?: any): AxiosPromise<SsoConfig> {
             return localVarFp.getIdentityProviderNameV1IdpNameEmailGet(email, options).then((request) => request(axios, basePath));
         },
     };
