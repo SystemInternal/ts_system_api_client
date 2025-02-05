@@ -22,7 +22,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KeyManagementApi = exports.KeyManagementApiFactory = exports.KeyManagementApiFp = exports.KeyManagementApiAxiosParamCreator = exports.FormsApi = exports.FormsApiFactory = exports.FormsApiFp = exports.FormsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.ResourceAction = exports.PollingStatus = exports.Metrics = exports.MedianEffectSize = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
+exports.RdbApiFp = exports.RdbApiAxiosParamCreator = exports.QuerySuggestionsApi = exports.QuerySuggestionsApiFactory = exports.QuerySuggestionsApiFp = exports.QuerySuggestionsApiAxiosParamCreator = exports.PassthroughApi = exports.PassthroughApiFactory = exports.PassthroughApiFp = exports.PassthroughApiAxiosParamCreator = exports.MetricsApi = exports.MetricsApiFactory = exports.MetricsApiFp = exports.MetricsApiAxiosParamCreator = exports.KeyManagementApi = exports.KeyManagementApiFactory = exports.KeyManagementApiFp = exports.KeyManagementApiAxiosParamCreator = exports.FormsApi = exports.FormsApiFactory = exports.FormsApiFp = exports.FormsApiAxiosParamCreator = exports.FindingsApi = exports.FindingsApiFactory = exports.FindingsApiFp = exports.FindingsApiAxiosParamCreator = exports.FeedbackApi = exports.FeedbackApiFactory = exports.FeedbackApiFp = exports.FeedbackApiAxiosParamCreator = exports.AccessApi = exports.AccessApiFactory = exports.AccessApiFp = exports.AccessApiAxiosParamCreator = exports.SuggestedQueryType = exports.StripeAccountStatus = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SignificanceLevel = exports.SemanticSearchType = exports.SearchType = exports.Role = exports.ResourceAction = exports.PollingStatus = exports.Metrics = exports.GraphNodeType = exports.GraphLinkType = exports.FunctionStatus = exports.EvidenceCategory = exports.ClusteringMethods = exports.AppSchemaConceptsRelationshipTypes = void 0;
+exports.VariableApi = exports.VariableApiFactory = exports.VariableApiFp = exports.VariableApiAxiosParamCreator = exports.UsersApi = exports.UsersApiFactory = exports.UsersApiFp = exports.UsersApiAxiosParamCreator = exports.TopicApi = exports.TopicApiFactory = exports.TopicApiFp = exports.TopicApiAxiosParamCreator = exports.SystemGraphApi = exports.SystemGraphApiFactory = exports.SystemGraphApiFp = exports.SystemGraphApiAxiosParamCreator = exports.StudyStatsApi = exports.StudyStatsApiFactory = exports.StudyStatsApiFp = exports.StudyStatsApiAxiosParamCreator = exports.StudyMetadataApi = exports.StudyMetadataApiFactory = exports.StudyMetadataApiFp = exports.StudyMetadataApiAxiosParamCreator = exports.StripeApi = exports.StripeApiFactory = exports.StripeApiFp = exports.StripeApiAxiosParamCreator = exports.SsoApi = exports.SsoApiFactory = exports.SsoApiFp = exports.SsoApiAxiosParamCreator = exports.SohApi = exports.SohApiFactory = exports.SohApiFp = exports.SohApiAxiosParamCreator = exports.SemanticSearchApi = exports.SemanticSearchApiFactory = exports.SemanticSearchApiFp = exports.SemanticSearchApiAxiosParamCreator = exports.RdbApi = exports.RdbApiFactory = void 0;
 const axios_1 = require("axios");
 // Some imports not used depending on template conditions
 // @ts-ignore
@@ -34,204 +35,177 @@ const base_1 = require("./base");
  * @export
  * @enum {string}
  */
-var AppSchemaConceptsRelationshipTypes;
-(function (AppSchemaConceptsRelationshipTypes) {
-    AppSchemaConceptsRelationshipTypes["Statistical"] = "statistical";
-    AppSchemaConceptsRelationshipTypes["Mechanistic"] = "mechanistic";
-})(AppSchemaConceptsRelationshipTypes = exports.AppSchemaConceptsRelationshipTypes || (exports.AppSchemaConceptsRelationshipTypes = {}));
+exports.AppSchemaConceptsRelationshipTypes = {
+    Statistical: 'statistical',
+    Mechanistic: 'mechanistic'
+};
 /**
  * An enumeration.
  * @export
  * @enum {string}
  */
-var ClusteringMethods;
-(function (ClusteringMethods) {
-    ClusteringMethods["Agglomerative"] = "agglomerative";
-    ClusteringMethods["Dbscan"] = "dbscan";
-    ClusteringMethods["Paraphrase"] = "paraphrase";
-})(ClusteringMethods = exports.ClusteringMethods || (exports.ClusteringMethods = {}));
+exports.ClusteringMethods = {
+    Agglomerative: 'agglomerative',
+    Dbscan: 'dbscan',
+    Paraphrase: 'paraphrase'
+};
 /**
  * Evidence category.
  * @export
  * @enum {string}
  */
-var EvidenceCategory;
-(function (EvidenceCategory) {
-    EvidenceCategory["Statistical"] = "statistical";
-    EvidenceCategory["Mechanistic"] = "mechanistic";
-})(EvidenceCategory = exports.EvidenceCategory || (exports.EvidenceCategory = {}));
+exports.EvidenceCategory = {
+    Statistical: 'statistical',
+    Mechanistic: 'mechanistic'
+};
 /**
  * Status for polling functions.
  * @export
  * @enum {string}
  */
-var FunctionStatus;
-(function (FunctionStatus) {
-    FunctionStatus["Pending"] = "pending";
-    FunctionStatus["Running"] = "running";
-    FunctionStatus["Finished"] = "finished";
-    FunctionStatus["Error"] = "error";
-})(FunctionStatus = exports.FunctionStatus || (exports.FunctionStatus = {}));
+exports.FunctionStatus = {
+    Pending: 'pending',
+    Running: 'running',
+    Finished: 'finished',
+    Error: 'error'
+};
 /**
  * Graph Link Type enum.
  * @export
  * @enum {string}
  */
-var GraphLinkType;
-(function (GraphLinkType) {
-    GraphLinkType["DatasetRelationship"] = "dataset_relationship";
-    GraphLinkType["ConceptRelationship"] = "concept_relationship";
-    GraphLinkType["VariableRelationship"] = "variable_relationship";
-    GraphLinkType["FeatureRelationship"] = "feature_relationship";
-    GraphLinkType["FeatureVariable"] = "feature_variable";
-    GraphLinkType["Measures"] = "measures";
-})(GraphLinkType = exports.GraphLinkType || (exports.GraphLinkType = {}));
+exports.GraphLinkType = {
+    DatasetRelationship: 'dataset_relationship',
+    ConceptRelationship: 'concept_relationship',
+    VariableRelationship: 'variable_relationship',
+    FeatureRelationship: 'feature_relationship',
+    FeatureVariable: 'feature_variable',
+    Measures: 'measures'
+};
 /**
  * Graph Node Type enum.
  * @export
  * @enum {string}
  */
-var GraphNodeType;
-(function (GraphNodeType) {
-    GraphNodeType["Dataset"] = "dataset";
-    GraphNodeType["Concept"] = "concept";
-    GraphNodeType["Variable"] = "variable";
-    GraphNodeType["Feature"] = "feature";
-})(GraphNodeType = exports.GraphNodeType || (exports.GraphNodeType = {}));
-/**
- * Median effect size.
- * @export
- * @enum {string}
- */
-var MedianEffectSize;
-(function (MedianEffectSize) {
-    MedianEffectSize["Small"] = "small";
-    MedianEffectSize["Medium"] = "medium";
-    MedianEffectSize["Large"] = "large";
-})(MedianEffectSize = exports.MedianEffectSize || (exports.MedianEffectSize = {}));
+exports.GraphNodeType = {
+    Dataset: 'dataset',
+    Concept: 'concept',
+    Variable: 'variable',
+    Feature: 'feature'
+};
 /**
  * Metrics name enum.
  * @export
  * @enum {string}
  */
-var Metrics;
-(function (Metrics) {
-    Metrics["SemanticSearchCreate"] = "semantic_search.create";
-    Metrics["SemanticSearchClusterRead"] = "semantic_search_cluster.read";
-    Metrics["FindingsLogDoiLookup"] = "findings_log.doi_lookup";
-})(Metrics = exports.Metrics || (exports.Metrics = {}));
+exports.Metrics = {
+    SemanticSearchCreate: 'semantic_search.create',
+    SemanticSearchClusterRead: 'semantic_search_cluster.read',
+    FindingsLogDoiLookup: 'findings_log.doi_lookup'
+};
 /**
  * Polling status enum.
  * @export
  * @enum {string}
  */
-var PollingStatus;
-(function (PollingStatus) {
-    PollingStatus["NotExists"] = "not_exists";
-    PollingStatus["Submitted"] = "submitted";
-    PollingStatus["Running"] = "running";
-    PollingStatus["Success"] = "success";
-    PollingStatus["Failed"] = "failed";
-    PollingStatus["FailedNoCitations"] = "failed_no_citations";
-    PollingStatus["FailedValidation"] = "failed_validation";
-})(PollingStatus = exports.PollingStatus || (exports.PollingStatus = {}));
+exports.PollingStatus = {
+    NotExists: 'not_exists',
+    Submitted: 'submitted',
+    Running: 'running',
+    Success: 'success',
+    Failed: 'failed',
+    FailedNoCitations: 'failed_no_citations',
+    FailedValidation: 'failed_validation'
+};
 /**
  * API resource action enum.
  * @export
  * @enum {string}
  */
-var ResourceAction;
-(function (ResourceAction) {
-    ResourceAction["Create"] = "create";
-    ResourceAction["View"] = "view";
-    ResourceAction["Edit"] = "edit";
-    ResourceAction["Delete"] = "delete";
-})(ResourceAction = exports.ResourceAction || (exports.ResourceAction = {}));
+exports.ResourceAction = {
+    Create: 'create',
+    View: 'view',
+    Edit: 'edit',
+    Delete: 'delete'
+};
 /**
  * Role.
  * @export
  * @enum {string}
  */
-var Role;
-(function (Role) {
-    Role["Determinant"] = "Determinant";
-    Role["Intervention"] = "Intervention";
-    Role["Outcome"] = "Outcome";
-    Role["Agent"] = "Agent";
-})(Role = exports.Role || (exports.Role = {}));
+exports.Role = {
+    Determinant: 'Determinant',
+    Intervention: 'Intervention',
+    Outcome: 'Outcome',
+    Agent: 'Agent'
+};
 /**
  * Search type.
  * @export
  * @enum {string}
  */
-var SearchType;
-(function (SearchType) {
-    SearchType["Semantic"] = "semantic";
-    SearchType["Keyword"] = "keyword";
-})(SearchType = exports.SearchType || (exports.SearchType = {}));
+exports.SearchType = {
+    Semantic: 'semantic',
+    Keyword: 'keyword'
+};
 /**
  * An enumeration.
  * @export
  * @enum {string}
  */
-var SemanticSearchType;
-(function (SemanticSearchType) {
-    SemanticSearchType["RiskFactorOf"] = "risk_factor_of";
-    SemanticSearchType["Outcome"] = "outcome";
-    SemanticSearchType["Relationship"] = "relationship";
-    SemanticSearchType["Relationship2d"] = "relationship_2d";
-    SemanticSearchType["SingleVariable2d"] = "single_variable_2d";
-})(SemanticSearchType = exports.SemanticSearchType || (exports.SemanticSearchType = {}));
+exports.SemanticSearchType = {
+    RiskFactorOf: 'risk_factor_of',
+    Outcome: 'outcome',
+    Relationship: 'relationship',
+    Relationship2d: 'relationship_2d',
+    SingleVariable2d: 'single_variable_2d'
+};
 /**
  * An enumeration.
  * @export
  * @enum {string}
  */
-var SignificanceLevel;
-(function (SignificanceLevel) {
-    SignificanceLevel["NinetyFive"] = "ninety_five";
-    SignificanceLevel["NinetyNine"] = "ninety_nine";
-    SignificanceLevel["NinetyNinePointNine"] = "ninety_nine_point_nine";
-    SignificanceLevel["Invalid"] = "invalid";
-})(SignificanceLevel = exports.SignificanceLevel || (exports.SignificanceLevel = {}));
+exports.SignificanceLevel = {
+    NinetyFive: 'ninety_five',
+    NinetyNine: 'ninety_nine',
+    NinetyNinePointNine: 'ninety_nine_point_nine',
+    Invalid: 'invalid'
+};
 /**
  * Relationship types.
  * @export
  * @enum {string}
  */
-var SohServiceClientModelsRelationshipTypesRelationshipTypes;
-(function (SohServiceClientModelsRelationshipTypesRelationshipTypes) {
-    SohServiceClientModelsRelationshipTypesRelationshipTypes["Statistical"] = "statistical";
-    SohServiceClientModelsRelationshipTypesRelationshipTypes["Mechanistic"] = "mechanistic";
-})(SohServiceClientModelsRelationshipTypesRelationshipTypes = exports.SohServiceClientModelsRelationshipTypesRelationshipTypes || (exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = {}));
+exports.SohServiceClientModelsRelationshipTypesRelationshipTypes = {
+    Statistical: 'statistical',
+    Mechanistic: 'mechanistic'
+};
 /**
  * Stripe account status enum.
  * @export
  * @enum {string}
  */
-var StripeAccountStatus;
-(function (StripeAccountStatus) {
-    StripeAccountStatus["Trial"] = "trial";
-    StripeAccountStatus["Subscribed"] = "subscribed";
-    StripeAccountStatus["Expired"] = "expired";
-    StripeAccountStatus["GroupSubscribed"] = "group_subscribed";
-    StripeAccountStatus["Unsubscribed"] = "unsubscribed";
-})(StripeAccountStatus = exports.StripeAccountStatus || (exports.StripeAccountStatus = {}));
+exports.StripeAccountStatus = {
+    Trial: 'trial',
+    Subscribed: 'subscribed',
+    Expired: 'expired',
+    GroupSubscribed: 'group_subscribed',
+    Unsubscribed: 'unsubscribed'
+};
 /**
  * Enum for query suggestion types.
  * @export
  * @enum {string}
  */
-var SuggestedQueryType;
-(function (SuggestedQueryType) {
-    SuggestedQueryType["Expanded"] = "expanded";
-    SuggestedQueryType["Autocorrect"] = "autocorrect";
-})(SuggestedQueryType = exports.SuggestedQueryType || (exports.SuggestedQueryType = {}));
+exports.SuggestedQueryType = {
+    Expanded: 'expanded',
+    Autocorrect: 'autocorrect'
+};
 /**
  * AccessApi - axios parameter creator
  * @export
  */
-exports.AccessApiAxiosParamCreator = function (configuration) {
+const AccessApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Register user\'s interest in access to Data Beta.
@@ -239,7 +213,7 @@ exports.AccessApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestDataAccessV1AccessDataPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        requestDataAccessV1AccessDataPost: (...args_1) => __awaiter(this, [...args_1], void 0, function* (options = {}) {
             const localVarPath = `/v1/access/data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -251,15 +225,15 @@ exports.AccessApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -269,7 +243,7 @@ exports.AccessApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestMapsAccessV1AccessMapsPost: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        requestMapsAccessV1AccessMapsPost: (...args_1) => __awaiter(this, [...args_1], void 0, function* (options = {}) {
             const localVarPath = `/v1/access/maps`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -281,26 +255,27 @@ exports.AccessApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.AccessApiAxiosParamCreator = AccessApiAxiosParamCreator;
 /**
  * AccessApi - functional programming interface
  * @export
  */
-exports.AccessApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.AccessApiAxiosParamCreator(configuration);
+const AccessApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.AccessApiAxiosParamCreator)(configuration);
     return {
         /**
          * Register user\'s interest in access to Data Beta.
@@ -310,8 +285,11 @@ exports.AccessApiFp = function (configuration) {
          */
         requestDataAccessV1AccessDataPost(options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.requestDataAccessV1AccessDataPost(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['AccessApi.requestDataAccessV1AccessDataPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -322,18 +300,22 @@ exports.AccessApiFp = function (configuration) {
          */
         requestMapsAccessV1AccessMapsPost(options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.requestMapsAccessV1AccessMapsPost(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['AccessApi.requestMapsAccessV1AccessMapsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.AccessApiFp = AccessApiFp;
 /**
  * AccessApi - factory interface
  * @export
  */
-exports.AccessApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.AccessApiFp(configuration);
+const AccessApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.AccessApiFp)(configuration);
     return {
         /**
          * Register user\'s interest in access to Data Beta.
@@ -355,6 +337,7 @@ exports.AccessApiFactory = function (configuration, basePath, axios) {
         },
     };
 };
+exports.AccessApiFactory = AccessApiFactory;
 /**
  * AccessApi - object-oriented interface
  * @export
@@ -370,7 +353,7 @@ class AccessApi extends base_1.BaseAPI {
      * @memberof AccessApi
      */
     requestDataAccessV1AccessDataPost(options) {
-        return exports.AccessApiFp(this.configuration).requestDataAccessV1AccessDataPost(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccessApiFp)(this.configuration).requestDataAccessV1AccessDataPost(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Register user\'s interest in access to Maps Beta.
@@ -380,7 +363,7 @@ class AccessApi extends base_1.BaseAPI {
      * @memberof AccessApi
      */
     requestMapsAccessV1AccessMapsPost(options) {
-        return exports.AccessApiFp(this.configuration).requestMapsAccessV1AccessMapsPost(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.AccessApiFp)(this.configuration).requestMapsAccessV1AccessMapsPost(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.AccessApi = AccessApi;
@@ -388,7 +371,7 @@ exports.AccessApi = AccessApi;
  * FeedbackApi - axios parameter creator
  * @export
  */
-exports.FeedbackApiAxiosParamCreator = function (configuration) {
+const FeedbackApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Save feedback on a finding.
@@ -398,11 +381,11 @@ exports.FeedbackApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postFindingFeedbackV1FeedbackFindingIdPost: (findingId, findingFeedbackIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postFindingFeedbackV1FeedbackFindingIdPost: (findingId_1, findingFeedbackIn_1, ...args_1) => __awaiter(this, [findingId_1, findingFeedbackIn_1, ...args_1], void 0, function* (findingId, findingFeedbackIn, options = {}) {
             // verify required parameter 'findingId' is not null or undefined
-            common_1.assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingId', findingId);
+            (0, common_1.assertParamExists)('postFindingFeedbackV1FeedbackFindingIdPost', 'findingId', findingId);
             // verify required parameter 'findingFeedbackIn' is not null or undefined
-            common_1.assertParamExists('postFindingFeedbackV1FeedbackFindingIdPost', 'findingFeedbackIn', findingFeedbackIn);
+            (0, common_1.assertParamExists)('postFindingFeedbackV1FeedbackFindingIdPost', 'findingFeedbackIn', findingFeedbackIn);
             const localVarPath = `/v1/feedback/{finding_id}`
                 .replace(`{${"finding_id"}}`, encodeURIComponent(String(findingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -415,17 +398,17 @@ exports.FeedbackApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(findingFeedbackIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(findingFeedbackIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -436,9 +419,9 @@ exports.FeedbackApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackPost: (synthesisFeedbackIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        postSynthesisFeedbackV1FeedbackPost: (synthesisFeedbackIn_1, ...args_1) => __awaiter(this, [synthesisFeedbackIn_1, ...args_1], void 0, function* (synthesisFeedbackIn, options = {}) {
             // verify required parameter 'synthesisFeedbackIn' is not null or undefined
-            common_1.assertParamExists('postSynthesisFeedbackV1FeedbackPost', 'synthesisFeedbackIn', synthesisFeedbackIn);
+            (0, common_1.assertParamExists)('postSynthesisFeedbackV1FeedbackPost', 'synthesisFeedbackIn', synthesisFeedbackIn);
             const localVarPath = `/v1/feedback`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -450,28 +433,29 @@ exports.FeedbackApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(synthesisFeedbackIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(synthesisFeedbackIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.FeedbackApiAxiosParamCreator = FeedbackApiAxiosParamCreator;
 /**
  * FeedbackApi - functional programming interface
  * @export
  */
-exports.FeedbackApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.FeedbackApiAxiosParamCreator(configuration);
+const FeedbackApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.FeedbackApiAxiosParamCreator)(configuration);
     return {
         /**
          * Save feedback on a finding.
@@ -483,8 +467,11 @@ exports.FeedbackApiFp = function (configuration) {
          */
         postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['FeedbackApi.postFindingFeedbackV1FeedbackFindingIdPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -496,42 +483,46 @@ exports.FeedbackApiFp = function (configuration) {
          */
         postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['FeedbackApi.postSynthesisFeedbackV1FeedbackPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.FeedbackApiFp = FeedbackApiFp;
 /**
  * FeedbackApi - factory interface
  * @export
  */
-exports.FeedbackApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.FeedbackApiFp(configuration);
+const FeedbackApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.FeedbackApiFp)(configuration);
     return {
         /**
          * Save feedback on a finding.
          * @summary Post Finding Feedback
-         * @param {string} findingId
-         * @param {FindingFeedbackIn} findingFeedbackIn
+         * @param {FeedbackApiPostFindingFeedbackV1FeedbackFindingIdPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options) {
-            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(findingId, findingFeedbackIn, options).then((request) => request(axios, basePath));
+        postFindingFeedbackV1FeedbackFindingIdPost(requestParameters, options) {
+            return localVarFp.postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Post user feedback on AI-generated relationship synthesis to s3.
          * @summary Post Synthesis Feedback
-         * @param {SynthesisFeedbackIn} synthesisFeedbackIn
+         * @param {FeedbackApiPostSynthesisFeedbackV1FeedbackPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options) {
-            return localVarFp.postSynthesisFeedbackV1FeedbackPost(synthesisFeedbackIn, options).then((request) => request(axios, basePath));
+        postSynthesisFeedbackV1FeedbackPost(requestParameters, options) {
+            return localVarFp.postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.FeedbackApiFactory = FeedbackApiFactory;
 /**
  * FeedbackApi - object-oriented interface
  * @export
@@ -548,7 +539,7 @@ class FeedbackApi extends base_1.BaseAPI {
      * @memberof FeedbackApi
      */
     postFindingFeedbackV1FeedbackFindingIdPost(requestParameters, options) {
-        return exports.FeedbackApiFp(this.configuration).postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.FeedbackApiFp)(this.configuration).postFindingFeedbackV1FeedbackFindingIdPost(requestParameters.findingId, requestParameters.findingFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Post user feedback on AI-generated relationship synthesis to s3.
@@ -559,7 +550,7 @@ class FeedbackApi extends base_1.BaseAPI {
      * @memberof FeedbackApi
      */
     postSynthesisFeedbackV1FeedbackPost(requestParameters, options) {
-        return exports.FeedbackApiFp(this.configuration).postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.FeedbackApiFp)(this.configuration).postSynthesisFeedbackV1FeedbackPost(requestParameters.synthesisFeedbackIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.FeedbackApi = FeedbackApi;
@@ -567,7 +558,7 @@ exports.FeedbackApi = FeedbackApi;
  * FindingsApi - axios parameter creator
  * @export
  */
-exports.FindingsApiAxiosParamCreator = function (configuration) {
+const FindingsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get study findings via association ids or dois.
@@ -576,9 +567,9 @@ exports.FindingsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost: (studyFindingsIn_1, ...args_1) => __awaiter(this, [studyFindingsIn_1, ...args_1], void 0, function* (studyFindingsIn, options = {}) {
             // verify required parameter 'studyFindingsIn' is not null or undefined
-            common_1.assertParamExists('getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
+            (0, common_1.assertParamExists)('getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost', 'studyFindingsIn', studyFindingsIn);
             const localVarPath = `/v1/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -590,28 +581,29 @@ exports.FindingsApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyFindingsIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(studyFindingsIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.FindingsApiAxiosParamCreator = FindingsApiAxiosParamCreator;
 /**
  * FindingsApi - functional programming interface
  * @export
  */
-exports.FindingsApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.FindingsApiAxiosParamCreator(configuration);
+const FindingsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.FindingsApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get study findings via association ids or dois.
@@ -622,31 +614,36 @@ exports.FindingsApiFp = function (configuration) {
          */
         getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['FindingsApi.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.FindingsApiFp = FindingsApiFp;
 /**
  * FindingsApi - factory interface
  * @export
  */
-exports.FindingsApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.FindingsApiFp(configuration);
+const FindingsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.FindingsApiFp)(configuration);
     return {
         /**
          * Get study findings via association ids or dois.
          * @summary Get Study Findings From Association Ids Or Dois
-         * @param {StudyFindingsIn} studyFindingsIn
+         * @param {FindingsApiGetStudyFindingsFromAssociationIdsOrDOIsV1FindingsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options) {
-            return localVarFp.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(studyFindingsIn, options).then((request) => request(axios, basePath));
+        getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters, options) {
+            return localVarFp.getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.FindingsApiFactory = FindingsApiFactory;
 /**
  * FindingsApi - object-oriented interface
  * @export
@@ -663,7 +660,7 @@ class FindingsApi extends base_1.BaseAPI {
      * @memberof FindingsApi
      */
     getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters, options) {
-        return exports.FindingsApiFp(this.configuration).getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.FindingsApiFp)(this.configuration).getStudyFindingsFromAssociationIdsOrDOIsV1FindingsPost(requestParameters.studyFindingsIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.FindingsApi = FindingsApi;
@@ -671,7 +668,7 @@ exports.FindingsApi = FindingsApi;
  * FormsApi - axios parameter creator
  * @export
  */
-exports.FormsApiAxiosParamCreator = function (configuration) {
+const FormsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
@@ -686,17 +683,17 @@ exports.FormsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestDemoV1FormsRequestDemoPost: (appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        requestDemoV1FormsRequestDemoPost: (appName_1, firstName_1, lastName_1, emailAddress_1, company_1, title_1, howDidYouHear_1, ...args_1) => __awaiter(this, [appName_1, firstName_1, lastName_1, emailAddress_1, company_1, title_1, howDidYouHear_1, ...args_1], void 0, function* (appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options = {}) {
             // verify required parameter 'appName' is not null or undefined
-            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'appName', appName);
+            (0, common_1.assertParamExists)('requestDemoV1FormsRequestDemoPost', 'appName', appName);
             // verify required parameter 'firstName' is not null or undefined
-            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'firstName', firstName);
+            (0, common_1.assertParamExists)('requestDemoV1FormsRequestDemoPost', 'firstName', firstName);
             // verify required parameter 'lastName' is not null or undefined
-            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'lastName', lastName);
+            (0, common_1.assertParamExists)('requestDemoV1FormsRequestDemoPost', 'lastName', lastName);
             // verify required parameter 'emailAddress' is not null or undefined
-            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'emailAddress', emailAddress);
+            (0, common_1.assertParamExists)('requestDemoV1FormsRequestDemoPost', 'emailAddress', emailAddress);
             // verify required parameter 'company' is not null or undefined
-            common_1.assertParamExists('requestDemoV1FormsRequestDemoPost', 'company', company);
+            (0, common_1.assertParamExists)('requestDemoV1FormsRequestDemoPost', 'company', company);
             const localVarPath = `/v1/forms/request-demo`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -709,7 +706,7 @@ exports.FormsApiAxiosParamCreator = function (configuration) {
             const localVarQueryParameter = {};
             const localVarFormParams = new URLSearchParams();
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             if (appName !== undefined) {
                 localVarFormParams.set('app_name', appName);
             }
@@ -732,23 +729,24 @@ exports.FormsApiAxiosParamCreator = function (configuration) {
                 localVarFormParams.set('how_did_you_hear', howDidYouHear);
             }
             localVarHeaderParameter['Content-Type'] = 'application/x-www-form-urlencoded';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             localVarRequestOptions.data = localVarFormParams.toString();
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.FormsApiAxiosParamCreator = FormsApiAxiosParamCreator;
 /**
  * FormsApi - functional programming interface
  * @export
  */
-exports.FormsApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.FormsApiAxiosParamCreator(configuration);
+const FormsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.FormsApiAxiosParamCreator)(configuration);
     return {
         /**
          *
@@ -765,37 +763,36 @@ exports.FormsApiFp = function (configuration) {
          */
         requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['FormsApi.requestDemoV1FormsRequestDemoPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.FormsApiFp = FormsApiFp;
 /**
  * FormsApi - factory interface
  * @export
  */
-exports.FormsApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.FormsApiFp(configuration);
+const FormsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.FormsApiFp)(configuration);
     return {
         /**
          *
          * @summary Request Demo
-         * @param {string} appName
-         * @param {string} firstName
-         * @param {string} lastName
-         * @param {string} emailAddress
-         * @param {string} company
-         * @param {string} [title]
-         * @param {string} [howDidYouHear]
+         * @param {FormsApiRequestDemoV1FormsRequestDemoPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options) {
-            return localVarFp.requestDemoV1FormsRequestDemoPost(appName, firstName, lastName, emailAddress, company, title, howDidYouHear, options).then((request) => request(axios, basePath));
+        requestDemoV1FormsRequestDemoPost(requestParameters, options) {
+            return localVarFp.requestDemoV1FormsRequestDemoPost(requestParameters.appName, requestParameters.firstName, requestParameters.lastName, requestParameters.emailAddress, requestParameters.company, requestParameters.title, requestParameters.howDidYouHear, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.FormsApiFactory = FormsApiFactory;
 /**
  * FormsApi - object-oriented interface
  * @export
@@ -812,7 +809,7 @@ class FormsApi extends base_1.BaseAPI {
      * @memberof FormsApi
      */
     requestDemoV1FormsRequestDemoPost(requestParameters, options) {
-        return exports.FormsApiFp(this.configuration).requestDemoV1FormsRequestDemoPost(requestParameters.appName, requestParameters.firstName, requestParameters.lastName, requestParameters.emailAddress, requestParameters.company, requestParameters.title, requestParameters.howDidYouHear, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.FormsApiFp)(this.configuration).requestDemoV1FormsRequestDemoPost(requestParameters.appName, requestParameters.firstName, requestParameters.lastName, requestParameters.emailAddress, requestParameters.company, requestParameters.title, requestParameters.howDidYouHear, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.FormsApi = FormsApi;
@@ -820,7 +817,7 @@ exports.FormsApi = FormsApi;
  * KeyManagementApi - axios parameter creator
  * @export
  */
-exports.KeyManagementApiAxiosParamCreator = function (configuration) {
+const KeyManagementApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get user\'s API keys.
@@ -828,7 +825,7 @@ exports.KeyManagementApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getClientKeysV1KeysMeGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getClientKeysV1KeysMeGet: (...args_1) => __awaiter(this, [...args_1], void 0, function* (options = {}) {
             const localVarPath = `/v1/keys/me`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -840,26 +837,27 @@ exports.KeyManagementApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.KeyManagementApiAxiosParamCreator = KeyManagementApiAxiosParamCreator;
 /**
  * KeyManagementApi - functional programming interface
  * @export
  */
-exports.KeyManagementApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.KeyManagementApiAxiosParamCreator(configuration);
+const KeyManagementApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.KeyManagementApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get user\'s API keys.
@@ -869,18 +867,22 @@ exports.KeyManagementApiFp = function (configuration) {
          */
         getClientKeysV1KeysMeGet(options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getClientKeysV1KeysMeGet(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['KeyManagementApi.getClientKeysV1KeysMeGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.KeyManagementApiFp = KeyManagementApiFp;
 /**
  * KeyManagementApi - factory interface
  * @export
  */
-exports.KeyManagementApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.KeyManagementApiFp(configuration);
+const KeyManagementApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.KeyManagementApiFp)(configuration);
     return {
         /**
          * Get user\'s API keys.
@@ -893,6 +895,7 @@ exports.KeyManagementApiFactory = function (configuration, basePath, axios) {
         },
     };
 };
+exports.KeyManagementApiFactory = KeyManagementApiFactory;
 /**
  * KeyManagementApi - object-oriented interface
  * @export
@@ -908,7 +911,7 @@ class KeyManagementApi extends base_1.BaseAPI {
      * @memberof KeyManagementApi
      */
     getClientKeysV1KeysMeGet(options) {
-        return exports.KeyManagementApiFp(this.configuration).getClientKeysV1KeysMeGet(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.KeyManagementApiFp)(this.configuration).getClientKeysV1KeysMeGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.KeyManagementApi = KeyManagementApi;
@@ -916,7 +919,7 @@ exports.KeyManagementApi = KeyManagementApi;
  * MetricsApi - axios parameter creator
  * @export
  */
-exports.MetricsApiAxiosParamCreator = function (configuration) {
+const MetricsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get metrics on the graph.
@@ -924,7 +927,7 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getGraphMetricsV1MetricsGraphGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getGraphMetricsV1MetricsGraphGet: (...args_1) => __awaiter(this, [...args_1], void 0, function* (options = {}) {
             const localVarPath = `/v1/metrics/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -936,23 +939,24 @@ exports.MetricsApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.MetricsApiAxiosParamCreator = MetricsApiAxiosParamCreator;
 /**
  * MetricsApi - functional programming interface
  * @export
  */
-exports.MetricsApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.MetricsApiAxiosParamCreator(configuration);
+const MetricsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.MetricsApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get metrics on the graph.
@@ -962,18 +966,22 @@ exports.MetricsApiFp = function (configuration) {
          */
         getGraphMetricsV1MetricsGraphGet(options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getGraphMetricsV1MetricsGraphGet(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['MetricsApi.getGraphMetricsV1MetricsGraphGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.MetricsApiFp = MetricsApiFp;
 /**
  * MetricsApi - factory interface
  * @export
  */
-exports.MetricsApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.MetricsApiFp(configuration);
+const MetricsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.MetricsApiFp)(configuration);
     return {
         /**
          * Get metrics on the graph.
@@ -986,6 +994,7 @@ exports.MetricsApiFactory = function (configuration, basePath, axios) {
         },
     };
 };
+exports.MetricsApiFactory = MetricsApiFactory;
 /**
  * MetricsApi - object-oriented interface
  * @export
@@ -1001,7 +1010,7 @@ class MetricsApi extends base_1.BaseAPI {
      * @memberof MetricsApi
      */
     getGraphMetricsV1MetricsGraphGet(options) {
-        return exports.MetricsApiFp(this.configuration).getGraphMetricsV1MetricsGraphGet(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.MetricsApiFp)(this.configuration).getGraphMetricsV1MetricsGraphGet(options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.MetricsApi = MetricsApi;
@@ -1009,7 +1018,7 @@ exports.MetricsApi = MetricsApi;
  * PassthroughApi - axios parameter creator
  * @export
  */
-exports.PassthroughApiAxiosParamCreator = function (configuration) {
+const PassthroughApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Forward request to crossref.
@@ -1018,9 +1027,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCrossrefV1CrossrefRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getCrossrefV1CrossrefRestOfPathGet: (restOfPath_1, ...args_1) => __awaiter(this, [restOfPath_1, ...args_1], void 0, function* (restOfPath, options = {}) {
             // verify required parameter 'restOfPath' is not null or undefined
-            common_1.assertParamExists('getCrossrefV1CrossrefRestOfPathGet', 'restOfPath', restOfPath);
+            (0, common_1.assertParamExists)('getCrossrefV1CrossrefRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/crossref/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1033,15 +1042,15 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1052,9 +1061,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getFtrEntitlementsV1GetftrEntitlementsPost: (getFTREntitlementsIn_1, ...args_1) => __awaiter(this, [getFTREntitlementsIn_1, ...args_1], void 0, function* (getFTREntitlementsIn, options = {}) {
             // verify required parameter 'getFTREntitlementsIn' is not null or undefined
-            common_1.assertParamExists('getFtrEntitlementsV1GetftrEntitlementsPost', 'getFTREntitlementsIn', getFTREntitlementsIn);
+            (0, common_1.assertParamExists)('getFtrEntitlementsV1GetftrEntitlementsPost', 'getFTREntitlementsIn', getFTREntitlementsIn);
             const localVarPath = `/v1/getftr/entitlements`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1066,17 +1075,17 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(getFTREntitlementsIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(getFTREntitlementsIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1087,9 +1096,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrcidV1OrcidRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getOrcidV1OrcidRestOfPathGet: (restOfPath_1, ...args_1) => __awaiter(this, [restOfPath_1, ...args_1], void 0, function* (restOfPath, options = {}) {
             // verify required parameter 'restOfPath' is not null or undefined
-            common_1.assertParamExists('getOrcidV1OrcidRestOfPathGet', 'restOfPath', restOfPath);
+            (0, common_1.assertParamExists)('getOrcidV1OrcidRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/orcid/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1102,15 +1111,15 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1121,9 +1130,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticGraphV1SemanticGraphRestOfPathGet: (restOfPath_1, ...args_1) => __awaiter(this, [restOfPath_1, ...args_1], void 0, function* (restOfPath, options = {}) {
             // verify required parameter 'restOfPath' is not null or undefined
-            common_1.assertParamExists('getSemanticGraphV1SemanticGraphRestOfPathGet', 'restOfPath', restOfPath);
+            (0, common_1.assertParamExists)('getSemanticGraphV1SemanticGraphRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/semantic_graph/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1136,15 +1145,15 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1155,9 +1164,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUmlsConceptsV1UmlsRestOfPathGet: (restOfPath_1, ...args_1) => __awaiter(this, [restOfPath_1, ...args_1], void 0, function* (restOfPath, options = {}) {
             // verify required parameter 'restOfPath' is not null or undefined
-            common_1.assertParamExists('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath);
+            (0, common_1.assertParamExists)('getUmlsConceptsV1UmlsRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/umls/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1170,15 +1179,15 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1189,9 +1198,9 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getVariableConceptsV1VariableConceptsRestOfPathGet: (restOfPath_1, ...args_1) => __awaiter(this, [restOfPath_1, ...args_1], void 0, function* (restOfPath, options = {}) {
             // verify required parameter 'restOfPath' is not null or undefined
-            common_1.assertParamExists('getVariableConceptsV1VariableConceptsRestOfPathGet', 'restOfPath', restOfPath);
+            (0, common_1.assertParamExists)('getVariableConceptsV1VariableConceptsRestOfPathGet', 'restOfPath', restOfPath);
             const localVarPath = `/v1/variable_concepts/{rest_of_path}`
                 .replace(`{${"rest_of_path"}}`, encodeURIComponent(String(restOfPath)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1204,26 +1213,27 @@ exports.PassthroughApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.PassthroughApiAxiosParamCreator = PassthroughApiAxiosParamCreator;
 /**
  * PassthroughApi - functional programming interface
  * @export
  */
-exports.PassthroughApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.PassthroughApiAxiosParamCreator(configuration);
+const PassthroughApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.PassthroughApiAxiosParamCreator)(configuration);
     return {
         /**
          * Forward request to crossref.
@@ -1234,8 +1244,11 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getCrossrefV1CrossrefRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getCrossrefV1CrossrefRestOfPathGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1247,8 +1260,11 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getFtrEntitlementsV1GetftrEntitlementsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1260,8 +1276,11 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getOrcidV1OrcidRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getOrcidV1OrcidRestOfPathGet(restOfPath, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getOrcidV1OrcidRestOfPathGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1273,8 +1292,11 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getSemanticGraphV1SemanticGraphRestOfPathGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1286,8 +1308,11 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getUmlsConceptsV1UmlsRestOfPathGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1299,81 +1324,86 @@ exports.PassthroughApiFp = function (configuration) {
          */
         getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['PassthroughApi.getVariableConceptsV1VariableConceptsRestOfPathGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.PassthroughApiFp = PassthroughApiFp;
 /**
  * PassthroughApi - factory interface
  * @export
  */
-exports.PassthroughApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.PassthroughApiFp(configuration);
+const PassthroughApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.PassthroughApiFp)(configuration);
     return {
         /**
          * Forward request to crossref.
          * @summary Get Crossref
-         * @param {any} restOfPath
+         * @param {PassthroughApiGetCrossrefV1CrossrefRestOfPathGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCrossrefV1CrossrefRestOfPathGet(restOfPath, options) {
-            return localVarFp.getCrossrefV1CrossrefRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        getCrossrefV1CrossrefRestOfPathGet(requestParameters, options) {
+            return localVarFp.getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Post GetFTR entitlements endpoint.
          * @summary Get Ftr Entitlements
-         * @param {GetFTREntitlementsIn} getFTREntitlementsIn
+         * @param {PassthroughApiGetFtrEntitlementsV1GetftrEntitlementsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options) {
-            return localVarFp.getFtrEntitlementsV1GetftrEntitlementsPost(getFTREntitlementsIn, options).then((request) => request(axios, basePath));
+        getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters, options) {
+            return localVarFp.getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to ORCID.
          * @summary Get Orcid
-         * @param {any} restOfPath
+         * @param {PassthroughApiGetOrcidV1OrcidRestOfPathGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOrcidV1OrcidRestOfPathGet(restOfPath, options) {
-            return localVarFp.getOrcidV1OrcidRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        getOrcidV1OrcidRestOfPathGet(requestParameters, options) {
+            return localVarFp.getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to SearchGraph.
          * @summary Get Semantic Graph
-         * @param {string} restOfPath
+         * @param {PassthroughApiGetSemanticGraphV1SemanticGraphRestOfPathGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options) {
-            return localVarFp.getSemanticGraphV1SemanticGraphRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters, options) {
+            return localVarFp.getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to UMLS.
          * @summary Get Umls Concepts
-         * @param {any} restOfPath
+         * @param {PassthroughApiGetUmlsConceptsV1UmlsRestOfPathGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options) {
-            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        getUmlsConceptsV1UmlsRestOfPathGet(requestParameters, options) {
+            return localVarFp.getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
         },
         /**
          * Forward request to SearchGraph.
          * @summary Get Variable Concepts
-         * @param {string} restOfPath
+         * @param {PassthroughApiGetVariableConceptsV1VariableConceptsRestOfPathGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options) {
-            return localVarFp.getVariableConceptsV1VariableConceptsRestOfPathGet(restOfPath, options).then((request) => request(axios, basePath));
+        getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters, options) {
+            return localVarFp.getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.PassthroughApiFactory = PassthroughApiFactory;
 /**
  * PassthroughApi - object-oriented interface
  * @export
@@ -1390,7 +1420,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getCrossrefV1CrossrefRestOfPathGet(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getCrossrefV1CrossrefRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Post GetFTR entitlements endpoint.
@@ -1401,7 +1431,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getFtrEntitlementsV1GetftrEntitlementsPost(requestParameters.getFTREntitlementsIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward request to ORCID.
@@ -1412,7 +1442,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getOrcidV1OrcidRestOfPathGet(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getOrcidV1OrcidRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward request to SearchGraph.
@@ -1423,7 +1453,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getSemanticGraphV1SemanticGraphRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward request to UMLS.
@@ -1434,7 +1464,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getUmlsConceptsV1UmlsRestOfPathGet(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getUmlsConceptsV1UmlsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Forward request to SearchGraph.
@@ -1445,7 +1475,7 @@ class PassthroughApi extends base_1.BaseAPI {
      * @memberof PassthroughApi
      */
     getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters, options) {
-        return exports.PassthroughApiFp(this.configuration).getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.PassthroughApiFp)(this.configuration).getVariableConceptsV1VariableConceptsRestOfPathGet(requestParameters.restOfPath, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.PassthroughApi = PassthroughApi;
@@ -1453,7 +1483,7 @@ exports.PassthroughApi = PassthroughApi;
  * QuerySuggestionsApi - axios parameter creator
  * @export
  */
-exports.QuerySuggestionsApiAxiosParamCreator = function (configuration) {
+const QuerySuggestionsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get query suggestions.
@@ -1462,9 +1492,9 @@ exports.QuerySuggestionsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getQuerySuggestionsV1QuerySuggestionsPost: (suggestedQueriesIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getQuerySuggestionsV1QuerySuggestionsPost: (suggestedQueriesIn_1, ...args_1) => __awaiter(this, [suggestedQueriesIn_1, ...args_1], void 0, function* (suggestedQueriesIn, options = {}) {
             // verify required parameter 'suggestedQueriesIn' is not null or undefined
-            common_1.assertParamExists('getQuerySuggestionsV1QuerySuggestionsPost', 'suggestedQueriesIn', suggestedQueriesIn);
+            (0, common_1.assertParamExists)('getQuerySuggestionsV1QuerySuggestionsPost', 'suggestedQueriesIn', suggestedQueriesIn);
             const localVarPath = `/v1/query_suggestions`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1476,28 +1506,29 @@ exports.QuerySuggestionsApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(suggestedQueriesIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(suggestedQueriesIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.QuerySuggestionsApiAxiosParamCreator = QuerySuggestionsApiAxiosParamCreator;
 /**
  * QuerySuggestionsApi - functional programming interface
  * @export
  */
-exports.QuerySuggestionsApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.QuerySuggestionsApiAxiosParamCreator(configuration);
+const QuerySuggestionsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.QuerySuggestionsApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get query suggestions.
@@ -1508,31 +1539,36 @@ exports.QuerySuggestionsApiFp = function (configuration) {
          */
         getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['QuerySuggestionsApi.getQuerySuggestionsV1QuerySuggestionsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.QuerySuggestionsApiFp = QuerySuggestionsApiFp;
 /**
  * QuerySuggestionsApi - factory interface
  * @export
  */
-exports.QuerySuggestionsApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.QuerySuggestionsApiFp(configuration);
+const QuerySuggestionsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.QuerySuggestionsApiFp)(configuration);
     return {
         /**
          * Get query suggestions.
          * @summary Get Query Suggestions.
-         * @param {SuggestedQueriesIn} suggestedQueriesIn
+         * @param {QuerySuggestionsApiGetQuerySuggestionsV1QuerySuggestionsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options) {
-            return localVarFp.getQuerySuggestionsV1QuerySuggestionsPost(suggestedQueriesIn, options).then((request) => request(axios, basePath));
+        getQuerySuggestionsV1QuerySuggestionsPost(requestParameters, options) {
+            return localVarFp.getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.QuerySuggestionsApiFactory = QuerySuggestionsApiFactory;
 /**
  * QuerySuggestionsApi - object-oriented interface
  * @export
@@ -1549,7 +1585,7 @@ class QuerySuggestionsApi extends base_1.BaseAPI {
      * @memberof QuerySuggestionsApi
      */
     getQuerySuggestionsV1QuerySuggestionsPost(requestParameters, options) {
-        return exports.QuerySuggestionsApiFp(this.configuration).getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.QuerySuggestionsApiFp)(this.configuration).getQuerySuggestionsV1QuerySuggestionsPost(requestParameters.suggestedQueriesIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.QuerySuggestionsApi = QuerySuggestionsApi;
@@ -1557,7 +1593,7 @@ exports.QuerySuggestionsApi = QuerySuggestionsApi;
  * RdbApi - axios parameter creator
  * @export
  */
-exports.RdbApiAxiosParamCreator = function (configuration) {
+const RdbApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Read evidences.
@@ -1566,7 +1602,7 @@ exports.RdbApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readEvidencesV1RdbEvidencesGet: (ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        readEvidencesV1RdbEvidencesGet: (ids_3, ...args_1) => __awaiter(this, [ids_3, ...args_1], void 0, function* (ids, options = {}) {
             const localVarPath = `/v1/rdb/evidences`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1578,18 +1614,18 @@ exports.RdbApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (ids) {
                 localVarQueryParameter['ids'] = ids;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1600,7 +1636,7 @@ exports.RdbApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readStudiesV1RdbStudiesGet: (ids, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        readStudiesV1RdbStudiesGet: (ids_3, ...args_1) => __awaiter(this, [ids_3, ...args_1], void 0, function* (ids, options = {}) {
             const localVarPath = `/v1/rdb/studies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1612,29 +1648,30 @@ exports.RdbApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (ids) {
                 localVarQueryParameter['ids'] = ids;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.RdbApiAxiosParamCreator = RdbApiAxiosParamCreator;
 /**
  * RdbApi - functional programming interface
  * @export
  */
-exports.RdbApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.RdbApiAxiosParamCreator(configuration);
+const RdbApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.RdbApiAxiosParamCreator)(configuration);
     return {
         /**
          * Read evidences.
@@ -1645,8 +1682,11 @@ exports.RdbApiFp = function (configuration) {
          */
         readEvidencesV1RdbEvidencesGet(ids, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.readEvidencesV1RdbEvidencesGet(ids, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['RdbApi.readEvidencesV1RdbEvidencesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -1658,41 +1698,46 @@ exports.RdbApiFp = function (configuration) {
          */
         readStudiesV1RdbStudiesGet(ids, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.readStudiesV1RdbStudiesGet(ids, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['RdbApi.readStudiesV1RdbStudiesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.RdbApiFp = RdbApiFp;
 /**
  * RdbApi - factory interface
  * @export
  */
-exports.RdbApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.RdbApiFp(configuration);
+const RdbApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.RdbApiFp)(configuration);
     return {
         /**
          * Read evidences.
          * @summary Read Evidences
-         * @param {Array<string>} [ids] Evidence ids
+         * @param {RdbApiReadEvidencesV1RdbEvidencesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readEvidencesV1RdbEvidencesGet(ids, options) {
-            return localVarFp.readEvidencesV1RdbEvidencesGet(ids, options).then((request) => request(axios, basePath));
+        readEvidencesV1RdbEvidencesGet(requestParameters = {}, options) {
+            return localVarFp.readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(axios, basePath));
         },
         /**
          * Read studies.
          * @summary Read Studies
-         * @param {Array<string>} [ids] Study ids
+         * @param {RdbApiReadStudiesV1RdbStudiesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        readStudiesV1RdbStudiesGet(ids, options) {
-            return localVarFp.readStudiesV1RdbStudiesGet(ids, options).then((request) => request(axios, basePath));
+        readStudiesV1RdbStudiesGet(requestParameters = {}, options) {
+            return localVarFp.readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.RdbApiFactory = RdbApiFactory;
 /**
  * RdbApi - object-oriented interface
  * @export
@@ -1709,7 +1754,7 @@ class RdbApi extends base_1.BaseAPI {
      * @memberof RdbApi
      */
     readEvidencesV1RdbEvidencesGet(requestParameters = {}, options) {
-        return exports.RdbApiFp(this.configuration).readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.RdbApiFp)(this.configuration).readEvidencesV1RdbEvidencesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Read studies.
@@ -1720,7 +1765,7 @@ class RdbApi extends base_1.BaseAPI {
      * @memberof RdbApi
      */
     readStudiesV1RdbStudiesGet(requestParameters = {}, options) {
-        return exports.RdbApiFp(this.configuration).readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.RdbApiFp)(this.configuration).readStudiesV1RdbStudiesGet(requestParameters.ids, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.RdbApi = RdbApi;
@@ -1728,7 +1773,7 @@ exports.RdbApi = RdbApi;
  * SemanticSearchApi - axios parameter creator
  * @export
  */
-exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
+const SemanticSearchApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get semantic search.  Values from semantic search.
@@ -1737,9 +1782,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost: (systemSearchIn_1, ...args_1) => __awaiter(this, [systemSearchIn_1, ...args_1], void 0, function* (systemSearchIn, options = {}) {
             // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost', 'systemSearchIn', systemSearchIn);
+            (0, common_1.assertParamExists)('asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost', 'systemSearchIn', systemSearchIn);
             const localVarPath = `/v1/semantic-search/cluster_async`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1751,17 +1796,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1772,9 +1817,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        asyncSemanticSearchV1SemanticSearchClusterPost: (systemSearchIn_1, ...args_1) => __awaiter(this, [systemSearchIn_1, ...args_1], void 0, function* (systemSearchIn, options = {}) {
             // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('asyncSemanticSearchV1SemanticSearchClusterPost', 'systemSearchIn', systemSearchIn);
+            (0, common_1.assertParamExists)('asyncSemanticSearchV1SemanticSearchClusterPost', 'systemSearchIn', systemSearchIn);
             const localVarPath = `/v1/semantic-search/cluster`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1786,17 +1831,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1807,9 +1852,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet: (runId_1, ...args_1) => __awaiter(this, [runId_1, ...args_1], void 0, function* (runId, options = {}) {
             // verify required parameter 'runId' is not null or undefined
-            common_1.assertParamExists('fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet', 'runId', runId);
+            (0, common_1.assertParamExists)('fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet', 'runId', runId);
             const localVarPath = `/v1/semantic-search/cluster_async/{run_id}`
                 .replace(`{${"run_id"}}`, encodeURIComponent(String(runId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1822,15 +1867,15 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1841,9 +1886,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchFetchGet: (cacheKey, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchSynthesisV1SemanticSearchFetchGet: (cacheKey_1, ...args_1) => __awaiter(this, [cacheKey_1, ...args_1], void 0, function* (cacheKey, options = {}) {
             // verify required parameter 'cacheKey' is not null or undefined
-            common_1.assertParamExists('fetchSynthesisV1SemanticSearchFetchGet', 'cacheKey', cacheKey);
+            (0, common_1.assertParamExists)('fetchSynthesisV1SemanticSearchFetchGet', 'cacheKey', cacheKey);
             const localVarPath = `/v1/semantic-search/fetch`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1855,18 +1900,18 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (cacheKey !== undefined) {
                 localVarQueryParameter['cache_key'] = cacheKey;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1877,9 +1922,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost: (systemSearchIn_1, ...args_1) => __awaiter(this, [systemSearchIn_1, ...args_1], void 0, function* (systemSearchIn, options = {}) {
             // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost', 'systemSearchIn', systemSearchIn);
+            (0, common_1.assertParamExists)('getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost', 'systemSearchIn', systemSearchIn);
             const localVarPath = `/v1/semantic-search/relationship_map`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1891,17 +1936,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1913,7 +1958,7 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom, metric, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticSearchUsageV1SemanticSearchUsageGet: (dateFrom_1, metric_1, ...args_1) => __awaiter(this, [dateFrom_1, metric_1, ...args_1], void 0, function* (dateFrom, metric, options = {}) {
             const localVarPath = `/v1/semantic-search/usage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1925,23 +1970,23 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (dateFrom !== undefined) {
                 localVarQueryParameter['date_from'] = (dateFrom instanceof Date) ?
-                    dateFrom.toISOString().substr(0, 10) :
+                    dateFrom.toISOString().substring(0, 10) :
                     dateFrom;
             }
             if (metric !== undefined) {
                 localVarQueryParameter['metric'] = metric;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1952,9 +1997,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemSearchFindingsDataV1SemanticSearchDataPost: (systemSearchIn_1, ...args_1) => __awaiter(this, [systemSearchIn_1, ...args_1], void 0, function* (systemSearchIn, options = {}) {
             // verify required parameter 'systemSearchIn' is not null or undefined
-            common_1.assertParamExists('getSystemSearchFindingsDataV1SemanticSearchDataPost', 'systemSearchIn', systemSearchIn);
+            (0, common_1.assertParamExists)('getSystemSearchFindingsDataV1SemanticSearchDataPost', 'systemSearchIn', systemSearchIn);
             const localVarPath = `/v1/semantic-search/data`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -1966,17 +2011,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -1987,9 +2032,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: (systemSearchDataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost: (systemSearchDataIn_1, ...args_1) => __awaiter(this, [systemSearchDataIn_1, ...args_1], void 0, function* (systemSearchDataIn, options = {}) {
             // verify required parameter 'systemSearchDataIn' is not null or undefined
-            common_1.assertParamExists('getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost', 'systemSearchDataIn', systemSearchDataIn);
+            (0, common_1.assertParamExists)('getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost', 'systemSearchDataIn', systemSearchDataIn);
             const localVarPath = `/v1/semantic-search/data/mechanistic`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2001,17 +2046,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchDataIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2022,9 +2067,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: (systemSearchDataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost: (systemSearchDataIn_1, ...args_1) => __awaiter(this, [systemSearchDataIn_1, ...args_1], void 0, function* (systemSearchDataIn, options = {}) {
             // verify required parameter 'systemSearchDataIn' is not null or undefined
-            common_1.assertParamExists('getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost', 'systemSearchDataIn', systemSearchDataIn);
+            (0, common_1.assertParamExists)('getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost', 'systemSearchDataIn', systemSearchDataIn);
             const localVarPath = `/v1/semantic-search/data/statistical`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2036,17 +2081,17 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(systemSearchDataIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(systemSearchDataIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2058,9 +2103,9 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey, forceRerun, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        regenerateSynthesisV1SemanticSearchRegeneratePost: (cacheKey_1, forceRerun_1, ...args_1) => __awaiter(this, [cacheKey_1, forceRerun_1, ...args_1], void 0, function* (cacheKey, forceRerun, options = {}) {
             // verify required parameter 'cacheKey' is not null or undefined
-            common_1.assertParamExists('regenerateSynthesisV1SemanticSearchRegeneratePost', 'cacheKey', cacheKey);
+            (0, common_1.assertParamExists)('regenerateSynthesisV1SemanticSearchRegeneratePost', 'cacheKey', cacheKey);
             const localVarPath = `/v1/semantic-search/regenerate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2072,32 +2117,33 @@ exports.SemanticSearchApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (cacheKey !== undefined) {
                 localVarQueryParameter['cache_key'] = cacheKey;
             }
             if (forceRerun !== undefined) {
                 localVarQueryParameter['force_rerun'] = forceRerun;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.SemanticSearchApiAxiosParamCreator = SemanticSearchApiAxiosParamCreator;
 /**
  * SemanticSearchApi - functional programming interface
  * @export
  */
-exports.SemanticSearchApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.SemanticSearchApiAxiosParamCreator(configuration);
+const SemanticSearchApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.SemanticSearchApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get semantic search.  Values from semantic search.
@@ -2108,8 +2154,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2121,8 +2170,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.asyncSemanticSearchV1SemanticSearchClusterPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2134,8 +2186,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2147,8 +2202,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.fetchSynthesisV1SemanticSearchFetchGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2160,8 +2218,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2174,8 +2235,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.getSemanticSearchUsageV1SemanticSearchUsageGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2187,8 +2251,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.getSystemSearchFindingsDataV1SemanticSearchDataPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2200,8 +2267,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2213,8 +2283,11 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -2227,123 +2300,126 @@ exports.SemanticSearchApiFp = function (configuration) {
          */
         regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SemanticSearchApi.regenerateSynthesisV1SemanticSearchRegeneratePost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.SemanticSearchApiFp = SemanticSearchApiFp;
 /**
  * SemanticSearchApi - factory interface
  * @export
  */
-exports.SemanticSearchApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.SemanticSearchApiFp(configuration);
+const SemanticSearchApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.SemanticSearchApiFp)(configuration);
     return {
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Async Cluster Relationships
-         * @param {SystemSearchIn} systemSearchIn
+         * @param {SemanticSearchApiAsyncClusterRelationshipsV1SemanticSearchClusterAsyncPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options) {
-            return localVarFp.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters, options) {
+            return localVarFp.asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Async Semantic Search
-         * @param {SystemSearchIn} systemSearchIn
+         * @param {SemanticSearchApiAsyncSemanticSearchV1SemanticSearchClusterPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options) {
-            return localVarFp.asyncSemanticSearchV1SemanticSearchClusterPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters, options) {
+            return localVarFp.asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Fetch Cluster Response
-         * @param {string} runId
+         * @param {SemanticSearchApiFetchClusterResponseV1SemanticSearchClusterAsyncRunIdGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options) {
-            return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(runId, options).then((request) => request(axios, basePath));
+        fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters, options) {
+            return localVarFp.fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search. Logs freemium usage on success
          * @summary Fetch Synthesis
-         * @param {string} cacheKey
+         * @param {SemanticSearchApiFetchSynthesisV1SemanticSearchFetchGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options) {
-            return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(cacheKey, options).then((request) => request(axios, basePath));
+        fetchSynthesisV1SemanticSearchFetchGet(requestParameters, options) {
+            return localVarFp.fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search relationship map.
          * @summary Get Relationship Map Endpoint
-         * @param {SystemSearchIn} systemSearchIn
+         * @param {SemanticSearchApiGetRelationshipMapEndpointV1SemanticSearchRelationshipMapPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options) {
-            return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters, options) {
+            return localVarFp.getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
          * @summary Get Semantic Search Usage
-         * @param {string} [dateFrom]
-         * @param {Metrics} [metric]
+         * @param {SemanticSearchApiGetSemanticSearchUsageV1SemanticSearchUsageGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options) {
-            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(dateFrom, metric, options).then((request) => request(axios, basePath));
+        getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters = {}, options) {
+            return localVarFp.getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search findings.  Values from semantic search.
          * @summary Get System Search Findings Data
-         * @param {SystemSearchIn} systemSearchIn
+         * @param {SemanticSearchApiGetSystemSearchFindingsDataV1SemanticSearchDataPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options) {
-            return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(systemSearchIn, options).then((request) => request(axios, basePath));
+        getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters, options) {
+            return localVarFp.getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get statistical findings.
          * @summary Get System Search Mechanistic Data
-         * @param {SystemSearchDataIn} systemSearchDataIn
+         * @param {SemanticSearchApiGetSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options) {
-            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
+        getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters, options) {
+            return localVarFp.getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get mechanistic findings.
          * @summary Get System Search Statistical Data
-         * @param {SystemSearchDataIn} systemSearchDataIn
+         * @param {SemanticSearchApiGetSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options) {
-            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(systemSearchDataIn, options).then((request) => request(axios, basePath));
+        getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters, options) {
+            return localVarFp.getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get semantic search.  Values from semantic search.
          * @summary Regenerate Synthesis
-         * @param {string} cacheKey
-         * @param {boolean} [forceRerun]
+         * @param {SemanticSearchApiRegenerateSynthesisV1SemanticSearchRegeneratePostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options) {
-            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(cacheKey, forceRerun, options).then((request) => request(axios, basePath));
+        regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters, options) {
+            return localVarFp.regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.SemanticSearchApiFactory = SemanticSearchApiFactory;
 /**
  * SemanticSearchApi - object-oriented interface
  * @export
@@ -2360,7 +2436,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).asyncClusterRelationshipsV1SemanticSearchClusterAsyncPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
@@ -2371,7 +2447,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).asyncSemanticSearchV1SemanticSearchClusterPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
@@ -2382,7 +2458,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).fetchClusterResponseV1SemanticSearchClusterAsyncRunIdGet(requestParameters.runId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search. Logs freemium usage on success
@@ -2393,7 +2469,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     fetchSynthesisV1SemanticSearchFetchGet(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).fetchSynthesisV1SemanticSearchFetchGet(requestParameters.cacheKey, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search relationship map.
@@ -2404,7 +2480,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).getRelationshipMapEndpointV1SemanticSearchRelationshipMapPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search usage.  date defaults to Jan 1st 2023 - before releasing tracking. Ommiting the date query param is equivalent of getting usage regardless of the date  metric defaults to Metrics.semantic_search_create for backward compatibility so that API consumers that don\'t pass a metric query param still get the original behaviour.
@@ -2415,7 +2491,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters = {}, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).getSemanticSearchUsageV1SemanticSearchUsageGet(requestParameters.dateFrom, requestParameters.metric, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search findings.  Values from semantic search.
@@ -2426,7 +2502,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).getSystemSearchFindingsDataV1SemanticSearchDataPost(requestParameters.systemSearchIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get statistical findings.
@@ -2437,7 +2513,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).getSystemSearchMechanisticDataV1SemanticSearchDataMechanisticPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get mechanistic findings.
@@ -2448,7 +2524,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).getSystemSearchStatisticalDataV1SemanticSearchDataStatisticalPost(requestParameters.systemSearchDataIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get semantic search.  Values from semantic search.
@@ -2459,7 +2535,7 @@ class SemanticSearchApi extends base_1.BaseAPI {
      * @memberof SemanticSearchApi
      */
     regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters, options) {
-        return exports.SemanticSearchApiFp(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SemanticSearchApiFp)(this.configuration).regenerateSynthesisV1SemanticSearchRegeneratePost(requestParameters.cacheKey, requestParameters.forceRerun, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SemanticSearchApi = SemanticSearchApi;
@@ -2467,7 +2543,7 @@ exports.SemanticSearchApi = SemanticSearchApi;
  * SohApi - axios parameter creator
  * @export
  */
-exports.SohApiAxiosParamCreator = function (configuration) {
+const SohApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Fetch graph.
@@ -2477,11 +2553,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: (topicId, graphPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost: (topicId_1, graphPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, graphPayloadTyped_1, ...args_1], void 0, function* (topicId, graphPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'topicId', topicId);
             // verify required parameter 'graphPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped);
+            (0, common_1.assertParamExists)('fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped);
             const localVarPath = `/v1/soh/mech_relationships/{topic_id}/graph`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2494,17 +2570,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(graphPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(graphPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2516,11 +2592,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: (topicId, graphPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost: (topicId_1, graphPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, graphPayloadTyped_1, ...args_1], void 0, function* (topicId, graphPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'topicId', topicId);
             // verify required parameter 'graphPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped);
+            (0, common_1.assertParamExists)('fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost', 'graphPayloadTyped', graphPayloadTyped);
             const localVarPath = `/v1/soh/stat_relationships/{topic_id}/graph`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2533,17 +2609,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(graphPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(graphPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2553,7 +2629,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet: (...args_1) => __awaiter(this, [...args_1], void 0, function* (options = {}) {
             const localVarPath = `/v1/soh/metrics/time-series`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2565,12 +2641,12 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2581,9 +2657,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet: (query_1, ...args_1) => __awaiter(this, [query_1, ...args_1], void 0, function* (query, options = {}) {
             // verify required parameter 'query' is not null or undefined
-            common_1.assertParamExists('fetchHierarchicalTopicsV1SohHierarchicalTopicsGet', 'query', query);
+            (0, common_1.assertParamExists)('fetchHierarchicalTopicsV1SohHierarchicalTopicsGet', 'query', query);
             const localVarPath = `/v1/soh/hierarchical-topics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2595,15 +2671,15 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2616,13 +2692,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost: (topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, traversalDirection, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            (0, common_1.assertParamExists)('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/mech_relationships/{topic_id}/graph/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -2636,17 +2712,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2659,13 +2735,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost: (topicId_1, targetTopicId_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, targetTopicId_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, targetTopicId, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
             // verify required parameter 'targetTopicId' is not null or undefined
-            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
+            (0, common_1.assertParamExists)('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/mech_relationships/{topic_id}/paths/mediators`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2678,20 +2754,20 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (targetTopicId !== undefined) {
                 localVarQueryParameter['target_topic_id'] = targetTopicId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2704,13 +2780,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost: (topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, traversalDirection, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            (0, common_1.assertParamExists)('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/mech_relationships/{topic_id}/paths/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -2724,17 +2800,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2747,13 +2823,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost: (topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, traversalDirection, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            (0, common_1.assertParamExists)('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/stat_relationships/{topic_id}/graph/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -2767,17 +2843,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2790,13 +2866,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: (topicId, targetTopicId, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost: (topicId_1, targetTopicId_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, targetTopicId_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, targetTopicId, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'topicId', topicId);
             // verify required parameter 'targetTopicId' is not null or undefined
-            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
+            (0, common_1.assertParamExists)('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'targetTopicId', targetTopicId);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/stat_relationships/{topic_id}/paths/mediators`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2809,20 +2885,20 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (targetTopicId !== undefined) {
                 localVarQueryParameter['target_topic_id'] = targetTopicId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2835,13 +2911,13 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId, traversalDirection, pathsPayloadTyped, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost: (topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1) => __awaiter(this, [topicId_1, traversalDirection_1, pathsPayloadTyped_1, ...args_1], void 0, function* (topicId, traversalDirection, pathsPayloadTyped, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
+            (0, common_1.assertParamExists)('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'topicId', topicId);
             // verify required parameter 'traversalDirection' is not null or undefined
-            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
+            (0, common_1.assertParamExists)('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'traversalDirection', traversalDirection);
             // verify required parameter 'pathsPayloadTyped' is not null or undefined
-            common_1.assertParamExists('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
+            (0, common_1.assertParamExists)('fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost', 'pathsPayloadTyped', pathsPayloadTyped);
             const localVarPath = `/v1/soh/stat_relationships/{topic_id}/paths/{traversal_direction}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)))
                 .replace(`{${"traversal_direction"}}`, encodeURIComponent(String(traversalDirection)));
@@ -2855,17 +2931,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(pathsPayloadTyped, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(pathsPayloadTyped, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2876,9 +2952,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchTopicsV1SohTopicsGet: (query, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        fetchTopicsV1SohTopicsGet: (query_1, ...args_1) => __awaiter(this, [query_1, ...args_1], void 0, function* (query, options = {}) {
             // verify required parameter 'query' is not null or undefined
-            common_1.assertParamExists('fetchTopicsV1SohTopicsGet', 'query', query);
+            (0, common_1.assertParamExists)('fetchTopicsV1SohTopicsGet', 'query', query);
             const localVarPath = `/v1/soh/topics`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2890,15 +2966,15 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             if (query !== undefined) {
                 localVarQueryParameter['query'] = query;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2909,7 +2985,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getListOfSohFindingsV1SohFindingsLogGet: (doi, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getListOfSohFindingsV1SohFindingsLogGet: (doi_1, ...args_1) => __awaiter(this, [doi_1, ...args_1], void 0, function* (doi, options = {}) {
             const localVarPath = `/v1/soh/findings-log`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2921,18 +2997,18 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (doi !== undefined) {
                 localVarQueryParameter['doi'] = doi;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2945,11 +3021,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id, topic2Id, recent, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet: (topic1Id_1, topic2Id_1, recent_1, ...args_1) => __awaiter(this, [topic1Id_1, topic2Id_1, recent_1, ...args_1], void 0, function* (topic1Id, topic2Id, recent, options = {}) {
             // verify required parameter 'topic1Id' is not null or undefined
-            common_1.assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id);
+            (0, common_1.assertParamExists)('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic1Id', topic1Id);
             // verify required parameter 'topic2Id' is not null or undefined
-            common_1.assertParamExists('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic2Id', topic2Id);
+            (0, common_1.assertParamExists)('getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet', 'topic2Id', topic2Id);
             const localVarPath = `/v1/soh/summary`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -2961,10 +3037,10 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topic1Id !== undefined) {
                 localVarQueryParameter['topic_1_id'] = topic1Id;
             }
@@ -2974,11 +3050,11 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             if (recent !== undefined) {
                 localVarQueryParameter['recent'] = recent;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -2989,9 +3065,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohEvidenceMetadataV1SohEvidencesPost: (sohIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSohEvidenceMetadataV1SohEvidencesPost: (sohIn_1, ...args_1) => __awaiter(this, [sohIn_1, ...args_1], void 0, function* (sohIn, options = {}) {
             // verify required parameter 'sohIn' is not null or undefined
-            common_1.assertParamExists('getSohEvidenceMetadataV1SohEvidencesPost', 'sohIn', sohIn);
+            (0, common_1.assertParamExists)('getSohEvidenceMetadataV1SohEvidencesPost', 'sohIn', sohIn);
             const localVarPath = `/v1/soh/evidences`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3003,17 +3079,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(sohIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3025,7 +3101,7 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet: (limit, clearCache, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSohGraphMetadataV1SohGraphGet: (limit_1, clearCache_1, ...args_1) => __awaiter(this, [limit_1, clearCache_1, ...args_1], void 0, function* (limit, clearCache, options = {}) {
             const localVarPath = `/v1/soh/graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3037,18 +3113,18 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (clearCache !== undefined) {
                 localVarQueryParameter['clear_cache'] = clearCache;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3059,9 +3135,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohFindingsPost: (sohIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSohOfMetadataV1SohFindingsPost: (sohIn_1, ...args_1) => __awaiter(this, [sohIn_1, ...args_1], void 0, function* (sohIn, options = {}) {
             // verify required parameter 'sohIn' is not null or undefined
-            common_1.assertParamExists('getSohOfMetadataV1SohFindingsPost', 'sohIn', sohIn);
+            (0, common_1.assertParamExists)('getSohOfMetadataV1SohFindingsPost', 'sohIn', sohIn);
             const localVarPath = `/v1/soh/findings`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3073,17 +3149,17 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(sohIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(sohIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3094,9 +3170,9 @@ exports.SohApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicByIDV1SohTopicsTopicIdGet: (topicId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getTopicByIDV1SohTopicsTopicIdGet: (topicId_1, ...args_1) => __awaiter(this, [topicId_1, ...args_1], void 0, function* (topicId, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('getTopicByIDV1SohTopicsTopicIdGet', 'topicId', topicId);
+            (0, common_1.assertParamExists)('getTopicByIDV1SohTopicsTopicIdGet', 'topicId', topicId);
             const localVarPath = `/v1/soh/topics/{topic_id}`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3109,23 +3185,24 @@ exports.SohApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.SohApiAxiosParamCreator = SohApiAxiosParamCreator;
 /**
  * SohApi - functional programming interface
  * @export
  */
-exports.SohApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.SohApiAxiosParamCreator(configuration);
+const SohApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.SohApiAxiosParamCreator)(configuration);
     return {
         /**
          * Fetch graph.
@@ -3137,8 +3214,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3151,8 +3231,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3163,8 +3246,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3176,8 +3262,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3191,8 +3280,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3206,8 +3298,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3221,8 +3316,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3236,8 +3334,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3251,8 +3352,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3266,8 +3370,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3279,8 +3386,11 @@ exports.SohApiFp = function (configuration) {
          */
         fetchTopicsV1SohTopicsGet(query, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.fetchTopicsV1SohTopicsGet(query, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.fetchTopicsV1SohTopicsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3292,8 +3402,11 @@ exports.SohApiFp = function (configuration) {
          */
         getListOfSohFindingsV1SohFindingsLogGet(doi, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getListOfSohFindingsV1SohFindingsLogGet(doi, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getListOfSohFindingsV1SohFindingsLogGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3307,8 +3420,11 @@ exports.SohApiFp = function (configuration) {
          */
         getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3320,8 +3436,11 @@ exports.SohApiFp = function (configuration) {
          */
         getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getSohEvidenceMetadataV1SohEvidencesPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3334,8 +3453,11 @@ exports.SohApiFp = function (configuration) {
          */
         getSohGraphMetadataV1SohGraphGet(limit, clearCache, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getSohGraphMetadataV1SohGraphGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3347,8 +3469,11 @@ exports.SohApiFp = function (configuration) {
          */
         getSohOfMetadataV1SohFindingsPost(sohIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSohOfMetadataV1SohFindingsPost(sohIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getSohOfMetadataV1SohFindingsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -3360,40 +3485,42 @@ exports.SohApiFp = function (configuration) {
          */
         getTopicByIDV1SohTopicsTopicIdGet(topicId, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopicByIDV1SohTopicsTopicIdGet(topicId, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SohApi.getTopicByIDV1SohTopicsTopicIdGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.SohApiFp = SohApiFp;
 /**
  * SohApi - factory interface
  * @export
  */
-exports.SohApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.SohApiFp(configuration);
+const SohApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.SohApiFp)(configuration);
     return {
         /**
          * Fetch graph.
          * @summary Fetch Full Mech Graph
-         * @param {string} topicId
-         * @param {GraphPayloadTyped} graphPayloadTyped
+         * @param {SohApiFetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options) {
-            return localVarFp.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters, options) {
+            return localVarFp.fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Full Stat Graph
-         * @param {string} topicId
-         * @param {GraphPayloadTyped} graphPayloadTyped
+         * @param {SohApiFetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options) {
-            return localVarFp.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(topicId, graphPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters, options) {
+            return localVarFp.fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch time series data for relationships, findings, and topics.
@@ -3407,160 +3534,146 @@ exports.SohApiFactory = function (configuration, basePath, axios) {
         /**
          * Get hierarchical topics.
          * @summary Fetch Hierarchical Topics
-         * @param {string} query
+         * @param {SohApiFetchHierarchicalTopicsV1SohHierarchicalTopicsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options) {
-            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(query, options).then((request) => request(axios, basePath));
+        fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters, options) {
+            return localVarFp.fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Mech Graph
-         * @param {string} topicId
-         * @param {string} traversalDirection
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
+            return localVarFp.fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
          * @summary Fetch Mech Mediators
-         * @param {string} topicId
-         * @param {string} targetTopicId
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
-            return localVarFp.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
+            return localVarFp.fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
          * @summary Fetch Mech Paths
-         * @param {string} topicId
-         * @param {string} traversalDirection
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
+            return localVarFp.fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch graph.
          * @summary Fetch Stat Graph
-         * @param {string} topicId
-         * @param {string} traversalDirection
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
+            return localVarFp.fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch mediators.
          * @summary Fetch Stat Mediators
-         * @param {string} topicId
-         * @param {string} targetTopicId
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options) {
-            return localVarFp.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(topicId, targetTopicId, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
+            return localVarFp.fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch paths.
          * @summary Fetch Stat Paths
-         * @param {string} topicId
-         * @param {string} traversalDirection
-         * @param {PathsPayloadTyped} pathsPayloadTyped
+         * @param {SohApiFetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options) {
-            return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(topicId, traversalDirection, pathsPayloadTyped, options).then((request) => request(axios, basePath));
+        fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
+            return localVarFp.fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Fetch Topics
-         * @param {string} query
+         * @param {SohApiFetchTopicsV1SohTopicsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        fetchTopicsV1SohTopicsGet(query, options) {
-            return localVarFp.fetchTopicsV1SohTopicsGet(query, options).then((request) => request(axios, basePath));
+        fetchTopicsV1SohTopicsGet(requestParameters, options) {
+            return localVarFp.fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health findings and related study if doi provided.
          * @summary Get List Of Soh Findings
-         * @param {string} [doi]
+         * @param {SohApiGetListOfSohFindingsV1SohFindingsLogGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getListOfSohFindingsV1SohFindingsLogGet(doi, options) {
-            return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(doi, options).then((request) => request(axios, basePath));
+        getListOfSohFindingsV1SohFindingsLogGet(requestParameters = {}, options) {
+            return localVarFp.getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health summary.
          * @summary Get Relationship Summary Between Two Topics.
-         * @param {string} topic1Id
-         * @param {string} topic2Id
-         * @param {boolean} [recent]
+         * @param {SohApiGetRelationshipSummaryBetweenTwoTopicsV1SohSummaryGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options) {
-            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(topic1Id, topic2Id, recent, options).then((request) => request(axios, basePath));
+        getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters, options) {
+            return localVarFp.getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, requestParameters.recent, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Evidence Metadata
-         * @param {SohIn} sohIn
+         * @param {SohApiGetSohEvidenceMetadataV1SohEvidencesPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options) {
-            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(sohIn, options).then((request) => request(axios, basePath));
+        getSohEvidenceMetadataV1SohEvidencesPost(requestParameters, options) {
+            return localVarFp.getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Graph Metadata
-         * @param {number} [limit] Number of relationships to return.
-         * @param {boolean} [clearCache] Clear cache and fetch new graph.
+         * @param {SohApiGetSohGraphMetadataV1SohGraphGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohGraphMetadataV1SohGraphGet(limit, clearCache, options) {
-            return localVarFp.getSohGraphMetadataV1SohGraphGet(limit, clearCache, options).then((request) => request(axios, basePath));
+        getSohGraphMetadataV1SohGraphGet(requestParameters = {}, options) {
+            return localVarFp.getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Soh Of Metadata
-         * @param {SohIn} sohIn
+         * @param {SohApiGetSohOfMetadataV1SohFindingsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSohOfMetadataV1SohFindingsPost(sohIn, options) {
-            return localVarFp.getSohOfMetadataV1SohFindingsPost(sohIn, options).then((request) => request(axios, basePath));
+        getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
+            return localVarFp.getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system of health data.
          * @summary Get Topic By Id
-         * @param {string} topicId
+         * @param {SohApiGetTopicByIDV1SohTopicsTopicIdGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopicByIDV1SohTopicsTopicIdGet(topicId, options) {
-            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(topicId, options).then((request) => request(axios, basePath));
+        getTopicByIDV1SohTopicsTopicIdGet(requestParameters, options) {
+            return localVarFp.getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.SohApiFactory = SohApiFactory;
 /**
  * SohApi - object-oriented interface
  * @export
@@ -3577,7 +3690,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchFullMechGraphV1SohMechRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch graph.
@@ -3588,7 +3701,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchFullStatGraphV1SohStatRelationshipsTopicIdGraphPost(requestParameters.topicId, requestParameters.graphPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch time series data for relationships, findings, and topics.
@@ -3598,7 +3711,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options) {
-        return exports.SohApiFp(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchGraphTimeSeriesDataV1SohMetricsTimeSeriesGet(options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get hierarchical topics.
@@ -3609,7 +3722,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchHierarchicalTopicsV1SohHierarchicalTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch graph.
@@ -3620,7 +3733,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchMechGraphV1SohMechRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch mediators.
@@ -3631,7 +3744,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchMechMediatorsV1SohMechRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch paths.
@@ -3642,7 +3755,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchMechPathsV1SohMechRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch graph.
@@ -3653,7 +3766,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchStatGraphV1SohStatRelationshipsTopicIdGraphTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch mediators.
@@ -3664,7 +3777,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchStatMediatorsV1SohStatRelationshipsTopicIdPathsMediatorsPost(requestParameters.topicId, requestParameters.targetTopicId, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch paths.
@@ -3675,7 +3788,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchStatPathsV1SohStatRelationshipsTopicIdPathsTraversalDirectionPost(requestParameters.topicId, requestParameters.traversalDirection, requestParameters.pathsPayloadTyped, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -3686,7 +3799,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     fetchTopicsV1SohTopicsGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).fetchTopicsV1SohTopicsGet(requestParameters.query, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health findings and related study if doi provided.
@@ -3697,7 +3810,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getListOfSohFindingsV1SohFindingsLogGet(requestParameters = {}, options) {
-        return exports.SohApiFp(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getListOfSohFindingsV1SohFindingsLogGet(requestParameters.doi, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health summary.
@@ -3708,7 +3821,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, requestParameters.recent, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getRelationshipSummaryBetweenTwoTopicsV1SohSummaryGet(requestParameters.topic1Id, requestParameters.topic2Id, requestParameters.recent, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -3719,7 +3832,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getSohEvidenceMetadataV1SohEvidencesPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getSohEvidenceMetadataV1SohEvidencesPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -3730,7 +3843,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getSohGraphMetadataV1SohGraphGet(requestParameters = {}, options) {
-        return exports.SohApiFp(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getSohGraphMetadataV1SohGraphGet(requestParameters.limit, requestParameters.clearCache, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -3741,7 +3854,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getSohOfMetadataV1SohFindingsPost(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getSohOfMetadataV1SohFindingsPost(requestParameters.sohIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system of health data.
@@ -3752,7 +3865,7 @@ class SohApi extends base_1.BaseAPI {
      * @memberof SohApi
      */
     getTopicByIDV1SohTopicsTopicIdGet(requestParameters, options) {
-        return exports.SohApiFp(this.configuration).getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SohApiFp)(this.configuration).getTopicByIDV1SohTopicsTopicIdGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SohApi = SohApi;
@@ -3760,7 +3873,7 @@ exports.SohApi = SohApi;
  * SsoApi - axios parameter creator
  * @export
  */
-exports.SsoApiAxiosParamCreator = function (configuration) {
+const SsoApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get Identity Provider name for given email domain.
@@ -3769,9 +3882,9 @@ exports.SsoApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProviderNameV1IdpNameEmailGet: (email, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getIdentityProviderNameV1IdpNameEmailGet: (email_1, ...args_1) => __awaiter(this, [email_1, ...args_1], void 0, function* (email, options = {}) {
             // verify required parameter 'email' is not null or undefined
-            common_1.assertParamExists('getIdentityProviderNameV1IdpNameEmailGet', 'email', email);
+            (0, common_1.assertParamExists)('getIdentityProviderNameV1IdpNameEmailGet', 'email', email);
             const localVarPath = `/v1/idp_name/{email}`
                 .replace(`{${"email"}}`, encodeURIComponent(String(email)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3784,23 +3897,24 @@ exports.SsoApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.SsoApiAxiosParamCreator = SsoApiAxiosParamCreator;
 /**
  * SsoApi - functional programming interface
  * @export
  */
-exports.SsoApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.SsoApiAxiosParamCreator(configuration);
+const SsoApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.SsoApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get Identity Provider name for given email domain.
@@ -3811,31 +3925,36 @@ exports.SsoApiFp = function (configuration) {
          */
         getIdentityProviderNameV1IdpNameEmailGet(email, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getIdentityProviderNameV1IdpNameEmailGet(email, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SsoApi.getIdentityProviderNameV1IdpNameEmailGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.SsoApiFp = SsoApiFp;
 /**
  * SsoApi - factory interface
  * @export
  */
-exports.SsoApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.SsoApiFp(configuration);
+const SsoApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.SsoApiFp)(configuration);
     return {
         /**
          * Get Identity Provider name for given email domain.
          * @summary Get Identity Provider Name
-         * @param {string} email
+         * @param {SsoApiGetIdentityProviderNameV1IdpNameEmailGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityProviderNameV1IdpNameEmailGet(email, options) {
-            return localVarFp.getIdentityProviderNameV1IdpNameEmailGet(email, options).then((request) => request(axios, basePath));
+        getIdentityProviderNameV1IdpNameEmailGet(requestParameters, options) {
+            return localVarFp.getIdentityProviderNameV1IdpNameEmailGet(requestParameters.email, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.SsoApiFactory = SsoApiFactory;
 /**
  * SsoApi - object-oriented interface
  * @export
@@ -3852,7 +3971,7 @@ class SsoApi extends base_1.BaseAPI {
      * @memberof SsoApi
      */
     getIdentityProviderNameV1IdpNameEmailGet(requestParameters, options) {
-        return exports.SsoApiFp(this.configuration).getIdentityProviderNameV1IdpNameEmailGet(requestParameters.email, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SsoApiFp)(this.configuration).getIdentityProviderNameV1IdpNameEmailGet(requestParameters.email, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SsoApi = SsoApi;
@@ -3860,7 +3979,7 @@ exports.SsoApi = SsoApi;
  * StripeApi - axios parameter creator
  * @export
  */
-exports.StripeApiAxiosParamCreator = function (configuration) {
+const StripeApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Add subscription seats.
@@ -3870,11 +3989,11 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId, addSubscriptionSeatIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost: (subscriptionId_1, addSubscriptionSeatIn_1, ...args_1) => __awaiter(this, [subscriptionId_1, addSubscriptionSeatIn_1, ...args_1], void 0, function* (subscriptionId, addSubscriptionSeatIn, options = {}) {
             // verify required parameter 'subscriptionId' is not null or undefined
-            common_1.assertParamExists('addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost', 'subscriptionId', subscriptionId);
+            (0, common_1.assertParamExists)('addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost', 'subscriptionId', subscriptionId);
             // verify required parameter 'addSubscriptionSeatIn' is not null or undefined
-            common_1.assertParamExists('addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost', 'addSubscriptionSeatIn', addSubscriptionSeatIn);
+            (0, common_1.assertParamExists)('addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost', 'addSubscriptionSeatIn', addSubscriptionSeatIn);
             const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
                 .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3887,17 +4006,17 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(addSubscriptionSeatIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(addSubscriptionSeatIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3908,9 +4027,9 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet: (subscriptionId_1, ...args_1) => __awaiter(this, [subscriptionId_1, ...args_1], void 0, function* (subscriptionId, options = {}) {
             // verify required parameter 'subscriptionId' is not null or undefined
-            common_1.assertParamExists('getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId);
+            (0, common_1.assertParamExists)('getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet', 'subscriptionId', subscriptionId);
             const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats`
                 .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -3923,15 +4042,15 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3942,7 +4061,7 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        manageSubscriptionV1StripeSubscriptionManagePost: (domainCallback_1, ...args_1) => __awaiter(this, [domainCallback_1, ...args_1], void 0, function* (domainCallback, options = {}) {
             const localVarPath = `/v1/stripe/subscription-manage`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -3954,18 +4073,18 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (domainCallback !== undefined) {
                 localVarQueryParameter['domain_callback'] = domainCallback;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -3977,11 +4096,11 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: (email, subscriptionId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete: (email_1, subscriptionId_1, ...args_1) => __awaiter(this, [email_1, subscriptionId_1, ...args_1], void 0, function* (email, subscriptionId, options = {}) {
             // verify required parameter 'email' is not null or undefined
-            common_1.assertParamExists('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'email', email);
+            (0, common_1.assertParamExists)('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'email', email);
             // verify required parameter 'subscriptionId' is not null or undefined
-            common_1.assertParamExists('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'subscriptionId', subscriptionId);
+            (0, common_1.assertParamExists)('removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete', 'subscriptionId', subscriptionId);
             const localVarPath = `/v1/stripe/subscriptions/{subscription_id}/seats/{email}`
                 .replace(`{${"email"}}`, encodeURIComponent(String(email)))
                 .replace(`{${"subscription_id"}}`, encodeURIComponent(String(subscriptionId)));
@@ -3995,26 +4114,27 @@ exports.StripeApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.StripeApiAxiosParamCreator = StripeApiAxiosParamCreator;
 /**
  * StripeApi - functional programming interface
  * @export
  */
-exports.StripeApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.StripeApiAxiosParamCreator(configuration);
+const StripeApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.StripeApiAxiosParamCreator)(configuration);
     return {
         /**
          * Add subscription seats.
@@ -4026,8 +4146,11 @@ exports.StripeApiFp = function (configuration) {
          */
         addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StripeApi.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -4039,8 +4162,11 @@ exports.StripeApiFp = function (configuration) {
          */
         getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StripeApi.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -4052,8 +4178,11 @@ exports.StripeApiFp = function (configuration) {
          */
         manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StripeApi.manageSubscriptionV1StripeSubscriptionManagePost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -4066,63 +4195,66 @@ exports.StripeApiFp = function (configuration) {
          */
         removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StripeApi.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.StripeApiFp = StripeApiFp;
 /**
  * StripeApi - factory interface
  * @export
  */
-exports.StripeApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.StripeApiFp(configuration);
+const StripeApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.StripeApiFp)(configuration);
     return {
         /**
          * Add subscription seats.
          * @summary Add Subscription Seats
-         * @param {string} subscriptionId
-         * @param {AddSubscriptionSeatIn} addSubscriptionSeatIn
+         * @param {StripeApiAddSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options) {
-            return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(subscriptionId, addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
+        addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters, options) {
+            return localVarFp.addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get subscription seats.
          * @summary Get Subscription Seats
-         * @param {string} subscriptionId
+         * @param {StripeApiGetSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options) {
-            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(subscriptionId, options).then((request) => request(axios, basePath));
+        getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters, options) {
+            return localVarFp.getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(axios, basePath));
         },
         /**
          * Start stripe checkout session.
          * @summary Manage Subscription
-         * @param {string} [domainCallback]
+         * @param {StripeApiManageSubscriptionV1StripeSubscriptionManagePostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options) {
-            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(domainCallback, options).then((request) => request(axios, basePath));
+        manageSubscriptionV1StripeSubscriptionManagePost(requestParameters = {}, options) {
+            return localVarFp.manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(axios, basePath));
         },
         /**
          * Remove subscription seat.
          * @summary Remove Subscription Seat
-         * @param {string} email
-         * @param {string} subscriptionId
+         * @param {StripeApiRemoveSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDeleteRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options) {
-            return localVarFp.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(email, subscriptionId, options).then((request) => request(axios, basePath));
+        removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters, options) {
+            return localVarFp.removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.StripeApiFactory = StripeApiFactory;
 /**
  * StripeApi - object-oriented interface
  * @export
@@ -4139,7 +4271,7 @@ class StripeApi extends base_1.BaseAPI {
      * @memberof StripeApi
      */
     addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters, options) {
-        return exports.StripeApiFp(this.configuration).addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StripeApiFp)(this.configuration).addSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsPost(requestParameters.subscriptionId, requestParameters.addSubscriptionSeatIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get subscription seats.
@@ -4150,7 +4282,7 @@ class StripeApi extends base_1.BaseAPI {
      * @memberof StripeApi
      */
     getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters, options) {
-        return exports.StripeApiFp(this.configuration).getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StripeApiFp)(this.configuration).getSubscriptionSeatsV1StripeSubscriptionsSubscriptionIdSeatsGet(requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Start stripe checkout session.
@@ -4161,7 +4293,7 @@ class StripeApi extends base_1.BaseAPI {
      * @memberof StripeApi
      */
     manageSubscriptionV1StripeSubscriptionManagePost(requestParameters = {}, options) {
-        return exports.StripeApiFp(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StripeApiFp)(this.configuration).manageSubscriptionV1StripeSubscriptionManagePost(requestParameters.domainCallback, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Remove subscription seat.
@@ -4172,7 +4304,7 @@ class StripeApi extends base_1.BaseAPI {
      * @memberof StripeApi
      */
     removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters, options) {
-        return exports.StripeApiFp(this.configuration).removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StripeApiFp)(this.configuration).removeSubscriptionSeatV1StripeSubscriptionsSubscriptionIdSeatsEmailDelete(requestParameters.email, requestParameters.subscriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StripeApi = StripeApi;
@@ -4180,7 +4312,7 @@ exports.StripeApi = StripeApi;
  * StudyMetadataApi - axios parameter creator
  * @export
  */
-exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
+const StudyMetadataApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get study metadata from OpenAlex and DynamoDB via pmids.
@@ -4189,9 +4321,9 @@ exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost: (studyMetadataIn_1, ...args_1) => __awaiter(this, [studyMetadataIn_1, ...args_1], void 0, function* (studyMetadataIn, options = {}) {
             // verify required parameter 'studyMetadataIn' is not null or undefined
-            common_1.assertParamExists('getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn);
+            (0, common_1.assertParamExists)('getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost', 'studyMetadataIn', studyMetadataIn);
             const localVarPath = `/v1/study-metadata`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4203,17 +4335,17 @@ exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyMetadataIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(studyMetadataIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4224,9 +4356,9 @@ exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: (studyMetadataIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost: (studyMetadataIn_1, ...args_1) => __awaiter(this, [studyMetadataIn_1, ...args_1], void 0, function* (studyMetadataIn, options = {}) {
             // verify required parameter 'studyMetadataIn' is not null or undefined
-            common_1.assertParamExists('getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost', 'studyMetadataIn', studyMetadataIn);
+            (0, common_1.assertParamExists)('getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost', 'studyMetadataIn', studyMetadataIn);
             const localVarPath = `/v1/study-metadata/new`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4238,28 +4370,29 @@ exports.StudyMetadataApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(studyMetadataIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(studyMetadataIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.StudyMetadataApiAxiosParamCreator = StudyMetadataApiAxiosParamCreator;
 /**
  * StudyMetadataApi - functional programming interface
  * @export
  */
-exports.StudyMetadataApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.StudyMetadataApiAxiosParamCreator(configuration);
+const StudyMetadataApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.StudyMetadataApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get study metadata from OpenAlex and DynamoDB via pmids.
@@ -4270,8 +4403,11 @@ exports.StudyMetadataApiFp = function (configuration) {
          */
         getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StudyMetadataApi.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -4283,41 +4419,46 @@ exports.StudyMetadataApiFp = function (configuration) {
          */
         getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StudyMetadataApi.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.StudyMetadataApiFp = StudyMetadataApiFp;
 /**
  * StudyMetadataApi - factory interface
  * @export
  */
-exports.StudyMetadataApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.StudyMetadataApiFp(configuration);
+const StudyMetadataApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.StudyMetadataApiFp)(configuration);
     return {
         /**
          * Get study metadata from OpenAlex and DynamoDB via pmids.
          * @summary Get Study Metadata From Openalex For A Given List Of Pmids.
-         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {StudyMetadataApiGetStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options) {
-            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters, options) {
+            return localVarFp.getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Get study metadata from SystemRDB via pmids.
          * @summary Get Study Metadata From Systemrdb For A Given List Of Pmids.
-         * @param {StudyMetadataIn} studyMetadataIn
+         * @param {StudyMetadataApiGetStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options) {
-            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(studyMetadataIn, options).then((request) => request(axios, basePath));
+        getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters, options) {
+            return localVarFp.getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.StudyMetadataApiFactory = StudyMetadataApiFactory;
 /**
  * StudyMetadataApi - object-oriented interface
  * @export
@@ -4334,7 +4475,7 @@ class StudyMetadataApi extends base_1.BaseAPI {
      * @memberof StudyMetadataApi
      */
     getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters, options) {
-        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StudyMetadataApiFp)(this.configuration).getStudyMetadataFromOpenAlexForAGivenListOfPmidsV1StudyMetadataPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get study metadata from SystemRDB via pmids.
@@ -4345,7 +4486,7 @@ class StudyMetadataApi extends base_1.BaseAPI {
      * @memberof StudyMetadataApi
      */
     getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters, options) {
-        return exports.StudyMetadataApiFp(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StudyMetadataApiFp)(this.configuration).getStudyMetadataFromSystemRDBForAGivenListOfPmidsV1StudyMetadataNewPost(requestParameters.studyMetadataIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudyMetadataApi = StudyMetadataApi;
@@ -4353,7 +4494,7 @@ exports.StudyMetadataApi = StudyMetadataApi;
  * StudyStatsApi - axios parameter creator
  * @export
  */
-exports.StudyStatsApiAxiosParamCreator = function (configuration) {
+const StudyStatsApiAxiosParamCreator = function (configuration) {
     return {
         /**
          *
@@ -4363,7 +4504,7 @@ exports.StudyStatsApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyStats: (relationshipId, relationshipType, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getStudyStats: (relationshipId_1, relationshipType_1, ...args_1) => __awaiter(this, [relationshipId_1, relationshipType_1, ...args_1], void 0, function* (relationshipId, relationshipType, options = {}) {
             const localVarPath = `/v1/study_stats`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4375,32 +4516,33 @@ exports.StudyStatsApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (relationshipId !== undefined) {
                 localVarQueryParameter['relationship_id'] = relationshipId;
             }
             if (relationshipType !== undefined) {
                 localVarQueryParameter['relationship_type'] = relationshipType;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.StudyStatsApiAxiosParamCreator = StudyStatsApiAxiosParamCreator;
 /**
  * StudyStatsApi - functional programming interface
  * @export
  */
-exports.StudyStatsApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.StudyStatsApiAxiosParamCreator(configuration);
+const StudyStatsApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.StudyStatsApiAxiosParamCreator)(configuration);
     return {
         /**
          *
@@ -4412,32 +4554,36 @@ exports.StudyStatsApiFp = function (configuration) {
          */
         getStudyStats(relationshipId, relationshipType, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getStudyStats(relationshipId, relationshipType, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['StudyStatsApi.getStudyStats']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.StudyStatsApiFp = StudyStatsApiFp;
 /**
  * StudyStatsApi - factory interface
  * @export
  */
-exports.StudyStatsApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.StudyStatsApiFp(configuration);
+const StudyStatsApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.StudyStatsApiFp)(configuration);
     return {
         /**
          *
          * @summary Get Study Stats
-         * @param {string} [relationshipId] Relationship ID
-         * @param {AppSchemaConceptsRelationshipTypes} [relationshipType] Relationship type
+         * @param {StudyStatsApiGetStudyStatsRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStudyStats(relationshipId, relationshipType, options) {
-            return localVarFp.getStudyStats(relationshipId, relationshipType, options).then((request) => request(axios, basePath));
+        getStudyStats(requestParameters = {}, options) {
+            return localVarFp.getStudyStats(requestParameters.relationshipId, requestParameters.relationshipType, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.StudyStatsApiFactory = StudyStatsApiFactory;
 /**
  * StudyStatsApi - object-oriented interface
  * @export
@@ -4454,7 +4600,7 @@ class StudyStatsApi extends base_1.BaseAPI {
      * @memberof StudyStatsApi
      */
     getStudyStats(requestParameters = {}, options) {
-        return exports.StudyStatsApiFp(this.configuration).getStudyStats(requestParameters.relationshipId, requestParameters.relationshipType, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.StudyStatsApiFp)(this.configuration).getStudyStats(requestParameters.relationshipId, requestParameters.relationshipType, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.StudyStatsApi = StudyStatsApi;
@@ -4462,7 +4608,7 @@ exports.StudyStatsApi = StudyStatsApi;
  * SystemGraphApi - axios parameter creator
  * @export
  */
-exports.SystemGraphApiAxiosParamCreator = function (configuration) {
+const SystemGraphApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get downstream paths.
@@ -4478,9 +4624,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet: (node_1, page_1, pageSize_1, nHops_1, additionalNodes_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [node_1, page_1, pageSize_1, nHops_1, additionalNodes_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'node' is not null or undefined
-            common_1.assertParamExists('getDownstreamEndpointV1SystemGraphPathsDownstreamGet', 'node', node);
+            (0, common_1.assertParamExists)('getDownstreamEndpointV1SystemGraphPathsDownstreamGet', 'node', node);
             const localVarPath = `/v1/system_graph/paths/downstream`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4492,10 +4638,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -4520,11 +4666,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4543,11 +4689,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet: (source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'source', source);
+            (0, common_1.assertParamExists)('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'target', target);
+            (0, common_1.assertParamExists)('getMediatorsEndpointV1SystemGraphPathsMediatorsGet', 'target', target);
             const localVarPath = `/v1/system_graph/paths/mediators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4559,10 +4705,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -4590,11 +4736,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4605,9 +4751,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: (topicId, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet: (topicId_1, ...args_1) => __awaiter(this, [topicId_1, ...args_1], void 0, function* (topicId, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet', 'topicId', topicId);
+            (0, common_1.assertParamExists)('getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet', 'topicId', topicId);
             const localVarPath = `/v1/system_graph/topic/{topic_id}/one_degree`
                 .replace(`{${"topic_id"}}`, encodeURIComponent(String(topicId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -4620,15 +4766,15 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4647,11 +4793,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet: (source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'source', source);
+            (0, common_1.assertParamExists)('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'target', target);
+            (0, common_1.assertParamExists)('getRelationshipEndpointV1SystemGraphPathsRelationshipGet', 'target', target);
             const localVarPath = `/v1/system_graph/paths/relationship`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4663,10 +4809,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -4694,11 +4840,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4712,7 +4858,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: (topic1, topic2, ids1, ids2, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet: (topic1_1, topic2_1, ids1_1, ids2_1, ...args_1) => __awaiter(this, [topic1_1, topic2_1, ids1_1, ids2_1, ...args_1], void 0, function* (topic1, topic2, ids1, ids2, options = {}) {
             const localVarPath = `/v1/system_graph/semantic_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4724,10 +4870,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -4740,11 +4886,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (ids2) {
                 localVarQueryParameter['ids_2'] = ids2;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4756,7 +4902,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName, topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet: (topicName_1, topicIds_1, ...args_1) => __awaiter(this, [topicName_1, topicIds_1, ...args_1], void 0, function* (topicName, topicIds, options = {}) {
             const localVarPath = `/v1/system_graph/semantic_topic_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4768,21 +4914,21 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topicName !== undefined) {
                 localVarQueryParameter['topic_name'] = topicName;
             }
             if (topicIds) {
                 localVarQueryParameter['topic_ids'] = topicIds;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4801,11 +4947,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet: (source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'source', source);
+            (0, common_1.assertParamExists)('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'target', target);
+            (0, common_1.assertParamExists)('getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet', 'target', target);
             const localVarPath = `/v1/system_graph/paths/shared-sources`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4817,10 +4963,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -4848,11 +4994,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4871,11 +5017,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet: (source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'source', source);
+            (0, common_1.assertParamExists)('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'target', target);
+            (0, common_1.assertParamExists)('getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet', 'target', target);
             const localVarPath = `/v1/system_graph/paths/shared-targets`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4887,10 +5033,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -4918,11 +5064,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4933,7 +5079,7 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet: (numRelationships_1, ...args_1) => __awaiter(this, [numRelationships_1, ...args_1], void 0, function* (numRelationships, options = {}) {
             const localVarPath = `/v1/system_graph/system_graph`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4945,18 +5091,18 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (numRelationships !== undefined) {
                 localVarQueryParameter['num_relationships'] = numRelationships;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -4972,11 +5118,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1, ids1, topic2, ids2, pageSize, offset, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet: (topic1_1, ids1_1, topic2_1, ids2_1, pageSize_1, offset_1, ...args_1) => __awaiter(this, [topic1_1, ids1_1, topic2_1, ids2_1, pageSize_1, offset_1, ...args_1], void 0, function* (topic1, ids1, topic2, ids2, pageSize, offset, options = {}) {
             // verify required parameter 'topic1' is not null or undefined
-            common_1.assertParamExists('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'topic1', topic1);
+            (0, common_1.assertParamExists)('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'topic1', topic1);
             // verify required parameter 'ids1' is not null or undefined
-            common_1.assertParamExists('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'ids1', ids1);
+            (0, common_1.assertParamExists)('getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet', 'ids1', ids1);
             const localVarPath = `/v1/system_graph/topological_categories`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -4988,10 +5134,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topic1 !== undefined) {
                 localVarQueryParameter['topic_1'] = topic1;
             }
@@ -5010,11 +5156,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -5033,11 +5179,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet: (source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [source_1, target_1, page_1, pageSize_1, additionalSources_1, additionalTargets_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'source' is not null or undefined
-            common_1.assertParamExists('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'source', source);
+            (0, common_1.assertParamExists)('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'source', source);
             // verify required parameter 'target' is not null or undefined
-            common_1.assertParamExists('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'target', target);
+            (0, common_1.assertParamExists)('getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet', 'target', target);
             const localVarPath = `/v1/system_graph/paths/two-hop-mediators`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5049,10 +5195,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -5080,11 +5226,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -5102,9 +5248,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet: (node_1, page_1, pageSize_1, nHops_1, additionalNodes_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1) => __awaiter(this, [node_1, page_1, pageSize_1, nHops_1, additionalNodes_1, relationshipTypes_1, includeNonSignificant_1, semanticTypes_1, ...args_1], void 0, function* (node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options = {}) {
             // verify required parameter 'node' is not null or undefined
-            common_1.assertParamExists('getUpstreamEndpointV1SystemGraphPathsUpstreamGet', 'node', node);
+            (0, common_1.assertParamExists)('getUpstreamEndpointV1SystemGraphPathsUpstreamGet', 'node', node);
             const localVarPath = `/v1/system_graph/paths/upstream`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5116,10 +5262,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -5144,11 +5290,11 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (semanticTypes !== undefined) {
                 localVarQueryParameter['semantic_types'] = semanticTypes;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -5164,9 +5310,9 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchTopicsEndpointV1SystemGraphSearchGet: (q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        searchTopicsEndpointV1SystemGraphSearchGet: (q_1, subgraphTopics_1, subgraphDepth_1, searchType_1, autocut_1, limit_1, ...args_1) => __awaiter(this, [q_1, subgraphTopics_1, subgraphDepth_1, searchType_1, autocut_1, limit_1, ...args_1], void 0, function* (q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options = {}) {
             // verify required parameter 'q' is not null or undefined
-            common_1.assertParamExists('searchTopicsEndpointV1SystemGraphSearchGet', 'q', q);
+            (0, common_1.assertParamExists)('searchTopicsEndpointV1SystemGraphSearchGet', 'q', q);
             const localVarPath = `/v1/system_graph/search/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5178,10 +5324,10 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (q !== undefined) {
                 localVarQueryParameter['q'] = q;
             }
@@ -5200,22 +5346,23 @@ exports.SystemGraphApiAxiosParamCreator = function (configuration) {
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.SystemGraphApiAxiosParamCreator = SystemGraphApiAxiosParamCreator;
 /**
  * SystemGraphApi - functional programming interface
  * @export
  */
-exports.SystemGraphApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.SystemGraphApiAxiosParamCreator(configuration);
+const SystemGraphApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.SystemGraphApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get downstream paths.
@@ -5233,8 +5380,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getDownstreamEndpointV1SystemGraphPathsDownstreamGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5254,8 +5404,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getMediatorsEndpointV1SystemGraphPathsMediatorsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5267,8 +5420,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5288,8 +5444,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getRelationshipEndpointV1SystemGraphPathsRelationshipGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5304,8 +5463,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5318,8 +5480,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5339,8 +5504,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5360,8 +5528,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5373,8 +5544,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getSystemGraphEndpointV1SystemGraphSystemGraphGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5391,8 +5565,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5412,8 +5589,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5432,8 +5612,11 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.getUpstreamEndpointV1SystemGraphPathsUpstreamGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5450,219 +5633,156 @@ exports.SystemGraphApiFp = function (configuration) {
          */
         searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['SystemGraphApi.searchTopicsEndpointV1SystemGraphSearchGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.SystemGraphApiFp = SystemGraphApiFp;
 /**
  * SystemGraphApi - factory interface
  * @export
  */
-exports.SystemGraphApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.SystemGraphApiFp(configuration);
+const SystemGraphApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.SystemGraphApiFp)(configuration);
     return {
         /**
          * Get downstream paths.
          * @summary Get Downstream Endpoint
-         * @param {string} node System ID of topic node
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {number} [nHops] Number of hops
-         * @param {Array<string>} [additionalNodes] Additional nodes
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetDownstreamEndpointV1SystemGraphPathsDownstreamGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters, options) {
+            return localVarFp.getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Mediators Endpoint
-         * @param {string} source System ID of source
-         * @param {string} target System ID of target
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {Array<string>} [additionalSources] Additional sources
-         * @param {Array<string>} [additionalTargets] Additional targets
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetMediatorsEndpointV1SystemGraphPathsMediatorsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters, options) {
+            return localVarFp.getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
          * @summary Get One Degree From Topic
-         * @param {string} topicId
+         * @param {SystemGraphApiGetOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options) {
-            return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(topicId, options).then((request) => request(axios, basePath));
+        getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters, options) {
+            return localVarFp.getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Relationship Endpoint
-         * @param {string} source System ID of source
-         * @param {string} target System ID of target
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {Array<string>} [additionalSources] Additional sources
-         * @param {Array<string>} [additionalTargets] Additional targets
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetRelationshipEndpointV1SystemGraphPathsRelationshipGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters, options) {
+            return localVarFp.getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
          * @summary Get Semantic Graph Endpoint
-         * @param {string} [topic1] Topic 1
-         * @param {string} [topic2] Topic 2
-         * @param {Array<string>} [ids1] Topic 1 ids
-         * @param {Array<string>} [ids2] Topic 2 ids
+         * @param {SystemGraphApiGetSemanticGraphEndpointV1SystemGraphSemanticGraphGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options) {
-            return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(topic1, topic2, ids1, ids2, options).then((request) => request(axios, basePath));
+        getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters = {}, options) {
+            return localVarFp.getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch single topic semantic graph.
          * @summary Get Semantic Topic Graph Endpoint
-         * @param {string} [topicName] Topic name
-         * @param {Array<string>} [topicIds] Topic ids
+         * @param {SystemGraphApiGetSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options) {
-            return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(topicName, topicIds, options).then((request) => request(axios, basePath));
+        getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters = {}, options) {
+            return localVarFp.getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Shared Sources Endpoint
-         * @param {string} source System ID of source
-         * @param {string} target System ID of target
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {Array<string>} [additionalSources] Additional sources
-         * @param {Array<string>} [additionalTargets] Additional targets
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters, options) {
+            return localVarFp.getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Shared Targets Endpoint
-         * @param {string} source System ID of source
-         * @param {string} target System ID of target
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {Array<string>} [additionalSources] Additional sources
-         * @param {Array<string>} [additionalTargets] Additional targets
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters, options) {
+            return localVarFp.getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get system graph from the database.
          * @summary Get System Graph Endpoint
-         * @param {number} [numRelationships] Number of relationships to return.
+         * @param {SystemGraphApiGetSystemGraphEndpointV1SystemGraphSystemGraphGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options) {
-            return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(numRelationships, options).then((request) => request(axios, basePath));
+        getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters = {}, options) {
+            return localVarFp.getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch semantic graph.
          * @summary Get Topological Categories Endpoint
-         * @param {string} topic1 Topic 1
-         * @param {Array<string>} ids1 Topic 1 ids
-         * @param {string} [topic2] Topic 2
-         * @param {Array<string>} [ids2] Topic 2 ids
-         * @param {number} [pageSize] Page size
-         * @param {number} [offset] Offset
+         * @param {SystemGraphApiGetTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options) {
-            return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(topic1, ids1, topic2, ids2, pageSize, offset, options).then((request) => request(axios, basePath));
+        getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters, options) {
+            return localVarFp.getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(axios, basePath));
         },
         /**
          * Get relationship path.
          * @summary Get Two Hop Mediators Endpoint
-         * @param {string} source System ID of source
-         * @param {string} target System ID of target
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {Array<string>} [additionalSources] Additional sources
-         * @param {Array<string>} [additionalTargets] Additional targets
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(source, target, page, pageSize, additionalSources, additionalTargets, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters, options) {
+            return localVarFp.getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Get upstream paths.
          * @summary Get Upstream Endpoint
-         * @param {string} node System ID of topic node
-         * @param {number} [page] Page number
-         * @param {number} [pageSize] Page size
-         * @param {number} [nHops] Number of hops
-         * @param {Array<string>} [additionalNodes] Additional nodes
-         * @param {string} [relationshipTypes] Comma separated list of relationship types
-         * @param {boolean} [includeNonSignificant] Significant relationships only
-         * @param {string} [semanticTypes] Comma separated list of semantic_types
+         * @param {SystemGraphApiGetUpstreamEndpointV1SystemGraphPathsUpstreamGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options) {
-            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(node, page, pageSize, nHops, additionalNodes, relationshipTypes, includeNonSignificant, semanticTypes, options).then((request) => request(axios, basePath));
+        getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters, options) {
+            return localVarFp.getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(axios, basePath));
         },
         /**
          * Search topics.
          * @summary Search Topics Endpoint
-         * @param {string} q Search query
-         * @param {Array<string>} [subgraphTopics] Topic ids in subgraph
-         * @param {number} [subgraphDepth] Depth of subgraph
-         * @param {SearchType} [searchType] Search type (semantic or keyword)
-         * @param {number} [autocut] Autocut for semantic search
-         * @param {number} [limit] Limit for semantic search
+         * @param {SystemGraphApiSearchTopicsEndpointV1SystemGraphSearchGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options) {
-            return localVarFp.searchTopicsEndpointV1SystemGraphSearchGet(q, subgraphTopics, subgraphDepth, searchType, autocut, limit, options).then((request) => request(axios, basePath));
+        searchTopicsEndpointV1SystemGraphSearchGet(requestParameters, options) {
+            return localVarFp.searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.SystemGraphApiFactory = SystemGraphApiFactory;
 /**
  * SystemGraphApi - object-oriented interface
  * @export
@@ -5679,7 +5799,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getDownstreamEndpointV1SystemGraphPathsDownstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5690,7 +5810,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getMediatorsEndpointV1SystemGraphPathsMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
@@ -5701,7 +5821,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getOneDegreeFromTopicV1SystemGraphTopicTopicIdOneDegreeGet(requestParameters.topicId, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5712,7 +5832,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getRelationshipEndpointV1SystemGraphPathsRelationshipGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch semantic graph.
@@ -5723,7 +5843,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters = {}, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getSemanticGraphEndpointV1SystemGraphSemanticGraphGet(requestParameters.topic1, requestParameters.topic2, requestParameters.ids1, requestParameters.ids2, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch single topic semantic graph.
@@ -5734,7 +5854,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters = {}, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getSemanticTopicGraphEndpointV1SystemGraphSemanticTopicGraphGet(requestParameters.topicName, requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5745,7 +5865,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getSharedSourcesEndpointV1SystemGraphPathsSharedSourcesGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5756,7 +5876,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getSharedTargetsEndpointV1SystemGraphPathsSharedTargetsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get system graph from the database.
@@ -5767,7 +5887,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters = {}, options) {
-        return exports.SystemGraphApiFp(this.configuration).getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getSystemGraphEndpointV1SystemGraphSystemGraphGet(requestParameters.numRelationships, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch semantic graph.
@@ -5778,7 +5898,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getTopologicalCategoriesEndpointV1SystemGraphTopologicalCategoriesGet(requestParameters.topic1, requestParameters.ids1, requestParameters.topic2, requestParameters.ids2, requestParameters.pageSize, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get relationship path.
@@ -5789,7 +5909,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getTwoHopMediatorsEndpointV1SystemGraphPathsTwoHopMediatorsGet(requestParameters.source, requestParameters.target, requestParameters.page, requestParameters.pageSize, requestParameters.additionalSources, requestParameters.additionalTargets, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get upstream paths.
@@ -5800,7 +5920,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).getUpstreamEndpointV1SystemGraphPathsUpstreamGet(requestParameters.node, requestParameters.page, requestParameters.pageSize, requestParameters.nHops, requestParameters.additionalNodes, requestParameters.relationshipTypes, requestParameters.includeNonSignificant, requestParameters.semanticTypes, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Search topics.
@@ -5811,7 +5931,7 @@ class SystemGraphApi extends base_1.BaseAPI {
      * @memberof SystemGraphApi
      */
     searchTopicsEndpointV1SystemGraphSearchGet(requestParameters, options) {
-        return exports.SystemGraphApiFp(this.configuration).searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.SystemGraphApiFp)(this.configuration).searchTopicsEndpointV1SystemGraphSearchGet(requestParameters.q, requestParameters.subgraphTopics, requestParameters.subgraphDepth, requestParameters.searchType, requestParameters.autocut, requestParameters.limit, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.SystemGraphApi = SystemGraphApi;
@@ -5819,7 +5939,7 @@ exports.SystemGraphApi = SystemGraphApi;
  * TopicApi - axios parameter creator
  * @export
  */
-exports.TopicApiAxiosParamCreator = function (configuration) {
+const TopicApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get topic data.
@@ -5828,7 +5948,7 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicInfoGet: (topicIds, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getInformationForATopicV1TopicInfoGet: (topicIds_1, ...args_1) => __awaiter(this, [topicIds_1, ...args_1], void 0, function* (topicIds, options = {}) {
             const localVarPath = `/v1/topic/info`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5840,18 +5960,18 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topicIds) {
                 localVarQueryParameter['topic_ids'] = topicIds;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -5864,9 +5984,9 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet: (topicId, limit, offset, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getVariablesRelatedToATopicV1TopicVariablesGet: (topicId_1, limit_1, offset_1, ...args_1) => __awaiter(this, [topicId_1, limit_1, offset_1, ...args_1], void 0, function* (topicId, limit, offset, options = {}) {
             // verify required parameter 'topicId' is not null or undefined
-            common_1.assertParamExists('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicId', topicId);
+            (0, common_1.assertParamExists)('getVariablesRelatedToATopicV1TopicVariablesGet', 'topicId', topicId);
             const localVarPath = `/v1/topic/variables`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -5878,10 +5998,10 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (topicId !== undefined) {
                 localVarQueryParameter['topic_id'] = topicId;
             }
@@ -5891,22 +6011,23 @@ exports.TopicApiAxiosParamCreator = function (configuration) {
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.TopicApiAxiosParamCreator = TopicApiAxiosParamCreator;
 /**
  * TopicApi - functional programming interface
  * @export
  */
-exports.TopicApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.TopicApiAxiosParamCreator(configuration);
+const TopicApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.TopicApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get topic data.
@@ -5917,8 +6038,11 @@ exports.TopicApiFp = function (configuration) {
          */
         getInformationForATopicV1TopicInfoGet(topicIds, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getInformationForATopicV1TopicInfoGet(topicIds, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['TopicApi.getInformationForATopicV1TopicInfoGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -5932,43 +6056,46 @@ exports.TopicApiFp = function (configuration) {
          */
         getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['TopicApi.getVariablesRelatedToATopicV1TopicVariablesGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.TopicApiFp = TopicApiFp;
 /**
  * TopicApi - factory interface
  * @export
  */
-exports.TopicApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.TopicApiFp(configuration);
+const TopicApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.TopicApiFp)(configuration);
     return {
         /**
          * Get topic data.
          * @summary Get Information For A Topic.
-         * @param {Array<string>} [topicIds] List of topic IDs to fetch information from.
+         * @param {TopicApiGetInformationForATopicV1TopicInfoGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getInformationForATopicV1TopicInfoGet(topicIds, options) {
-            return localVarFp.getInformationForATopicV1TopicInfoGet(topicIds, options).then((request) => request(axios, basePath));
+        getInformationForATopicV1TopicInfoGet(requestParameters = {}, options) {
+            return localVarFp.getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(axios, basePath));
         },
         /**
          * Get information for variables related to a topic.
          * @summary Get Variables Related To A Topic.
-         * @param {string} topicId
-         * @param {number} [limit]
-         * @param {number} [offset]
+         * @param {TopicApiGetVariablesRelatedToATopicV1TopicVariablesGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options) {
-            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(topicId, limit, offset, options).then((request) => request(axios, basePath));
+        getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters, options) {
+            return localVarFp.getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.TopicApiFactory = TopicApiFactory;
 /**
  * TopicApi - object-oriented interface
  * @export
@@ -5985,7 +6112,7 @@ class TopicApi extends base_1.BaseAPI {
      * @memberof TopicApi
      */
     getInformationForATopicV1TopicInfoGet(requestParameters = {}, options) {
-        return exports.TopicApiFp(this.configuration).getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.TopicApiFp)(this.configuration).getInformationForATopicV1TopicInfoGet(requestParameters.topicIds, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Get information for variables related to a topic.
@@ -5996,7 +6123,7 @@ class TopicApi extends base_1.BaseAPI {
      * @memberof TopicApi
      */
     getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters, options) {
-        return exports.TopicApiFp(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.TopicApiFp)(this.configuration).getVariablesRelatedToATopicV1TopicVariablesGet(requestParameters.topicId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.TopicApi = TopicApi;
@@ -6004,7 +6131,7 @@ exports.TopicApi = TopicApi;
  * UsersApi - axios parameter creator
  * @export
  */
-exports.UsersApiAxiosParamCreator = function (configuration) {
+const UsersApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Create a new user.
@@ -6014,11 +6141,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserByCognitoIdV1UsersPost: (userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAUserByCognitoIdV1UsersPost: (userId_1, updateProfileIn_1, ...args_1) => __awaiter(this, [userId_1, updateProfileIn_1, ...args_1], void 0, function* (userId, updateProfileIn, options = {}) {
             // verify required parameter 'userId' is not null or undefined
-            common_1.assertParamExists('createAUserByCognitoIdV1UsersPost', 'userId', userId);
+            (0, common_1.assertParamExists)('createAUserByCognitoIdV1UsersPost', 'userId', userId);
             // verify required parameter 'updateProfileIn' is not null or undefined
-            common_1.assertParamExists('createAUserByCognitoIdV1UsersPost', 'updateProfileIn', updateProfileIn);
+            (0, common_1.assertParamExists)('createAUserByCognitoIdV1UsersPost', 'updateProfileIn', updateProfileIn);
             const localVarPath = `/v1/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6030,20 +6157,20 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (userId !== undefined) {
                 localVarQueryParameter['user_id'] = userId;
             }
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(updateProfileIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(updateProfileIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6054,9 +6181,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserFromCredentialsV1UserPost: (userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        createAUserFromCredentialsV1UserPost: (userProfileIn_1, ...args_1) => __awaiter(this, [userProfileIn_1, ...args_1], void 0, function* (userProfileIn, options = {}) {
             // verify required parameter 'userProfileIn' is not null or undefined
-            common_1.assertParamExists('createAUserFromCredentialsV1UserPost', 'userProfileIn', userProfileIn);
+            (0, common_1.assertParamExists)('createAUserFromCredentialsV1UserPost', 'userProfileIn', userProfileIn);
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6068,17 +6195,17 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(userProfileIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6089,7 +6216,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet: (includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getAuthenticatedUserV1UserGet: (includeAvatar_1, ...args_1) => __awaiter(this, [includeAvatar_1, ...args_1], void 0, function* (includeAvatar, options = {}) {
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6101,18 +6228,18 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6124,9 +6251,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserV1UsersUserIdGet: (userId, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUserV1UsersUserIdGet: (userId_1, includeAvatar_1, ...args_1) => __awaiter(this, [userId_1, includeAvatar_1, ...args_1], void 0, function* (userId, includeAvatar, options = {}) {
             // verify required parameter 'userId' is not null or undefined
-            common_1.assertParamExists('getUserV1UsersUserIdGet', 'userId', userId);
+            (0, common_1.assertParamExists)('getUserV1UsersUserIdGet', 'userId', userId);
             const localVarPath = `/v1/users/{user_id}`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -6139,18 +6266,18 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6163,7 +6290,7 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersV1UsersGet: (teamId, email, includeAvatar, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getUsersV1UsersGet: (teamId_1, email_1, includeAvatar_1, ...args_1) => __awaiter(this, [teamId_1, email_1, includeAvatar_1, ...args_1], void 0, function* (teamId, email, includeAvatar, options = {}) {
             const localVarPath = `/v1/users`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6175,10 +6302,10 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (teamId !== undefined) {
                 localVarQueryParameter['team_id'] = teamId;
             }
@@ -6188,11 +6315,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             if (includeAvatar !== undefined) {
                 localVarQueryParameter['include_avatar'] = includeAvatar;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6204,11 +6331,11 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAUserByIdV1UsersUserIdPatch: (userId, updateProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateAUserByIdV1UsersUserIdPatch: (userId_1, updateProfileIn_1, ...args_1) => __awaiter(this, [userId_1, updateProfileIn_1, ...args_1], void 0, function* (userId, updateProfileIn, options = {}) {
             // verify required parameter 'userId' is not null or undefined
-            common_1.assertParamExists('updateAUserByIdV1UsersUserIdPatch', 'userId', userId);
+            (0, common_1.assertParamExists)('updateAUserByIdV1UsersUserIdPatch', 'userId', userId);
             // verify required parameter 'updateProfileIn' is not null or undefined
-            common_1.assertParamExists('updateAUserByIdV1UsersUserIdPatch', 'updateProfileIn', updateProfileIn);
+            (0, common_1.assertParamExists)('updateAUserByIdV1UsersUserIdPatch', 'updateProfileIn', updateProfileIn);
             const localVarPath = `/v1/users/{user_id}`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -6221,17 +6348,17 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(updateProfileIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(updateProfileIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
@@ -6242,9 +6369,9 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAuthenticatedUserProfileV1UserPut: (userProfileIn, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        updateAuthenticatedUserProfileV1UserPut: (userProfileIn_1, ...args_1) => __awaiter(this, [userProfileIn_1, ...args_1], void 0, function* (userProfileIn, options = {}) {
             // verify required parameter 'userProfileIn' is not null or undefined
-            common_1.assertParamExists('updateAuthenticatedUserProfileV1UserPut', 'userProfileIn', userProfileIn);
+            (0, common_1.assertParamExists)('updateAuthenticatedUserProfileV1UserPut', 'userProfileIn', userProfileIn);
             const localVarPath = `/v1/user`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, common_1.DUMMY_BASE_URL);
@@ -6256,28 +6383,29 @@ exports.UsersApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             localVarHeaderParameter['Content-Type'] = 'application/json';
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
-            localVarRequestOptions.data = common_1.serializeDataIfNeeded(userProfileIn, localVarRequestOptions, configuration);
+            localVarRequestOptions.data = (0, common_1.serializeDataIfNeeded)(userProfileIn, localVarRequestOptions, configuration);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.UsersApiAxiosParamCreator = UsersApiAxiosParamCreator;
 /**
  * UsersApi - functional programming interface
  * @export
  */
-exports.UsersApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.UsersApiAxiosParamCreator(configuration);
+const UsersApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.UsersApiAxiosParamCreator)(configuration);
     return {
         /**
          * Create a new user.
@@ -6289,8 +6417,11 @@ exports.UsersApiFp = function (configuration) {
          */
         createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.createAUserByCognitoIdV1UsersPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6302,8 +6433,11 @@ exports.UsersApiFp = function (configuration) {
          */
         createAUserFromCredentialsV1UserPost(userProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.createAUserFromCredentialsV1UserPost(userProfileIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.createAUserFromCredentialsV1UserPost']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6315,8 +6449,11 @@ exports.UsersApiFp = function (configuration) {
          */
         getAuthenticatedUserV1UserGet(includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getAuthenticatedUserV1UserGet(includeAvatar, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.getAuthenticatedUserV1UserGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6329,8 +6466,11 @@ exports.UsersApiFp = function (configuration) {
          */
         getUserV1UsersUserIdGet(userId, includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getUserV1UsersUserIdGet(userId, includeAvatar, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.getUserV1UsersUserIdGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6344,8 +6484,11 @@ exports.UsersApiFp = function (configuration) {
          */
         getUsersV1UsersGet(teamId, email, includeAvatar, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getUsersV1UsersGet(teamId, email, includeAvatar, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.getUsersV1UsersGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6358,8 +6501,11 @@ exports.UsersApiFp = function (configuration) {
          */
         updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.updateAUserByIdV1UsersUserIdPatch']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
         /**
@@ -6371,96 +6517,96 @@ exports.UsersApiFp = function (configuration) {
          */
         updateAuthenticatedUserProfileV1UserPut(userProfileIn, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.updateAuthenticatedUserProfileV1UserPut(userProfileIn, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['UsersApi.updateAuthenticatedUserProfileV1UserPut']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.UsersApiFp = UsersApiFp;
 /**
  * UsersApi - factory interface
  * @export
  */
-exports.UsersApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.UsersApiFp(configuration);
+const UsersApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.UsersApiFp)(configuration);
     return {
         /**
          * Create a new user.
          * @summary Create A User By Cognito Id.
-         * @param {string} userId
-         * @param {UpdateProfileIn} updateProfileIn
+         * @param {UsersApiCreateAUserByCognitoIdV1UsersPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options) {
-            return localVarFp.createAUserByCognitoIdV1UsersPost(userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        createAUserByCognitoIdV1UsersPost(requestParameters, options) {
+            return localVarFp.createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
          * @summary Create A User From Credentials.
-         * @param {UserProfileIn} userProfileIn
+         * @param {UsersApiCreateAUserFromCredentialsV1UserPostRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createAUserFromCredentialsV1UserPost(userProfileIn, options) {
-            return localVarFp.createAUserFromCredentialsV1UserPost(userProfileIn, options).then((request) => request(axios, basePath));
+        createAUserFromCredentialsV1UserPost(requestParameters, options) {
+            return localVarFp.createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch the authenticated user\'s profile.
          * @summary Get Authenticated User
-         * @param {boolean} [includeAvatar] Include the user\&#39;s avatar.
+         * @param {UsersApiGetAuthenticatedUserV1UserGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getAuthenticatedUserV1UserGet(includeAvatar, options) {
-            return localVarFp.getAuthenticatedUserV1UserGet(includeAvatar, options).then((request) => request(axios, basePath));
+        getAuthenticatedUserV1UserGet(requestParameters = {}, options) {
+            return localVarFp.getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Fetch a single user\'s public profile.
          * @summary Get User
-         * @param {string} userId
-         * @param {boolean} [includeAvatar]
+         * @param {UsersApiGetUserV1UsersUserIdGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUserV1UsersUserIdGet(userId, includeAvatar, options) {
-            return localVarFp.getUserV1UsersUserIdGet(userId, includeAvatar, options).then((request) => request(axios, basePath));
+        getUserV1UsersUserIdGet(requestParameters, options) {
+            return localVarFp.getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * List public profiles.
          * @summary Get Users
-         * @param {string} [teamId]
-         * @param {string} [email] Email address
-         * @param {boolean} [includeAvatar] Include avatar
+         * @param {UsersApiGetUsersV1UsersGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getUsersV1UsersGet(teamId, email, includeAvatar, options) {
-            return localVarFp.getUsersV1UsersGet(teamId, email, includeAvatar, options).then((request) => request(axios, basePath));
+        getUsersV1UsersGet(requestParameters = {}, options) {
+            return localVarFp.getUsersV1UsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(axios, basePath));
         },
         /**
          * Create a new user.
          * @summary Update A User By Id.
-         * @param {string} userId
-         * @param {UpdateProfileIn} updateProfileIn
+         * @param {UsersApiUpdateAUserByIdV1UsersUserIdPatchRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options) {
-            return localVarFp.updateAUserByIdV1UsersUserIdPatch(userId, updateProfileIn, options).then((request) => request(axios, basePath));
+        updateAUserByIdV1UsersUserIdPatch(requestParameters, options) {
+            return localVarFp.updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(axios, basePath));
         },
         /**
          * Update the authenticated user\'s profile.
          * @summary Update Authenticated User Profile
-         * @param {UserProfileIn} userProfileIn
+         * @param {UsersApiUpdateAuthenticatedUserProfileV1UserPutRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateAuthenticatedUserProfileV1UserPut(userProfileIn, options) {
-            return localVarFp.updateAuthenticatedUserProfileV1UserPut(userProfileIn, options).then((request) => request(axios, basePath));
+        updateAuthenticatedUserProfileV1UserPut(requestParameters, options) {
+            return localVarFp.updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.UsersApiFactory = UsersApiFactory;
 /**
  * UsersApi - object-oriented interface
  * @export
@@ -6477,7 +6623,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     createAUserByCognitoIdV1UsersPost(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).createAUserByCognitoIdV1UsersPost(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
@@ -6488,7 +6634,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     createAUserFromCredentialsV1UserPost(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).createAUserFromCredentialsV1UserPost(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch the authenticated user\'s profile.
@@ -6499,7 +6645,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getAuthenticatedUserV1UserGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).getAuthenticatedUserV1UserGet(requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Fetch a single user\'s public profile.
@@ -6510,7 +6656,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getUserV1UsersUserIdGet(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).getUserV1UsersUserIdGet(requestParameters.userId, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * List public profiles.
@@ -6521,7 +6667,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     getUsersV1UsersGet(requestParameters = {}, options) {
-        return exports.UsersApiFp(this.configuration).getUsersV1UsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).getUsersV1UsersGet(requestParameters.teamId, requestParameters.email, requestParameters.includeAvatar, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Create a new user.
@@ -6532,7 +6678,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     updateAUserByIdV1UsersUserIdPatch(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).updateAUserByIdV1UsersUserIdPatch(requestParameters.userId, requestParameters.updateProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
     /**
      * Update the authenticated user\'s profile.
@@ -6543,7 +6689,7 @@ class UsersApi extends base_1.BaseAPI {
      * @memberof UsersApi
      */
     updateAuthenticatedUserProfileV1UserPut(requestParameters, options) {
-        return exports.UsersApiFp(this.configuration).updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.UsersApiFp)(this.configuration).updateAuthenticatedUserProfileV1UserPut(requestParameters.userProfileIn, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.UsersApi = UsersApi;
@@ -6551,7 +6697,7 @@ exports.UsersApi = UsersApi;
  * VariableApi - axios parameter creator
  * @export
  */
-exports.VariableApiAxiosParamCreator = function (configuration) {
+const VariableApiAxiosParamCreator = function (configuration) {
     return {
         /**
          * Get information for variable findings.
@@ -6562,9 +6708,9 @@ exports.VariableApiAxiosParamCreator = function (configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFindingsOfAVariableV1VariableVariableIdFindingsGet: (variableId, limit, offset, options = {}) => __awaiter(this, void 0, void 0, function* () {
+        getFindingsOfAVariableV1VariableVariableIdFindingsGet: (variableId_1, limit_1, offset_1, ...args_1) => __awaiter(this, [variableId_1, limit_1, offset_1, ...args_1], void 0, function* (variableId, limit, offset, options = {}) {
             // verify required parameter 'variableId' is not null or undefined
-            common_1.assertParamExists('getFindingsOfAVariableV1VariableVariableIdFindingsGet', 'variableId', variableId);
+            (0, common_1.assertParamExists)('getFindingsOfAVariableV1VariableVariableIdFindingsGet', 'variableId', variableId);
             const localVarPath = `/v1/variable/{variable_id}/findings`
                 .replace(`{${"variable_id"}}`, encodeURIComponent(String(variableId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -6577,32 +6723,33 @@ exports.VariableApiAxiosParamCreator = function (configuration) {
             const localVarHeaderParameter = {};
             const localVarQueryParameter = {};
             // authentication APIKeyHeader required
-            yield common_1.setApiKeyToObject(localVarHeaderParameter, "x-api-key", configuration);
+            yield (0, common_1.setApiKeyToObject)(localVarHeaderParameter, "x-api-key", configuration);
             // authentication OAuth2AuthorizationCodeBearer required
             // oauth required
-            yield common_1.setOAuthToObject(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
+            yield (0, common_1.setOAuthToObject)(localVarHeaderParameter, "OAuth2AuthorizationCodeBearer", [], configuration);
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
             }
-            common_1.setSearchParams(localVarUrlObj, localVarQueryParameter);
+            (0, common_1.setSearchParams)(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = Object.assign(Object.assign(Object.assign({}, localVarHeaderParameter), headersFromBaseOptions), options.headers);
             return {
-                url: common_1.toPathString(localVarUrlObj),
+                url: (0, common_1.toPathString)(localVarUrlObj),
                 options: localVarRequestOptions,
             };
         }),
     };
 };
+exports.VariableApiAxiosParamCreator = VariableApiAxiosParamCreator;
 /**
  * VariableApi - functional programming interface
  * @export
  */
-exports.VariableApiFp = function (configuration) {
-    const localVarAxiosParamCreator = exports.VariableApiAxiosParamCreator(configuration);
+const VariableApiFp = function (configuration) {
+    const localVarAxiosParamCreator = (0, exports.VariableApiAxiosParamCreator)(configuration);
     return {
         /**
          * Get information for variable findings.
@@ -6615,33 +6762,36 @@ exports.VariableApiFp = function (configuration) {
          */
         getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options) {
             return __awaiter(this, void 0, void 0, function* () {
+                var _a, _b, _c;
                 const localVarAxiosArgs = yield localVarAxiosParamCreator.getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options);
-                return common_1.createRequestFunction(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration);
+                const localVarOperationServerIndex = (_a = configuration === null || configuration === void 0 ? void 0 : configuration.serverIndex) !== null && _a !== void 0 ? _a : 0;
+                const localVarOperationServerBasePath = (_c = (_b = base_1.operationServerMap['VariableApi.getFindingsOfAVariableV1VariableVariableIdFindingsGet']) === null || _b === void 0 ? void 0 : _b[localVarOperationServerIndex]) === null || _c === void 0 ? void 0 : _c.url;
+                return (axios, basePath) => (0, common_1.createRequestFunction)(localVarAxiosArgs, axios_1.default, base_1.BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
             });
         },
     };
 };
+exports.VariableApiFp = VariableApiFp;
 /**
  * VariableApi - factory interface
  * @export
  */
-exports.VariableApiFactory = function (configuration, basePath, axios) {
-    const localVarFp = exports.VariableApiFp(configuration);
+const VariableApiFactory = function (configuration, basePath, axios) {
+    const localVarFp = (0, exports.VariableApiFp)(configuration);
     return {
         /**
          * Get information for variable findings.
          * @summary Get Findings Of A Variable.
-         * @param {string} variableId
-         * @param {number} [limit]
-         * @param {number} [offset]
+         * @param {VariableApiGetFindingsOfAVariableV1VariableVariableIdFindingsGetRequest} requestParameters Request parameters.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options) {
-            return localVarFp.getFindingsOfAVariableV1VariableVariableIdFindingsGet(variableId, limit, offset, options).then((request) => request(axios, basePath));
+        getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters, options) {
+            return localVarFp.getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters.variableId, requestParameters.limit, requestParameters.offset, options).then((request) => request(axios, basePath));
         },
     };
 };
+exports.VariableApiFactory = VariableApiFactory;
 /**
  * VariableApi - object-oriented interface
  * @export
@@ -6658,7 +6808,7 @@ class VariableApi extends base_1.BaseAPI {
      * @memberof VariableApi
      */
     getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters, options) {
-        return exports.VariableApiFp(this.configuration).getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters.variableId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+        return (0, exports.VariableApiFp)(this.configuration).getFindingsOfAVariableV1VariableVariableIdFindingsGet(requestParameters.variableId, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
     }
 }
 exports.VariableApi = VariableApi;
